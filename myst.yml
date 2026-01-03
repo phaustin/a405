@@ -1,0 +1,37 @@
+version: 1
+project:
+  title: ATSC 405
+  authors:
+    - name: Philip Austin
+  exclude:
+    - .jupyter_cache/*
+    - _build
+    - Thumbs.db
+    - .DS_Store
+    - '*.ipynb_checkpoints'
+  github: phaustin
+  toc:
+    - file: index.md
+    - title: Logistics
+      children:
+        - file: learning_goals.md
+        - file: schedule.md
+        - file: python_install.md
+        - url: >-
+            https://www.dropbox.com/scl/fo/9grhb2cr0lpfc1d5jci4a/h?rlkey=shnjpq4kvndrcatbgrri44eyw&dl=0
+          title: Thompkins text
+        - url: >-
+            https://gw2jh3xr2c.search.serialssolutions.com/?sid=sersol&SS_jc=TC0001980404&title=An%20introduction%20to%20clouds%20%3A%20from%20the%20microscale%20to%20climate
+          title: Lohmann et al. text
+        - url: >-
+            https://www.dropbox.com/scl/fi/r7zhctw6usest2rirpe2f/wallace_hobbs_chap6.pdf?rlkey=oxdanppj9wkocmwe4nn4cc4fi&dl=0
+          title: Wallace and Hobbs chapter 6
+    - title: Weekly topics
+      children:
+        - file: week_notes.md
+        - file: notebooks/week2/hydrostat.rst
+        - file: notebooks/week3/derivs_and_ints.md
+site:
+  options:
+    folders: true
+  template: book-theme
