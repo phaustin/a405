@@ -16,7 +16,7 @@
 * - Week 2
   - 12/Jan 
   - Hydrostatic equation, first law
-  - Thompkins through p. 11, Lohammn Chapter 2 through p. 32
+  - Thompkins through p. 11, Lohmann Chapter 2 through p. 32
 * - Week 3
   - 19/Jan 
   - Heat capacities, enthalpy, potential temperature, adiabatic processes
