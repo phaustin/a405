@@ -32,7 +32,7 @@
 
   1. develop the habit of "casual computing" to quickly solve simple problems
   2. design, build and test reusable software components
-  3. read and write common data formats containing observational and moddel
+  3. read and write common data formats containing observational and model
      output
   4. formulate and solve systems of differential equations using adaptive
      step solvers provided with python
