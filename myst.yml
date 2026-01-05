@@ -1,8 +1,6 @@
 version: 1
 project:
   title: ATSC 405
-  authors:
-    - name: Philip Austin
   exclude:
     - .jupyter_cache/*
     - _build
@@ -12,7 +10,7 @@ project:
   github: phaustin
   toc:
     - file: index.md
-    - title: Logistics
+    - title: Background material
       children:
         - file: learning_goals.md
         - file: schedule.md
@@ -29,9 +27,8 @@ project:
     - title: Weekly topics
       children:
         - file: week_notes.md
-        - file: notebooks/week2/hydrostat.rst
-        - file: notebooks/week3/derivs_and_ints.md
 site:
   options:
     folders: true
+    hide_branding: true
   template: book-theme

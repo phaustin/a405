@@ -4,32 +4,16 @@ channels:
   - conda-forge
 dependencies:
   # NOTE: pip required for running tests in this repo
-  - python=3.11
-  - pyhdf
+  - python>3.12
   - numpy
   - scipy
   - pip
-  - cartopy
-  - pyresample
-  - netcdf4
   - zarr
   - git
   - jupyterlab
   - jupyterlab-myst
   - jupytext
-  - jupyter-book
-  - ghp-import
   - pythia-datasets
-  - eofs
-  - intake-esm
-  - gcsfs
-  - cartopy
   - metpy
   - netcdf4
-  - nc-time-axis
-  - conda-lock
-  - xarray-datatree
-  - pytest
-  - pystac-client
-  - seaborn
 # conda-lock --kind explicit -f environment_trun.yml -p linux-64
