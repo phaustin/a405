@@ -12,7 +12,7 @@
 * - Week 1
   - 5/Jan 
   - Introduction, course outline, equation of state, virtual temperature
-  - Lohmann Chapter 1, Thompkins through chapter 1 p. 8
+  - Lohmann Chapter 1, Stull Chapter 1
 * - Week 2
   - 12/Jan 
   - Hydrostatic equation, first law

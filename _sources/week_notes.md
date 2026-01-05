@@ -15,7 +15,7 @@
 - Read [Stull chapter 1 pp. 6-16](https://www.eoas.ubc.ca/books/Practical_Meteorology/prmet102/Ch01-atmos-v102b.pdf) and skim  Lohmann chapter 1. Think about how you would approach the Lohmann Chapter 1 long problems 4, 5, and 6 at the end of the chapter.  We will do these three problems in class together this week.
 
 
-#### Learning objectives Lohmann chapter 1
+#### Learning objectives for Lohmann and Stull chapters 1
 
   - Identify principal cloud types
   - Explain how clouds can both heat and cool the planet
