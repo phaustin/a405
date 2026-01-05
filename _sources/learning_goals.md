@@ -14,7 +14,7 @@
   - finding the equilibrium properties of a system
   - using conservation laws to describe the atmosphere
   - solving simple systems of ordinary differential equations
-  - develop programming skills in matlab or python
+  - develop programming skills in python
 
 - Course Learning goals (General)
 
