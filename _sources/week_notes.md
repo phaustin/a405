@@ -6,6 +6,8 @@
 
 - Pick a set of class meeting times
 
+- Sign up for the class piazza page using the piazza sidebar link on [our canvas site](https://canvas.ubc.ca/courses/180886)
+
 - Review each of the links in the [course website background information](https://phaustin.github.io/a405/)
 
 - try an install of the conda environment on your laptop following the instructions at [this page](https://phaustin.github.io/a405/python_install.html#laptop-installs)
