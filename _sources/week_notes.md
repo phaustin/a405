@@ -12,7 +12,7 @@
 
 - try an install of the conda environment on your laptop following the instructions at [this page](https://phaustin.github.io/a405/python_install.html#laptop-installs)
 
-- Read Lohmann chapter 1 and think about how you would approach long problems 4, 5, and 6 at the end of the chapter.  We will do these three problems together this week.
+- Read [Stull chapter 1 pp. 6-16](https://www.eoas.ubc.ca/books/Practical_Meteorology/prmet102/Ch01-atmos-v102b.pdf) and skim  Lohmann chapter 1. Think about how you would approach long problems 4, 5, and 6 at the end of the chapter.  We will do these three problems in class together this week.
 
 
 #### Learning objectives Lohmann chapter 1
