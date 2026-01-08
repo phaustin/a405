@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Week notes &#8212; ATSC 405</title>
+    <title>Adiabatic Box &#8212; ATSC 405</title>
   
   
   
@@ -19,49 +19,51 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.4cbf315f70debaebd550c87a6162cf0f.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.4cbf315f70debaebd550c87a6162cf0f.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
+    <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'week_notes';</script>
-    <link rel="canonical" href="https://phaustin.github.io/a405/week_notes.html" />
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Week 1 worksheet" href="notebooks/worksheets/worksheet1.html" />
-    <link rel="prev" title="Python links" href="python_install.html" />
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'assignments/adiabatic_box';</script>
+    <link rel="canonical" href="https://phaustin.github.io/a405/assignments/adiabatic_box.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Week1: Hydrostatic balance worksheet" href="../notebooks/week1/hydrostat.html" />
+    <link rel="prev" title="Week 1 worksheet" href="../notebooks/worksheets/worksheet1.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -93,7 +95,7 @@
     <div class="search-button__overlay"></div>
     <div class="search-button__search-container">
 <form class="bd-search d-flex align-items-center"
-      action="search.html"
+      action="../search.html"
       method="get">
   <i class="fa-solid fa-magnifying-glass"></i>
   <input type="search"
@@ -142,7 +144,7 @@
     
   
 
-<a class="navbar-brand logo" href="index.html">
+<a class="navbar-brand logo" href="../index.html">
   
   
   
@@ -168,38 +170,38 @@
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
-                <a class="reference internal" href="index.html">
+                <a class="reference internal" href="../index.html">
                     ATSC 405 syllabus
                 </a>
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Background information</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="integrity.html">UBC academic integrity</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ai_policy.html">Course policy for generative AI</a></li>
-<li class="toctree-l1"><a class="reference internal" href="learning_goals.html">Learning goals</a></li>
-<li class="toctree-l1"><a class="reference internal" href="schedule.html">Course schedule</a></li>
-<li class="toctree-l1"><a class="reference internal" href="python_install.html">Python links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../integrity.html">UBC academic integrity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ai_policy.html">Course policy for generative AI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../learning_goals.html">Learning goals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../schedule.html">Course schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_install.html">Python links</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://www.dropbox.com/scl/fo/9grhb2cr0lpfc1d5jci4a/h?rlkey=shnjpq4kvndrcatbgrri44eyw&amp;dl=0">Thompkins text</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://gw2jh3xr2c.search.serialssolutions.com/?sid=sersol&amp;SS_jc=TC0001980404&amp;title=An%20introduction%20to%20clouds%20%3A%20from%20the%20microscale%20to%20climate">Lohmann et al. text</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://www.dropbox.com/scl/fi/r7zhctw6usest2rirpe2f/wallace_hobbs_chap6.pdf?rlkey=oxdanppj9wkocmwe4nn4cc4fi&amp;dl=0">Wallace and Hobbs chapter 6</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://www.eoas.ubc.ca/books/Practical_Meteorology">Stull, Practical Meteorolgy</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Weekly topics</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Week notes</a></li>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week_notes.html">Week notes</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Worksheets check</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="notebooks/worksheets/worksheet1.html">Week 1 worksheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/worksheets/worksheet1.html">Week 1 worksheet</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="assignments/adiabatic_box.html">Adiabatic Box</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Adiabatic Box</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">In-depth notes</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="notebooks/week1/hydrostat.html">Week1: Hydrostatic balance explainer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/week1/hydrostat.html">Week1: Hydrostatic balance worksheet</a></li>
 </ul>
 
     </div>
@@ -254,7 +256,7 @@
       
       
       
-      <li><a href="_sources/week_notes.md" target="_blank"
+      <li><a href="../_sources/assignments/adiabatic_box.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -338,7 +340,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Week notes</h1>
+    <h1>Adiabatic Box</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -348,18 +350,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-1">Week 1</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-1-week-1-monday">Lecture 1, week 1, Monday</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives-for-lohmann-and-stull-chapters-1">Learning objectives for Lohmann and Stull chapters 1</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-2-week-1-monday">Lecture 2, week 1, Monday</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#do-for-tuesday">Do for Tuesday</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives-for-the-thompkins-reading">Learning objectives for the Thompkins reading</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notebook-practice">Notebook practice</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assignment">Assignment</a></li>
 </ul>
             </nav>
         </div>
@@ -371,48 +363,55 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="week-notes">
-<h1>Week notes<a class="headerlink" href="#week-notes" title="Permalink to this heading">#</a></h1>
-<section id="week-1">
-<h2>Week 1<a class="headerlink" href="#week-1" title="Permalink to this heading">#</a></h2>
-<section id="lecture-1-week-1-monday">
-<h3>Lecture 1, week 1, Monday<a class="headerlink" href="#lecture-1-week-1-monday" title="Permalink to this heading">#</a></h3>
-<ul class="simple">
-<li><p>Pick a set of class meeting times</p></li>
-<li><p>Sign up for the class piazza page using the piazza sidebar link on <a class="reference external" href="https://canvas.ubc.ca/courses/180886">our canvas site</a></p></li>
-<li><p>Review each of the links in the <a class="reference external" href="https://phaustin.github.io/a405/">course website background information</a></p></li>
-<li><p>try an install of the conda environment on your laptop following the instructions at <a class="reference external" href="https://phaustin.github.io/a405/python_install.html#laptop-installs">this page</a></p></li>
-<li><p>Read <a class="reference external" href="https://www.eoas.ubc.ca/books/Practical_Meteorology/prmet102/Ch01-atmos-v102b.pdf">Stull chapter 1 pp. 6-16</a> and skim  Lohmann chapter 1. Think about how you would approach the Lohmann Chapter 1 long problems 4, 5, and 6 at the end of the chapter.  We will do these three problems in class together this week.</p></li>
-</ul>
-<section id="learning-objectives-for-lohmann-and-stull-chapters-1">
-<h4>Learning objectives for Lohmann and Stull chapters 1<a class="headerlink" href="#learning-objectives-for-lohmann-and-stull-chapters-1" title="Permalink to this heading">#</a></h4>
-<ul class="simple">
-<li><p>Identify principal cloud types</p></li>
-<li><p>Explain how clouds can both heat and cool the planet</p></li>
-<li><p>Build your intuition about droplet size and spacing in a typical cloud</p></li>
-<li><p>Introduce hydrostatic balance and use it to determine the mass of the atmosphere</p></li>
-</ul>
+  <section class="tex2jax_ignore mathjax_ignore" id="adiabatic-box">
+<span id="assignment-adiabatic"></span><h1>Adiabatic Box<a class="headerlink" href="#adiabatic-box" title="Permalink to this heading">#</a></h1>
+<p>Download link: <a class="reference external" href="https://drive.google.com/file/d/1ZANLP0WbMxVSQsZivkJFAuZIsj3k-n_q/view?usp=drive_link">adiabatick_box.ipynb</a></p>
+<p>Assignment due (upload a notebook to canvas): Thursday, January 15, 3:30pm</p>
+<section id="notebook-practice">
+<h2>Notebook practice<a class="headerlink" href="#notebook-practice" title="Permalink to this heading">#</a></h2>
+<p>Write a function called “eqstate” that calculates the density of dry air.  Use it to find the dry air density
+at a pressure of 80 kPa and temperatures of temp=[270, 280, 290] K</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">eqstate</span><span class="p">(</span><span class="n">Temp</span><span class="p">,</span><span class="n">Press</span><span class="p">):</span>
+    <span class="n">dens</span> <span class="o">=</span> <span class="n">xxx</span>
+    <span class="k">return</span> <span class="n">dens</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
-</section>
-<section id="lecture-2-week-1-monday">
-<h3>Lecture 2, week 1, Monday<a class="headerlink" href="#lecture-2-week-1-monday" title="Permalink to this heading">#</a></h3>
-<ul class="simple">
-<li><p>Finish the python install, using conda-lock if conda is having trouble solving for the environment.yml file</p></li>
-<li><p>Introduce my take on <a class="reference internal" href="notebooks/week1/hydrostat.html#sec-hydrostat"><span class="std std-ref">Week1: Hydrostatic balance explainer</span></a></p></li>
-<li><p>Do the <a class="reference internal" href="notebooks/worksheets/worksheet1.html#worksheet1"><span class="std std-ref">Week 1 worksheet</span></a></p></li>
-</ul>
-<section id="do-for-tuesday">
-<h4>Do for Tuesday<a class="headerlink" href="#do-for-tuesday" title="Permalink to this heading">#</a></h4>
-<p>Read the Thompkins text through p. 14 and start <a class="reference internal" href="assignments/adiabatic_box.html#assignment-adiabatic"><span class="std std-ref">Adiabatic Box</span></a></p>
-</section>
-<section id="learning-objectives-for-the-thompkins-reading">
-<h4>Learning objectives for the Thompkins reading<a class="headerlink" href="#learning-objectives-for-the-thompkins-reading" title="Permalink to this heading">#</a></h4>
-<ul class="simple">
-<li><p>Distinguish between processes (heat and work) and state variables (energy, temperature, pressure, entropy etc.).  One way to think about this:  in thermodynamics, heat and work are always verbs (“I heat the burrito”, “I work the problem”) and never nouns (“the heat is killing me”, “that’s a lot of work”).  State variables are never verbs (“don’t pressure me”), they are always nouns (“the pressure is 850 hPa”)</p></li>
-<li><p>Conserved variables like mass, energy, and (for adiabatic processes) entropy are very powerful in physics, because they allow you to apply a constraint and simplify a problem by adding information.  Because of this, there is a whole zoo of thermodynamic variables that are conserved under various processes (precipitating, non-precipitating, freezing, etc.)</p></li>
-</ul>
-</section>
-</section>
+<section id="assignment">
+<h2>Assignment<a class="headerlink" href="#assignment" title="Permalink to this heading">#</a></h2>
+<p>The figure below represents an insulated box with two
+compartments A and B, each containing dry air. They are separated by
+an insulating and perfectly flexible wall, so that the pressure is
+equal on the two sides. Initially each compartment measures one <span class="math notranslate nohighlight">\(m^3\)</span> and
+the gas is at a pressure of 100 kPa and a temperature of 273 K. Heat
+is then supplied to the gas in box A using a resistor, until the
+pressure in both compartments rises to 300 kPa. Calculate:</p>
+<ol class="arabic simple">
+<li><p>The final temperature  <span class="math notranslate nohighlight">\(T_B\)</span> (K) in box B</p></li>
+<li><p>The time integrated work (<span class="math notranslate nohighlight">\(J\,kg^{-1}\)</span>) performed on the air in B by the
+membrane.</p></li>
+<li><p>The final temperature <span class="math notranslate nohighlight">\(T_A\)</span> (K) in box A</p></li>
+<li><p>The time-integrated heating rate (<span class="math notranslate nohighlight">\(J kg^{-1}\)</span>) of the gas in box A.</p></li>
+</ol>
+<p>Hint: use the fact that entropy (and therefore <span class="math notranslate nohighlight">\(\theta\)</span> ) is conserved for an adiabatic process and therefore can’t change in compartment B, and
+that the total volume of the combined compartments A and B has to stay constant at 2 <span class="math notranslate nohighlight">\(m^3\)</span>.</p>
+<figure class="align-default" id="figure1">
+<a class="reference internal image-reference" href="../_images/insulated_box.png"><img alt="../_images/insulated_box.png" src="../_images/insulated_box.png" style="width: 650px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Insulated box with two compartments</span><a class="headerlink" href="#figure1" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 
@@ -429,7 +428,7 @@ document.write(`
         },
         kernelOptions: {
             name: "python3",
-            path: "./."
+            path: "./assignments"
         },
         predefinedOutput: true
     }
@@ -447,20 +446,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="python_install.html"
+       href="../notebooks/worksheets/worksheet1.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Python links</p>
+        <p class="prev-next-title">Week 1 worksheet</p>
       </div>
     </a>
     <a class="right-next"
-       href="notebooks/worksheets/worksheet1.html"
+       href="../notebooks/week1/hydrostat.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Week 1 worksheet</p>
+        <p class="prev-next-title">Week1: Hydrostatic balance worksheet</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -480,18 +479,8 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-1">Week 1</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-1-week-1-monday">Lecture 1, week 1, Monday</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives-for-lohmann-and-stull-chapters-1">Learning objectives for Lohmann and Stull chapters 1</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-2-week-1-monday">Lecture 2, week 1, Monday</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#do-for-tuesday">Do for Tuesday</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives-for-the-thompkins-reading">Learning objectives for the Thompkins reading</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notebook-practice">Notebook practice</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assignment">Assignment</a></li>
 </ul>
   </nav></div>
 
@@ -540,8 +529,8 @@ By Philip Austin
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

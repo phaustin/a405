@@ -22,6 +22,19 @@
   - Build your intuition about droplet size and spacing in a typical cloud
   - Introduce hydrostatic balance and use it to determine the mass of the atmosphere
   
+### Lecture 2, week 1, Monday
 
+  - Finish the python install, using conda-lock if conda is having trouble solving for the environment.yml file
+  - Introduce my take on {ref}`sec:hydrostat`
+  - Do the {ref}`worksheet1`
 
+####  Do for Tuesday
+  
+Read the Thompkins text through p. 14 and start {ref}`assignment:adiabatic`
+
+#### Learning objectives for the Thompkins reading
+
+  - Distinguish between processes (heat and work) and state variables (energy, temperature, pressure, entropy etc.).  One way to think about this:  in thermodynamics, heat and work are always verbs ("I heat the burrito", "I work the problem") and never nouns ("the heat is killing me", "that's a lot of work").  State variables are never verbs ("don't pressure me"), they are always nouns ("the pressure is 850 hPa")
+  - Conserved variables like mass, energy, and (for adiabatic processes) entropy are very powerful in physics, because they allow you to apply a constraint and simplify a problem by adding information.  Because of this, there is a whole zoo of thermodynamic variables that are conserved under various processes (precipitating, non-precipitating, freezing, etc.)
+  
   

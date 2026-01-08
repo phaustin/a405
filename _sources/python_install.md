@@ -5,16 +5,16 @@
 
 You'll need to download this file as part of the Laptop install below:
 
-* [environment.yml](https://www.dropbox.com/scl/fi/0lyi3vcmujrfke29izmvd/environment.yml?rlkey=q29cdpjcdlrzgsbmdhvfhd0x7&dl=0)
+* [environment.yml](https://drive.google.com/file/d/1T1B69EVaE4dZ4zt8CQNYcEywjOnhOMxu/view?usp=drive_link)
 
 ## Laptop installs
 
 Here are step by step instructions for doing a fresh miniconda install for A405.  If you have an existing conda install check with Phil about whether that will work.
 
-- [Mac instructions](https://www.dropbox.com/scl/fi/2eflyvz31e1vq3nryhqa2/python-setup_macos_2024.pdf?rlkey=rxbbl8pwdevxyry0toumolh6t&dl=0)
+- [Mac instructions](https://drive.google.com/file/d/1NUEv2BXYtYCRAavSpVw1AjpnMy7HrSP4/view?usp=drive_link
+)
 
-- [Windows instructions](https://www.dropbox.com/scl/fi/ad98xclbhpy32rlnfzemk/python-setup_windows_2024.pdf?rlkey=lo90foqd9roahppi0qd8kzlif&dl=0)
-
+- [Windows instructions](https://drive.google.com/file/d/1wS3G9BzXk8-KqAIFQedT2s3Slx_oJyOm/view?usp=drive_link)
 
 
 (python_tutorials)=
