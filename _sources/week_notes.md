@@ -22,7 +22,7 @@
   - Build your intuition about droplet size and spacing in a typical cloud
   - Introduce hydrostatic balance and use it to determine the mass of the atmosphere
   
-### Lecture 2, week 1, Monday
+### Lecture 2, week 1, Thursday
 
   - Finish the python install, using conda-lock if conda is having trouble solving for the environment.yml file
   - Introduce my take on {ref}`sec:hydrostat`
