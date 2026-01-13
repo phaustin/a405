@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Week1: Hydrostatic balance explainer &#8212; ATSC 405</title>
+    <title>Week 2 worksheet &#8212; ATSC 405</title>
   
   
   
@@ -57,13 +57,12 @@
     <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/week1/hydrostat';</script>
-    <link rel="canonical" href="https://phaustin.github.io/a405/notebooks/week1/hydrostat.html" />
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/worksheets/worksheet2';</script>
+    <link rel="canonical" href="https://phaustin.github.io/a405/notebooks/worksheets/worksheet2.html" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="prev" title="Adiabatic Box" href="../../assignments/adiabatic_box.html" />
+    <link rel="next" title="Adiabatic Box" href="../../assignments/adiabatic_box.html" />
+    <link rel="prev" title="Week 1 worksheet solutions" href="worksheet1_solution.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -192,19 +191,19 @@
 <li class="toctree-l1"><a class="reference internal" href="../../week_notes.html">Week notes</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Worksheets</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../worksheets/worksheet1.html">Week 1 worksheet</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../worksheets/worksheet1_solution.html">Week 1 worksheet solutions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../worksheets/worksheet2.html">Week 2 worksheet</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="worksheet1.html">Week 1 worksheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="worksheet1_solution.html">Week 1 worksheet solutions</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Week 2 worksheet</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../../assignments/adiabatic_box.html">Adiabatic Box</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">In-depth notes</span></p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference external" href="https://www.dropbox.com/scl/fi/5scb458wnoymr4s8ta4vt/equation_sheet.pdf?rlkey=29ymawiljakqnv3wquqa4wm8e&amp;st=4mmzb2ii&amp;dl=0">final exam equation sheet</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Week1: Hydrostatic balance explainer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week1/hydrostat.html">Week1: Hydrostatic balance explainer</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://www.dropbox.com/scl/fi/uanlie1sdyiz4ezbclopt/temperature_notes.pdf?rlkey=leatk6yrhmw137i9dl6j8ojlq&amp;dl=0">Week2 - Kinetic Temperature notes</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://www.dropbox.com/scl/fi/j7bq6cc7r40vkx3og14qh/first_law_notes.pdf?rlkey=66r1y4umxtc1hgwfbylxlzoxt&amp;dl=0">Week 2 - First law of thermodynamics</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://www.dropbox.com/scl/fi/iknh9dm4iu1tfssa4724j/entropy.pdf?rlkey=buxyohh3w52ou6vk774s3xexq&amp;dl=0">Week 3 - Entropy and potential temperature</a></li>
@@ -262,7 +261,7 @@
       
       
       
-      <li><a href="../../_sources/notebooks/week1/hydrostat.md" target="_blank"
+      <li><a href="../../_sources/notebooks/worksheets/worksheet2.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -346,7 +345,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Week1: Hydrostatic balance explainer</h1>
+    <h1>Week 2 worksheet</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -356,7 +355,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scale-heights">Scale Heights</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-the-a405-thermodynamics-libraries">Working with the A405 thermodynamics libraries</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#documentation">Documentation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problems">Practice problems</a></li>
 </ul>
             </nav>
         </div>
@@ -368,121 +372,52 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="week1-hydrostatic-balance-explainer">
-<span id="sec-hydrostat"></span><h1>Week1: Hydrostatic balance explainer<a class="headerlink" href="#week1-hydrostatic-balance-explainer" title="Link to this heading">#</a></h1>
-<p>This note goes into more detail on the idea of hydrostatic balance, which is introduced in Stull Chapter 1, p. 16 eq. 1.25b or Thompkins p. 10 eq. 1.29.</p>
-<p>One major simplification for atmospheric thermodyamics is the fact that on timescales lareger
-than 30 minute or so the environment
-is in
-<em>hydrostatic balance</em>, which is the statement that the vertical
-pressure differential across a layer provides exactly the amount of
-force necessary to balance gravity, so the atmosphere is not rising or sinking:</p>
-<figure class="align-default" id="hydrofig">
-<a class="reference internal image-reference" href="../../_images/hydrostat.png"><img alt="../../_images/hydrostat.png" src="../../_images/hydrostat.png" style="width: 443.0px; height: 352.0px;" />
-</a>
-<figcaption>
-<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Hydrostatic balance for a 1 <span class="math notranslate nohighlight">\(m^2\)</span> cross section of a layer</span><a class="headerlink" href="#hydrofig" title="Link to this image">#</a></p>
-</figcaption>
-</figure>
-<p>In symbols, the balance shown by <a class="reference internal" href="#hydrofig"><span class="std std-numref">Fig. 2</span></a> implies that:</p>
-<div class="math notranslate nohighlight" id="equation-hydro-eq">
-<span class="eqno">(1)<a class="headerlink" href="#equation-hydro-eq" title="Link to this equation">#</a></span>\[
-dp = - \rho g dz
-\]</div>
-<p><strong>Question: is this the same pressure p as the local pressure given by
-the equation of state</strong>: <span class="math notranslate nohighlight">\(p=\rho R_d T\)</span>?</p>
-<section id="scale-heights">
-<h2>Scale Heights<a class="headerlink" href="#scale-heights" title="Link to this heading">#</a></h2>
-<p>On page 10 equation 1.30 Thompkins integrates the hydrostatic equation to get
-the pressure as a function of height, assuming that temperature is constant with height. That’s
-not a great assumption. Here’s how to do a better job by defining a height-averaged temperature
-that gives the exact answer. We want to find the <strong>pressure scale height</strong> <span class="math notranslate nohighlight">\(H_p\)</span> such that:</p>
-<div class="math notranslate nohighlight">
-\[
-p = p_0 \exp \left ( \frac{-z}{H_p} \right )
-\]</div>
-<p>In words – <span class="math notranslate nohighlight">\(H_p\)</span> gives the height at which gravity wins out over the kinetic energy of the air molecules – warmer atmospheres take longer to decrease their pressure by a factor of <span class="math notranslate nohighlight">\(\exp(-H_p/H_p) = \exp(-1)\)</span> (the e-folding height) because the air molecules have more energy to travel higher.</p>
-<ol class="arabic">
-<li><p>Do pressure first: Rewrite <a class="reference internal" href="#equation-hydro-eq">(1)</a> using the ideal gas law:</p>
-<div class="math notranslate nohighlight" id="equation-hydro1">
-<span class="eqno">(2)<a class="headerlink" href="#equation-hydro1" title="Link to this equation">#</a></span>\[
-   dp = - \rho g dz = - \frac{p}{R_d T}  g dz = \frac{p}{H_p}
-   \]</div>
-<p>where <span class="math notranslate nohighlight">\(H_p=R_d T/g\)</span> is the pressure scale height.</p>
-<div class="math notranslate nohighlight">
-\[
-   d\ln p = - \frac{dz }{H_p}
-   \]</div>
-<div class="math notranslate nohighlight">
-\[
-   \int_{p_0}^{p}\!\,d \ln p =  - \int_{0 }^{z}\!\frac{1}{H_p} dz^\prime
-   \]</div>
-<p>Since temperature (and gravity) are changing with height, we need to know profiles of g(z) and T(z)
-to go any further. If we don’t have those profiles, then a useful approximation is to define a vertically averaged <span class="math notranslate nohighlight">\(H_p\)</span>, since
-the average involves a large mass of air (about 10 metric tons/cubic meter), it will vary more slowly than the temperature at any one level on any given day, and we can still get a useful profile of pressure vs. height without having a specific sounding:</p>
-<div class="math notranslate nohighlight" id="equation-pressavg">
-<span class="eqno">(3)<a class="headerlink" href="#equation-pressavg" title="Link to this equation">#</a></span>\[
-   \frac{ 1}{\overline{H_p}} = \overline{ \left ( \frac{1 }{H_p} \right )} = \frac{\int_{0 }^{z}\!\frac{1}{H_p} dz^\prime  }{z-0}
-   \]</div>
-<p>Now we can replace the z integral by the average:</p>
-<div class="math notranslate nohighlight">
-\[
-   \int_{p_0}^{p}\!\,d \ln p =  - \int_{0 }^{z}\!\frac{1}{H_p} dz^\prime = -\frac{z}{\overline{H_p}}
-   \]</div>
-<p>and integrating the left-hand side:</p>
-<div class="math notranslate nohighlight">
-\[
-   \ln p/p_0 = - \frac{z }{\overline{H_p}}
-   \]</div>
-<p>Taking exp of both sides gives the pressure with height:</p>
-<div class="math notranslate nohighlight">
-\[
-   p = p_0 \exp \left ( - \frac{z }{\overline H_p} \right )
-   \]</div>
-<p>Values for <span class="math notranslate nohighlight">\(\overline{H_p}\)</span> are relatively constant for a particular climate regime, like midlatitude winter.</p>
-</li>
-<li><p>Now repeat this for density <span class="math notranslate nohighlight">\(\rho\)</span>. We need to use the chain rule for the equation of state:</p>
-<div class="math notranslate nohighlight">
-\[
-   \frac{dp }{dz}  = \frac{d }{dz}  (\rho R_d T) = R_d \left ( \frac{d\rho }{dz} T + \rho \frac{ dT}{dz} \right )  = - \rho g
-   \]</div>
-<div class="math notranslate nohighlight">
-\[
-   \frac{d\rho }{dz}  = -\frac{\rho }{T}  \left ( \frac{g }{R_d} + \frac{ dT}{dz} \right ) = - \rho \left ( \frac{1 }{H} +  \frac{1 }{T} \frac{dT }{dz} \right ) = - \frac{\rho}{H_\rho}
-   \]</div>
-<p>Bottom line – with this definition of the density scale height we’ve got an equation that looks like <a class="reference internal" href="#equation-hydro1">(2)</a>:</p>
-<div class="math notranslate nohighlight" id="equation-densavg">
-<span class="eqno">(4)<a class="headerlink" href="#equation-densavg" title="Link to this equation">#</a></span>\[
-   \frac{d\rho }{\rho} = - \left ( \frac{1 }{H} +
-                      \frac{1 }{T} \frac{dT }{dz} \right ) dz = - \frac{dz }{H_\rho}
-   \]</div>
-<p>Pull the same trick for the vertical average:</p>
-<div class="math notranslate nohighlight" id="equation-denstrick">
-<span class="eqno">(5)<a class="headerlink" href="#equation-denstrick" title="Link to this equation">#</a></span>\[
-   \frac{ 1}{\overline{H_\rho}} = \overline{ \left ( \frac{1 }{H_\rho} \right )} = \frac{\int_{0 }^{z}\!\frac{1}{H_\rho} dz^\prime  }{z-0}
-   \]</div>
-<p>We use this vertical average in exactly the same way as before to
-get the density profile:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-   \begin{aligned}
-     \ln \rho/\rho_0 =&amp; - \frac{z }{\overline{H_\rho }} \\
-     \rho =&amp; \rho_0 \exp \left ( - \frac{z }{\overline H_\rho} \right )\end{aligned}
-   \end{split}\]</div>
-<p>In the hydrostatic.ipynb notebook I show that the midlatitude summer sounding gives
-<span class="math notranslate nohighlight">\(H_p\approx7.8\)</span> km and <span class="math notranslate nohighlight">\(H_\rho \approx 9.5\)</span> km. We can use the equations:</p>
-<div class="math notranslate nohighlight">
-\[
-   p = p_o \exp ( -z/H_p)
-   \]</div>
-<p>and</p>
-<div class="math notranslate nohighlight">
-\[
-   \rho = \rho_0 \exp ( -z/H_\rho)
-   \]</div>
-<p>To calculate the optical depth for various atmospheric conditions.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="week-2-worksheet">
+<h1>Week 2 worksheet<a class="headerlink" href="#week-2-worksheet" title="Link to this heading">#</a></h1>
+<p>This notebook has separate problems for Tuesday and Thursday.  Hand in both problems after class on Thursday.</p>
+<p>The download link is <a class="reference external" href="https://drive.google.com/file/d/1NzrJy3mG9O9CGORxv3Vtujvd9CAQ-jwZ/view?usp=sharing">worksheet2.ipynb</a></p>
+<section id="working-with-the-a405-thermodynamics-libraries">
+<h2>Working with the A405 thermodynamics libraries<a class="headerlink" href="#working-with-the-a405-thermodynamics-libraries" title="Link to this heading">#</a></h2>
+<section id="installation">
+<h3>Installation<a class="headerlink" href="#installation" title="Link to this heading">#</a></h3>
+<p>The source code for the libraries is in the <a class="reference external" href="https://github.com/phaustin/a405/tree/main/src/a405">A405 github repository</a>.  To install on your laptop, use this <a class="reference external" href="https://www.dropbox.com/scl/fi/j7bg8p1hha8d21itoj1i0/requirements.txt?rlkey=g3ovng95fpw1skex969i81o76&amp;amp;dl=0">requirements.txt</a> with pip  (note only one dash in -r, but two dashes in –update) in the a405 environment.</p>
+<p>pip install -r requirements.txt –update</p>
+<p>or just copy/paste the line inside the requirements.txt file at the prompt</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> pip install -r git+https://github.com/phaustin/a405.git --update
+</pre></div>
+</div>
+</section>
+<section id="documentation">
+<h3>Documentation<a class="headerlink" href="#documentation" title="Link to this heading">#</a></h3>
+<p>The A405 library modules are documented at <a class="reference external" href="https://phaustin.github.io/a405_lib/full_listing.html">https://phaustin.github.io/a405_lib/full_listing.html</a></p>
+</section>
+</section>
+<section id="practice-problems">
+<h2>Practice problems<a class="headerlink" href="#practice-problems" title="Link to this heading">#</a></h2>
+<p>Use the library functions to solve the following problems</p>
+<ol class="arabic simple">
+<li><p>Find the potential temperature of air at a pressure of 450 hPa and a temperature of 300 K</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here (week 2 Tuesday)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic" start="2">
+<li><p>For Thursday: Two jars of liquid water are placed in an insulated vacumn chamber which has completely reflecting surfaces in the longwave, so that the chamber doesn’t affect their temperatures. They exchange longwave radiation until they come into equilibrium.  Neglect the water vapor in the chamber and the container material, and assume that Jar A contains 1 kg of liquid and Jar B contains 2 kg of liquid.</p>
+<p>a. I the 1 kg jar A starts at 350 K and the 2 kg Jar B starts at 280 K, what is the final equilibrium temperature of each jar?<br />
+b. What is the total change in entropy for the system composed of the two jars?  (liquid water is incompressible)</p>
 </li>
 </ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here (week 2 Thursday)</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 
@@ -499,7 +434,7 @@ get the density profile:</p>
         },
         kernelOptions: {
             name: "python3",
-            path: "./notebooks/week1"
+            path: "./notebooks/worksheets"
         },
         predefinedOutput: true
     }
@@ -517,13 +452,22 @@ get the density profile:</p>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../../assignments/adiabatic_box.html"
+       href="worksheet1_solution.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Week 1 worksheet solutions</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../../assignments/adiabatic_box.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Adiabatic Box</p>
       </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -541,7 +485,12 @@ get the density profile:</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scale-heights">Scale Heights</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-the-a405-thermodynamics-libraries">Working with the A405 thermodynamics libraries</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#documentation">Documentation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problems">Practice problems</a></li>
 </ul>
   </nav></div>
 
