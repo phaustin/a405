@@ -4,17 +4,37 @@
 
 ### Lecture 1, week 1, Monday
 
-- Important links
+- Pick a set of class meeting times
 
-- Read Lohmann chapter 1 and scan the questions at the end of the chapter
+- Sign up for the class piazza page using the piazza sidebar link on [our canvas site](https://canvas.ubc.ca/courses/180886)
 
-- install python
+- Review each of the links in the [course website background information](https://phaustin.github.io/a405/)
 
-## Learning objectives Lohmann chapter 1
+- try an install of the conda environment on your laptop following the instructions at [this page](https://phaustin.github.io/a405/python_install.html#laptop-installs)
+
+- Read [Stull chapter 1 pp. 6-16](https://www.eoas.ubc.ca/books/Practical_Meteorology/prmet102/Ch01-atmos-v102b.pdf) and skim  Lohmann chapter 1. Think about how you would approach the Lohmann Chapter 1 long problems 4, 5, and 6 at the end of the chapter.  We will do these three problems in class together this week.
+
+
+#### Learning objectives for Lohmann and Stull chapters 1
 
   - Identify principal cloud types
   - Explain how clouds can both heat and cool the planet
-  - Work some simple scaling problems about clouds
+  - Build your intuition about droplet size and spacing in a typical cloud
+  - Introduce hydrostatic balance and use it to determine the mass of the atmosphere
+  
+### Lecture 2, week 1, Thursday
 
+  - Finish the python install, using conda-lock if conda is having trouble solving for the environment.yml file
+  - Introduce my take on {ref}`sec:hydrostat`
+  - Do the {ref}`worksheet1`
 
+####  Do for Tuesday
+  
+Read the Thompkins text through p. 14 and start {ref}`assignment:adiabatic`
+
+#### Learning objectives for the Thompkins reading
+
+  - Distinguish between processes (heat and work) and state variables (energy, temperature, pressure, entropy etc.).  One way to think about this:  in thermodynamics, heat and work are always verbs ("I heat the burrito", "I work the problem") and never nouns ("the heat is killing me", "that's a lot of work").  State variables are never verbs ("don't pressure me"), they are always nouns ("the pressure is 850 hPa")
+  - Conserved variables like mass, energy, and (for adiabatic processes) entropy are very powerful in physics, because they allow you to apply a constraint and simplify a problem by adding information.  Because of this, there is a whole zoo of thermodynamic variables that are conserved under various processes (precipitating, non-precipitating, freezing, etc.)
+  
   

@@ -1,0 +1,41 @@
+format: jb-book
+root: index.md
+parts:
+  - caption: Background information
+    chapters:
+    - file: integrity.md
+    - file: ai_policy.md
+    - file: learning_goals.md
+    - file: schedule.md
+    - file: python_install.md
+    - url:   https://www.dropbox.com/scl/fo/9grhb2cr0lpfc1d5jci4a/h?rlkey=shnjpq4kvndrcatbgrri44eyw&dl=0
+      title: Thompkins text
+    - url: https://gw2jh3xr2c.search.serialssolutions.com/?sid=sersol&SS_jc=TC0001980404&title=An%20introduction%20to%20clouds%20%3A%20from%20the%20microscale%20to%20climate
+      title: Lohmann et al. text
+    - url: https://www.dropbox.com/scl/fi/r7zhctw6usest2rirpe2f/wallace_hobbs_chap6.pdf?rlkey=oxdanppj9wkocmwe4nn4cc4fi&dl=0
+      title: Wallace and Hobbs chapter 6
+    - url: https://www.eoas.ubc.ca/books/Practical_Meteorology
+      title: Stull, Practical Meteorolgy
+  - caption: Weekly topics
+    chapters:
+    - file: week_notes.md
+  - caption: Worksheets
+    chapters:
+    - file: notebooks/worksheets/worksheet1.md
+    - file: notebooks/worksheets/worksheet1_solution.md
+  - caption: Assignments
+    chapters:
+    - file: assignments/adiabatic_box.md
+  - caption: In-depth notes
+    chapters:
+    - url: https://www.dropbox.com/scl/fi/5scb458wnoymr4s8ta4vt/equation_sheet.pdf?rlkey=29ymawiljakqnv3wquqa4wm8e&st=4mmzb2ii&dl=0
+      title: final exam equation sheet
+    - file: notebooks/week1/hydrostat.md
+    - url: https://www.dropbox.com/scl/fi/uanlie1sdyiz4ezbclopt/temperature_notes.pdf?rlkey=leatk6yrhmw137i9dl6j8ojlq&dl=0
+      title: Week2 - Kinetic Temperature notes
+    - url: https://www.dropbox.com/scl/fi/j7bq6cc7r40vkx3og14qh/first_law_notes.pdf?rlkey=66r1y4umxtc1hgwfbylxlzoxt&dl=0
+      title: Week 2 - First law of thermodynamics
+    - url: https://www.dropbox.com/scl/fi/iknh9dm4iu1tfssa4724j/entropy.pdf?rlkey=buxyohh3w52ou6vk774s3xexq&dl=0
+      title: Week 3 - Entropy and potential temperature
+      
+
