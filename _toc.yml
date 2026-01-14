@@ -23,6 +23,7 @@ parts:
     chapters:
     - file: notebooks/worksheets/worksheet1.md
     - file: notebooks/worksheets/worksheet1_solution.md
+    - file: notebooks/worksheets/worksheet2.md
   - caption: Assignments
     chapters:
     - file: assignments/adiabatic_box.md
@@ -31,11 +32,11 @@ parts:
     - url: https://www.dropbox.com/scl/fi/5scb458wnoymr4s8ta4vt/equation_sheet.pdf?rlkey=29ymawiljakqnv3wquqa4wm8e&st=4mmzb2ii&dl=0
       title: final exam equation sheet
     - file: notebooks/week1/hydrostat.md
-    - url: https://www.dropbox.com/scl/fi/uanlie1sdyiz4ezbclopt/temperature_notes.pdf?rlkey=leatk6yrhmw137i9dl6j8ojlq&dl=0
+    - url: https://drive.google.com/file/d/1dBxcwxe0quNjYAihiFwMpF8kVmjmYh1p/view?usp=sharing
       title: Week2 - Kinetic Temperature notes
-    - url: https://www.dropbox.com/scl/fi/j7bq6cc7r40vkx3og14qh/first_law_notes.pdf?rlkey=66r1y4umxtc1hgwfbylxlzoxt&dl=0
+    - url: https://drive.google.com/file/d/12xontZRhRTKBjtG9y27RS6CH35eARcgp/view?usp=sharing
       title: Week 2 - First law of thermodynamics
-    - url: https://www.dropbox.com/scl/fi/iknh9dm4iu1tfssa4724j/entropy.pdf?rlkey=buxyohh3w52ou6vk774s3xexq&dl=0
+    - url: https://drive.google.com/file/d/1CjXm0AHYMJYmxf-Mm6CuWD7tIM_KBRI0/view?usp=sharing
       title: Week 3 - Entropy and potential temperature
       
 
