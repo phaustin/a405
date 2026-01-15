@@ -33,7 +33,7 @@ import pytz
 # Here's a regular expresion that does that:
 
 
-re_text="""
+re_text=r"""
            .*Station\snumber\:\s(.+?)\n
            \s+Observation\stime\:\s(.+?)\n
            \s+Station\slatitude\:\s(.+?)\n
@@ -243,14 +243,14 @@ def write_soundings(input_dict,outputdir):
     url_template=("http://weather.uwyo.edu/cgi-bin/sounding?"
               "region={region:s}"
               "&TYPE=TEXT%3ALIST"
-              "&YEAR={year:d}"
-              "&MONTH={month:d}"
+              "&YEAR={year:s}"
+              "&MONTH={month:s}"
               "&FROM={start:s}"
               "&TO={stop:s}"
-              "&STNM={station:d}")
-
+              "&STNM={station:s}")
+    print("begin call")
     url=url_template.format_map(input_dict)
-
+    print("end call")
     do_web = True
     backup_file='backup.txt'
     if do_web:
