@@ -49,10 +49,23 @@ Learning objectives:
 
     - [Kinetic temperature note](https://drive.google.com/file/d/1dBxcwxe0quNjYAihiFwMpF8kVmjmYh1p/view?usp=sharing).  This uses material from Physics 203 to define the temperature of an ideal gas in terms of the kinetic energy of the gas.
     - [First law notes](https://drive.google.com/file/d/12xontZRhRTKBjtG9y27RS6CH35eARcgp/view?usp=sharing).  This is a more detailed discussion of the how you can integrate the first law to get the internal energy and the entropy.
-    - [Entropy and potential temperature](https://drive.google.com/file/d/1CjXm0AHYMJYmxf-Mm6CuWD7tIM_KBRI0/view?usp=sharing)
+    - [Entropy and potential temperature](https://drive.google.com/file/d/1CjXm0AHYMJYmxf-Mm6CuWD7tIM_KBRI0/view?usp=sharing). This is a review of Thompson p. 14
 
 2. Today's worksheet is about the A405 thermodynamic library:  [worksheet2.ipynb](https://drive.google.com/file/d/1NzrJy3mG9O9CGORxv3Vtujvd9CAQ-jwZ/view?usp=sharing).  There are 2 questions: one for Tuesday and one for Thursday.  You can hand in just once on Thursday.
 
 For  Thursday:  Finish Assignment 1 and read my three notes.  Think about how you would actually get numbers for the internal energy, enthalpy and entropy of air in practice.  What are the limits of integration for temperature?  Are you starting at absolute zero?   How could that work if air would be rock solid at absolute zero?  Are the heat capacities really constant over that enormous temperature range?
+
+
+### Lecture 4, week 2, Thursday
+
+Learning objectives
+
+1) Finish the second problem in {ref}`worksheet2`
+
+2) Start themodynamic diagram section 1.10 in the Thompson text using the {ref}`skew_coords` notebook.
+
+3) Review derivatives and integrals in python with {ref}`derivs_ints`
+
+4) Introduce {ref}`assign2_hydro`
 
 

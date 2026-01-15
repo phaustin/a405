@@ -12,13 +12,14 @@ kernelspec:
   name: python3
 ---
 
+(worksheet2)=
 # Week 2 worksheet
 
 +++
 
 This notebook has separate problems for Tuesday and Thursday.  Hand in both problems after class on Thursday.
 
-The download link is [worksheet2.ipynb](https://drive.google.com/file/d/1NzrJy3mG9O9CGORxv3Vtujvd9CAQ-jwZ/view?usp=sharing)  
+The download link is [worksheet2.ipynb](https://drive.google.com/file/d/1NzrJy3mG9O9CGORxv3Vtujvd9CAQ-jwZ/view?usp=sharing)
 
 +++ {"user_expressions": []}
 
