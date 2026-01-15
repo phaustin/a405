@@ -248,9 +248,7 @@ def write_soundings(input_dict,outputdir):
               "&FROM={start:s}"
               "&TO={stop:s}"
               "&STNM={station:s}")
-    print("begin call")
     url=url_template.format_map(input_dict)
-    print("end call")
     do_web = True
     backup_file='backup.txt'
     if do_web:
