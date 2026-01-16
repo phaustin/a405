@@ -56,3 +56,16 @@ Learning objectives:
 For  Thursday:  Finish Assignment 1 and read my three notes.  Think about how you would actually get numbers for the internal energy, enthalpy and entropy of air in practice.  What are the limits of integration for temperature?  Are you starting at absolute zero?   How could that work if air would be rock solid at absolute zero?  Are the heat capacities really constant over that enormous temperature range?
 
 
+### Lecture 4, week 2, Thursday
+
+Learning objectives
+
+1) Finish the second problem in {ref}`worksheet2`
+
+2) Start themodynamic diagram section 1.10 in the Thompson text using the {ref}`skew_coords` notebook.
+
+3) Review derivatives and integrals in python with {ref}`derivs_ints`
+
+4) Introduce {ref}`assign2_hydro`
+
+

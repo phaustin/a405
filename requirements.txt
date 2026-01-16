@@ -1,11 +1,4 @@
-git+https://github.com/phaustin/a405_2024.git
-git+https://github.com/eoas-ubc/jb_tools.git
-
-pip install git+https://github.com/darothen/pyrcel.git
+pip install -r git+https://github.com/phaustin/a405.git --update
 
 
-conda activate base
-conda create --name pyrcel python pip git
-conda activate pyrcel
-pip install git+https://github.com/darothen/pyrcel.git
 

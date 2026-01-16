@@ -24,9 +24,11 @@ parts:
     - file: notebooks/worksheets/worksheet1.md
     - file: notebooks/worksheets/worksheet1_solution.md
     - file: notebooks/worksheets/worksheet2.md
+    - file: notebooks/week2/skew_coords.md
   - caption: Assignments
     chapters:
     - file: assignments/adiabatic_box.md
+    - file: assignments/hydrostatic_scaling.md
   - caption: In-depth notes
     chapters:
     - url: https://www.dropbox.com/scl/fi/5scb458wnoymr4s8ta4vt/equation_sheet.pdf?rlkey=29ymawiljakqnv3wquqa4wm8e&st=4mmzb2ii&dl=0
@@ -36,7 +38,10 @@ parts:
       title: Week2 - Kinetic Temperature notes
     - url: https://drive.google.com/file/d/12xontZRhRTKBjtG9y27RS6CH35eARcgp/view?usp=sharing
       title: Week 2 - First law of thermodynamics
+    - url: https://drive.google.com/file/d/1_ZpKjfR3OGHkmnk9-lKEmP8SSGNM8Is_/view?usp=sharing
+      title: Week 2 - Hydrostatic balance and scale heights
+    - file: notebooks/week2/derivs_and_ints.md
     - url: https://drive.google.com/file/d/1CjXm0AHYMJYmxf-Mm6CuWD7tIM_KBRI0/view?usp=sharing
       title: Week 3 - Entropy and potential temperature
-      
+
 

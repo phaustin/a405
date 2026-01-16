@@ -6,7 +6,6 @@ __pycache__
 build/
 auto/
 *~
-solutions/
 *solution*
 *.jupyter_cache*
 *aux
@@ -19,3 +18,7 @@ _version*
 *.nav
 *.snm
 *.toc
+/handins/
+/pdfs/
+/solutions/
+*.ipynb
