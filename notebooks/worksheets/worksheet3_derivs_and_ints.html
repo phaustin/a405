@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>week2: working with numpy arrays &#8212; ATSC 405</title>
+    <title>worksheet 3: working with numpy arrays &#8212; ATSC 405</title>
   
   
   
@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -59,11 +59,12 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/week2/derivs_and_ints';</script>
-    <link rel="canonical" href="https://phaustin.github.io/a405/notebooks/week2/derivs_and_ints.html" />
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/worksheets/worksheet3_derivs_and_ints';</script>
+    <link rel="canonical" href="https://phaustin.github.io/a405/notebooks/worksheets/worksheet3_derivs_and_ints.html" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="prev" title="Week1: Hydrostatic balance explainer" href="../week1/hydrostat.html" />
+    <link rel="next" title="Adiabatic Box - Solution" href="../../assignments/adiabatic_box_solution.html" />
+    <link rel="prev" title="Week2: Theromodynamic diagrams" href="../week2/skew_coords.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -192,25 +193,26 @@
 <li class="toctree-l1"><a class="reference internal" href="../../week_notes.html">Week notes</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Worksheets</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../worksheets/worksheet1.html">Week 1 worksheet</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../worksheets/worksheet1_solution.html">Week 1 worksheet solutions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../worksheets/worksheet2.html">Week 2 worksheet</a></li>
-<li class="toctree-l1"><a class="reference internal" href="skew_coords.html">Week2: Theromodynamic diagrams</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="worksheet1.html">Week 1 worksheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="worksheet1_solution.html">Week 1 worksheet solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="worksheet2_solution.html">Day 3 worksheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week2/skew_coords.html">Week2: Theromodynamic diagrams</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">worksheet 3: working with numpy arrays</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../assignments/adiabatic_box.html">Adiabatic Box</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../assignments/adiabatic_box_solution.html">Adiabatic Box - Solution</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="../../assignments/hydrostatic_scaling.html">Assignment 2: Scale heights for typical atmospheric soundings</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">In-depth notes</span></p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference external" href="https://www.dropbox.com/scl/fi/5scb458wnoymr4s8ta4vt/equation_sheet.pdf?rlkey=29ymawiljakqnv3wquqa4wm8e&amp;st=4mmzb2ii&amp;dl=0">final exam equation sheet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../week1/hydrostat.html">Week1: Hydrostatic balance explainer</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1dBxcwxe0quNjYAihiFwMpF8kVmjmYh1p/view?usp=sharing">Week2 - Kinetic Temperature notes</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/12xontZRhRTKBjtG9y27RS6CH35eARcgp/view?usp=sharing">Week 2 - First law of thermodynamics</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1_ZpKjfR3OGHkmnk9-lKEmP8SSGNM8Is_/view?usp=sharing">Week 2 - Hydrostatic balance and scale heights</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">week2: working with numpy arrays</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1CjXm0AHYMJYmxf-Mm6CuWD7tIM_KBRI0/view?usp=sharing">Week 3 - Entropy and potential temperature</a></li>
 </ul>
 
@@ -266,7 +268,7 @@
       
       
       
-      <li><a href="../../_sources/notebooks/week2/derivs_and_ints.md" target="_blank"
+      <li><a href="../../_sources/notebooks/worksheets/worksheet3_derivs_and_ints.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -350,7 +352,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>week2: working with numpy arrays</h1>
+    <h1>worksheet 3: working with numpy arrays</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -365,6 +367,8 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#find-the-definite-integral-of-this-function-with-python">2) Find the definite integral of this function with python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-1-how-would-you-determine-the-accuracy-of-the-answer-if-you-didn-t-have-the-analytic-integral">Question 1:  How would you determine the accuracy of the answer if you didn’t have the analytic integral?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-2-where-is-the-underestimate-coming-from">Question 2: where is the underestimate coming from?</a></li>
 </ul>
             </nav>
         </div>
@@ -376,11 +380,11 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="week2-working-with-numpy-arrays">
-<span id="derivs-ints"></span><h1>week2: working with numpy arrays<a class="headerlink" href="#week2-working-with-numpy-arrays" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="worksheet-3-working-with-numpy-arrays">
+<span id="derivs-ints"></span><h1>worksheet 3: working with numpy arrays<a class="headerlink" href="#worksheet-3-working-with-numpy-arrays" title="Link to this heading">#</a></h1>
 <p>This notebook demonstrates how to use differences and sums to calculate derivatives and integrals and make some simple plots using the matplotlib module.</p>
 <p>Coverage:  <a class="reference external" href="https://foundations.projectpythia.org/core/numpy/numpy-basics/">Project Pythia Numpy basics</a></p>
-<p>Download link for <a class="reference external" href="https://drive.google.com/file/d/1MmWWDUDLQdovGoG_6hrji1p2WjMji9c5/view?usp=sharing">derivs_and_ints.ipynb</a></p>
+<p>Download link for <a class="reference external" href="https://drive.google.com/file/d/1s6oYwUVZ-wuHp0D6L8esFFdaTyH7PGz0/view?usp=sharing">worksheet3_derivs_and_ints.ipynb</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -415,15 +419,13 @@ document.write(`
 <p>Answer: <span class="math notranslate nohighlight">\(\frac{dy}{dx} = 18x^2\)</span></p>
 <p>In first year you learned that the first derivative was:</p>
 <div class="math notranslate nohighlight" id="equation-eq-deriv">
-<span class="eqno">(6)<a class="headerlink" href="#equation-eq-deriv" title="Link to this equation">#</a></span>\[
+<span class="eqno">(1)<a class="headerlink" href="#equation-eq-deriv" title="Link to this equation">#</a></span>\[
 \frac{dy}{dx} = \lim_{\Delta x \to 0} \frac{\Delta y}{\Delta x}
 \]</div>
 <p>So calculate <span class="math notranslate nohighlight">\(\Delta y\)</span> and <span class="math notranslate nohighlight">\(\Delta x\)</span> in python using <a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.diff.html">numpy.diff</a> and divide, does it agree with the calculus answer?</p>
-<p><a class="reference internal" href="#equation-eq-deriv">(6)</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
-<span class="c1">#</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
 <span class="c1"># create 1000 x values from -5 to 5</span>
 <span class="c1">#</span>
 <span class="n">spacing</span> <span class="o">=</span> <span class="mf">0.01</span>
@@ -468,10 +470,39 @@ document.write(`
 <p>and take <span class="math notranslate nohighlight">\(\lim_{\Delta x \to 0}\)</span>  you get the definite integral <span class="math notranslate nohighlight">\(I =\int_{-5}^5 \left ( 6 x^3 + 5 \right ) dx\)</span></p>
 <p>which Newton and Liebniz figured out resulted in <span class="math notranslate nohighlight">\(I=50\)</span>:</p>
 <p><span class="math notranslate nohighlight">\(\int_{-5}^5 6 x^3 + 5 dx = \left .\left (  (6/4)x^4 + 5x \right ) \right |_{-5}^5 = (6/4)*(5^4 - (-5)^4) + ((5\times 5) - ((-5)\times 5)) = 50\)</span></p>
-<p>So to do this integral in python, just use numpy.sum(I*dx).  The only trick is that np.diff(x) creates a vector that is 1 shorter than x.  So replace y with the average value of y in each dx inteval so that you can multiply vectors of the same length.</p>
+<p>Check using python:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">yavg</span> <span class="o">=</span> <span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">+</span> <span class="n">y</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="mf">2.0</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">=</span> <span class="o">-</span><span class="mi">5</span>
+<span class="n">b</span><span class="o">=</span>  <span class="mi">5</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">calc_int</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">):</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="mi">6</span><span class="o">/</span><span class="mf">4.</span><span class="o">*</span><span class="p">(</span><span class="n">b</span><span class="o">**</span><span class="mf">4.</span> <span class="o">-</span> <span class="n">a</span><span class="o">**</span><span class="mf">4.</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="n">b</span> <span class="o">-</span> <span class="mi">5</span><span class="o">*</span><span class="n">a</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">out</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">calc_int</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span><span class="si">=:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>calc_int(a,b)=50.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>So to do this integral in python, just use numpy.sum(f(x)*dx).  The only trick is that</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>dx=np.diff(x) 
+</pre></div>
+</div>
+<p>creates a vector that is 1 shorter than f(x).  So replace y with the average value of y in each dx inteval so that you can multiply vectors of the same length.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">spacing</span> <span class="o">=</span> <span class="mf">0.01</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">spacing</span><span class="p">)</span>
+<span class="c1">#</span>
+<span class="c1"># find dx and dy</span>
+<span class="c1">#</span>
+<span class="n">dx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">cubeit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">yavg</span> <span class="o">=</span> <span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">+</span> <span class="n">y</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="mf">2.0</span>
 <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">yavg</span> <span class="o">*</span> <span class="n">dx</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -483,6 +514,42 @@ document.write(`
 </div>
 </div>
 <p>This isn’t very close to the right answer, even though we are using 1000 x values when spacing=0.01.  Why is python struggling?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="n">xavg</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">+</span> <span class="n">x</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="mf">2.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xavg</span><span class="p">,</span><span class="n">yavg</span><span class="p">,</span><span class="s1">&#39;r+&#39;</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xavg</span><span class="p">,</span><span class="n">yavg</span><span class="p">);</span>
+<span class="c1">#ax.set_xlim(-2.1,-1.9)</span>
+<span class="c1">#ax.set_ylim(-50,-40)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/ad4a3f6ea8c6f5e7a6e90fa0f375749ec6e04e0e4784dcc238d6eec44ae702c1.png" src="../../_images/ad4a3f6ea8c6f5e7a6e90fa0f375749ec6e04e0e4784dcc238d6eec44ae702c1.png" />
+</div>
+</div>
+</section>
+<section id="question-1-how-would-you-determine-the-accuracy-of-the-answer-if-you-didn-t-have-the-analytic-integral">
+<h2>Question 1:  How would you determine the accuracy of the answer if you didn’t have the analytic integral?<a class="headerlink" href="#question-1-how-would-you-determine-the-accuracy-of-the-answer-if-you-didn-t-have-the-analytic-integral" title="Link to this heading">#</a></h2>
+<p><strong>your answer here</strong></p>
+</section>
+<section id="question-2-where-is-the-underestimate-coming-from">
+<h2>Question 2: where is the underestimate coming from?<a class="headerlink" href="#question-2-where-is-the-underestimate-coming-from" title="Link to this heading">#</a></h2>
+<p>Calculate the exact and approximate integrals between the six intervals [-5,-3), [-3,-1) etc. using both finite difference and calculus for dx=0.01.  Which region is generating the largest error?  Why that region, and why is quadrature giving an underestimate?</p>
+<p>Hint: I wrote a companion function to <code class="docutils literal notranslate"><span class="pre">calc_int</span></code>  I called <code class="docutils literal notranslate"><span class="pre">approx_int</span></code> with the signature</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">approx_int</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">dx</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>and then looped over the intervals, comparing the outputs of <code class="docutils literal notranslate"><span class="pre">calc_int</span></code> with <code class="docutils literal notranslate"><span class="pre">approx_int</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 
@@ -499,7 +566,7 @@ document.write(`
         },
         kernelOptions: {
             name: "python3",
-            path: "./notebooks/week2"
+            path: "./notebooks/worksheets"
         },
         predefinedOutput: true
     }
@@ -517,13 +584,22 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../week1/hydrostat.html"
+       href="../week2/skew_coords.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Week1: Hydrostatic balance explainer</p>
+        <p class="prev-next-title">Week2: Theromodynamic diagrams</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="../../assignments/adiabatic_box_solution.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Adiabatic Box - Solution</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -546,6 +622,8 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#find-the-definite-integral-of-this-function-with-python">2) Find the definite integral of this function with python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-1-how-would-you-determine-the-accuracy-of-the-answer-if-you-didn-t-have-the-analytic-integral">Question 1:  How would you determine the accuracy of the answer if you didn’t have the analytic integral?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-2-where-is-the-underestimate-coming-from">Question 2: where is the underestimate coming from?</a></li>
 </ul>
   </nav></div>
 

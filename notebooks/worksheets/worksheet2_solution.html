@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Week 2 worksheet &#8212; ATSC 405</title>
+    <title>Thermodynamics worksheet solution &#8212; ATSC 405</title>
   
   
   
@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -57,8 +57,10 @@
     <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/worksheets/worksheet2';</script>
-    <link rel="canonical" href="https://phaustin.github.io/a405/notebooks/worksheets/worksheet2.html" />
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/worksheets/worksheet2_solution';</script>
+    <link rel="canonical" href="https://phaustin.github.io/a405/notebooks/worksheets/worksheet2_solution.html" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Week2: Theromodynamic diagrams" href="../week2/skew_coords.html" />
@@ -194,12 +196,14 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="worksheet1.html">Week 1 worksheet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="worksheet1_solution.html">Week 1 worksheet solutions</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Week 2 worksheet</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Thermodynamics worksheet solution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../week2/skew_coords.html">Week2: Theromodynamic diagrams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="worksheet3_derivs_and_ints.html">worksheet 3: working with numpy arrays</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../assignments/adiabatic_box.html">Adiabatic Box</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../assignments/adiabatic_box_solution.html">Adiabatic Box - Solution</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="../../assignments/hydrostatic_scaling.html">Assignment 2: Scale heights for typical atmospheric soundings</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">In-depth notes</span></p>
@@ -209,7 +213,6 @@
 <li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1dBxcwxe0quNjYAihiFwMpF8kVmjmYh1p/view?usp=sharing">Week2 - Kinetic Temperature notes</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/12xontZRhRTKBjtG9y27RS6CH35eARcgp/view?usp=sharing">Week 2 - First law of thermodynamics</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1_ZpKjfR3OGHkmnk9-lKEmP8SSGNM8Is_/view?usp=sharing">Week 2 - Hydrostatic balance and scale heights</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../week2/derivs_and_ints.html">week2: working with numpy arrays</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1CjXm0AHYMJYmxf-Mm6CuWD7tIM_KBRI0/view?usp=sharing">Week 3 - Entropy and potential temperature</a></li>
 </ul>
 
@@ -265,7 +268,7 @@
       
       
       
-      <li><a href="../../_sources/notebooks/worksheets/worksheet2.md" target="_blank"
+      <li><a href="../../_sources/notebooks/worksheets/worksheet2_solution.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -349,7 +352,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Week 2 worksheet</h1>
+    <h1>Thermodynamics worksheet solution</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -364,7 +367,13 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#documentation">Documentation</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problems">Practice problems</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problems">Practice problems</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#answer">1. Answer</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-answer">2a. Answer</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-answer">2b. Answer</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#study-question">Study question</a></li>
 </ul>
             </nav>
         </div>
@@ -376,18 +385,17 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="week-2-worksheet">
-<span id="worksheet2"></span><h1>Week 2 worksheet<a class="headerlink" href="#week-2-worksheet" title="Link to this heading">#</a></h1>
-<p>This notebook has separate problems for Tuesday and Thursday.  Hand in both problems after class on Thursday.</p>
-<p>The download link is <a class="reference external" href="https://drive.google.com/file/d/1NzrJy3mG9O9CGORxv3Vtujvd9CAQ-jwZ/view?usp=sharing">worksheet2.ipynb</a></p>
+  <section class="tex2jax_ignore mathjax_ignore" id="thermodynamics-worksheet-solution">
+<span id="worksheet2-solution"></span><h1>Thermodynamics worksheet solution<a class="headerlink" href="#thermodynamics-worksheet-solution" title="Link to this heading">#</a></h1>
+<p>Download link <a class="reference external" href="https://drive.google.com/file/d/1xtJfUjoR4FDEch_6zeDEANwa2ZkVvVXl/view?usp=sharing">worksheet2_solution.ipynb</a></p>
 <section id="working-with-the-a405-thermodynamics-libraries">
 <h2>Working with the A405 thermodynamics libraries<a class="headerlink" href="#working-with-the-a405-thermodynamics-libraries" title="Link to this heading">#</a></h2>
 <section id="installation">
 <h3>Installation<a class="headerlink" href="#installation" title="Link to this heading">#</a></h3>
-<p>The source code for the libraries is in the <a class="reference external" href="https://github.com/phaustin/a405/tree/main/src/a405">A405 github repository</a>.  To install on your laptop, use this <a class="reference external" href="https://www.dropbox.com/scl/fi/j7bg8p1hha8d21itoj1i0/requirements.txt?rlkey=g3ovng95fpw1skex969i81o76&amp;amp;dl=0">requirements.txt</a> with pip  (note only one dash in -r, but two dashes in –update) in the a405 environment.</p>
+<p>The source code for the libraries is in the <a class="reference external" href="https://github.com/phaustin/a405_2024/tree/main/src/a405">A405 github repository</a>.  To install on your laptop, use this <a class="reference external" href="https://www.dropbox.com/scl/fi/j7bg8p1hha8d21itoj1i0/requirements.txt?rlkey=g3ovng95fpw1skex969i81o76&amp;amp;dl=0">requirements.txt</a> with pip  (note only one dash in -r, but two dashes in –update) in the a405 environment.</p>
 <p>pip install -r requirements.txt –update</p>
-<p>or just copy/paste the line inside the requirements.txt file at the prompt</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> pip install -r git+https://github.com/phaustin/a405.git --update
+<p>or just use the line inside the requirements.txt file directly from the prompt</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> pip install git+https://github.com/phaustin/a405.git --upgrade
 </pre></div>
 </div>
 </section>
@@ -398,30 +406,134 @@ document.write(`
 </section>
 <section id="practice-problems">
 <h2>Practice problems<a class="headerlink" href="#practice-problems" title="Link to this heading">#</a></h2>
-<p>Use the library functions to solve the following problems</p>
 <ol class="arabic simple">
 <li><p>Find the potential temperature of air at a pressure of 450 hPa and a temperature of 300 K</p></li>
 </ol>
+<section id="answer">
+<h3>1. Answer<a class="headerlink" href="#answer" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here (week 2 Tuesday)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">a405</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">a405.thermo</span><span class="w"> </span><span class="kn">import</span> <span class="n">thermlib</span>
+<span class="n">temp</span><span class="o">=</span><span class="mi">300</span>
+<span class="n">press</span><span class="o">=</span><span class="mi">45000</span>
+<span class="n">answer</span> <span class="o">=</span> <span class="n">a405</span><span class="o">.</span><span class="n">thermo</span><span class="o">.</span><span class="n">thermlib</span><span class="o">.</span><span class="n">find_theta</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span> <span class="n">press</span><span class="p">,</span> <span class="n">rv</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">answer</span><span class="si">=:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> K&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>answer=376.79 K
 </pre></div>
 </div>
 </div>
 </div>
 <ol class="arabic" start="2">
-<li><p>For Thursday: Two jars of liquid water are placed in an insulated vacumn chamber which has completely reflecting surfaces in the longwave, so that the chamber doesn’t affect their temperatures. They exchange longwave radiation until they come into equilibrium.  Neglect the water vapor in the chamber and the container material, and assume that Jar A contains 1 kg of liquid and Jar B contains 2 kg of liquid.</p>
+<li><p>Two jars of liquid water are placed in an insulated vacumn chamber with completely reflecting surfaces in the longwave.  They exchange longwave radiation until they come into equilibrium.  Neglect the water vapor in the chamber and the container material, and assume that Jar A contains 1 kg of liquid and Jar B contains 2 kg of liquid.</p>
 <p>a. I the 1 kg jar A starts at 350 K and the 2 kg Jar B starts at 280 K, what is the final equilibrium temperature of each jar?<br />
 b. What is the total change in entropy for the system composed of the two jars?  (liquid water is incompressible)</p>
 </li>
 </ol>
+</section>
+<section id="a-answer">
+<h3>2a. Answer<a class="headerlink" href="#a-answer" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here (week 2 Thursday)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">a405.thermo.constants</span><span class="w"> </span><span class="kn">import</span> <span class="n">constants</span> <span class="k">as</span> <span class="n">c</span>
 </pre></div>
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">massA</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">massB</span><span class="o">=</span><span class="mi">2</span>
+<span class="n">tempA</span><span class="o">=</span><span class="mi">350</span>
+<span class="n">tempB</span><span class="o">=</span><span class="mi">280</span>
+<span class="n">H_A</span><span class="o">=</span><span class="n">massA</span><span class="o">*</span><span class="n">c</span><span class="o">.</span><span class="n">cl</span><span class="o">*</span><span class="n">tempA</span>
+<span class="n">H_B</span><span class="o">=</span><span class="n">massB</span><span class="o">*</span><span class="n">c</span><span class="o">.</span><span class="n">cl</span><span class="o">*</span><span class="n">tempB</span>
+<span class="n">H_tot</span> <span class="o">=</span> <span class="n">H_A</span> <span class="o">+</span> <span class="n">H_B</span>
+<span class="n">h_new</span> <span class="o">=</span> <span class="p">(</span><span class="n">H_A</span> <span class="o">+</span> <span class="n">H_B</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">massA</span> <span class="o">+</span> <span class="n">massB</span><span class="p">)</span>
+<span class="n">temp_new</span> <span class="o">=</span> <span class="n">h_new</span><span class="o">/</span><span class="n">c</span><span class="o">.</span><span class="n">cl</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">temp_new</span><span class="si">=:</span><span class="s2">0.1f</span><span class="si">}</span><span class="s2"> K&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>temp_new=303.3 K
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="b-answer">
+<h3>2b. Answer<a class="headerlink" href="#b-answer" title="Link to this heading">#</a></h3>
+<p>Combine the first and second laws to get the liquid water entropy.  Use the fact that liquid water is incompressible so that the work term <span class="math notranslate nohighlight">\(w_t\)</span> in the first law is zero.  We also need to replace the atmospheric heat capacity <span class="math notranslate nohighlight">\(c_v\)</span> with the liquid water heat capacity <span class="math notranslate nohighlight">\(c_l\)</span></p>
+<ul class="simple">
+<li><p>First law</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+q_t   = \frac{du}{dt} + w_t = \frac{du}{dt}  + 0  = c_l \frac{dT}{dt} \\
+q_t dt = c_l dT
+\end{split}\]</div>
+<ul class="simple">
+<li><p>Second law</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+d\phi \ge \frac{q_t dt}{T}
+\]</div>
+<ul class="simple">
+<li><p>Combined for reversible (quasi-equilibrium) process</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+d\phi = c_l \frac{dT}{T} = c_l\, d\ln T
+\]</div>
+<ul class="simple">
+<li><p>Integrate from <span class="math notranslate nohighlight">\(T^\prime=0\)</span> to <span class="math notranslate nohighlight">\(T^\prime = T\)</span></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\phi = c_l \ln T
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">massA</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">massB</span><span class="o">=</span><span class="mi">2</span>
+<span class="n">tempA</span><span class="o">=</span><span class="mi">350</span>
+<span class="n">tempB</span><span class="o">=</span><span class="mi">280</span>
+<span class="n">Phi_A</span><span class="o">=</span><span class="n">massA</span><span class="o">*</span><span class="n">c</span><span class="o">.</span><span class="n">cl</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">tempA</span><span class="p">)</span>
+<span class="n">Phi_B</span><span class="o">=</span><span class="n">massB</span><span class="o">*</span><span class="n">c</span><span class="o">.</span><span class="n">cl</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">tempB</span><span class="p">)</span>
+<span class="n">Phi_start</span> <span class="o">=</span> <span class="n">Phi_A</span> <span class="o">+</span> <span class="n">Phi_B</span>
+<span class="n">Phi_new</span> <span class="o">=</span> <span class="p">(</span><span class="n">massA</span> <span class="o">+</span> <span class="n">massB</span><span class="p">)</span><span class="o">*</span><span class="n">c</span><span class="o">.</span><span class="n">cl</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">temp_new</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Entropy before = </span><span class="si">{</span><span class="n">Phi_start</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2"> J/K&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Entropy after = </span><span class="si">{</span><span class="n">Phi_new</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2"> J/K&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total change in Entropy = </span><span class="si">{</span><span class="n">Phi_new</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Phi_start</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2"> J/K&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Entropy before = 71764 J/K
+Entropy after = 71835 J/K
+Total change in Entropy = 71 J/K
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="study-question">
+<h2>Study question<a class="headerlink" href="#study-question" title="Link to this heading">#</a></h2>
+<p>Use the second law of thermodynamics to show that energy must always flow from warmer to cooler objects.</p>
 </section>
 </section>
 
@@ -494,7 +606,13 @@ b. What is the total change in entropy for the system composed of the two jars? 
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#documentation">Documentation</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problems">Practice problems</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problems">Practice problems</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#answer">1. Answer</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-answer">2a. Answer</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-answer">2b. Answer</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#study-question">Study question</a></li>
 </ul>
   </nav></div>
 

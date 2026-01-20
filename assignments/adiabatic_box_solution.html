@@ -1,0 +1,791 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Adiabatic Box - Solution &#8212; ATSC 405</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'assignments/adiabatic_box_solution';</script>
+    <link rel="canonical" href="https://phaustin.github.io/a405/assignments/adiabatic_box_solution.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Assignment 2: Scale heights for typical atmospheric soundings" href="hydrostatic_scaling.html" />
+    <link rel="prev" title="worksheet 3: working with numpy arrays" href="../notebooks/worksheets/worksheet3_derivs_and_ints.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">ATSC 405</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    ATSC 405 syllabus
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Background information</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../integrity.html">UBC academic integrity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ai_policy.html">Course policy for generative AI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../learning_goals.html">Learning goals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../schedule.html">Course schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_install.html">Python links</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.dropbox.com/scl/fo/9grhb2cr0lpfc1d5jci4a/h?rlkey=shnjpq4kvndrcatbgrri44eyw&amp;dl=0">Thompkins text</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://gw2jh3xr2c.search.serialssolutions.com/?sid=sersol&amp;SS_jc=TC0001980404&amp;title=An%20introduction%20to%20clouds%20%3A%20from%20the%20microscale%20to%20climate">Lohmann et al. text</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.dropbox.com/scl/fi/r7zhctw6usest2rirpe2f/wallace_hobbs_chap6.pdf?rlkey=oxdanppj9wkocmwe4nn4cc4fi&amp;dl=0">Wallace and Hobbs chapter 6</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.eoas.ubc.ca/books/Practical_Meteorology">Stull, Practical Meteorolgy</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Weekly topics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week_notes.html">Week notes</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Worksheets</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/worksheets/worksheet1.html">Week 1 worksheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/worksheets/worksheet1_solution.html">Week 1 worksheet solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/worksheets/worksheet2_solution.html">Thermodynamics worksheet solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/week2/skew_coords.html">Week2: Theromodynamic diagrams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/worksheets/worksheet3_derivs_and_ints.html">worksheet 3: working with numpy arrays</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Adiabatic Box - Solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hydrostatic_scaling.html">Assignment 2: Scale heights for typical atmospheric soundings</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">In-depth notes</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://www.dropbox.com/scl/fi/5scb458wnoymr4s8ta4vt/equation_sheet.pdf?rlkey=29ymawiljakqnv3wquqa4wm8e&amp;st=4mmzb2ii&amp;dl=0">final exam equation sheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/week1/hydrostat.html">Week1: Hydrostatic balance explainer</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1dBxcwxe0quNjYAihiFwMpF8kVmjmYh1p/view?usp=sharing">Week2 - Kinetic Temperature notes</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/12xontZRhRTKBjtG9y27RS6CH35eARcgp/view?usp=sharing">Week 2 - First law of thermodynamics</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1_ZpKjfR3OGHkmnk9-lKEmP8SSGNM8Is_/view?usp=sharing">Week 2 - Hydrostatic balance and scale heights</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1CjXm0AHYMJYmxf-Mm6CuWD7tIM_KBRI0/view?usp=sharing">Week 3 - Entropy and potential temperature</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/assignments/adiabatic_box_solution.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Adiabatic Box - Solution</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notebook-practice">Notebook practice</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#answer">Answer</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assignment-1-solution">Assignment 1 Solution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-write-two-convenience-functions-to-calculate-temp-given-theta">First write two convenience functions to calculate temp given <span class="math notranslate nohighlight">\(\theta\)</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#answer-the-final-temperature-t-b-k-in-box-b">1. Answer: The final temperature <span class="math notranslate nohighlight">\(T_B\)</span> (K) in box B</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#answer-work-done-by-a-on-b">2. Answer: Work done by A on B</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#answer-final-temperature-of-a">3. Answer: Final temperature of A</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#get-temperature-of-a-from-the-equation-of-state">Get temperature of A from the equation of state</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-answer-total-heating-of-a">4a. Answer: Total heating of A</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="adiabatic-box-solution">
+<span id="id1"></span><h1>Adiabatic Box - Solution<a class="headerlink" href="#adiabatic-box-solution" title="Link to this heading">#</a></h1>
+<p>Download link: <a class="reference external" href="https://drive.google.com/file/d/1imh2223xRsnYOJFz_YhsaVNEWCccY21F/view?usp=sharing">adiabatic_box_solution.ipynb</a></p>
+<section id="notebook-practice">
+<h2>Notebook practice<a class="headerlink" href="#notebook-practice" title="Link to this heading">#</a></h2>
+<p>Write a function called “eqstate” that calculates the density of dry air.  Use it to find the dry air density
+at a pressure of 80 kPa and temperatures of temp=[270, 280, 290] K</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">eqstate</span><span class="p">(</span><span class="n">Temp</span><span class="p">,</span><span class="n">Press</span><span class="p">):</span>
+    <span class="n">dens</span> <span class="o">=</span> <span class="n">xxx</span>
+    <span class="k">return</span> <span class="n">dens</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="answer">
+<h2>Answer<a class="headerlink" href="#answer" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">Rd</span> <span class="o">=</span> <span class="mi">287</span> <span class="c1">#J/kg/K</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">eqstate</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span><span class="n">press</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    </span>
+<span class="sd">    temp: float</span>
+<span class="sd">         temperature (K)</span>
+<span class="sd">    press: float</span>
+<span class="sd">         press (Pa)</span>
+<span class="sd">         </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    </span>
+<span class="sd">    dens: float</span>
+<span class="sd">         dry air density (kg/m^3)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">dens</span> <span class="o">=</span> <span class="n">press</span><span class="o">/</span><span class="p">(</span><span class="n">Rd</span><span class="o">*</span><span class="n">temp</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">dens</span>
+
+
+<span class="n">dots</span> <span class="o">=</span> <span class="s1">&#39;*&#39;</span><span class="o">*</span><span class="mi">60</span>
+<span class="n">the_temps</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">270</span><span class="p">,</span> <span class="mi">280</span><span class="p">,</span> <span class="mi">290</span><span class="p">])</span> <span class="c1">#K</span>
+<span class="n">press</span> <span class="o">=</span> <span class="mf">80.e3</span> <span class="c1">#Pa</span>
+
+
+<span class="c1">#</span>
+<span class="c1">#  loop over temps</span>
+<span class="c1">#</span>
+<span class="k">for</span> <span class="n">temp</span> <span class="ow">in</span> <span class="n">the_temps</span><span class="p">:</span>
+    <span class="n">dens</span> <span class="o">=</span> <span class="n">eqstate</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span><span class="n">press</span><span class="p">)</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">          </span><span class="si">{</span><span class="n">dots</span><span class="si">:}</span>
+<span class="s2">          At pressure </span><span class="si">{</span><span class="n">press</span><span class="si">:</span><span class="s2">6.0f</span><span class="si">}</span><span class="s2"> Pa and temperature </span><span class="si">{</span><span class="n">temp</span><span class="si">:</span><span class="s2">6.2f</span><span class="si">}</span><span class="s2"> K </span>
+<span class="s2">          the air density is </span><span class="si">{</span><span class="n">dens</span><span class="si">:</span><span class="s2">6.3f</span><span class="si">}</span><span class="s2"> kg/m3</span>
+<span class="s2">          </span><span class="si">{</span><span class="n">dots</span><span class="si">:}</span>
+<span class="s2">          &quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>          ************************************************************
+          At pressure  80000 Pa and temperature 270.00 K 
+          the air density is  1.032 kg/m3
+          ************************************************************
+          
+
+          ************************************************************
+          At pressure  80000 Pa and temperature 280.00 K 
+          the air density is  0.996 kg/m3
+          ************************************************************
+          
+
+          ************************************************************
+          At pressure  80000 Pa and temperature 290.00 K 
+          the air density is  0.961 kg/m3
+          ************************************************************
+          
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="assignment-1-solution">
+<h2>Assignment 1 Solution<a class="headerlink" href="#assignment-1-solution" title="Link to this heading">#</a></h2>
+<p>The figure below represents an insulated box with two
+compartments A and B, each containing dry air. They are separated by
+an insulating and perfectly flexible wall, so that the pressure is
+equal on the two sides. Initially each compartment measures one <span class="math notranslate nohighlight">\(m^3\)</span> and
+the gas is at a pressure of 100 kPa and a temperature of 273 K. Heat
+is then supplied to the gas in box A using a resistor, until the
+pressure in both compartments rises to 300 kPa. Calculate:</p>
+<ol class="arabic simple">
+<li><p>The final temperature  <span class="math notranslate nohighlight">\(T_B\)</span> (K) in box B</p></li>
+<li><p>The time integrated work (<span class="math notranslate nohighlight">\(J\,kg^{-1}\)</span>) performed on the air in B by the
+membrane.</p></li>
+<li><p>The final temperature <span class="math notranslate nohighlight">\(T_A\)</span> (K) in box A</p></li>
+<li><p>The time-integrated heating rate (<span class="math notranslate nohighlight">\(J kg^{-1}\)</span>) of the gas in box A.</p></li>
+</ol>
+<p>Hint: use the fact that entropy (and therefore <span class="math notranslate nohighlight">\(\theta\)</span> ) is conserved for an adiabatic process and therefore can’t change in compartment B, and
+that the total volume of the combined compartments A and B has to stay constant at 2 <span class="math notranslate nohighlight">\(m^3\)</span>.</p>
+<figure class="align-default" id="directive-fig">
+<a class="reference internal image-reference" href="../_images/insulated_box.png"><img alt="pha" src="../_images/insulated_box.png" style="width: 70%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Two box setup</span><a class="headerlink" href="#directive-fig" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="first-write-two-convenience-functions-to-calculate-temp-given-theta">
+<h2>First write two convenience functions to calculate temp given <span class="math notranslate nohighlight">\(\theta\)</span><a class="headerlink" href="#first-write-two-convenience-functions-to-calculate-temp-given-theta" title="Link to this heading">#</a></h2>
+<p>Test them by going from temp to <span class="math notranslate nohighlight">\(\theta\)</span> then back to temp</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">theta_from_temp</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span><span class="n">press</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">       Input: temp (K)</span>
+<span class="sd">               press (kPa)</span>
+<span class="sd">       Output: theta (K)</span>
+<span class="sd">       Thompkins eq. 1.38</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">cpd</span><span class="o">=</span><span class="mf">1004.</span> <span class="c1">#J/kg/K</span>
+    <span class="n">Rd</span> <span class="o">=</span> <span class="mf">287.</span>  <span class="c1"># J/kg/K</span>
+    <span class="n">p0</span> <span class="o">=</span> <span class="mi">100</span>   <span class="c1">#kPa</span>
+    <span class="n">theta</span> <span class="o">=</span> <span class="n">temp</span><span class="o">*</span><span class="p">(</span><span class="n">p0</span><span class="o">/</span><span class="n">press</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="n">Rd</span><span class="o">/</span><span class="n">cpd</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">theta</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">temp_from_theta</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span><span class="n">press</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Input: theta (K)</span>
+<span class="sd">               press (kPa)</span>
+<span class="sd">       Output: temp (K)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">cpd</span><span class="o">=</span><span class="mf">1004.</span> <span class="c1">#J/kg/K</span>
+    <span class="n">Rd</span> <span class="o">=</span> <span class="mf">287.</span>  <span class="c1"># J/kg/K</span>
+    <span class="n">p0</span> <span class="o">=</span> <span class="mi">100</span>   <span class="c1">#kPa</span>
+    <span class="n">temp</span> <span class="o">=</span> <span class="n">theta</span><span class="o">/</span><span class="p">((</span><span class="n">p0</span><span class="o">/</span><span class="n">press</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="n">Rd</span><span class="o">/</span><span class="n">cpd</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">temp</span>
+    
+<span class="n">theta</span> <span class="o">=</span> <span class="n">theta_from_temp</span><span class="p">(</span><span class="mf">273.</span><span class="p">,</span><span class="mf">100.</span><span class="p">)</span>
+<span class="n">Tinitial</span> <span class="o">=</span> <span class="n">temp_from_theta</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span><span class="mf">100.</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;test roundtrip for theta: theta=</span><span class="si">{</span><span class="n">theta</span><span class="si">}</span><span class="s1"> K, Tinitial=</span><span class="si">{</span><span class="n">Tinitial</span><span class="si">}</span><span class="s1"> K&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>test roundtrip for theta: theta=273.0 K, Tinitial=273.0 K
+</pre></div>
+</div>
+</div>
+</div>
+<section id="answer-the-final-temperature-t-b-k-in-box-b">
+<h3>1. Answer: The final temperature <span class="math notranslate nohighlight">\(T_B\)</span> (K) in box B<a class="headerlink" href="#answer-the-final-temperature-t-b-k-in-box-b" title="Link to this heading">#</a></h3>
+<p>Use the fact that <span class="math notranslate nohighlight">\(\theta\)</span> is constant in box B</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Tfinal</span> <span class="o">=</span> <span class="n">temp_from_theta</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span><span class="mf">300.</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;at press=300 kPa, the temperature in B is </span><span class="si">{</span><span class="n">Tfinal</span><span class="si">:</span><span class="s2">8.3f</span><span class="si">}</span><span class="s2"> K&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>at press=300 kPa, the temperature in B is  373.724 K
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="answer-work-done-by-a-on-b">
+<h3>2. Answer: Work done by A on B<a class="headerlink" href="#answer-work-done-by-a-on-b" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(w = \int w_t dt = \int p_A d v_A\)</span>  where w is positive for work done on B and as in Thompkins, <span class="math notranslate nohighlight">\(v = 1/\rho = \text{Volume/mass}\)</span></p></li>
+<li><p>(we know A is expanding, so <span class="math notranslate nohighlight">\(dv_A &gt; 0\)</span>)</p></li>
+<li><p>The temperatures, pressures and densities are all initially the same in A and B, and since</p></li>
+<li><p><span class="math notranslate nohighlight">\(v = 1 / \rho\)</span>  that means that  <span class="math notranslate nohighlight">\(v_A =v_B\)</span> initially.</p></li>
+<li><p>The mass in each compartment is
+<span class="math notranslate nohighlight">\(\rho_A \times 1\ m^{3}\)</span> = <span class="math notranslate nohighlight">\(\rho_B\)</span> <span class="math notranslate nohighlight">\(\times\)</span> 1 <span class="math notranslate nohighlight">\(m^{3}\)</span>
+(since the volumes in each compartment are 1 <span class="math notranslate nohighlight">\(m^3\)</span>).</p></li>
+<li><p>The total volume (<span class="math notranslate nohighlight">\(V_T\)</span>) doesn’t change, so <span class="math notranslate nohighlight">\(V_A + V_B = V_T = 2\ m^3\)</span> and <span class="math notranslate nohighlight">\(dV_A = - dV_B\)</span>.</p></li>
+<li><p>Since the mass in each compartment is also constant that means <span class="math notranslate nohighlight">\(dv_A = - dv_B\)</span>.</p></li>
+<li><p>Look at Thompkins 1.21 (using my notation):</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(q_t   = \frac{du}{dt} + w_t = \frac{du}{dt}  + 
+p\frac{dv}{dt} = c_v \frac{dT}{dt} + p \frac{dv}{dt}\)</span>  = 0 for compartment B</p></li>
+</ul>
+</li>
+<li><p>So for compartment B:  <span class="math notranslate nohighlight">\(\int du = - \int w_t dt = - \int_{initial}^{final} c_v \frac{dT}{dt} dt = - c_v (Tfinal  - Tinitial)\)</span></p></li>
+<li><p>The work done by B is a negative number  because it is undergoing compression, so <span class="math notranslate nohighlight">\(d v &lt; 0\)</span>.  But since the pressure is always equal across the compartments  we know that work_done_by_A = - work_done_on_B</p></li>
+</ul>
+<p><strong>Now put in the numbers</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cv</span> <span class="o">=</span> <span class="mi">718</span>  <span class="c1">#J/kg/K</span>
+<span class="n">work_done_on_B</span> <span class="o">=</span> <span class="n">cv</span><span class="o">*</span><span class="p">(</span><span class="n">Tfinal</span> <span class="o">-</span> <span class="n">Tinitial</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;work done on B by A= </span><span class="si">{</span><span class="n">work_done_on_B</span><span class="si">:</span><span class="s2">8.3e</span><span class="si">}</span><span class="s2"> J/kg&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;work done on A by B= </span><span class="si">{</span><span class="o">-</span><span class="n">work_done_on_B</span><span class="si">:</span><span class="s2">8.3e</span><span class="si">}</span><span class="s2"> J/kg&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>work done on B by A= 7.232e+04 J/kg
+work done on A by B= -7.232e+04 J/kg
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="answer-final-temperature-of-a">
+<h3>3. Answer: Final temperature of A<a class="headerlink" href="#answer-final-temperature-of-a" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>We can get this from the equation of state (Thompkins 1.7) if we can figure out the density of A.  From the equation of state:</p></li>
+<li><p><span class="math notranslate nohighlight">\(pV/T = n R_* = constant=C\)</span>.</p></li>
+<li><p>Using our intial values of <span class="math notranslate nohighlight">\(p=1 \times 10^5\ Pa\)</span>, V=<span class="math notranslate nohighlight">\(1\ m^3\)</span>, T=273 K, <span class="math notranslate nohighlight">\(C=10^5/273 = p_B V_B/T_B\)</span>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">C</span> <span class="o">=</span> <span class="mf">1.e5</span><span class="o">/</span><span class="mi">273</span>  <span class="c1">#J/K with V=1 m^3</span>
+<span class="n">p_B</span><span class="o">=</span><span class="mf">3.e5</span>  <span class="c1">#Pa</span>
+<span class="n">T_B</span> <span class="o">=</span> <span class="n">Tfinal</span>
+<span class="n">V_B</span> <span class="o">=</span> <span class="n">C</span><span class="o">*</span><span class="n">T_B</span><span class="o">/</span><span class="n">p_B</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;final volume of B = </span><span class="si">{</span><span class="n">V_B</span><span class="si">:</span><span class="s2">7.3f</span><span class="si">}</span><span class="s2"> m^3&quot;</span><span class="p">)</span>
+<span class="n">V_A</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">-</span> <span class="n">V_B</span>  <span class="c1">#total volume of 2 m^3 is conserved</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;final volume of A = </span><span class="si">{</span><span class="n">V_A</span><span class="si">:</span><span class="s2">7.3f</span><span class="si">}</span><span class="s2"> m^3&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>final volume of B =   0.456 m^3
+final volume of A =   1.544 m^3
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="get-temperature-of-a-from-the-equation-of-state">
+<h3>Get temperature of A from the equation of state<a class="headerlink" href="#get-temperature-of-a-from-the-equation-of-state" title="Link to this heading">#</a></h3>
+</section>
+<section id="a-answer-total-heating-of-a">
+<h3>4a. Answer: Total heating of A<a class="headerlink" href="#a-answer-total-heating-of-a" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p_A</span> <span class="o">=</span> <span class="mf">3.e5</span>   <span class="c1">#Pa</span>
+<span class="n">T_A</span> <span class="o">=</span> <span class="n">V_A</span><span class="o">*</span><span class="n">p_A</span><span class="o">/</span><span class="n">C</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;final Temperature of A= </span><span class="si">{:7.3f}</span><span class="s2"> K&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">T_A</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>final Temperature of A= 1264.276 K
+</pre></div>
+</div>
+</div>
+</div>
+<p>Using the 1st law we’ve got:</p>
+<p><span class="math notranslate nohighlight">\(\int q_t dt  = \int \frac{du}{dt} dt  + \int w_t dt = c_v (Tfinal - Tinitial)\)</span> + work_done_on_B</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">heating_of_A</span> <span class="o">=</span> <span class="n">cv</span><span class="o">*</span><span class="p">(</span><span class="n">T_A</span> <span class="o">-</span> <span class="n">Tinitial</span><span class="p">)</span> <span class="o">+</span> <span class="n">work_done_on_B</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;heating of A = </span><span class="si">{</span><span class="n">heating_of_A</span><span class="si">:</span><span class="s2">7.3e</span><span class="si">}</span><span class="s2"> J/kg&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>heating of A = 7.841e+05 J/kg
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./assignments"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../notebooks/worksheets/worksheet3_derivs_and_ints.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">worksheet 3: working with numpy arrays</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="hydrostatic_scaling.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Assignment 2: Scale heights for typical atmospheric soundings</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notebook-practice">Notebook practice</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#answer">Answer</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assignment-1-solution">Assignment 1 Solution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-write-two-convenience-functions-to-calculate-temp-given-theta">First write two convenience functions to calculate temp given <span class="math notranslate nohighlight">\(\theta\)</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#answer-the-final-temperature-t-b-k-in-box-b">1. Answer: The final temperature <span class="math notranslate nohighlight">\(T_B\)</span> (K) in box B</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#answer-work-done-by-a-on-b">2. Answer: Work done by A on B</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#answer-final-temperature-of-a">3. Answer: Final temperature of A</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#get-temperature-of-a-from-the-equation-of-state">Get temperature of A from the equation of state</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-answer-total-heating-of-a">4a. Answer: Total heating of A</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Philip Austin
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

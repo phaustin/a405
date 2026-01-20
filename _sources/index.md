@@ -8,7 +8,7 @@
 
 - {ref}`sec:learning_goals`
 
-- Main course homepage: [phaustin.github.io/a405](#https://phaustin.github.io)
+- Main course homepage: [phaustin.github.io/a405](https://phaustin.github.io)
 
 - [Canvas website](https://canvas.ubc.ca/courses/180886) (for handins, grades, emails)
 
