@@ -13,23 +13,24 @@ kernelspec:
 ---
 
 (worksheet2_solution)=
-# Thermodynamics worksheet solution
+# Worksheet2 -- Thermodynamics worksheet solution
 
 +++
 
 Download link [worksheet2_solution.ipynb](https://drive.google.com/file/d/1xtJfUjoR4FDEch_6zeDEANwa2ZkVvVXl/view?usp=sharing)
 
-## Working with the A405 thermodynamics libraries
+## Working with the A405 thermodynamics libraries 
 
-### Installation
-
-+++
-
-The source code for the libraries is in the [A405 github repository](https://github.com/phaustin/a405_2024/tree/main/src/a405).  To install on your laptop, use this [requirements.txt](https://www.dropbox.com/scl/fi/j7bg8p1hha8d21itoj1i0/requirements.txt?rlkey=g3ovng95fpw1skex969i81o76&dl=0) with pip  (note only one dash in -r, but two dashes in --update) in the a405 environment.
+### Installation 
 
 +++
 
-   pip install -r requirements.txt --update
+The source code for the libraries is in the [A405 github repository](https://github.com/phaustin/a405_2024/tree/main/src/a405).  To install on your laptop, use this [requirements.txt](https://github.com/phaustin/a405/blob/main/requirements.txt
+) with pip  (note only one dash in -r, but two dashes in --update) in the a405 environment.
+
++++
+
+    pip install -r requirements.txt --upgrade
 
 +++
 
