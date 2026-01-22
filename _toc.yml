@@ -23,11 +23,12 @@ parts:
     chapters:
     - file: notebooks/worksheets/worksheet1.md
     - file: notebooks/worksheets/worksheet1_solution.md
-    - file: notebooks/worksheets/worksheet2.md
+    - file: notebooks/worksheets/worksheet2_solution.md
     - file: notebooks/week2/skew_coords.md
+    - file: notebooks/worksheets/worksheet3_derivs_and_ints.md
   - caption: Assignments
     chapters:
-    - file: assignments/adiabatic_box.md
+    - file: assignments/adiabatic_box_solution.md
     - file: assignments/hydrostatic_scaling.md
   - caption: In-depth notes
     chapters:
@@ -40,8 +41,9 @@ parts:
       title: Week 2 - First law of thermodynamics
     - url: https://drive.google.com/file/d/1_ZpKjfR3OGHkmnk9-lKEmP8SSGNM8Is_/view?usp=sharing
       title: Week 2 - Hydrostatic balance and scale heights
-    - file: notebooks/week2/derivs_and_ints.md
     - url: https://drive.google.com/file/d/1CjXm0AHYMJYmxf-Mm6CuWD7tIM_KBRI0/view?usp=sharing
       title: Week 3 - Entropy and potential temperature
-
+    - url: https://drive.google.com/file/d/1Id1EECa8qefSD6YhJoJzVp2neEarD9Wa/view?usp=sharing
+      title: Week 3 - Buoyancy and Taylor's series
+      
 

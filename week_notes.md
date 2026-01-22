@@ -30,7 +30,7 @@
 
 ####  Do for Tuesday
   
-Read the Thompkins text through p. 14 and start {ref}`assignment:adiabatic`
+Read the Thompkins text through p. 14 and start {ref}`adiabatic_box_solution`
 
 #### Learning objectives for the Thompkins reading
 
@@ -60,12 +60,32 @@ For  Thursday:  Finish Assignment 1 and read my three notes.  Think about how yo
 
 Learning objectives
 
-1) Finish the second problem in {ref}`worksheet2`
+1) Finish the second problem in {ref}`worksheet2_solution`
 
 2) Start themodynamic diagram section 1.10 in the Thompson text using the {ref}`skew_coords` notebook.
 
 3) Review derivatives and integrals in python with {ref}`derivs_ints`
 
 4) Introduce {ref}`assign2_hydro`
+
+
+### Lecture 5, week 3, Tuesday
+
+Learning objectives
+
+1) Do the entropy calculation in the {ref}`worksheet2_solution` and review my notes on 
+[entropy and potential temperature](https://drive.google.com/file/d/1CjXm0AHYMJYmxf-Mm6CuWD7tIM_KBRI0/view?usp=sharing)
+
+2) I've turned the {ref}`derivs_ints` into today's worksheet.
+
+3) Go over the {ref}`adiabatic_box_solution`
+
+4) Go over Thompkins p. 18 on buoyancy and introduce my [buoyancy notes](https://drive.google.com/file/d/1Id1EECa8qefSD6YhJoJzVp2neEarD9Wa/view?usp=sharing)
+
+
+#### For Thursday
+
+- Work on {ref}`assign2_hydro`
+- Read my buoyancy notes and Thompkins through p. 22
 
 

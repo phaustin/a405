@@ -5,7 +5,7 @@
 
 You'll need to download this file as part of the Laptop install below:
 
-* [environment.yml](https://drive.google.com/file/d/1T1B69EVaE4dZ4zt8CQNYcEywjOnhOMxu/view?usp=drive_link)
+* [environment.yml](https://github.com/phaustin/a405/blob/main/environment.yml)
 
 ## Laptop installs
 

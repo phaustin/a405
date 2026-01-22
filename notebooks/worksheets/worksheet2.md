@@ -29,11 +29,12 @@ The download link is [worksheet2.ipynb](https://drive.google.com/file/d/1NzrJy3m
 
 +++
 
-The source code for the libraries is in the [A405 github repository](https://github.com/phaustin/a405/tree/main/src/a405).  To install on your laptop, use this [requirements.txt](https://www.dropbox.com/scl/fi/j7bg8p1hha8d21itoj1i0/requirements.txt?rlkey=g3ovng95fpw1skex969i81o76&dl=0) with pip  (note only one dash in -r, but two dashes in --update) in the a405 environment.
+The source code for the libraries is in the [A405 github repository](https://github.com/phaustin/a405/tree/main/src/a405).  To install on your laptop, use this
+[requirements.txt](https://github.com/phaustin/a405/blob/main/requirements.txt) with pip  (note only one dash in -r, but two dashes in --update) in the a405 environment.
 
 +++ {"user_expressions": []}
 
-   pip install -r requirements.txt --update
+   pip install -r requirements.txt --uprade
 
 +++
 
@@ -41,7 +42,7 @@ or just copy/paste the line inside the requirements.txt file at the prompt
 
 +++
 
-     pip install -r git+https://github.com/phaustin/a405.git --update
+     pip install  git+https://github.com/phaustin/a405.git --upgrade
 
 +++ {"user_expressions": []}
 
