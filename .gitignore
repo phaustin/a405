@@ -6,7 +6,6 @@ __pycache__
 build/
 auto/
 *~
-*solution*
 *.jupyter_cache*
 *aux
 *latexmk
