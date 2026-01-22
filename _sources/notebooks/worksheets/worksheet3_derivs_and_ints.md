@@ -128,7 +128,7 @@ So to do this integral in python, just use numpy.sum(f(x)*dx).  The only trick i
 creates a vector that is 1 shorter than f(x).  So replace y with the average value of y in each dx inteval so that you can multiply vectors of the same length.
 
 ```{code-cell} ipython3
-spacing = 0.01
+spacing = 0.00001
 x = np.arange(-5, 5, spacing)
 #
 # find dx and dy

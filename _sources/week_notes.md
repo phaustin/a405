@@ -73,7 +73,8 @@ Learning objectives
 
 Learning objectives
 
-1) Do the entropy calculation in {ref}`worksheet2_solution`
+1) Do the entropy calculation in the {ref}`worksheet2_solution` and review my notes on 
+[entropy and potential temperature](https://drive.google.com/file/d/1CjXm0AHYMJYmxf-Mm6CuWD7tIM_KBRI0/view?usp=sharing)
 
 2) I've turned the {ref}`derivs_ints` into today's worksheet.
 
