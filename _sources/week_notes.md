@@ -88,7 +88,7 @@ Learning objectives
 - Work on {ref}`assign2_hydro`
 - Read my buoyancy notes and Thompkins through p. 22
 
-### Lecture 6, week 4, Tuesday
+### Lecture 6, week 4, Thursday
 
 1) Continue with buoyancy and Taylor Series using {ref}`worksheet4_taylor`
 2) Begin work with cloud models
@@ -96,9 +96,9 @@ Learning objectives
    - Introduce {ref}`xarray_intro`
    - Introduce {ref}`tropical_profiles`
 
-#### For Thursday
+#### For Tuesday
 
-- Finsh Thompkins through p. 22
+- Read Thompkins through p. 31 on water vapor
 - Work on {ref}`assign2_hydro` and {ref}`tropical_profiles`
 
 
