@@ -61,7 +61,7 @@
     <link rel="canonical" href="https://phaustin.github.io/a405/week_notes.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Week 1 worksheet" href="notebooks/worksheets/worksheet1.html" />
+    <link rel="next" title="Week 1 worksheet solutions" href="notebooks/worksheets/worksheet1_solution.html" />
     <link rel="prev" title="Python links" href="python_install.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -192,16 +192,18 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Worksheets</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="notebooks/worksheets/worksheet1.html">Week 1 worksheet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="notebooks/worksheets/worksheet1_solution.html">Week 1 worksheet solutions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks/worksheets/worksheet2_solution.html">Thermodynamics worksheet solution</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks/week2/skew_coords.html">Week2: Theromodynamic diagrams</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks/worksheets/worksheet3_derivs_and_ints.html">worksheet 3: working with numpy arrays</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/worksheets/worksheet2_solution.html">Worksheet2 – Thermodynamics worksheet solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/week2/skew_coords.html">Week2: Demo – Theromodynamic diagrams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/worksheets/worksheet3_derivs_and_ints_solution.html">worksheet 3 solution: working with numpy arrays</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/worksheets/worksheet4_taylor_series.html">Worksheet 4: Taylor series</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/week4/xarray-intro.html">Demo: Introduction to Xarray</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="assignments/adiabatic_box_solution.html">Adiabatic Box - Solution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="assignments/hydrostatic_scaling.html">Assignment 2: Scale heights for typical atmospheric soundings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="assignments/tropical_clouds_profiles.html">Assignment 3: Analyzing a model cloud dataset</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">In-depth notes</span></p>
 <ul class="nav bd-sidenav">
@@ -212,6 +214,12 @@
 <li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1_ZpKjfR3OGHkmnk9-lKEmP8SSGNM8Is_/view?usp=sharing">Week 2 - Hydrostatic balance and scale heights</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1CjXm0AHYMJYmxf-Mm6CuWD7tIM_KBRI0/view?usp=sharing">Week 3 - Entropy and potential temperature</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1Id1EECa8qefSD6YhJoJzVp2neEarD9Wa/view?usp=sharing">Week 3 - Buoyancy and Taylor's series</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Animations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1Qwioo3qSyEzr4tTuC3Sx54oXLKg-3g3D/view?usp=sharing">ARM diurnal over land</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1lCb3G9EhiPzRGO2m0FQWMTTUv2fSTnbi/view?usp=sharing">BOMEX -- trade cumulus over water</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/14ZLSAHCrjv8U0IKD9sQMHdql33Ebxkp3/view?usp=sharing">CGILS trade cumulus over water</a></li>
 </ul>
 
     </div>
@@ -372,10 +380,11 @@ document.write(`
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-3-week-2-tuesday">Lecture 3, week 2, Tuesday</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-4-week-2-thursday">Lecture 4, week 2, Thursday</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-5-week-3-tuesday">Lecture 5, week 3, Tuesday</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-5-week-3-thursday">Lecture 5, week 3, Thursday</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#for-thursday">For Thursday</a></li>
 </ul>
 </li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-6-week-4-tuesday">Lecture 6, week 4, Tuesday</a></li>
 </ul>
 </li>
 </ul>
@@ -417,7 +426,7 @@ document.write(`
 <ul class="simple">
 <li><p>Finish the python install, using conda-lock if conda is having trouble solving for the environment.yml file</p></li>
 <li><p>Introduce my take on <a class="reference internal" href="notebooks/week1/hydrostat.html#sec-hydrostat"><span class="std std-ref">Week1: Hydrostatic balance explainer</span></a></p></li>
-<li><p>Do the <a class="reference internal" href="notebooks/worksheets/worksheet1.html#worksheet1"><span class="std std-ref">Week 1 worksheet</span></a></p></li>
+<li><p>Do the <a class="reference internal" href="notebooks/worksheets/worksheet1_solution.html#worksheet1-solution"><span class="std std-ref">Week 1 worksheet solutions</span></a></p></li>
 </ul>
 <section id="do-for-tuesday">
 <h4>Do for Tuesday<a class="headerlink" href="#do-for-tuesday" title="Link to this heading">#</a></h4>
@@ -456,19 +465,19 @@ document.write(`
 <h3>Lecture 4, week 2, Thursday<a class="headerlink" href="#lecture-4-week-2-thursday" title="Link to this heading">#</a></h3>
 <p>Learning objectives</p>
 <ol class="arabic simple">
-<li><p>Finish the second problem in <a class="reference internal" href="notebooks/worksheets/worksheet2_solution.html#worksheet2-solution"><span class="std std-ref">Thermodynamics worksheet solution</span></a></p></li>
-<li><p>Start themodynamic diagram section 1.10 in the Thompson text using the <a class="reference internal" href="notebooks/week2/skew_coords.html#skew-coords"><span class="std std-ref">Week2: Theromodynamic diagrams</span></a> notebook.</p></li>
-<li><p>Review derivatives and integrals in python with <a class="reference internal" href="notebooks/worksheets/worksheet3_derivs_and_ints.html#derivs-ints"><span class="std std-ref">worksheet 3: working with numpy arrays</span></a></p></li>
+<li><p>Finish the second problem in <a class="reference internal" href="notebooks/worksheets/worksheet2_solution.html#worksheet2-solution"><span class="std std-ref">Worksheet2 – Thermodynamics worksheet solution</span></a></p></li>
+<li><p>Start themodynamic diagram section 1.10 in the Thompson text using the <a class="reference internal" href="notebooks/week2/skew_coords.html#skew-coords"><span class="std std-ref">Week2: Demo – Theromodynamic diagrams</span></a> notebook.</p></li>
+<li><p>Review derivatives and integrals in python with <a class="reference internal" href="notebooks/worksheets/worksheet3_derivs_and_ints_solution.html#derivs-ints"><span class="std std-ref">worksheet 3 solution: working with numpy arrays</span></a></p></li>
 <li><p>Introduce <a class="reference internal" href="assignments/hydrostatic_scaling.html#assign2-hydro"><span class="std std-ref">Assignment 2: Scale heights for typical atmospheric soundings</span></a></p></li>
 </ol>
 </section>
-<section id="lecture-5-week-3-tuesday">
-<h3>Lecture 5, week 3, Tuesday<a class="headerlink" href="#lecture-5-week-3-tuesday" title="Link to this heading">#</a></h3>
+<section id="lecture-5-week-3-thursday">
+<h3>Lecture 5, week 3, Thursday<a class="headerlink" href="#lecture-5-week-3-thursday" title="Link to this heading">#</a></h3>
 <p>Learning objectives</p>
 <ol class="arabic simple">
-<li><p>Do the entropy calculation in the <a class="reference internal" href="notebooks/worksheets/worksheet2_solution.html#worksheet2-solution"><span class="std std-ref">Thermodynamics worksheet solution</span></a> and review my notes on
+<li><p>Do the entropy calculation in the <a class="reference internal" href="notebooks/worksheets/worksheet2_solution.html#worksheet2-solution"><span class="std std-ref">Worksheet2 – Thermodynamics worksheet solution</span></a> and review my notes on
 <a class="reference external" href="https://drive.google.com/file/d/1CjXm0AHYMJYmxf-Mm6CuWD7tIM_KBRI0/view?usp=sharing">entropy and potential temperature</a></p></li>
-<li><p>I’ve turned the <a class="reference internal" href="notebooks/worksheets/worksheet3_derivs_and_ints.html#derivs-ints"><span class="std std-ref">worksheet 3: working with numpy arrays</span></a> into today’s worksheet.</p></li>
+<li><p>I’ve turned the <a class="reference internal" href="notebooks/worksheets/worksheet3_derivs_and_ints_solution.html#derivs-ints"><span class="std std-ref">worksheet 3 solution: working with numpy arrays</span></a> into today’s worksheet.</p></li>
 <li><p>Go over the <a class="reference internal" href="assignments/adiabatic_box_solution.html#adiabatic-box-solution"><span class="std std-ref">Adiabatic Box - Solution</span></a></p></li>
 <li><p>Go over Thompkins p. 18 on buoyancy and introduce my <a class="reference external" href="https://drive.google.com/file/d/1Id1EECa8qefSD6YhJoJzVp2neEarD9Wa/view?usp=sharing">buoyancy notes</a></p></li>
 </ol>
@@ -479,6 +488,19 @@ document.write(`
 <li><p>Read my buoyancy notes and Thompkins through p. 22</p></li>
 </ul>
 </section>
+</section>
+<section id="lecture-6-week-4-tuesday">
+<h3>Lecture 6, week 4, Tuesday<a class="headerlink" href="#lecture-6-week-4-tuesday" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Continue with buoyancy and Taylor Series using <a class="reference internal" href="notebooks/worksheets/worksheet4_taylor_series.html#worksheet4-taylor"><span class="std std-ref">Worksheet 4: Taylor series</span></a></p></li>
+<li><p>Begin work with cloud models</p>
+<ul class="simple">
+<li><p>Take a look at 3 cloud model animations</p></li>
+<li><p>Introduce <a class="reference internal" href="notebooks/week4/xarray-intro.html#xarray-intro"><span class="std std-ref">Demo: Introduction to Xarray</span></a></p></li>
+<li><p>Introduce <a class="reference internal" href="assignments/tropical_clouds_profiles.html#tropical-profiles"><span class="std std-ref">Assignment 3: Analyzing a model cloud dataset</span></a></p></li>
+</ul>
+</li>
+</ol>
 </section>
 </section>
 </section>
@@ -523,11 +545,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="notebooks/worksheets/worksheet1.html"
+       href="notebooks/worksheets/worksheet1_solution.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Week 1 worksheet</p>
+        <p class="prev-next-title">Week 1 worksheet solutions</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -559,10 +581,11 @@ document.write(`
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-3-week-2-tuesday">Lecture 3, week 2, Tuesday</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-4-week-2-thursday">Lecture 4, week 2, Thursday</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-5-week-3-tuesday">Lecture 5, week 3, Tuesday</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-5-week-3-thursday">Lecture 5, week 3, Thursday</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#for-thursday">For Thursday</a></li>
 </ul>
 </li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-6-week-4-tuesday">Lecture 6, week 4, Tuesday</a></li>
 </ul>
 </li>
 </ul>

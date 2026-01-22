@@ -13,13 +13,13 @@ kernelspec:
 ---
 
 (derivs_ints)=
-# worksheet 3: working with numpy arrays
+# worksheet 3 solution: working with numpy arrays
 
 This notebook demonstrates how to use differences and sums to calculate derivatives and integrals and make some simple plots using the matplotlib module.
 
 Coverage:  [Project Pythia Numpy basics](https://foundations.projectpythia.org/core/numpy/numpy-basics/)
 
-Download link for [worksheet3_derivs_and_ints.ipynb](https://drive.google.com/file/d/1s6oYwUVZ-wuHp0D6L8esFFdaTyH7PGz0/view?usp=sharing)
+Download link for [worksheet3_derivs_and_ints_solution.ipynb](https://drle/d/1MmWWDUDLQdovGoG_6hrji1p2WjMji9c5/view?usp=sharing)
 
 ```{code-cell} ipython3
 import numpy as np
@@ -61,7 +61,12 @@ $$(eq:deriv)
 
 So calculate $\Delta y$ and $\Delta x$ in python using [numpy.diff](http://docs.scipy.org/doc/numpy/reference/generated/numpy.diff.html) and divide, does it agree with the calculus answer?
 
++++
+
+{eq}`eq:deriv`
+
 ```{code-cell} ipython3
+%matplotlib inline
 #
 # create 1000 x values from -5 to 5
 #
@@ -110,7 +115,7 @@ which Newton and Liebniz figured out resulted in $I=50$:
 
 $\int_{-5}^5 6 x^3 + 5 dx = \left .\left (  (6/4)x^4 + 5x \right ) \right |_{-5}^5 = (6/4)*(5^4 - (-5)^4) + ((5\times 5) - ((-5)\times 5)) = 50$
 
-Check using python:
+Check:
 
 ```{code-cell} ipython3
 a= -5
@@ -118,7 +123,7 @@ b=  5
 def calc_int(a,b):
     out = 6/4.*(b**4. - a**4.) + (5*b - 5*a)
     return out
-print(f"{calc_int(a,b)=:.1f}")
+calc_int(a,b)
 ```
 
 So to do this integral in python, just use numpy.sum(f(x)*dx).  The only trick is that
@@ -128,7 +133,7 @@ So to do this integral in python, just use numpy.sum(f(x)*dx).  The only trick i
 creates a vector that is 1 shorter than f(x).  So replace y with the average value of y in each dx inteval so that you can multiply vectors of the same length.
 
 ```{code-cell} ipython3
-spacing = 0.00001
+spacing = 0.01
 x = np.arange(-5, 5, spacing)
 #
 # find dx and dy
@@ -155,13 +160,13 @@ ax.plot(xavg,yavg);
 
 +++
 
-**your answer here**
+##  your answer here
 
 +++
 
 ## Question 2: where is the underestimate coming from?
 
-Calculate the exact and approximate integrals between the six intervals [-5,-3), [-3,-1) etc. using both finite difference and calculus for dx=0.01.  Which region is generating the largest error?  Why that region, and why is quadrature giving an underestimate?
+Calculate the exact and approximate integrals between the six intervals [-5,-3), [-3,-1) etc. using both finite difference and calculus for dx=0.01.  Which region is generating the largest error? 
 
 Hint: I wrote a companion function to `calc_int`  I called `approx_int` with the signature
 
@@ -169,10 +174,32 @@ Hint: I wrote a companion function to `calc_int`  I called `approx_int` with the
 def approx_int(a,b,dx)
 ```
 
-and then looped over the intervals, comparing the outputs of `calc_int` with `approx_int`
+```{code-cell} ipython3
+def approx_int(a,b,dx):
+    x = np.arange(a, b, dx)
+    y= cubeit(x,6,5)
+    yavg = (y[1:] + y[:-1]) / 2.0
+    theint = np.sum(yavg * dx)
+    return theint
+```
 
 ```{code-cell} ipython3
-# your code here
+a=-5
+b= 5
+dx = 0.01
+the_approx = approx_int(a,b,dx)
+the_exact = calc_int(a,b)
+print(f"{a=}, {b=},{the_exact=:.0f},{the_approx=:.0f}")
+```
+
+```{code-cell} ipython3
+binsize = 2
+for left_edge in np.arange(a,b,binsize):
+    right_edge = left_edge + binsize
+    the_approx = approx_int(left_edge,right_edge,dx)
+    the_exact = calc_int(left_edge,right_edge)
+    print(f"{left_edge=:d}, {right_edge=:d},{the_exact=:.0f},{the_approx=:.0f}")
+    
 ```
 
 ```{code-cell} ipython3

@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Week 1 worksheet &#8212; ATSC 405</title>
+    <title>Worksheet 4: Taylor series &#8212; ATSC 405</title>
   
   
   
@@ -59,12 +59,12 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/worksheets/worksheet1';</script>
-    <link rel="canonical" href="https://phaustin.github.io/a405/notebooks/worksheets/worksheet1.html" />
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/worksheets/worksheet4_taylor_series';</script>
+    <link rel="canonical" href="https://phaustin.github.io/a405/notebooks/worksheets/worksheet4_taylor_series.html" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Week 1 worksheet solutions" href="worksheet1_solution.html" />
-    <link rel="prev" title="Week notes" href="../../week_notes.html" />
+    <link rel="next" title="Demo: Introduction to Xarray" href="../week4/xarray-intro.html" />
+    <link rel="prev" title="worksheet 3 solution: working with numpy arrays" href="worksheet3_derivs_and_ints_solution.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -194,16 +194,18 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Worksheets</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Week 1 worksheet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="worksheet1_solution.html">Week 1 worksheet solutions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="worksheet2_solution.html">Thermodynamics worksheet solution</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../week2/skew_coords.html">Week2: Theromodynamic diagrams</a></li>
-<li class="toctree-l1"><a class="reference internal" href="worksheet3_derivs_and_ints.html">worksheet 3: working with numpy arrays</a></li>
+<li class="toctree-l1"><a class="reference internal" href="worksheet2_solution.html">Worksheet2 – Thermodynamics worksheet solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week2/skew_coords.html">Week2: Demo – Theromodynamic diagrams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="worksheet3_derivs_and_ints_solution.html">worksheet 3 solution: working with numpy arrays</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Worksheet 4: Taylor series</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week4/xarray-intro.html">Demo: Introduction to Xarray</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../../assignments/adiabatic_box_solution.html">Adiabatic Box - Solution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../assignments/hydrostatic_scaling.html">Assignment 2: Scale heights for typical atmospheric soundings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../assignments/tropical_clouds_profiles.html">Assignment 3: Analyzing a model cloud dataset</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">In-depth notes</span></p>
 <ul class="nav bd-sidenav">
@@ -214,6 +216,12 @@
 <li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1_ZpKjfR3OGHkmnk9-lKEmP8SSGNM8Is_/view?usp=sharing">Week 2 - Hydrostatic balance and scale heights</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1CjXm0AHYMJYmxf-Mm6CuWD7tIM_KBRI0/view?usp=sharing">Week 3 - Entropy and potential temperature</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1Id1EECa8qefSD6YhJoJzVp2neEarD9Wa/view?usp=sharing">Week 3 - Buoyancy and Taylor's series</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Animations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1Qwioo3qSyEzr4tTuC3Sx54oXLKg-3g3D/view?usp=sharing">ARM diurnal over land</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1lCb3G9EhiPzRGO2m0FQWMTTUv2fSTnbi/view?usp=sharing">BOMEX -- trade cumulus over water</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/14ZLSAHCrjv8U0IKD9sQMHdql33Ebxkp3/view?usp=sharing">CGILS trade cumulus over water</a></li>
 </ul>
 
     </div>
@@ -268,7 +276,7 @@
       
       
       
-      <li><a href="../../_sources/notebooks/worksheets/worksheet1.md" target="_blank"
+      <li><a href="../../_sources/notebooks/worksheets/worksheet4_taylor_series.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -339,7 +347,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -350,11 +360,28 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Week 1 worksheet</h1>
+    <h1>Worksheet 4: Taylor series</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tayor-series-examples">Tayor series examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#one-dimension">One dimension</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#answer">Answer</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#two-dimensions-taylor-s-series-expansion-of-the-equation-of-state">Two dimensions: Taylor’s series expansion of the equation of state</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-on-a-piece-of-paper-show-that-eq-hydro-is-true">Problem – on a piece of paper, show that <code class="xref eq docutils literal notranslate"><span class="pre">eq:hydro</span></code> is true</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -364,69 +391,72 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="week-1-worksheet">
-<span id="worksheet1"></span><h1>Week 1 worksheet<a class="headerlink" href="#week-1-worksheet" title="Link to this heading">#</a></h1>
-<p>Download the ipynb file for notebook:  <a class="reference external" href="https://drive.google.com/file/d/1rlzSExCyxtXlVCjo2HlxQZ6hWzrZpahL/view?usp=drive_link">worksheet1 ipynb link</a></p>
-<p>Credit/no credit (i.e. try your best)</p>
-<p>Three problems from Lohmann Chapter 1: 4, 5, 6</p>
-<p>Upload your finished ipynb file to canvas.  Due Friday midnight.</p>
-<ol class="arabic simple" start="4">
-<li><p>Assume a low level cloud with the following properties: vertical extent 1.5 km, horizontal
-extent 1 km, cloud droplet number concentration 90 <span class="math notranslate nohighlight">\(cm^{−3}\)</span> air and mean diameter 10
-μm. Estimate the mass of the cloud by assuming that all the cloud droplets are spherical
-and have the same size. Take 1000 <span class="math notranslate nohighlight">\(kg\,m^{−3}\)</span> to be the density of water.</p></li>
-</ol>
-<ol class="arabic simple" start="4">
-<li><p>Answer</p></li>
-</ol>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here</span>
-</pre></div>
-</div>
-</div>
-</div>
-<ol class="arabic" start="5">
-<li><p>Imagine a pure water cloud which consists of cloud droplets of uniform size with radius <span class="math notranslate nohighlight">\(R_d\)</span>
-=5 μm. Assume a uniform spacing of the cloud droplets, with a number concentration of
-Nc = 170 <span class="math notranslate nohighlight">\(cm^{-3}\)</span></p>
-<p>(a) Calculate the average distance between the cloud droplets, both in microns and in drop diameters.</p>
-<p>(b) What would happen to the distance if the number concentration was trippled?</p>
-</li>
-</ol>
-<ol class="arabic simple" start="5">
-<li><p>Answer</p></li>
-</ol>
-<p>Hint: Assume that each drop gets its own cube inside the 1  <span class="math notranslate nohighlight">\(cm^{3}\)</span> of air.  How many cubes does it take to pack a cm?</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>So if the drop diameter is 10 microns, then there are about 180 drop diameters between droplets</p>
-<ol class="arabic simple" start="6">
-<li><p>The average pressure at Earth’s surface is 985 hPa. Knowing the radius of the Earth
-<span class="math notranslate nohighlight">\(r_{Earth}\)</span> = 6370 km and using the definition of pressure, estimate the total mass of the
-atmosphere.</p></li>
-</ol>
-<ol class="arabic simple" start="6">
-<li><p>Answer</p></li>
-</ol>
-<p>Hint:  use the hydrostatic equation</p>
-<ul class="simple">
-<li><p>pressure = force of gravity per unit area</p></li>
-<li><p>force of gravity = mass <span class="math notranslate nohighlight">\(\times\)</span> acceleration per unit area</p></li>
-</ul>
-<p>You’ll need to find the total mass of a 1 <span class="math notranslate nohighlight">\(m^2\)</span> column of the atmosphere by integrating the hydrostatic equation (Stull 1.25c) or</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here</span>
-</pre></div>
-</div>
-</div>
-</div>
+  <section class="tex2jax_ignore mathjax_ignore" id="worksheet-4-taylor-series">
+<span id="worksheet4-taylor"></span><h1>Worksheet 4: Taylor series<a class="headerlink" href="#worksheet-4-taylor-series" title="Link to this heading">#</a></h1>
+<p>This is a pencil and paper problem about expanding the equation of state in a Taylor series</p>
+<section id="tayor-series-examples">
+<h2>Tayor series examples<a class="headerlink" href="#tayor-series-examples" title="Link to this heading">#</a></h2>
+<section id="one-dimension">
+<h3>One dimension<a class="headerlink" href="#one-dimension" title="Link to this heading">#</a></h3>
+<p>From the equation sheet:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+  f(x)  &amp;=&amp; f(x_0) + f^\prime(x_0)(x - x_0) \nonumber\\ 
+        &amp;+&amp;  \frac{f^{\prime\prime}(x_0)}{2}(x-x_0)^2 +  \ldots
+\end{split}\]</div>
+<section id="example">
+<h4>Example:<a class="headerlink" href="#example" title="Link to this heading">#</a></h4>
+<p>Show that to first order, if x is close to 0:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{1}{1-x} \approx 1 + x
+\]</div>
+</section>
+<section id="answer">
+<h4>Answer<a class="headerlink" href="#answer" title="Link to this heading">#</a></h4>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+f(x_0) = \frac{1}{(1 - 0)} = 1 \\
+f^\prime(x_0) = -(1 - x_0)^{-2} \times (-1) = 1 \\
+f^{\prime \prime}(x_0) = (-2) \times (1 - x_0)^{-3} \times (-1) = -2 \\
+f(x) = 1 + x - \frac{2}{2} x^2 + \ldots = 1 + x - x^2 + \ldots
+\end{split}\]</div>
+</section>
+</section>
+<section id="two-dimensions-taylor-s-series-expansion-of-the-equation-of-state">
+<h3>Two dimensions: Taylor’s series expansion of the equation of state<a class="headerlink" href="#two-dimensions-taylor-s-series-expansion-of-the-equation-of-state" title="Link to this heading">#</a></h3>
+<p>Consider this equation from the
+<a class="reference external" href="http://en.wikipedia.org/wiki/Taylor_series">Wikipedia entry on Taylor series</a></p>
+<div class="math notranslate nohighlight" id="equation-eq-taylor">
+<span class="eqno">(2)<a class="headerlink" href="#equation-eq-taylor" title="Link to this equation">#</a></span>\[\begin{split}
+\begin{align}
+f(x,y) &amp; \approx f(a,b) +(x-a)\, f_x(a,b) +(y-b)\, f_y(a,b)\nonumber \\
+&amp;  + \frac{1}{2!}\left[ (x-a)^2\,f_{xx}(a,b) + 2(x-a)(y-b)\,f_{xy}(a,b) +(y-b)^2\, f_{yy}(a,b) \right]
+\end{align}
+\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(f_{xy} = \frac{ \partial^2 f}{\partial x \partial y }\)</span>, etc. If you expand <span class="math notranslate nohighlight">\(f=p=\rho R_d T\)</span> about the point
+<span class="math notranslate nohighlight">\(p_0(z) = \rho_0(z) R_d T_0(z)\)</span> where <span class="math notranslate nohighlight">\(p_0,\ \rho_0,\ T_0\)</span> are the pressure,
+density and temperature at height <span class="math notranslate nohighlight">\(z\)</span> for a hydrostatic atmosphere.  Using <a class="reference internal" href="#equation-eq-taylor">(2)</a> with <span class="math notranslate nohighlight">\(a=\rho_0\)</span> and <span class="math notranslate nohighlight">\(b=T_0\)</span> and <span class="math notranslate nohighlight">\(f(a,b) = p_0\)</span> you should be able to show that
+to second order:</p>
+<div class="math notranslate nohighlight" id="equation-eq-full">
+<span class="eqno">(3)<a class="headerlink" href="#equation-eq-full" title="Link to this equation">#</a></span>\[
+\frac{\Delta p}{p_0} = \frac{\Delta T}{T_0} + \frac{\Delta \rho}{\rho_0} + \frac{\Delta T \Delta \rho}{T_0 \rho_0}
+\]</div>
+<p>Where <span class="math notranslate nohighlight">\(\Delta p = p - p_0\)</span>, etc. Note that <span class="math notranslate nohighlight">\(\Delta p\)</span>, <span class="math notranslate nohighlight">\(\Delta T\)</span>, and <span class="math notranslate nohighlight">\(\Delta \rho\)</span> are all functions of
+(t,x,y,z).</p>
+<p>If the atmosphere is close to hydrostatic balance, then we can expect the <span class="math notranslate nohighlight">\(\Delta\)</span> differences to be small if <span class="math notranslate nohighlight">\(p_0\)</span> is the hydrostatic pressure, and we can drop the
+<span class="math notranslate nohighlight">\(\frac{ \Delta T \Delta \rho}{T_0 \rho_0}\)</span> term and write</p>
+<div class="math notranslate nohighlight" id="equation-eq-hydro">
+<span class="eqno">(4)<a class="headerlink" href="#equation-eq-hydro" title="Link to this equation">#</a></span>\[
+\frac{\Delta p}{p_0} = \frac{\Delta T}{T_0} + \frac{\Delta \rho}{\rho_0}
+\]</div>
+<p>We will show later that away from active convection we also can expect <span class="math notranslate nohighlight">\(\frac{\Delta p }{p_0}\)</span> to be small.</p>
+</section>
+</section>
+<section id="problem-on-a-piece-of-paper-show-that-eq-hydro-is-true">
+<h2>Problem – on a piece of paper, show that <a class="reference internal" href="#equation-eq-hydro">(4)</a> is true<a class="headerlink" href="#problem-on-a-piece-of-paper-show-that-eq-hydro-is-true" title="Link to this heading">#</a></h2>
+<p>Upload a scanned image to canvas</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -460,20 +490,20 @@ atmosphere.</p></li>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../../week_notes.html"
+       href="worksheet3_derivs_and_ints_solution.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Week notes</p>
+        <p class="prev-next-title">worksheet 3 solution: working with numpy arrays</p>
       </div>
     </a>
     <a class="right-next"
-       href="worksheet1_solution.html"
+       href="../week4/xarray-intro.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Week 1 worksheet solutions</p>
+        <p class="prev-next-title">Demo: Introduction to Xarray</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -483,6 +513,30 @@ atmosphere.</p></li>
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tayor-series-examples">Tayor series examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#one-dimension">One dimension</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#answer">Answer</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#two-dimensions-taylor-s-series-expansion-of-the-equation-of-state">Two dimensions: Taylor’s series expansion of the equation of state</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-on-a-piece-of-paper-show-that-eq-hydro-is-true">Problem – on a piece of paper, show that <code class="xref eq docutils literal notranslate"><span class="pre">eq:hydro</span></code> is true</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

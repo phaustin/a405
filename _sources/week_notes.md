@@ -26,7 +26,7 @@
 
   - Finish the python install, using conda-lock if conda is having trouble solving for the environment.yml file
   - Introduce my take on {ref}`sec:hydrostat`
-  - Do the {ref}`worksheet1`
+  - Do the {ref}`worksheet1_solution`
 
 ####  Do for Tuesday
   
@@ -69,7 +69,7 @@ Learning objectives
 4) Introduce {ref}`assign2_hydro`
 
 
-### Lecture 5, week 3, Tuesday
+### Lecture 5, week 3, Thursday
 
 Learning objectives
 
@@ -88,4 +88,12 @@ Learning objectives
 - Work on {ref}`assign2_hydro`
 - Read my buoyancy notes and Thompkins through p. 22
 
+### Lecture 6, week 4, Tuesday
+
+1) Continue with buoyancy and Taylor Series using {ref}`worksheet4_taylor`
+2) Begin work with cloud models
+   - Take a look at 3 cloud model animations
+   - Introduce {ref}`xarray_intro`
+   - Introduce {ref}`tropical_profiles`
+   
 
