@@ -95,5 +95,10 @@ Learning objectives
    - Take a look at 3 cloud model animations
    - Introduce {ref}`xarray_intro`
    - Introduce {ref}`tropical_profiles`
-   
+
+#### For Thursday
+
+- Finsh Thompkins through p. 22
+- Work on {ref}`assign2_hydro` and {ref}`tropical_profiles`
+
 

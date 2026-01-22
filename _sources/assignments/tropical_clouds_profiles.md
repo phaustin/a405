@@ -17,7 +17,7 @@ kernelspec:
 
 This notebook shows how to locate clouds in the tropical_subset.nc netcdf file and plot their temperature and liquid water profiles.
 
-- Due: Friday Jan. 29 at 11:59pm
+- Due: Friday Jan. 30 at 11:59pm
 
 - [Notebook download link](https://drive.google.com/file/d/1ywvSbgVI9XzlfCO5Tig9iV4GHV0_cNga/view?usp=sharing)
 
