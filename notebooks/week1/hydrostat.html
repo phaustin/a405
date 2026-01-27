@@ -197,13 +197,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../worksheets/worksheet2_solution.html">Worksheet2 – Thermodynamics worksheet solution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../week2/skew_coords.html">Week2: Demo – Theromodynamic diagrams</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../worksheets/worksheet3_derivs_and_ints_solution.html">worksheet 3 solution: working with numpy arrays</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../worksheets/worksheet4_taylor_series.html">Worksheet 4: Taylor series</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../worksheets/worksheet4_taylor_series_solution.html">Worksheet 4: Taylor series solution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../week4/xarray-intro.html">Demo: Introduction to Xarray</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../../assignments/adiabatic_box_solution.html">Adiabatic Box - Solution</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../assignments/hydrostatic_scaling.html">Assignment 2: Scale heights for typical atmospheric soundings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../assignments/hydrostatic_scaling_solution.html">Assign 2: Solution - Scale heights for typical atmospheric soundings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../assignments/tropical_clouds_profiles.html">Assignment 3: Analyzing a model cloud dataset</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">In-depth notes</span></p>
@@ -215,6 +215,9 @@
 <li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1_ZpKjfR3OGHkmnk9-lKEmP8SSGNM8Is_/view?usp=sharing">Week 2 - Hydrostatic balance and scale heights</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1CjXm0AHYMJYmxf-Mm6CuWD7tIM_KBRI0/view?usp=sharing">Week 3 - Entropy and potential temperature</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1Id1EECa8qefSD6YhJoJzVp2neEarD9Wa/view?usp=sharing">Week 3 - Buoyancy and Taylor's series</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1GrzhzpvWbN0H4dP3Z77M4O88Cyey5k2K/view?usp=sharing">Schroeder Chapter 5 free energy</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1YrHBkCiFduYqjd_Dn8_3fZJocmqva1PG/view?usp=sharing">Lohmann Chapter 2 - Thermodynamics</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1rJO32NGhTW3TA6noQmSdNl2GNXyrZUgA/view?usp=sharing">Maxwell relations</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Animations</span></p>
 <ul class="nav bd-sidenav">
@@ -399,7 +402,7 @@ force necessary to balance gravity, so the atmosphere is not rising or sinking:<
 </figure>
 <p>In symbols, the balance shown by <a class="reference internal" href="#hydrofig"><span class="std std-numref">Fig. 2</span></a> implies that:</p>
 <div class="math notranslate nohighlight" id="equation-hydro-eq">
-<span class="eqno">(5)<a class="headerlink" href="#equation-hydro-eq" title="Link to this equation">#</a></span>\[
+<span class="eqno">(7)<a class="headerlink" href="#equation-hydro-eq" title="Link to this equation">#</a></span>\[
 dp = - \rho g dz
 \]</div>
 <p><strong>Question: is this the same pressure p as the local pressure given by
@@ -416,9 +419,9 @@ p = p_0 \exp \left ( \frac{-z}{H_p} \right )
 \]</div>
 <p>In words – <span class="math notranslate nohighlight">\(H_p\)</span> gives the height at which gravity wins out over the kinetic energy of the air molecules – warmer atmospheres take longer to decrease their pressure by a factor of <span class="math notranslate nohighlight">\(\exp(-H_p/H_p) = \exp(-1)\)</span> (the e-folding height) because the air molecules have more energy to travel higher.</p>
 <ol class="arabic">
-<li><p>Do pressure first: Rewrite <a class="reference internal" href="#equation-hydro-eq">(5)</a> using the ideal gas law:</p>
+<li><p>Do pressure first: Rewrite <a class="reference internal" href="#equation-hydro-eq">(7)</a> using the ideal gas law:</p>
 <div class="math notranslate nohighlight" id="equation-hydro1">
-<span class="eqno">(6)<a class="headerlink" href="#equation-hydro1" title="Link to this equation">#</a></span>\[
+<span class="eqno">(8)<a class="headerlink" href="#equation-hydro1" title="Link to this equation">#</a></span>\[
    dp = - \rho g dz = - \frac{p}{R_d T}  g dz = \frac{p}{H_p}
    \]</div>
 <p>where <span class="math notranslate nohighlight">\(H_p=R_d T/g\)</span> is the pressure scale height.</p>
@@ -434,7 +437,7 @@ p = p_0 \exp \left ( \frac{-z}{H_p} \right )
 to go any further. If we don’t have those profiles, then a useful approximation is to define a vertically averaged <span class="math notranslate nohighlight">\(H_p\)</span>, since
 the average involves a large mass of air (about 10 metric tons/cubic meter), it will vary more slowly than the temperature at any one level on any given day, and we can still get a useful profile of pressure vs. height without having a specific sounding:</p>
 <div class="math notranslate nohighlight" id="equation-pressavg">
-<span class="eqno">(7)<a class="headerlink" href="#equation-pressavg" title="Link to this equation">#</a></span>\[
+<span class="eqno">(9)<a class="headerlink" href="#equation-pressavg" title="Link to this equation">#</a></span>\[
    \frac{ 1}{\overline{H_p}} = \overline{ \left ( \frac{1 }{H_p} \right )} = \frac{\int_{0 }^{z}\!\frac{1}{H_p} dz^\prime  }{z-0}
    \]</div>
 <p>Now we can replace the z integral by the average:</p>
@@ -463,15 +466,15 @@ the average involves a large mass of air (about 10 metric tons/cubic meter), it 
 \[
    \frac{d\rho }{dz}  = -\frac{\rho }{T}  \left ( \frac{g }{R_d} + \frac{ dT}{dz} \right ) = - \rho \left ( \frac{1 }{H} +  \frac{1 }{T} \frac{dT }{dz} \right ) = - \frac{\rho}{H_\rho}
    \]</div>
-<p>Bottom line – with this definition of the density scale height we’ve got an equation that looks like <a class="reference internal" href="#equation-hydro1">(6)</a>:</p>
+<p>Bottom line – with this definition of the density scale height we’ve got an equation that looks like <a class="reference internal" href="#equation-hydro1">(8)</a>:</p>
 <div class="math notranslate nohighlight" id="equation-densavg">
-<span class="eqno">(8)<a class="headerlink" href="#equation-densavg" title="Link to this equation">#</a></span>\[
+<span class="eqno">(10)<a class="headerlink" href="#equation-densavg" title="Link to this equation">#</a></span>\[
    \frac{d\rho }{\rho} = - \left ( \frac{1 }{H} +
                       \frac{1 }{T} \frac{dT }{dz} \right ) dz = - \frac{dz }{H_\rho}
    \]</div>
 <p>Pull the same trick for the vertical average:</p>
 <div class="math notranslate nohighlight" id="equation-denstrick">
-<span class="eqno">(9)<a class="headerlink" href="#equation-denstrick" title="Link to this equation">#</a></span>\[
+<span class="eqno">(11)<a class="headerlink" href="#equation-denstrick" title="Link to this equation">#</a></span>\[
    \frac{ 1}{\overline{H_\rho}} = \overline{ \left ( \frac{1 }{H_\rho} \right )} = \frac{\int_{0 }^{z}\!\frac{1}{H_\rho} dz^\prime  }{z-0}
    \]</div>
 <p>We use this vertical average in exactly the same way as before to

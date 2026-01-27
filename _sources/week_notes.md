@@ -66,10 +66,10 @@ Learning objectives
 
 3) Review derivatives and integrals in python with {ref}`derivs_ints`
 
-4) Introduce {ref}`assign2_hydro`
+4) Introduce {ref}`assign2_hydro_solution`
 
 
-### Lecture 5, week 3, Thursday
+### Lecture 5, week 3, Tuesday
 
 Learning objectives
 
@@ -85,12 +85,12 @@ Learning objectives
 
 #### For Thursday
 
-- Work on {ref}`assign2_hydro`
+- Work on {ref}`assign2_hydro_solution`
 - Read my buoyancy notes and Thompkins through p. 22
 
-### Lecture 6, week 4, Thursday
+### Lecture 6, week 3, Thursday
 
-1) Continue with buoyancy and Taylor Series using {ref}`worksheet4_taylor`
+1) Continue with buoyancy and Taylor Series using {ref}`worksheet4_taylor_solution`
 2) Begin work with cloud models
    - Take a look at 3 cloud model animations
    - Introduce {ref}`xarray_intro`
@@ -99,6 +99,14 @@ Learning objectives
 #### For Tuesday
 
 - Read Thompkins through p. 31 on water vapor
-- Work on {ref}`assign2_hydro` and {ref}`tropical_profiles`
+- Work on {ref}`assign2_hydro_solution` and {ref}`tropical_profiles`
 
+
+### Lecture 7, week 3, Thursday
+
+- {ref}`worksheet4_taylor_solution`
+- {ref}`assign2_hydro_solution`
+- [Shroeder free energy Chapter 5](https://drive.google.com/file/d/1GrzhzpvWbN0H4dP3Z77M4O88Cyey5k2K/view?usp=sharing)
+- [Maxwell relations notes](https://drive.google.com/file/d/1rJO32NGhTW3TA6noQmSdNl2GNXyrZUgA/view?usp=sharing)
+- [Lohmann Chapter 2 thermodynamics](https://drive.google.com/file/d/1YrHBkCiFduYqjd_Dn8_3fZJocmqva1PG/view?usp=sharing)
 
