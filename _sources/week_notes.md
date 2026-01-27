@@ -102,11 +102,28 @@ Learning objectives
 - Work on {ref}`assign2_hydro_solution` and {ref}`tropical_profiles`
 
 
-### Lecture 7, week 3, Thursday
+### Lecture 7, week 4, Tuesday
 
-- {ref}`worksheet4_taylor_solution`
-- {ref}`assign2_hydro_solution`
+- From last week:
+
+  - {ref}`worksheet4_taylor_solution`
+  - {ref}`assign2_hydro_solution`
+
+- Thompkins treatment of the Clausius-Clapeyron equation in Section 2.1 is pretty terse.  This week
+we'll go through it in much more detail, starting with the following material:
+
 - [Shroeder free energy Chapter 5](https://drive.google.com/file/d/1GrzhzpvWbN0H4dP3Z77M4O88Cyey5k2K/view?usp=sharing)
 - [Maxwell relations notes](https://drive.google.com/file/d/1rJO32NGhTW3TA6noQmSdNl2GNXyrZUgA/view?usp=sharing)
 - [Lohmann Chapter 2 thermodynamics](https://drive.google.com/file/d/1YrHBkCiFduYqjd_Dn8_3fZJocmqva1PG/view?usp=sharing)
+- {ref}`worksheet5_latent`
+
+#### For Thursday
+
+- Read the [Schroeder excerpt](https://drive.google.com/file/d/1GrzhzpvWbN0H4dP3Z77M4O88Cyey5k2K/view?usp=sharing) on
+  free energies.
+- Read [Lohmann section 2.4](https://drive.google.com/file/d/1YrHBkCiFduYqjd_Dn8_3fZJocmqva1PG/view?usp=sharing) up to p. 48 on the Clausius-Clapeyron equation.
+
+- Work on {ref}`tropical_profiles`.
+
+
 

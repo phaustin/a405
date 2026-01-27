@@ -29,7 +29,7 @@ Here is the [hydrostatic_scaling_solution.ipynb](https://drive.google.com/file/d
 
 +++
 
-### 1. Getting a sounding
+### 1. Getting a sounding  
 
 In the cell below, change the region, year, month and station to get a unique sounding for analysis (i.e. I'd like to spread out the soundings among regions and seasons).  The url for the Wyoming page is:  [https://weather.uwyo.edu/upperair/sounding.html](https://weather.uwyo.edu/upperair/sounding.html)
 
@@ -40,7 +40,7 @@ from pathlib import Path
 current_dir = Path()
 sounding_dir = (current_dir / 'sounding_dir').absolute()
 print(f"{str(sounding_dir)=}")
-write = False
+write = True
 if write:
     region = 'samer'
     year = '2013'

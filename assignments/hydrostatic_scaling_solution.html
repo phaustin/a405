@@ -200,6 +200,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/worksheets/worksheet3_derivs_and_ints_solution.html">worksheet 3 solution: working with numpy arrays</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/worksheets/worksheet4_taylor_series_solution.html">Worksheet 4: Taylor series solution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/week4/xarray-intro.html">Demo: Introduction to Xarray</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/worksheets/worksheet5_latent_heat.html">Worksheet 5: Latent heat</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="current nav bd-sidenav">
@@ -418,7 +419,7 @@ document.write(`
 <span class="n">current_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">()</span>
 <span class="n">sounding_dir</span> <span class="o">=</span> <span class="p">(</span><span class="n">current_dir</span> <span class="o">/</span> <span class="s1">&#39;sounding_dir&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">absolute</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">sounding_dir</span><span class="p">)</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="n">write</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">write</span> <span class="o">=</span> <span class="kc">True</span>
 <span class="k">if</span> <span class="n">write</span><span class="p">:</span>
     <span class="n">region</span> <span class="o">=</span> <span class="s1">&#39;samer&#39;</span>
     <span class="n">year</span> <span class="o">=</span> <span class="s1">&#39;2013&#39;</span>
@@ -433,6 +434,13 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>str(sounding_dir)=&#39;/Users/phil/repos/a405/assignments/sounding_dir&#39;
+input_dict={&#39;region&#39;: &#39;samer&#39;, &#39;year&#39;: &#39;2013&#39;, &#39;month&#39;: &#39;7&#39;, &#39;start&#39;: &#39;0100&#39;, &#39;stop&#39;: &#39;0110&#39;, &#39;station&#39;: &#39;71109&#39;}
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>len(html_doc)=14503 from write_soundings
+header is:  71109 YZT Port Hardy Observations at 00Z 01 Jul 2013
+here is the day:  130701
+files written to /Users/phil/repos/a405/assignments/sounding_dir
 </pre></div>
 </div>
 </div>
@@ -453,26 +461,6 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">from</span><span class="w"> </span><span class="nn">a405.soundings.wyominglib</span><span class="w"> </span><span class="kn">import</span> <span class="n">read_soundings</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">wyoming_dict</span> <span class="o">=</span> <span class="n">read_soundings</span><span class="p">(</span><span class="n">sounding_dir</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">sounding_dict</span> <span class="o">=</span> <span class="n">wyoming_dict</span><span class="p">[</span><span class="s1">&#39;sounding_dict&#39;</span><span class="p">]</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">the_sounding</span> <span class="o">=</span> <span class="n">sounding_dict</span><span class="p">[(</span><span class="mi">2013</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)]</span>
-
-<span class="nn">File ~/mini313/miniconda3/envs/a405/lib/python3.14/site-packages/a405/soundings/wyominglib.py:311,</span> in <span class="ni">read_soundings</span><span class="nt">(soundingdir)</span>
-<span class="g g-Whitespace">    </span><span class="mi">309</span> <span class="n">input_dir</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="n">soundingdir</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">310</span> <span class="n">json_file</span> <span class="o">=</span> <span class="n">input_dir</span> <span class="o">/</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;metadata.json&#39;</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">311</span> <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">json_file</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">infile</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">312</span>     <span class="n">meta_dict</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">infile</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">313</span> <span class="n">file_dict</span><span class="o">=</span><span class="p">{}</span>
-
-<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;/Users/phil/repos/a405/assignments/sounding_dir/metadata.json&#39;
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -481,15 +469,208 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">the_sounding</span>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<span class="ne">NameError</span>: name &#39;the_sounding&#39; is not defined
-</pre></div>
-</div>
-</div>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>pres</th>
+      <th>hght</th>
+      <th>temp</th>
+      <th>dwpt</th>
+      <th>relh</th>
+      <th>mixr</th>
+      <th>drct</th>
+      <th>sknt</th>
+      <th>thta</th>
+      <th>thte</th>
+      <th>thtv</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>1014.0</td>
+      <td>17.0</td>
+      <td>18.4</td>
+      <td>14.8</td>
+      <td>80.0</td>
+      <td>10.493078</td>
+      <td>350.0</td>
+      <td>5.0</td>
+      <td>290.4</td>
+      <td>320.3</td>
+      <td>292.2</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>1012.0</td>
+      <td>34.0</td>
+      <td>17.0</td>
+      <td>12.3</td>
+      <td>74.0</td>
+      <td>8.911909</td>
+      <td>346.0</td>
+      <td>6.0</td>
+      <td>289.2</td>
+      <td>314.6</td>
+      <td>290.7</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>1001.0</td>
+      <td>125.0</td>
+      <td>15.6</td>
+      <td>12.0</td>
+      <td>79.0</td>
+      <td>8.832533</td>
+      <td>327.0</td>
+      <td>11.0</td>
+      <td>288.7</td>
+      <td>313.8</td>
+      <td>290.2</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>1000.0</td>
+      <td>133.0</td>
+      <td>15.6</td>
+      <td>12.0</td>
+      <td>79.0</td>
+      <td>8.841491</td>
+      <td>325.0</td>
+      <td>11.0</td>
+      <td>288.8</td>
+      <td>313.9</td>
+      <td>290.3</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>980.0</td>
+      <td>306.0</td>
+      <td>18.4</td>
+      <td>12.4</td>
+      <td>68.0</td>
+      <td>9.268841</td>
+      <td>320.0</td>
+      <td>10.0</td>
+      <td>293.2</td>
+      <td>320.1</td>
+      <td>294.9</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>145</th>
+      <td>145</td>
+      <td>10.0</td>
+      <td>31750.0</td>
+      <td>-35.1</td>
+      <td>-73.1</td>
+      <td>1.0</td>
+      <td>0.194108</td>
+      <td>80.0</td>
+      <td>35.0</td>
+      <td>887.4</td>
+      <td>889.8</td>
+      <td>887.5</td>
+    </tr>
+    <tr>
+      <th>146</th>
+      <td>146</td>
+      <td>9.2</td>
+      <td>32309.0</td>
+      <td>-33.9</td>
+      <td>-72.4</td>
+      <td>1.0</td>
+      <td>0.233963</td>
+      <td>95.0</td>
+      <td>29.0</td>
+      <td>912.3</td>
+      <td>915.4</td>
+      <td>912.4</td>
+    </tr>
+    <tr>
+      <th>147</th>
+      <td>147</td>
+      <td>8.8</td>
+      <td>32614.0</td>
+      <td>-33.2</td>
+      <td>-72.0</td>
+      <td>1.0</td>
+      <td>0.259383</td>
+      <td>85.0</td>
+      <td>42.0</td>
+      <td>926.2</td>
+      <td>929.6</td>
+      <td>926.4</td>
+    </tr>
+    <tr>
+      <th>148</th>
+      <td>148</td>
+      <td>8.1</td>
+      <td>33223.0</td>
+      <td>-31.9</td>
+      <td>-71.2</td>
+      <td>1.0</td>
+      <td>0.316642</td>
+      <td>105.0</td>
+      <td>34.0</td>
+      <td>954.6</td>
+      <td>958.9</td>
+      <td>954.8</td>
+    </tr>
+    <tr>
+      <th>149</th>
+      <td>149</td>
+      <td>7.8</td>
+      <td>33528.0</td>
+      <td>-31.3</td>
+      <td>-70.8</td>
+      <td>1.0</td>
+      <td>0.348418</td>
+      <td>105.0</td>
+      <td>38.0</td>
+      <td>969.1</td>
+      <td>973.9</td>
+      <td>969.3</td>
+    </tr>
+  </tbody>
+</table>
+<p>150 rows × 12 columns</p>
+</div></div></div>
 </div>
 </section>
 <section id="plot-the-sounding">
@@ -516,18 +697,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">15</span>
-<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="n">skew_plot</span><span class="o">.</span><span class="n">plot_moist_adiabats</span><span class="p">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="n">skew_plot</span><span class="o">.</span><span class="n">plot_mixing_lines</span><span class="p">()</span>
-<span class="ne">---&gt; </span><span class="mi">15</span> <span class="n">skew_plot</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">press</span><span class="p">,</span><span class="n">temp</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="n">skew_plot</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">press</span><span class="p">,</span><span class="n">dewpoint</span><span class="p">,</span><span class="s1">&#39;g&#39;</span><span class="p">);</span>
-
-<span class="ne">NameError</span>: name &#39;press&#39; is not defined
-</pre></div>
-</div>
-<img alt="../_images/21f935bb6a2bd76abcbe0d9b54ab17e37ba96f58ed83a5b3d5fe14796d6433e4.png" src="../_images/21f935bb6a2bd76abcbe0d9b54ab17e37ba96f58ed83a5b3d5fe14796d6433e4.png" />
+<img alt="../_images/ce85cb686f1fb20a6b90d44fa2fbb3c78c0020fabe49b952f48d6130640a7ee7.png" src="../_images/ce85cb686f1fb20a6b90d44fa2fbb3c78c0020fabe49b952f48d6130640a7ee7.png" />
 </div>
 </div>
 </section>
@@ -599,13 +769,7 @@ the pressure scale height in meters</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">Hbar</span> <span class="o">=</span> <span class="n">calc_scale_height</span><span class="p">(</span><span class="n">tempK</span><span class="p">,</span><span class="n">pressPa</span><span class="p">,</span><span class="n">height</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">Hbar</span><span class="si">=:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2"> meters&quot;</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;tempK&#39; is not defined
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hbar=6881 meters
 </pre></div>
 </div>
 </div>
@@ -677,13 +841,7 @@ is:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">Hrho</span> <span class="o">=</span> <span class="n">calc_dense_height</span><span class="p">(</span><span class="n">tempK</span><span class="p">,</span><span class="n">pressPa</span><span class="p">,</span><span class="n">height</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">Hrho</span><span class="si">=:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2"> meters&quot;</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;tempK&#39; is not defined
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hrho=7156 meters
 </pre></div>
 </div>
 </div>
@@ -724,23 +882,7 @@ is:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">11</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="c1">#  In this cell make a plot with two lines, </span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1">#</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>      <span class="mi">8</span> <span class="c1">#  set the y axis limits from 0 to 10 km</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="c1">#</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="n">fig</span><span class="p">,</span><span class="n">theAx</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="ne">---&gt; </span><span class="mi">11</span> <span class="n">hydroPress</span><span class="o">=</span><span class="n">press</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">height</span><span class="o">/</span><span class="n">Hbar</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="n">theAx</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">press</span><span class="p">,</span><span class="n">height_km</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;sounding&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="n">theAx</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">hydroPress</span><span class="p">,</span><span class="n">height_km</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;hydrostat approx&#39;</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;press&#39; is not defined
-</pre></div>
-</div>
-<img alt="../_images/f61f5e1894116d0d4bdde7dcdc31d687adf144526ad5ab32c36137e3afca57fd.png" src="../_images/f61f5e1894116d0d4bdde7dcdc31d687adf144526ad5ab32c36137e3afca57fd.png" />
+<img alt="../_images/e6272db82497d3f83a4d2ce078123f12dd45d68cdcecfd3a865401cc863d0282.png" src="../_images/e6272db82497d3f83a4d2ce078123f12dd45d68cdcecfd3a865401cc863d0282.png" />
 </div>
 </div>
 </section>
