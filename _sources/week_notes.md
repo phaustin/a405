@@ -112,10 +112,10 @@ Learning objectives
 - Thompkins treatment of the Clausius-Clapeyron equation in Section 2.1 is pretty terse.  This week
 we'll go through it in much more detail, starting with the following material:
 
-- [Shroeder free energy Chapter 5](https://drive.google.com/file/d/1GrzhzpvWbN0H4dP3Z77M4O88Cyey5k2K/view?usp=sharing)
-- [Maxwell relations notes](https://drive.google.com/file/d/1rJO32NGhTW3TA6noQmSdNl2GNXyrZUgA/view?usp=sharing)
-- [Lohmann Chapter 2 thermodynamics](https://drive.google.com/file/d/1YrHBkCiFduYqjd_Dn8_3fZJocmqva1PG/view?usp=sharing)
-- {ref}`worksheet5_latent`
+  - [Shroeder free energy Chapter 5](https://drive.google.com/file/d/1GrzhzpvWbN0H4dP3Z77M4O88Cyey5k2K/view?usp=sharing)
+  - [Maxwell relations notes](https://drive.google.com/file/d/1rJO32NGhTW3TA6noQmSdNl2GNXyrZUgA/view?usp=sharing)
+  - [Lohmann Chapter 2 thermodynamics](https://drive.google.com/file/d/1YrHBkCiFduYqjd_Dn8_3fZJocmqva1PG/view?usp=sharing)
+  - {ref}`worksheet5_latent`
 
 #### For Thursday
 
