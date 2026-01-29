@@ -105,7 +105,7 @@ that the total volume of the combined compartments A and B has to stay constant 
 ```{figure} images/insulated_box.png
 ---
 width: 70%
-name: directive-fig
+name: adiabatic_box
 alt: pha
 ---
 Two box setup

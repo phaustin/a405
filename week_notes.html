@@ -198,13 +198,16 @@
 <li class="toctree-l1"><a class="reference internal" href="notebooks/worksheets/worksheet3_derivs_and_ints_solution.html">worksheet 3 solution: working with numpy arrays</a></li>
 <li class="toctree-l1"><a class="reference internal" href="notebooks/worksheets/worksheet4_taylor_series_solution.html">Worksheet 4: Taylor series solution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="notebooks/week4/xarray-intro.html">Demo: Introduction to Xarray</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks/worksheets/worksheet5_latent_heat.html">Worksheet 5: Latent heat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/worksheets/worksheet5_latent_solution.html">Worksheet 5 solution: Latent heat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/worksheets/worksheet6_gibbs.html">Worksheet 6: Gibbs free energy</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="assignments/adiabatic_box_solution.html">Adiabatic Box - Solution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="assignments/hydrostatic_scaling_solution.html">Assign 2: Solution - Scale heights for typical atmospheric soundings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="assignments/tropical_clouds_profiles.html">Assignment 3: Analyzing a model cloud dataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="assignments/rootfind.html">Assignment 4 rootfinding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="assignments/assignment4_paper.html">Assignment 4 part 2</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">In-depth notes</span></p>
 <ul class="nav bd-sidenav">
@@ -218,6 +221,7 @@
 <li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1GrzhzpvWbN0H4dP3Z77M4O88Cyey5k2K/view?usp=sharing">Schroeder Chapter 5 free energy</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1YrHBkCiFduYqjd_Dn8_3fZJocmqva1PG/view?usp=sharing">Lohmann Chapter 2 - Thermodynamics</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1rJO32NGhTW3TA6noQmSdNl2GNXyrZUgA/view?usp=sharing">Maxwell relations</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/144fXb0-of3lpwL0xGZYH16yxGJOmvDEh/view?usp=sharing">Clausius-Clapeyron equation</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Animations</span></p>
 <ul class="nav bd-sidenav">
@@ -398,6 +402,10 @@ document.write(`
 </li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-8-week-4-thursday">Lecture 8, week 4, Thursday</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-next-tuesday">For next Tuesday</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -535,7 +543,7 @@ we’ll go through it in much more detail, starting with the following material:
 <li><p><a class="reference external" href="https://drive.google.com/file/d/1GrzhzpvWbN0H4dP3Z77M4O88Cyey5k2K/view?usp=sharing">Shroeder free energy Chapter 5</a></p></li>
 <li><p><a class="reference external" href="https://drive.google.com/file/d/1rJO32NGhTW3TA6noQmSdNl2GNXyrZUgA/view?usp=sharing">Maxwell relations notes</a></p></li>
 <li><p><a class="reference external" href="https://drive.google.com/file/d/1YrHBkCiFduYqjd_Dn8_3fZJocmqva1PG/view?usp=sharing">Lohmann Chapter 2 thermodynamics</a></p></li>
-<li><p><a class="reference internal" href="notebooks/worksheets/worksheet5_latent_heat.html#worksheet5-latent"><span class="std std-ref">Worksheet 5: Latent heat</span></a></p></li>
+<li><p><a class="reference internal" href="notebooks/worksheets/worksheet5_latent_solution.html#worksheet5-latent-solution"><span class="std std-ref">Worksheet 5 solution: Latent heat</span></a></p></li>
 </ul>
 </li>
 </ul>
@@ -548,6 +556,28 @@ free energies.</p></li>
 <li><p>Work on <a class="reference internal" href="assignments/tropical_clouds_profiles.html#tropical-profiles"><span class="std std-ref">Assignment 3: Analyzing a model cloud dataset</span></a>.</p></li>
 </ul>
 </section>
+</section>
+</section>
+<section id="lecture-8-week-4-thursday">
+<h2>Lecture 8, week 4, Thursday<a class="headerlink" href="#lecture-8-week-4-thursday" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>From last time: <a class="reference internal" href="notebooks/worksheets/worksheet5_latent_solution.html#worksheet5-latent-solution"><span class="std std-ref">Worksheet 5 solution: Latent heat</span></a></p></li>
+<li><p>This week’s worksheet:  <a class="reference internal" href="notebooks/worksheets/worksheet6_gibbs.html#worksheet6-gibbs"><span class="std std-ref">Worksheet 6: Gibbs free energy</span></a></p></li>
+<li><p>The first part of Assigment 4, due Friday midnight: <a class="reference internal" href="assignments/rootfind.html#assign4-rootfind"><span class="std std-ref">Assignment 4 rootfinding</span></a></p></li>
+</ul>
+<p>New material covering Thompkins derivation of the Clausius-Clapeyron equation on page 27</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://drive.google.com/file/d/144fXb0-of3lpwL0xGZYH16yxGJOmvDEh/view?usp=sharing">Clausius-Clapeyron notes</a></p></li>
+</ul>
+<p>A preview of <a class="reference internal" href="assignments/assignment4_paper.html#assign4-paper"><span class="std std-ref">Assignment 4 part 2</span></a>, due the weekend of Feb. 7.  This requires lecture material from next week.</p>
+<section id="for-next-tuesday">
+<h3>For next Tuesday<a class="headerlink" href="#for-next-tuesday" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Read the <a class="reference external" href="https://drive.google.com/file/d/144fXb0-of3lpwL0xGZYH16yxGJOmvDEh/view?usp=sharing">Clausius-Clapeyron notes</a></p></li>
+<li><p>Read Thompkins through the end of Chapter 2 (p. 38)</p></li>
+<li><p>Read Thompkins Sec 3.2 p. 48-55 on convective stability</p></li>
+</ul>
+<p>Work on <a class="reference internal" href="assignments/tropical_clouds_profiles.html#tropical-profiles"><span class="std std-ref">Assignment 3: Analyzing a model cloud dataset</span></a> and <a class="reference internal" href="assignments/rootfind.html#assign4-rootfind"><span class="std std-ref">Assignment 4 rootfinding</span></a>.</p>
 </section>
 </section>
 </section>
@@ -640,6 +670,10 @@ free energies.</p></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">For Thursday</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-8-week-4-thursday">Lecture 8, week 4, Thursday</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-next-tuesday">For next Tuesday</a></li>
 </ul>
 </li>
 </ul>

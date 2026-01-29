@@ -115,7 +115,7 @@ we'll go through it in much more detail, starting with the following material:
   - [Shroeder free energy Chapter 5](https://drive.google.com/file/d/1GrzhzpvWbN0H4dP3Z77M4O88Cyey5k2K/view?usp=sharing)
   - [Maxwell relations notes](https://drive.google.com/file/d/1rJO32NGhTW3TA6noQmSdNl2GNXyrZUgA/view?usp=sharing)
   - [Lohmann Chapter 2 thermodynamics](https://drive.google.com/file/d/1YrHBkCiFduYqjd_Dn8_3fZJocmqva1PG/view?usp=sharing)
-  - {ref}`worksheet5_latent`
+  - {ref}`worksheet5_latent_solution`
 
 #### For Thursday
 
@@ -124,6 +124,27 @@ we'll go through it in much more detail, starting with the following material:
 - Read [Lohmann section 2.4](https://drive.google.com/file/d/1YrHBkCiFduYqjd_Dn8_3fZJocmqva1PG/view?usp=sharing) up to p. 48 on the Clausius-Clapeyron equation.
 
 - Work on {ref}`tropical_profiles`.
+
+## Lecture 8, week 4, Thursday
+
+- From last time: {ref}`worksheet5_latent_solution`
+- This week's worksheet:  {ref}`worksheet6_gibbs`
+- The first part of Assigment 4, due Friday midnight: {ref}`assign4_rootfind`
+
+New material covering Thompkins derivation of the Clausius-Clapeyron equation on page 27
+
+- [Clausius-Clapeyron notes](https://drive.google.com/file/d/144fXb0-of3lpwL0xGZYH16yxGJOmvDEh/view?usp=sharing)
+
+A preview of {ref}`assign4_paper`, due the weekend of Feb. 7.  This requires lecture material from next week.
+
+### For next Tuesday
+
+- Read the [Clausius-Clapeyron notes](https://drive.google.com/file/d/144fXb0-of3lpwL0xGZYH16yxGJOmvDEh/view?usp=sharing)
+- Read Thompkins through the end of Chapter 2 (p. 38)
+- Read Thompkins Sec 3.2 p. 48-55 on convective stability
+
+Work on {ref}`tropical_profiles` and {ref}`assign4_rootfind`.
+
 
 
 
