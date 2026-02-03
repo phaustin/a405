@@ -12,8 +12,8 @@ kernelspec:
   name: python3
 ---
 
-(tropical_profiles)=
-# Assignment 3: Analyzing a model cloud dataset
+(tropical_profiles_solution)=
+# Assignment 3 solution: Analyzing a model cloud dataset
 
 This notebook shows how to locate clouds in the tropical_subset.nc netcdf file and plot their temperature and liquid water profiles.
 
@@ -185,6 +185,10 @@ updraft_list =list(zip(*out))
 ```
 
 ```{code-cell} ipython3
+
+```
+
+```{code-cell} ipython3
 fig,ax=plt.subplots(1,4,figsize=(18,8))
 for y,x in updraft_list:
     ax[0].plot(the_temp[:,y,x],the_height)
@@ -206,23 +210,91 @@ out=[the_ax.set(ylim=(0,1000)) for the_ax in ax]
 
 In the box below, plot the 5 strongest updrafts found above on a tephigram, zooming in on the bottom 1 km.  Are the soundings dry adiabatic, moist adiabatic or somewhere in between?
 
++++
+
+#### 1. Answer
+
+The sub-cloud layer is dry-adibatic for all profiles.  The profiles all moist adiabatic in solid cloud, and then between dry and moist adiabatic above cloud top.  Note that one of the clouds is much taller than the other 4.
+
 ```{code-cell} ipython3
 # your code here
+
+from a405.thermo.constants import constants as c
+from metpy.plots import SkewT
+from metpy.units import units
+fig,ax =plt.subplots(1,1,figsize=(8,8))
+fig.clf()
+skew_plot = SkewT(fig)
+skew_plot.ax.set_title("metpy example")
+skew_plot.ax.set(xlim=(20,25),ylim=(1000,900))
+theta = np.arange(0,60,2) + 273.15
+theta = theta*units("K")
+skew_plot.plot_dry_adiabats(t0=theta)
+skew_plot.plot_moist_adiabats()
+skew_plot.plot_mixing_lines()
+for y,x in updraft_list:
+    temp = the_temp[:,y,x]
+    skew_plot.plot(the_press*0.01,temp - c.Tc,'r')
 ```
 
 ### 2. $q_v$ variablity
 
 in the box below make a plots of the average $q_v$ as a function of height for the bottom 1 km, and the standard deviation in $q_v$ as a function of height
 
+#### 2. Answer
+
+$q_v$  variability increases in the cloud layer
+
 ```{code-cell} ipython3
 # 2. your code here
+qvmean = qv.mean(dim=('y','x'))
+qvstd = qv.var(dim=('y','x'))**0.5
+fig, ax = plt.subplots()
+ax.plot(qvmean,the_height)
+ax.plot(qvmean - qvstd,the_height,'b:')
+ax.plot(qvmean + qvstd,the_height,'b:')
+ax.set_ylim(0,1000)
+ax.set_xlim(13,18)
 ```
 
 ### 3. Tallest cloud
 
-In the box below, write a function that finds the tallest cloud in the dataset.  What is the maximum cloud top height?
+In the box below, write a function that finds the tallest cloud in the dataset.  What is the maximum cloud top height?  Does this seem reasonable?
 
-+++
+```{code-cell} ipython3
+def find_tallest(ql):
+    """
+    given the liquid water xarray, start at the highest level and look
+    at the sum of all pixels at each level with ql>0, stopping at
+    first true value
+    
+    Parameters
+    ----------
+
+    ql: array of model liquid water content (g/kg)
+      type: xarray ('z','y','x')
+
+    Returns
+    -------
+
+    index, count_vec: tuple with index (int): highest level with at least one cloud pixel
+                       count_vec: 1-d xarray with counts and height dimension
+    """
+    hit = ql > 0.001
+    count_vec =  hit.sum(dim=('y','x'))
+    zsize = count_vec.sizes['z']
+    index_list = np.arange(zsize-1,-1,-1)
+    index=0
+    for index in index_list:
+        count = count_vec[index].data
+        if count > 0:
+            break
+    return int(index),count_vec
+
+first_cloud,count_vec = find_tallest(ql)
+zlev = count_vec.z[first_cloud].data
+print(f"highest cloud level is at {zlev=:.0f} m")
+```
 
 ### 4. Buoyancy vs. pressure perturbation
 
@@ -235,8 +307,38 @@ $$
 
 In the cell below, plot histograms of each of those terms at the 500 m height level.  Can you confirm that the pressure perturbation term is small enough to be neglected at that level?
 
++++
+
+#### 4. Answer
+
+The normalized pressure perturbation is about a factor of 10 lower than temperature
+or pressure pertubations.  We can see from the histograms that they do
+look like the temperature perturbations are just the negative of the density perturbations.
+
 ```{code-cell} ipython3
 # your code here
+
+T_mean = the_temp[index_500,:,:].mean()
+T_prime = the_temp[index_500,:,:] - T_mean
+T_term = T_prime/T_mean
+
+rho = the_press[index_500]/(c.Rd*the_temp[index_500,:,:])
+rho_mean = rho[:,:].mean()
+rho_prime = rho - rho.mean()
+rho_term = rho_prime/rho_mean
+
+p_prime = the_ds['PP'].squeeze()
+p_prime = p_prime[index_500,:,:]
+p_mean = the_press[index_500]
+p_term = p_prime/p_mean
+
+fig,(ax_temp,ax_rho,ax_press) = plt.subplots(1,3,figsize=(10,8))
+ax_temp.hist(T_term.data.flatten()*1.e3)
+ax_rho.hist(rho_term.data.flatten()*1.e3)
+ax_press.hist(p_term.data.flatten()*1.e3)
+ax_temp.set_title('temperature perturb (*1000)')
+ax_rho.set_title('rho perturb(*1000)')
+ax_press.set_title('press perturb (*1000)');
 ```
 
 ```{code-cell} ipython3

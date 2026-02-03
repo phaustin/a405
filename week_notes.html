@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -57,6 +57,8 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'week_notes';</script>
     <link rel="canonical" href="https://phaustin.github.io/a405/week_notes.html" />
     <link rel="index" title="Index" href="genindex.html" />
@@ -185,6 +187,9 @@
 <li class="toctree-l1"><a class="reference external" href="https://gw2jh3xr2c.search.serialssolutions.com/?sid=sersol&amp;SS_jc=TC0001980404&amp;title=An%20introduction%20to%20clouds%20%3A%20from%20the%20microscale%20to%20climate">Lohmann et al. text</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://www.dropbox.com/scl/fi/r7zhctw6usest2rirpe2f/wallace_hobbs_chap6.pdf?rlkey=oxdanppj9wkocmwe4nn4cc4fi&amp;dl=0">Wallace and Hobbs chapter 6</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://www.eoas.ubc.ca/books/Practical_Meteorology">Stull, Practical Meteorolgy</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://phaustin.github.io/a405_lib/full_listing.html">A405 library documentation</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/phaustin/a405/tree/main/src/a405">A405 library source code</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.google.com/presentation/d/1tgA2Ia1sWPzZVlgspuW7MOUfokDDZmfvS2eDTtFr-Mw/edit?usp=sharing">Blank tephigram - 1000-800 hPa</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Weekly topics</span></p>
 <ul class="current nav bd-sidenav">
@@ -199,13 +204,14 @@
 <li class="toctree-l1"><a class="reference internal" href="notebooks/worksheets/worksheet4_taylor_series_solution.html">Worksheet 4: Taylor series solution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="notebooks/week4/xarray-intro.html">Demo: Introduction to Xarray</a></li>
 <li class="toctree-l1"><a class="reference internal" href="notebooks/worksheets/worksheet5_latent_solution.html">Worksheet 5 solution: Latent heat</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks/worksheets/worksheet6_gibbs.html">Worksheet 6: Gibbs free energy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/worksheets/worksheet6_gibbs_solution.html">Worksheet 6 solution: Gibbs free energy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/worksheets/mixing_line_example.html">Mixing line example</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="assignments/adiabatic_box_solution.html">Adiabatic Box - Solution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="assignments/hydrostatic_scaling_solution.html">Assign 2: Solution - Scale heights for typical atmospheric soundings</a></li>
-<li class="toctree-l1"><a class="reference internal" href="assignments/tropical_clouds_profiles.html">Assignment 3: Analyzing a model cloud dataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="assignments/tropical_clouds_profiles_solution.html">Assignment 3 solution: Analyzing a model cloud dataset</a></li>
 <li class="toctree-l1"><a class="reference internal" href="assignments/rootfind.html">Assignment 4 rootfinding</a></li>
 <li class="toctree-l1"><a class="reference internal" href="assignments/assignment4_paper.html">Assignment 4 part 2</a></li>
 </ul>
@@ -222,6 +228,9 @@
 <li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1YrHBkCiFduYqjd_Dn8_3fZJocmqva1PG/view?usp=sharing">Lohmann Chapter 2 - Thermodynamics</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1rJO32NGhTW3TA6noQmSdNl2GNXyrZUgA/view?usp=sharing">Maxwell relations</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/144fXb0-of3lpwL0xGZYH16yxGJOmvDEh/view?usp=sharing">Clausius-Clapeyron equation</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1EQI86M4I76ARXDV54VOHKQP3J0-kyyDq/view?usp=sharing">Virtual temperature notes</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1BPTvFijtktG4135T1X8DXwI8l_C8xHEt/view?usp=sharing">Static energy and $\theta_e$ notes</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/131QoLZPjajoCtreV6muYOxDlF6jvRH4s/view?usp=sharing">Carnot cycle notes</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Animations</span></p>
 <ul class="nav bd-sidenav">
@@ -386,24 +395,43 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives-for-the-thompkins-reading">Learning objectives for the Thompkins reading</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-3-week-2-tuesday">Lecture 3, week 2, Tuesday</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-2">Week 2</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-3-week-2-tuesday">Lecture 3, week 2, Tuesday</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#for-thursday">For  Thursday:</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-4-week-2-thursday">Lecture 4, week 2, Thursday</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-3">Week 3</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-5-week-3-tuesday">Lecture 5, week 3, Tuesday</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#for-thursday">For Thursday</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">For Thursday</a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-6-week-3-thursday">Lecture 6, week 3, Thursday</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#for-tuesday">For Tuesday</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-4">Week 4</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-7-week-4-tuesday">Lecture 7, week 4, Tuesday</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">For Thursday</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">For Thursday</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-8-week-4-thursday">Lecture 8, week 4, Thursday</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#for-next-tuesday">For next Tuesday</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-8-week-4-thursday">Lecture 8, week 4, Thursday</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-next-tuesday">For next Tuesday</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-5">Week 5</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-9-week-5-ttuesday">Lecture 9, week 5, Ttuesday</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">For Tuesday</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -459,6 +487,9 @@ document.write(`
 </ul>
 </section>
 </section>
+</section>
+<section id="week-2">
+<h2>Week 2<a class="headerlink" href="#week-2" title="Link to this heading">#</a></h2>
 <section id="lecture-3-week-2-tuesday">
 <h3>Lecture 3, week 2, Tuesday<a class="headerlink" href="#lecture-3-week-2-tuesday" title="Link to this heading">#</a></h3>
 <ul class="simple">
@@ -478,7 +509,10 @@ document.write(`
 <ol class="arabic simple" start="2">
 <li><p>Today’s worksheet is about the A405 thermodynamic library:  <a class="reference external" href="https://drive.google.com/file/d/1NzrJy3mG9O9CGORxv3Vtujvd9CAQ-jwZ/view?usp=sharing">worksheet2.ipynb</a>.  There are 2 questions: one for Tuesday and one for Thursday.  You can hand in just once on Thursday.</p></li>
 </ol>
-<p>For  Thursday:  Finish Assignment 1 and read my three notes.  Think about how you would actually get numbers for the internal energy, enthalpy and entropy of air in practice.  What are the limits of integration for temperature?  Are you starting at absolute zero?   How could that work if air would be rock solid at absolute zero?  Are the heat capacities really constant over that enormous temperature range?</p>
+<section id="for-thursday">
+<h4>For  Thursday:<a class="headerlink" href="#for-thursday" title="Link to this heading">#</a></h4>
+<p>Finish Assignment 1 and read my three notes.  Think about how you would actually get numbers for the internal energy, enthalpy and entropy of air in practice.  What are the limits of integration for temperature?  Are you starting at absolute zero?   How could that work if air would be rock solid at absolute zero?  Are the heat capacities really constant over that enormous temperature range?</p>
+</section>
 </section>
 <section id="lecture-4-week-2-thursday">
 <h3>Lecture 4, week 2, Thursday<a class="headerlink" href="#lecture-4-week-2-thursday" title="Link to this heading">#</a></h3>
@@ -490,6 +524,9 @@ document.write(`
 <li><p>Introduce <a class="reference internal" href="assignments/hydrostatic_scaling_solution.html#assign2-hydro-solution"><span class="std std-ref">Assign 2: Solution - Scale heights for typical atmospheric soundings</span></a></p></li>
 </ol>
 </section>
+</section>
+<section id="week-3">
+<h2>Week 3<a class="headerlink" href="#week-3" title="Link to this heading">#</a></h2>
 <section id="lecture-5-week-3-tuesday">
 <h3>Lecture 5, week 3, Tuesday<a class="headerlink" href="#lecture-5-week-3-tuesday" title="Link to this heading">#</a></h3>
 <p>Learning objectives</p>
@@ -500,8 +537,8 @@ document.write(`
 <li><p>Go over the <a class="reference internal" href="assignments/adiabatic_box_solution.html#adiabatic-box-solution"><span class="std std-ref">Adiabatic Box - Solution</span></a></p></li>
 <li><p>Go over Thompkins p. 18 on buoyancy and introduce my <a class="reference external" href="https://drive.google.com/file/d/1Id1EECa8qefSD6YhJoJzVp2neEarD9Wa/view?usp=sharing">buoyancy notes</a></p></li>
 </ol>
-<section id="for-thursday">
-<h4>For Thursday<a class="headerlink" href="#for-thursday" title="Link to this heading">#</a></h4>
+<section id="id1">
+<h4>For Thursday<a class="headerlink" href="#id1" title="Link to this heading">#</a></h4>
 <ul class="simple">
 <li><p>Work on <a class="reference internal" href="assignments/hydrostatic_scaling_solution.html#assign2-hydro-solution"><span class="std std-ref">Assign 2: Solution - Scale heights for typical atmospheric soundings</span></a></p></li>
 <li><p>Read my buoyancy notes and Thompkins through p. 22</p></li>
@@ -516,7 +553,7 @@ document.write(`
 <ul class="simple">
 <li><p>Take a look at 3 cloud model animations</p></li>
 <li><p>Introduce <a class="reference internal" href="notebooks/week4/xarray-intro.html#xarray-intro"><span class="std std-ref">Demo: Introduction to Xarray</span></a></p></li>
-<li><p>Introduce <a class="reference internal" href="assignments/tropical_clouds_profiles.html#tropical-profiles"><span class="std std-ref">Assignment 3: Analyzing a model cloud dataset</span></a></p></li>
+<li><p>Introduce <a class="reference internal" href="assignments/tropical_clouds_profiles_solution.html#tropical-profiles-solution"><span class="std std-ref">Assignment 3 solution: Analyzing a model cloud dataset</span></a></p></li>
 </ul>
 </li>
 </ol>
@@ -524,10 +561,13 @@ document.write(`
 <h4>For Tuesday<a class="headerlink" href="#for-tuesday" title="Link to this heading">#</a></h4>
 <ul class="simple">
 <li><p>Read Thompkins through p. 31 on water vapor</p></li>
-<li><p>Work on <a class="reference internal" href="assignments/hydrostatic_scaling_solution.html#assign2-hydro-solution"><span class="std std-ref">Assign 2: Solution - Scale heights for typical atmospheric soundings</span></a> and <a class="reference internal" href="assignments/tropical_clouds_profiles.html#tropical-profiles"><span class="std std-ref">Assignment 3: Analyzing a model cloud dataset</span></a></p></li>
+<li><p>Work on <a class="reference internal" href="assignments/hydrostatic_scaling_solution.html#assign2-hydro-solution"><span class="std std-ref">Assign 2: Solution - Scale heights for typical atmospheric soundings</span></a> and <a class="reference internal" href="assignments/tropical_clouds_profiles_solution.html#tropical-profiles-solution"><span class="std std-ref">Assignment 3 solution: Analyzing a model cloud dataset</span></a></p></li>
 </ul>
 </section>
 </section>
+</section>
+<section id="week-4">
+<h2>Week 4<a class="headerlink" href="#week-4" title="Link to this heading">#</a></h2>
 <section id="lecture-7-week-4-tuesday">
 <h3>Lecture 7, week 4, Tuesday<a class="headerlink" href="#lecture-7-week-4-tuesday" title="Link to this heading">#</a></h3>
 <ul class="simple">
@@ -547,22 +587,21 @@ we’ll go through it in much more detail, starting with the following material:
 </ul>
 </li>
 </ul>
-<section id="id1">
-<h4>For Thursday<a class="headerlink" href="#id1" title="Link to this heading">#</a></h4>
+<section id="id2">
+<h4>For Thursday<a class="headerlink" href="#id2" title="Link to this heading">#</a></h4>
 <ul class="simple">
 <li><p>Read the <a class="reference external" href="https://drive.google.com/file/d/1GrzhzpvWbN0H4dP3Z77M4O88Cyey5k2K/view?usp=sharing">Schroeder excerpt</a> on
 free energies.</p></li>
 <li><p>Read <a class="reference external" href="https://drive.google.com/file/d/1YrHBkCiFduYqjd_Dn8_3fZJocmqva1PG/view?usp=sharing">Lohmann section 2.4</a> up to p. 48 on the Clausius-Clapeyron equation.</p></li>
-<li><p>Work on <a class="reference internal" href="assignments/tropical_clouds_profiles.html#tropical-profiles"><span class="std std-ref">Assignment 3: Analyzing a model cloud dataset</span></a>.</p></li>
+<li><p>Work on <a class="reference internal" href="assignments/tropical_clouds_profiles_solution.html#tropical-profiles-solution"><span class="std std-ref">Assignment 3 solution: Analyzing a model cloud dataset</span></a>.</p></li>
 </ul>
 </section>
 </section>
-</section>
 <section id="lecture-8-week-4-thursday">
-<h2>Lecture 8, week 4, Thursday<a class="headerlink" href="#lecture-8-week-4-thursday" title="Link to this heading">#</a></h2>
+<h3>Lecture 8, week 4, Thursday<a class="headerlink" href="#lecture-8-week-4-thursday" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>From last time: <a class="reference internal" href="notebooks/worksheets/worksheet5_latent_solution.html#worksheet5-latent-solution"><span class="std std-ref">Worksheet 5 solution: Latent heat</span></a></p></li>
-<li><p>This week’s worksheet:  <a class="reference internal" href="notebooks/worksheets/worksheet6_gibbs.html#worksheet6-gibbs"><span class="std std-ref">Worksheet 6: Gibbs free energy</span></a></p></li>
+<li><p>This week’s worksheet:  <a class="reference internal" href="notebooks/worksheets/worksheet6_gibbs_solution.html#worksheet6-gibbs-solution"><span class="std std-ref">Worksheet 6 solution: Gibbs free energy</span></a></p></li>
 <li><p>The first part of Assigment 4, due Friday midnight: <a class="reference internal" href="assignments/rootfind.html#assign4-rootfind"><span class="std std-ref">Assignment 4 rootfinding</span></a></p></li>
 </ul>
 <p>New material covering Thompkins derivation of the Clausius-Clapeyron equation on page 27</p>
@@ -571,13 +610,63 @@ free energies.</p></li>
 </ul>
 <p>A preview of <a class="reference internal" href="assignments/assignment4_paper.html#assign4-paper"><span class="std std-ref">Assignment 4 part 2</span></a>, due the weekend of Feb. 7.  This requires lecture material from next week.</p>
 <section id="for-next-tuesday">
-<h3>For next Tuesday<a class="headerlink" href="#for-next-tuesday" title="Link to this heading">#</a></h3>
+<h4>For next Tuesday<a class="headerlink" href="#for-next-tuesday" title="Link to this heading">#</a></h4>
 <ul class="simple">
 <li><p>Read the <a class="reference external" href="https://drive.google.com/file/d/144fXb0-of3lpwL0xGZYH16yxGJOmvDEh/view?usp=sharing">Clausius-Clapeyron notes</a></p></li>
 <li><p>Read Thompkins through the end of Chapter 2 (p. 38)</p></li>
 <li><p>Read Thompkins Sec 3.2 p. 48-55 on convective stability</p></li>
 </ul>
-<p>Work on <a class="reference internal" href="assignments/tropical_clouds_profiles.html#tropical-profiles"><span class="std std-ref">Assignment 3: Analyzing a model cloud dataset</span></a> and <a class="reference internal" href="assignments/rootfind.html#assign4-rootfind"><span class="std std-ref">Assignment 4 rootfinding</span></a>.</p>
+<p>Work on <a class="reference internal" href="assignments/tropical_clouds_profiles_solution.html#tropical-profiles-solution"><span class="std std-ref">Assignment 3 solution: Analyzing a model cloud dataset</span></a> and <a class="reference internal" href="assignments/rootfind.html#assign4-rootfind"><span class="std std-ref">Assignment 4 rootfinding</span></a>.</p>
+</section>
+</section>
+</section>
+<section id="week-5">
+<h2>Week 5<a class="headerlink" href="#week-5" title="Link to this heading">#</a></h2>
+<section id="lecture-9-week-5-ttuesday">
+<h3>Lecture 9, week 5, Ttuesday<a class="headerlink" href="#lecture-9-week-5-ttuesday" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Reading summary:  The most important concepts in the Thompkins reading are:</p></li>
+</ul>
+<ol class="arabic simple">
+<li><p>virtual temperature (problem coming on this later): moist air is
+lighter than dry air because <span class="math notranslate nohighlight">\(H_2O\)</span> is lighter than <span class="math notranslate nohighlight">\(N_2\)</span></p></li>
+<li><p>Different measures of liquid water: <span class="math notranslate nohighlight">\(\rho_l\)</span>, <span class="math notranslate nohighlight">\(r_l\)</span>, <span class="math notranslate nohighlight">\(q_l\)</span></p></li>
+<li><p>isobaric cooling vs. adiabatic expansion on a tephigram (p. 34)</p></li>
+<li><p>The saturated moist adiabat (eqn 2.44. 2.45, p. 35)</p></li>
+<li><p>Equivalent potential temperature, eq.. 2.49 p 35</p></li>
+<li><p>wet bulb temperature eq. 2.53 on p. 37</p></li>
+<li><p>Normand’s construction Fig 2.19 p. 38</p></li>
+<li><p>Moist and dry stability, p. 48 Figure 3.17</p></li>
+<li><p>CAPE and <span class="math notranslate nohighlight">\(w_{max}\)</span> eq. 3.3 and 3.4</p></li>
+</ol>
+<ul class="simple">
+<li><p>For thermodynamic diagram review – see <a class="reference external" href="https://www.eoas.ubc.ca/books/Practical_Meteorology/">Stull Chapter 5</a></p></li>
+<li><p>This week:</p>
+<ul>
+<li><p>go over:</p>
+<ul>
+<li><p><a class="reference internal" href="notebooks/worksheets/worksheet6_gibbs_solution.html#worksheet6-gibbs-solution"><span class="std std-ref">Worksheet 6 solution: Gibbs free energy</span></a></p></li>
+<li><p><a class="reference internal" href="assignments/tropical_clouds_profiles_solution.html#tropical-profiles-solution"><span class="std std-ref">Assignment 3 solution: Analyzing a model cloud dataset</span></a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Preview three new sets of notes:</p>
+<ul>
+<li><p><a class="reference external" href="https://drive.google.com/file/d/1EQI86M4I76ARXDV54VOHKQP3J0-kyyDq/view?usp=sharing">Virtual temperature notes</a></p></li>
+<li><p><a class="reference external" href="https://drive.google.com/file/d/1BPTvFijtktG4135T1X8DXwI8l_C8xHEt/view?usp=sharing">Static energy and moist adiabats</a></p></li>
+<li><p><a class="reference external" href="https://drive.google.com/file/d/131QoLZPjajoCtreV6muYOxDlF6jvRH4s/view?usp=sharing">Carnot cycle review</a></p></li>
+</ul>
+</li>
+<li><p>Worksheet demo (no handin): <a class="reference internal" href="notebooks/worksheets/mixing_line_example.html#mixing-line-example"><span class="std std-ref">Mixing line example</span></a></p></li>
+<li><p>A <a class="reference external" href="https://docs.google.com/presentation/d/1tgA2Ia1sWPzZVlgspuW7MOUfokDDZmfvS2eDTtFr-Mw/edit?usp=sharing">blank tephigram</a> to use in <a class="reference internal" href="assignments/assignment4_paper.html#assign4-paper"><span class="std std-ref">Assignment 4 part 2</span></a></p></li>
+</ul>
+<section id="id3">
+<h4>For Tuesday<a class="headerlink" href="#id3" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Read the three new sets of notes and work on <a class="reference internal" href="assignments/rootfind.html#assign4-rootfind"><span class="std std-ref">Assignment 4 rootfinding</span></a> and <a class="reference internal" href="assignments/assignment4_paper.html#assign4-paper"><span class="std std-ref">Assignment 4 part 2</span></a></p></li>
+</ul>
+</section>
 </section>
 </section>
 </section>
@@ -656,24 +745,43 @@ free energies.</p></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives-for-the-thompkins-reading">Learning objectives for the Thompkins reading</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-3-week-2-tuesday">Lecture 3, week 2, Tuesday</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-2">Week 2</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-3-week-2-tuesday">Lecture 3, week 2, Tuesday</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#for-thursday">For  Thursday:</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-4-week-2-thursday">Lecture 4, week 2, Thursday</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-3">Week 3</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-5-week-3-tuesday">Lecture 5, week 3, Tuesday</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#for-thursday">For Thursday</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">For Thursday</a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-6-week-3-thursday">Lecture 6, week 3, Thursday</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#for-tuesday">For Tuesday</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-4">Week 4</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-7-week-4-tuesday">Lecture 7, week 4, Tuesday</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">For Thursday</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">For Thursday</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-8-week-4-thursday">Lecture 8, week 4, Thursday</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#for-next-tuesday">For next Tuesday</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-8-week-4-thursday">Lecture 8, week 4, Thursday</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-next-tuesday">For next Tuesday</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-5">Week 5</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-9-week-5-ttuesday">Lecture 9, week 5, Ttuesday</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">For Tuesday</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Assignment 3: Analyzing a model cloud dataset &#8212; ATSC 405</title>
+    <title>Assignment 3 solution: Analyzing a model cloud dataset &#8212; ATSC 405</title>
   
   
   
@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -59,8 +59,8 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'assignments/tropical_clouds_profiles';</script>
-    <link rel="canonical" href="https://phaustin.github.io/a405/assignments/tropical_clouds_profiles.html" />
+    <script>DOCUMENTATION_OPTIONS.pagename = 'assignments/tropical_clouds_profiles_solution';</script>
+    <link rel="canonical" href="https://phaustin.github.io/a405/assignments/tropical_clouds_profiles_solution.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Assignment 4 rootfinding" href="rootfind.html" />
@@ -187,6 +187,9 @@
 <li class="toctree-l1"><a class="reference external" href="https://gw2jh3xr2c.search.serialssolutions.com/?sid=sersol&amp;SS_jc=TC0001980404&amp;title=An%20introduction%20to%20clouds%20%3A%20from%20the%20microscale%20to%20climate">Lohmann et al. text</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://www.dropbox.com/scl/fi/r7zhctw6usest2rirpe2f/wallace_hobbs_chap6.pdf?rlkey=oxdanppj9wkocmwe4nn4cc4fi&amp;dl=0">Wallace and Hobbs chapter 6</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://www.eoas.ubc.ca/books/Practical_Meteorology">Stull, Practical Meteorolgy</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://phaustin.github.io/a405_lib/full_listing.html">A405 library documentation</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/phaustin/a405/tree/main/src/a405">A405 library source code</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.google.com/presentation/d/1tgA2Ia1sWPzZVlgspuW7MOUfokDDZmfvS2eDTtFr-Mw/edit?usp=sharing">Blank tephigram - 1000-800 hPa</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Weekly topics</span></p>
 <ul class="nav bd-sidenav">
@@ -201,13 +204,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/worksheets/worksheet4_taylor_series_solution.html">Worksheet 4: Taylor series solution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/week4/xarray-intro.html">Demo: Introduction to Xarray</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/worksheets/worksheet5_latent_solution.html">Worksheet 5 solution: Latent heat</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/worksheets/worksheet6_gibbs.html">Worksheet 6: Gibbs free energy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/worksheets/worksheet6_gibbs_solution.html">Worksheet 6 solution: Gibbs free energy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/worksheets/mixing_line_example.html">Mixing line example</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="adiabatic_box_solution.html">Adiabatic Box - Solution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hydrostatic_scaling_solution.html">Assign 2: Solution - Scale heights for typical atmospheric soundings</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Assignment 3: Analyzing a model cloud dataset</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Assignment 3 solution: Analyzing a model cloud dataset</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rootfind.html">Assignment 4 rootfinding</a></li>
 <li class="toctree-l1"><a class="reference internal" href="assignment4_paper.html">Assignment 4 part 2</a></li>
 </ul>
@@ -284,7 +288,7 @@
       
       
       
-      <li><a href="../_sources/assignments/tropical_clouds_profiles.md" target="_blank"
+      <li><a href="../_sources/assignments/tropical_clouds_profiles_solution.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -368,7 +372,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Assignment 3: Analyzing a model cloud dataset</h1>
+    <h1>Assignment 3 solution: Analyzing a model cloud dataset</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -394,10 +398,19 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assignment-3-problems">Assignment 3 problems</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#skewt-diagram">1. SkewT diagram</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q-v-variablity">2. <span class="math notranslate nohighlight">\(q_v\)</span> variablity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#skewt-diagram">1. SkewT diagram</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#answer">1. Answer</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q-v-variablity">2. <span class="math notranslate nohighlight">\(q_v\)</span> variablity</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">2. Answer</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tallest-cloud">3. Tallest cloud</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#buoyancy-vs-pressure-perturbation">4. Buoyancy vs. pressure perturbation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#buoyancy-vs-pressure-perturbation">4. Buoyancy vs. pressure perturbation</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">4. Answer</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -411,8 +424,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="assignment-3-analyzing-a-model-cloud-dataset">
-<span id="tropical-profiles"></span><h1>Assignment 3: Analyzing a model cloud dataset<a class="headerlink" href="#assignment-3-analyzing-a-model-cloud-dataset" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="assignment-3-solution-analyzing-a-model-cloud-dataset">
+<span id="tropical-profiles-solution"></span><h1>Assignment 3 solution: Analyzing a model cloud dataset<a class="headerlink" href="#assignment-3-solution-analyzing-a-model-cloud-dataset" title="Link to this heading">#</a></h1>
 <p>This notebook shows how to locate clouds in the tropical_subset.nc netcdf file and plot their temperature and liquid water profiles.</p>
 <ul class="simple">
 <li><p>Due: Friday Jan. 30 at 11:59pm</p></li>
@@ -748,28 +761,113 @@ the_height[index_500].data=array(525., dtype=float32)
 <section id="skewt-diagram">
 <h3>1. SkewT diagram<a class="headerlink" href="#skewt-diagram" title="Link to this heading">#</a></h3>
 <p>In the box below, plot the 5 strongest updrafts found above on a tephigram, zooming in on the bottom 1 km.  Are the soundings dry adiabatic, moist adiabatic or somewhere in between?</p>
+<section id="answer">
+<h4>1. Answer<a class="headerlink" href="#answer" title="Link to this heading">#</a></h4>
+<p>The sub-cloud layer is dry-adibatic for all profiles.  The profiles all moist adiabatic in solid cloud, and then between dry and moist adiabatic above cloud top.  Note that one of the clouds is much taller than the other 4.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">a405.thermo.constants</span><span class="w"> </span><span class="kn">import</span> <span class="n">constants</span> <span class="k">as</span> <span class="n">c</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">metpy.plots</span><span class="w"> </span><span class="kn">import</span> <span class="n">SkewT</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">metpy.units</span><span class="w"> </span><span class="kn">import</span> <span class="n">units</span>
+<span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+<span class="n">skew_plot</span> <span class="o">=</span> <span class="n">SkewT</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+<span class="n">skew_plot</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;metpy example&quot;</span><span class="p">)</span>
+<span class="n">skew_plot</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlim</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">25</span><span class="p">),</span><span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span><span class="mi">900</span><span class="p">))</span>
+<span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="mf">273.15</span>
+<span class="n">theta</span> <span class="o">=</span> <span class="n">theta</span><span class="o">*</span><span class="n">units</span><span class="p">(</span><span class="s2">&quot;K&quot;</span><span class="p">)</span>
+<span class="n">skew_plot</span><span class="o">.</span><span class="n">plot_dry_adiabats</span><span class="p">(</span><span class="n">t0</span><span class="o">=</span><span class="n">theta</span><span class="p">)</span>
+<span class="n">skew_plot</span><span class="o">.</span><span class="n">plot_moist_adiabats</span><span class="p">()</span>
+<span class="n">skew_plot</span><span class="o">.</span><span class="n">plot_mixing_lines</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">y</span><span class="p">,</span><span class="n">x</span> <span class="ow">in</span> <span class="n">updraft_list</span><span class="p">:</span>
+    <span class="n">temp</span> <span class="o">=</span> <span class="n">the_temp</span><span class="p">[:,</span><span class="n">y</span><span class="p">,</span><span class="n">x</span><span class="p">]</span>
+    <span class="n">skew_plot</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">the_press</span><span class="o">*</span><span class="mf">0.01</span><span class="p">,</span><span class="n">temp</span> <span class="o">-</span> <span class="n">c</span><span class="o">.</span><span class="n">Tc</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../_images/b4ef82c6eb1753315c68df992467dbfa79716dc25be1cb5b5bcb4e4599cec591.png" src="../_images/b4ef82c6eb1753315c68df992467dbfa79716dc25be1cb5b5bcb4e4599cec591.png" />
 </div>
+</div>
+</section>
 </section>
 <section id="q-v-variablity">
 <h3>2. <span class="math notranslate nohighlight">\(q_v\)</span> variablity<a class="headerlink" href="#q-v-variablity" title="Link to this heading">#</a></h3>
 <p>in the box below make a plots of the average <span class="math notranslate nohighlight">\(q_v\)</span> as a function of height for the bottom 1 km, and the standard deviation in <span class="math notranslate nohighlight">\(q_v\)</span> as a function of height</p>
+<section id="id1">
+<h4>2. Answer<a class="headerlink" href="#id1" title="Link to this heading">#</a></h4>
+<p><span class="math notranslate nohighlight">\(q_v\)</span>  variability increases in the cloud layer</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 2. your code here</span>
+<span class="n">qvmean</span> <span class="o">=</span> <span class="n">qv</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span><span class="s1">&#39;x&#39;</span><span class="p">))</span>
+<span class="n">qvstd</span> <span class="o">=</span> <span class="n">qv</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span><span class="s1">&#39;x&#39;</span><span class="p">))</span><span class="o">**</span><span class="mf">0.5</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">qvmean</span><span class="p">,</span><span class="n">the_height</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">qvmean</span> <span class="o">-</span> <span class="n">qvstd</span><span class="p">,</span><span class="n">the_height</span><span class="p">,</span><span class="s1">&#39;b:&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">qvmean</span> <span class="o">+</span> <span class="n">qvstd</span><span class="p">,</span><span class="n">the_height</span><span class="p">,</span><span class="s1">&#39;b:&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span><span class="mi">18</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(13.0, 18.0)
+</pre></div>
+</div>
+<img alt="../_images/718e4634419b18df0a19beb7c5c4d40d09daa0b381a3b8b6ae105f0b20956d2f.png" src="../_images/718e4634419b18df0a19beb7c5c4d40d09daa0b381a3b8b6ae105f0b20956d2f.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="tallest-cloud">
+<h3>3. Tallest cloud<a class="headerlink" href="#tallest-cloud" title="Link to this heading">#</a></h3>
+<p>In the box below, write a function that finds the tallest cloud in the dataset.  What is the maximum cloud top height?  Does this seem reasonable?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">find_tallest</span><span class="p">(</span><span class="n">ql</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    given the liquid water xarray, start at the highest level and look</span>
+<span class="sd">    at the sum of all pixels at each level with ql&gt;0, stopping at</span>
+<span class="sd">    first true value</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+
+<span class="sd">    ql: array of model liquid water content (g/kg)</span>
+<span class="sd">      type: xarray (&#39;z&#39;,&#39;y&#39;,&#39;x&#39;)</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+
+<span class="sd">    index, count_vec: tuple with index (int): highest level with at least one cloud pixel</span>
+<span class="sd">                       count_vec: 1-d xarray with counts and height dimension</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">hit</span> <span class="o">=</span> <span class="n">ql</span> <span class="o">&gt;</span> <span class="mf">0.001</span>
+    <span class="n">count_vec</span> <span class="o">=</span>  <span class="n">hit</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span><span class="s1">&#39;x&#39;</span><span class="p">))</span>
+    <span class="n">zsize</span> <span class="o">=</span> <span class="n">count_vec</span><span class="o">.</span><span class="n">sizes</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">]</span>
+    <span class="n">index_list</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">zsize</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">index</span><span class="o">=</span><span class="mi">0</span>
+    <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="n">index_list</span><span class="p">:</span>
+        <span class="n">count</span> <span class="o">=</span> <span class="n">count_vec</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
+        <span class="k">if</span> <span class="n">count</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">break</span>
+    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">index</span><span class="p">),</span><span class="n">count_vec</span>
+
+<span class="n">first_cloud</span><span class="p">,</span><span class="n">count_vec</span> <span class="o">=</span> <span class="n">find_tallest</span><span class="p">(</span><span class="n">ql</span><span class="p">)</span>
+<span class="n">zlev</span> <span class="o">=</span> <span class="n">count_vec</span><span class="o">.</span><span class="n">z</span><span class="p">[</span><span class="n">first_cloud</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;highest cloud level is at </span><span class="si">{</span><span class="n">zlev</span><span class="si">=:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2"> m&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>highest cloud level is at zlev=4288 m
 </pre></div>
 </div>
 </div>
 </div>
-</section>
-<section id="tallest-cloud">
-<h3>3. Tallest cloud<a class="headerlink" href="#tallest-cloud" title="Link to this heading">#</a></h3>
-<p>In the box below, write a function that finds the tallest cloud in the dataset.  What is the maximum cloud top height?</p>
 </section>
 <section id="buoyancy-vs-pressure-perturbation">
 <h3>4. Buoyancy vs. pressure perturbation<a class="headerlink" href="#buoyancy-vs-pressure-perturbation" title="Link to this heading">#</a></h3>
@@ -780,13 +878,44 @@ the_height[index_500].data=array(525., dtype=float32)
   - \frac{T^\prime}{\overline{T}}
 \]</div>
 <p>In the cell below, plot histograms of each of those terms at the 500 m height level.  Can you confirm that the pressure perturbation term is small enough to be neglected at that level?</p>
+<section id="id2">
+<h4>4. Answer<a class="headerlink" href="#id2" title="Link to this heading">#</a></h4>
+<p>The normalized pressure perturbation is about a factor of 10 lower than temperature
+or pressure pertubations.  We can see from the histograms that they do
+look like the temperature perturbations are just the negative of the density perturbations.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here</span>
+
+<span class="n">T_mean</span> <span class="o">=</span> <span class="n">the_temp</span><span class="p">[</span><span class="n">index_500</span><span class="p">,:,:]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">T_prime</span> <span class="o">=</span> <span class="n">the_temp</span><span class="p">[</span><span class="n">index_500</span><span class="p">,:,:]</span> <span class="o">-</span> <span class="n">T_mean</span>
+<span class="n">T_term</span> <span class="o">=</span> <span class="n">T_prime</span><span class="o">/</span><span class="n">T_mean</span>
+
+<span class="n">rho</span> <span class="o">=</span> <span class="n">the_press</span><span class="p">[</span><span class="n">index_500</span><span class="p">]</span><span class="o">/</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">Rd</span><span class="o">*</span><span class="n">the_temp</span><span class="p">[</span><span class="n">index_500</span><span class="p">,:,:])</span>
+<span class="n">rho_mean</span> <span class="o">=</span> <span class="n">rho</span><span class="p">[:,:]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">rho_prime</span> <span class="o">=</span> <span class="n">rho</span> <span class="o">-</span> <span class="n">rho</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">rho_term</span> <span class="o">=</span> <span class="n">rho_prime</span><span class="o">/</span><span class="n">rho_mean</span>
+
+<span class="n">p_prime</span> <span class="o">=</span> <span class="n">the_ds</span><span class="p">[</span><span class="s1">&#39;PP&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
+<span class="n">p_prime</span> <span class="o">=</span> <span class="n">p_prime</span><span class="p">[</span><span class="n">index_500</span><span class="p">,:,:]</span>
+<span class="n">p_mean</span> <span class="o">=</span> <span class="n">the_press</span><span class="p">[</span><span class="n">index_500</span><span class="p">]</span>
+<span class="n">p_term</span> <span class="o">=</span> <span class="n">p_prime</span><span class="o">/</span><span class="n">p_mean</span>
+
+<span class="n">fig</span><span class="p">,(</span><span class="n">ax_temp</span><span class="p">,</span><span class="n">ax_rho</span><span class="p">,</span><span class="n">ax_press</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">ax_temp</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">T_term</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span><span class="o">*</span><span class="mf">1.e3</span><span class="p">)</span>
+<span class="n">ax_rho</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">rho_term</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span><span class="o">*</span><span class="mf">1.e3</span><span class="p">)</span>
+<span class="n">ax_press</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">p_term</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span><span class="o">*</span><span class="mf">1.e3</span><span class="p">)</span>
+<span class="n">ax_temp</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;temperature perturb (*1000)&#39;</span><span class="p">)</span>
+<span class="n">ax_rho</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;rho perturb(*1000)&#39;</span><span class="p">)</span>
+<span class="n">ax_press</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;press perturb (*1000)&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../_images/c04044f9270fbadff0ac96fc8ba30c0ba7d4e31862d717b94b84729bfffdc429.png" src="../_images/c04044f9270fbadff0ac96fc8ba30c0ba7d4e31862d717b94b84729bfffdc429.png" />
 </div>
+</div>
+</section>
 </section>
 </section>
 </section>
@@ -871,10 +1000,19 @@ the_height[index_500].data=array(525., dtype=float32)
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assignment-3-problems">Assignment 3 problems</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#skewt-diagram">1. SkewT diagram</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q-v-variablity">2. <span class="math notranslate nohighlight">\(q_v\)</span> variablity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#skewt-diagram">1. SkewT diagram</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#answer">1. Answer</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q-v-variablity">2. <span class="math notranslate nohighlight">\(q_v\)</span> variablity</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">2. Answer</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tallest-cloud">3. Tallest cloud</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#buoyancy-vs-pressure-perturbation">4. Buoyancy vs. pressure perturbation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#buoyancy-vs-pressure-perturbation">4. Buoyancy vs. pressure perturbation</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">4. Answer</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
