@@ -228,6 +228,9 @@
 <li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1YrHBkCiFduYqjd_Dn8_3fZJocmqva1PG/view?usp=sharing">Lohmann Chapter 2 - Thermodynamics</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1rJO32NGhTW3TA6noQmSdNl2GNXyrZUgA/view?usp=sharing">Maxwell relations</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/144fXb0-of3lpwL0xGZYH16yxGJOmvDEh/view?usp=sharing">Clausius-Clapeyron equation</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1EQI86M4I76ARXDV54VOHKQP3J0-kyyDq/view?usp=sharing">Virtual temperature notes</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1BPTvFijtktG4135T1X8DXwI8l_C8xHEt/view?usp=sharing">Static energy and $\theta_e$ notes</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/131QoLZPjajoCtreV6muYOxDlF6jvRH4s/view?usp=sharing">Carnot cycle notes</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Animations</span></p>
 <ul class="nav bd-sidenav">
@@ -464,7 +467,6 @@ cos(x) - 0.75 = 0
 
 <span class="sd">    esatOut: saturation vapor pressure (Pa)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">Tc</span> <span class="o">=</span> <span class="n">temp</span> <span class="o">-</span> <span class="mf">273.15</span>
     <span class="n">esatOut</span> <span class="o">=</span> <span class="mf">611.2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mf">17.67</span> <span class="o">*</span> <span class="n">Tc</span> <span class="o">/</span> <span class="p">(</span><span class="n">Tc</span> <span class="o">+</span> <span class="mf">243.5</span><span class="p">))</span>
     <span class="k">return</span> <span class="n">esatOut</span>
 </pre></div>
@@ -477,7 +479,7 @@ cos(x) - 0.75 = 0
    return Tdew
 </pre></div>
 </div>
-<p>and use it to make a plot of dewpoint vs temperature from 0 deg C to 30 deg C</p>
+<p>and use it to make a plot of esat (x-axis) vs dewpoint temperature (y-axis) from 5 mb to 40 mb (i.e. Thompkins Figure 2.6, but with the axes switched)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># you code here</span>

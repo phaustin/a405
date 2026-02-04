@@ -1,11 +1,11 @@
 ---
 jupytext:
+  formats: md:myst,ipynb
   text_representation:
     extension: .md
     format_name: myst
     format_version: 0.13
     jupytext_version: 1.18.1
-  formats: md:myst,ipynb
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -92,7 +92,6 @@ def find_esat(temp):
 
     esatOut: saturation vapor pressure (Pa)
     """
-    Tc = temp - 273.15
     esatOut = 611.2 * np.exp(17.67 * Tc / (Tc + 243.5))
     return esatOut
 ```
@@ -103,7 +102,7 @@ In the cell below, use the rootfinder to write this function:
        ...
        return Tdew
 
-and use it to make a plot of dewpoint vs temperature from 0 deg C to 30 deg C
+and use it to make a plot of esat (x-axis) vs dewpoint temperature (y-axis) from 5 mb to 40 mb (i.e. Thompkins Figure 2.6, but with the axes switched)
 
 ```{code-cell} ipython3
 # you code here
