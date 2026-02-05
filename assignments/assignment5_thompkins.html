@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Assignment 4 part 2 &#8212; ATSC 405</title>
+    <title>Assignment 5: Thompkins questions &#8212; ATSC 405</title>
   
   
   
@@ -59,12 +59,12 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'assignments/assignment4_paper';</script>
-    <link rel="canonical" href="https://phaustin.github.io/a405/assignments/assignment4_paper.html" />
+    <script>DOCUMENTATION_OPTIONS.pagename = 'assignments/assignment5_thompkins';</script>
+    <link rel="canonical" href="https://phaustin.github.io/a405/assignments/assignment5_thompkins.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Assignment 5: Thompkins questions" href="assignment5_thompkins.html" />
-    <link rel="prev" title="Assignment 4 rootfinding" href="rootfind.html" />
+    <link rel="next" title="Week1: Hydrostatic balance explainer" href="../notebooks/week1/hydrostat.html" />
+    <link rel="prev" title="Assignment 4 part 2" href="assignment4_paper.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -217,8 +217,8 @@
 <li class="toctree-l1"><a class="reference internal" href="hydrostatic_scaling_solution.html">Assign 2: Solution - Scale heights for typical atmospheric soundings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tropical_clouds_profiles_solution.html">Assignment 3 solution: Analyzing a model cloud dataset</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rootfind.html">Assignment 4 rootfinding</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Assignment 4 part 2</a></li>
-<li class="toctree-l1"><a class="reference internal" href="assignment5_thompkins.html">Assignment 5: Thompkins  questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="assignment4_paper.html">Assignment 4 part 2</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Assignment 5: Thompkins  questions</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">In-depth notes</span></p>
 <ul class="nav bd-sidenav">
@@ -296,7 +296,7 @@
       
       
       
-      <li><a href="../_sources/assignments/assignment4_paper.md" target="_blank"
+      <li><a href="../_sources/assignments/assignment5_thompkins.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -380,7 +380,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Assignment 4 part 2</h1>
+    <h1>Assignment 5: Thompkins  questions</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -390,9 +390,11 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-1">Question 1</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-2">Question 2</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-3">Question 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#buoyancy-and-stability">1. Buoyancy and stability</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fog">2. Fog</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relative-humidity">3. Relative humidity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#two-compartment-mixing">4. Two compartment mixing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#taylor-series">5. Taylor series</a></li>
 </ul>
             </nav>
         </div>
@@ -404,50 +406,147 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="assignment-4-part-2">
-<span id="assign4-paper"></span><h1>Assignment 4 part 2<a class="headerlink" href="#assignment-4-part-2" title="Link to this heading">#</a></h1>
-<p>These questions will be due the weekend of February 7/8</p>
-<p>Upload a scanned image with your answer to the following questions</p>
-<section id="question-1">
-<h2>Question 1<a class="headerlink" href="#question-1" title="Link to this heading">#</a></h2>
-<ul class="simple">
-<li><p>The linked tephigram shows the temperature (circle) and dewpoint (diamond) for air at 900 hPa and 800 hPa Find (showing your work on the tephigram):</p>
-<ul>
-<li><p>The LCL (hPa) of the 900 hPa air</p></li>
-<li><p>The equivalent potential temperature <span class="math notranslate nohighlight">\(\theta_e\)</span> (K)</p></li>
-<li><p>The entropy <span class="math notranslate nohighlight">\(\phi\)</span> (J/kg/K) or the 900 hPa air</p></li>
-<li><p>The wet bulb potential temperature <span class="math notranslate nohighlight">\(\theta_w\)</span> (K) of the 900 hPa air</p></li>
-</ul>
-</li>
-<li><p>Is the air at 900 hPa absolutely stable, conditionally unstable, or unstable?  Explain</p></li>
-<li><p>Is the layer between 900 hPa and 800 hPa convectively unstable? Explain.</p></li>
-</ul>
+  <section class="tex2jax_ignore mathjax_ignore" id="assignment-5-thompkins-questions">
+<span id="assignment5-thompkins"></span><h1>Assignment 5: Thompkins  questions<a class="headerlink" href="#assignment-5-thompkins-questions" title="Link to this heading">#</a></h1>
+<p>Hand in pdfs, tephigrams or scanned images that show all your work</p>
+<p>Link to <a class="reference external" href="https://drive.google.com/file/d/1xIPs9Nl4Fo253WMs4LwzIbW-QEmdG8e8/view?usp=sharing">assigment5_thompkins.md</a></p>
+<section id="buoyancy-and-stability">
+<h2>1. Buoyancy and stability<a class="headerlink" href="#buoyancy-and-stability" title="Link to this heading">#</a></h2>
+<p>1.i)  (3pt) Our by-now familiar air parcel of moist (but non-cloudy)
+air has a temperature of 24.9 deg C. It is neutrally buoyant sitting in an
+environment that has a temperature of 25 deg C and a mixing ratio of 10
+<span class="math notranslate nohighlight">\(g kg^{-1}\)</span>. What is the mixing ratio in the air parcel?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1.i Answer</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>1.ii (2pt) the temperature of the air parcel is increased by 1 deg C, so
+that it is no longer neutrally buoyant. Assuming the resulting
+acceleration is maintained (i.e. constant) for 10 seconds, what is the
+final parcel velocity?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1.ii Answer</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>1.iii (2 pt) Dry air at 1000 hPa is measured to have a temperature of
+<span class="math notranslate nohighlight">\(27^\circ\)</span> C, while at 900 hPa the temperature is 22 deg C, is this layer of the
+atmosphere dry stable, neutral or unstable?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1.iii Answer</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
-<section id="question-2">
-<h2>Question 2<a class="headerlink" href="#question-2" title="Link to this heading">#</a></h2>
-<p>Suppose air at 900 hPa is lifted adiabatically to 800 hPa, where it mixes 50/50 with
-air at that level.</p>
-<p>Using the tephigram what is the LCL of the resulting mixture?  – Clearly label your work, including the tephigram.</p>
+<section id="fog">
+<h2>2. Fog<a class="headerlink" href="#fog" title="Link to this heading">#</a></h2>
+<p>In this question, for simplicity, assume the definition of relative humidity
+defined in terms of mixing ratio: RH = <span class="math notranslate nohighlight">\(r_v/r_{vsat}\)</span></p>
+<p>2.i (2pt) The environmental air with temperature of 25.0 deg C and a mixing
+ratio of 10 <span class="math notranslate nohighlight">\(g kg^{-1}\)</span> is located near the surface at a pressure of
+1000hPa. What is the relative humidity?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span> <span class="c1"># 2.i answer</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>2.ii (1pt) The air starts to cool isobarically at night until even-
+tually a fog forms. Assuming the pressure is 1000 hPa. What is the
+temperature at which the fogs occurs? (Use the tephigram to answer
+this, please mark the answer on the tephigram)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 2.ii answer</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>2.iii (2pt) Derive this same temperature by inverting Teton’s formula,
+showing your working. (Out of interest note how close the answer is to
+your tephigram result).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 2.iii answer</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>iv (1pt) What is the common name given to this temperature?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 2. iv answer</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
-<section id="question-3">
-<h2>Question 3<a class="headerlink" href="#question-3" title="Link to this heading">#</a></h2>
+<section id="relative-humidity">
+<h2>3. Relative humidity<a class="headerlink" href="#relative-humidity" title="Link to this heading">#</a></h2>
+<p>In this question, for simplicity, assume the definition of relative
+humidity defined in terms of mixing ratio.</p>
+<p>3.i (2pt) A parcel of air at time t=0 has a temperature T0 of 25 deg C and a
+relative humidity RH of 0.1. What is the mixing ratio <span class="math notranslate nohighlight">\(r_{v0}\)</span>?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 3.i answer</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>ii (4pt) The parcel is cooled and moistened isobarically by the evaporation of precipitation to reach a final temperature
+of <span class="math notranslate nohighlight">\(T_1\)</span> and a final mixing ratio of <span class="math notranslate nohighlight">\(r_{v1}\)</span>.  Use a rootfinder to solve for <span class="math notranslate nohighlight">\(T_1\)</span> if the relative humidity is RH=0.6.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 3.ii answer</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="two-compartment-mixing">
+<h2>4. Two compartment mixing<a class="headerlink" href="#two-compartment-mixing" title="Link to this heading">#</a></h2>
+<p>4.i (3pt) Consider two compartments, each with a volume of 1 <span class="math notranslate nohighlight">\(m^3\)</span>, separated by a rigid, perfectly insulating membrane.</p>
 <ul class="simple">
-<li><p>Use the linked tephigram labeled  to sketch the following thermodynamic
-cycle.  You have a sealed cannister containing <strong>1 kg of dry air and 14 grams of water</strong>.  Initially it is at a pressure of <strong>900 hPa and a temperature of 25 deg C</strong> (Point A).  It then is taken through the following stages:</p>
-<ul>
-<li><p>adiabatic expansion until the internal pressure is 700 hPa to Point B</p></li>
-<li><p>isothermal compression back to 900 hPa (Point C)</p></li>
-<li><p>isobaric (constant pressure) heating back to 900 hPa  (Point A)</p></li>
+<li><p>Initially <span class="math notranslate nohighlight">\(T_A\)</span> = 300 K and <span class="math notranslate nohighlight">\(p_A\)</span> = <span class="math notranslate nohighlight">\(10^5\)</span> Pa, and <span class="math notranslate nohighlight">\(T_B\)</span> = 100 K and <span class="math notranslate nohighlight">\(p_B\)</span> = <span class="math notranslate nohighlight">\(10^3\)</span> Pa.  Suppose the membrane breaks.  Find the final temperature and pressure in the 2 <span class="math notranslate nohighlight">\(m^3\)</span> compartment.   Does the total entropy change?  By how much?</p></li>
 </ul>
-</li>
-</ul>
-<p>Find the following (you can use <span class="math notranslate nohighlight">\(l_v = l_{v0}\)</span> and <span class="math notranslate nohighlight">\(c_p = c_{pd}\)</span>) :</p>
-<ul class="simple">
-<li><p>The equivalent potential temperatures of point A and point C (Kelvins)</p></li>
-<li><p>The heating of the cannister <span class="math notranslate nohighlight">\(Q_{in}\)</span> (during C <span class="math notranslate nohighlight">\(\rightarrow\)</span> A) and
-cooling <span class="math notranslate nohighlight">\(Q_{out}\)</span>) during B <span class="math notranslate nohighlight">\(\rightarrow\)</span> C  (in Joules/kg)</p></li>
-<li><p>The efficiency of this heat engine (in percent)</p></li>
-</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 4.ii answer</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="taylor-series">
+<h2>5. Taylor series<a class="headerlink" href="#taylor-series" title="Link to this heading">#</a></h2>
+<p>Find the second order taylor series expansion for the following functions:</p>
+<p>5.i (2pt) <span class="math notranslate nohighlight">\((1 + \delta)^{-3}\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 5.i answer</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>5.ii(2pt) <span class="math notranslate nohighlight">\(\log(1 + \delta)\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 5.ii answer</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 
@@ -482,20 +581,20 @@ cooling <span class="math notranslate nohighlight">\(Q_{out}\)</span>) during B 
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="rootfind.html"
+       href="assignment4_paper.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Assignment 4 rootfinding</p>
+        <p class="prev-next-title">Assignment 4 part 2</p>
       </div>
     </a>
     <a class="right-next"
-       href="assignment5_thompkins.html"
+       href="../notebooks/week1/hydrostat.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Assignment 5: Thompkins  questions</p>
+        <p class="prev-next-title">Week1: Hydrostatic balance explainer</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -515,9 +614,11 @@ cooling <span class="math notranslate nohighlight">\(Q_{out}\)</span>) during B 
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-1">Question 1</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-2">Question 2</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-3">Question 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#buoyancy-and-stability">1. Buoyancy and stability</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fog">2. Fog</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relative-humidity">3. Relative humidity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#two-compartment-mixing">4. Two compartment mixing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#taylor-series">5. Taylor series</a></li>
 </ul>
   </nav></div>
 

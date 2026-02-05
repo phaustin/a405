@@ -195,4 +195,17 @@ Work on {ref}`tropical_profiles_solution` and {ref}`assign4_rootfind`.
 
 - Read the three new sets of notes and work on {ref}`assign4_rootfind` and {ref}`assign4_paper`
 
+### Lecture 10, week 5, Thursday
+
+- Final assignment before break (note new due dates): {ref}`assignment5_thompkins`
+- New worksheets:
+  - {ref}`convec_instab`
+  - {ref}`convective_lifting`
+  - {ref}`moist_adiabats`
+  - {ref}`tropical_engine_solution`
+
+#### For next Tuesday 
+   - Finish Thompkins reading
+   - Work on Assigments 4b and 5
+
 
