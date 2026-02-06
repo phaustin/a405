@@ -19,6 +19,10 @@ These questions will be due the weekend of February 7/8
 
 Upload a scanned image with your answer to the following questions
 
+You can use the same tephigram (in separate copies) for questions 1/2 and then question 3.  
+
+Here is the link to [assign4b_tephi](https://docs.google.com/presentation/d/1UMxOLz9VCRBHDpUvJOuWqgN6eFeSkVGErlthLPhbDVw/edit?usp=sharing)
+
 +++
 
 ## Question 1
