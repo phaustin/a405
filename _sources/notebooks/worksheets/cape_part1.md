@@ -17,6 +17,8 @@ kernelspec:
 
 This notebook shows how to calculate CAPE for soundings downloaded from the Wyoming website.  It does the CAPE integration described in Thompkins p. 49
 
+The download link: [cape_part1.ipynb](https://drive.google.com/file/d/1m8jSczibLnV7y_PvgdHvd7niFev1PXHJ/view?usp=sharing)
+
 ```{code-cell} ipython3
 import numpy as np
 import pandas as pd
