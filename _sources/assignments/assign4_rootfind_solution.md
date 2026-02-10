@@ -13,7 +13,7 @@ kernelspec:
 ---
 
 (assign4_rootfind_solution)=
-# Assignment 4a rootfinding
+# Assignment 4a rootfinding solution
 
 Download link to [rootfind.ipynb](https://drive.google.com/file/d/1HBjqe9Y8WbUPuOts2RQtia2d7w8VE96A/view?usp=sharing)
 
