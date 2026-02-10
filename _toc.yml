@@ -16,20 +16,38 @@ parts:
       title: Wallace and Hobbs chapter 6
     - url: https://www.eoas.ubc.ca/books/Practical_Meteorology
       title: Stull, Practical Meteorolgy
+    - url: https://phaustin.github.io/a405_lib/full_listing.html
+      title: A405 library documentation
+    - url: https://github.com/phaustin/a405/tree/main/src/a405
+      title: A405 library source code
+    - url: https://docs.google.com/presentation/d/1tgA2Ia1sWPzZVlgspuW7MOUfokDDZmfvS2eDTtFr-Mw/edit?usp=sharing
+      title: Blank tephigram - 1000-800 hPa
   - caption: Weekly topics
     chapters:
     - file: week_notes.md
   - caption: Worksheets
     chapters:
-    - file: notebooks/worksheets/worksheet1.md
     - file: notebooks/worksheets/worksheet1_solution.md
     - file: notebooks/worksheets/worksheet2_solution.md
     - file: notebooks/week2/skew_coords.md
-    - file: notebooks/worksheets/worksheet3_derivs_and_ints.md
+    - file: notebooks/worksheets/worksheet3_derivs_and_ints_solution.md
+    - file: notebooks/worksheets/worksheet4_taylor_series_solution.md
+    - file: notebooks/week4/xarray-intro.md
+    - file: notebooks/worksheets/worksheet5_latent_solution.md
+    - file: notebooks/worksheets/worksheet6_gibbs_solution.md
+    - file: notebooks/worksheets/mixing_line_example.md
+    - file: notebooks/worksheets/convec_instability.md
+    - file: notebooks/worksheets/convective_lifting.md
+    - file: notebooks/worksheets/moist_adiabats.md
+    - file: notebooks/worksheets/tropical_engine_solution.md
   - caption: Assignments
     chapters:
     - file: assignments/adiabatic_box_solution.md
-    - file: assignments/hydrostatic_scaling.md
+    - file: assignments/hydrostatic_scaling_solution.md
+    - file: assignments/tropical_clouds_profiles_solution.md
+    - file: assignments/rootfind.md
+    - file: assignments/assignment4_paper.md
+    - file: assignments/assignment5_thompkins.md
   - caption: In-depth notes
     chapters:
     - url: https://www.dropbox.com/scl/fi/5scb458wnoymr4s8ta4vt/equation_sheet.pdf?rlkey=29ymawiljakqnv3wquqa4wm8e&st=4mmzb2ii&dl=0
@@ -45,5 +63,26 @@ parts:
       title: Week 3 - Entropy and potential temperature
     - url: https://drive.google.com/file/d/1Id1EECa8qefSD6YhJoJzVp2neEarD9Wa/view?usp=sharing
       title: Week 3 - Buoyancy and Taylor's series
+    - url: https://drive.google.com/file/d/1GrzhzpvWbN0H4dP3Z77M4O88Cyey5k2K/view?usp=sharing
+      title: Schroeder Chapter 5 free energy
+    - url: https://drive.google.com/file/d/1YrHBkCiFduYqjd_Dn8_3fZJocmqva1PG/view?usp=sharing
+      title: Lohmann Chapter 2 - Thermodynamics
+    - url: https://drive.google.com/file/d/1rJO32NGhTW3TA6noQmSdNl2GNXyrZUgA/view?usp=sharing
+      title: Maxwell relations
+    - url: https://drive.google.com/file/d/144fXb0-of3lpwL0xGZYH16yxGJOmvDEh/view?usp=sharing
+      title: Clausius-Clapeyron equation
+    - url: https://drive.google.com/file/d/1EQI86M4I76ARXDV54VOHKQP3J0-kyyDq/view?usp=sharing
+      title: Virtual temperature notes
+    - url: https://drive.google.com/file/d/1BPTvFijtktG4135T1X8DXwI8l_C8xHEt/view?usp=sharing
+      title: Static energy and $\theta_e$ notes
+    - url: https://drive.google.com/file/d/131QoLZPjajoCtreV6muYOxDlF6jvRH4s/view?usp=sharing
+      title: Carnot cycle notes
       
-
+  - caption: Animations
+    chapters:
+    - url: https://drive.google.com/file/d/1Qwioo3qSyEzr4tTuC3Sx54oXLKg-3g3D/view?usp=sharing
+      title: ARM diurnal over land
+    - url: https://drive.google.com/file/d/1lCb3G9EhiPzRGO2m0FQWMTTUv2fSTnbi/view?usp=sharing
+      title: BOMEX -- trade cumulus over water
+    - url: https://drive.google.com/file/d/14ZLSAHCrjv8U0IKD9sQMHdql33Ebxkp3/view?usp=sharing
+      title: CGILS trade cumulus over water

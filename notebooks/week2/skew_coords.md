@@ -13,7 +13,7 @@ kernelspec:
 ---
 
 (skew_coords)=
-# Week2: Theromodynamic diagrams
+# Week2: Demo -- Theromodynamic diagrams
 
 Download link for [skew_coords.ipynb](https://drive.google.com/file/d/1T1QhQpIlrtPsjUTxCr7iofBVAzsfK9QV/view?usp=sharing)
 

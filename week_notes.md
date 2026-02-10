@@ -26,7 +26,7 @@
 
   - Finish the python install, using conda-lock if conda is having trouble solving for the environment.yml file
   - Introduce my take on {ref}`sec:hydrostat`
-  - Do the {ref}`worksheet1`
+  - Do the {ref}`worksheet1_solution`
 
 ####  Do for Tuesday
   
@@ -37,6 +37,8 @@ Read the Thompkins text through p. 14 and start {ref}`adiabatic_box_solution`
   - Distinguish between processes (heat and work) and state variables (energy, temperature, pressure, entropy etc.).  One way to think about this:  in thermodynamics, heat and work are always verbs ("I heat the burrito", "I work the problem") and never nouns ("the heat is killing me", "that's a lot of work").  State variables are never verbs ("don't pressure me"), they are always nouns ("the pressure is 850 hPa")
   - Conserved variables like mass, energy, and (for adiabatic processes) entropy are very powerful in physics, because they allow you to apply a constraint and simplify a problem by adding information.  Because of this, there is a whole zoo of thermodynamic variables that are conserved under various processes (precipitating, non-precipitating, freezing, etc.)
   
+## Week 2
+
 ### Lecture 3, week 2, Tuesday
 
 - Announcement:  I changed the Assignment 1 due date to Friday 11:30pm so there was time to ask questions during Thursday's class.
@@ -53,7 +55,9 @@ Learning objectives:
 
 2. Today's worksheet is about the A405 thermodynamic library:  [worksheet2.ipynb](https://drive.google.com/file/d/1NzrJy3mG9O9CGORxv3Vtujvd9CAQ-jwZ/view?usp=sharing).  There are 2 questions: one for Tuesday and one for Thursday.  You can hand in just once on Thursday.
 
-For  Thursday:  Finish Assignment 1 and read my three notes.  Think about how you would actually get numbers for the internal energy, enthalpy and entropy of air in practice.  What are the limits of integration for temperature?  Are you starting at absolute zero?   How could that work if air would be rock solid at absolute zero?  Are the heat capacities really constant over that enormous temperature range?
+#### For  Thursday:
+
+Finish Assignment 1 and read my three notes.  Think about how you would actually get numbers for the internal energy, enthalpy and entropy of air in practice.  What are the limits of integration for temperature?  Are you starting at absolute zero?   How could that work if air would be rock solid at absolute zero?  Are the heat capacities really constant over that enormous temperature range?
 
 
 ### Lecture 4, week 2, Thursday
@@ -66,8 +70,9 @@ Learning objectives
 
 3) Review derivatives and integrals in python with {ref}`derivs_ints`
 
-4) Introduce {ref}`assign2_hydro`
+4) Introduce {ref}`assign2_hydro_solution`
 
+## Week 3
 
 ### Lecture 5, week 3, Tuesday
 
@@ -85,7 +90,122 @@ Learning objectives
 
 #### For Thursday
 
-- Work on {ref}`assign2_hydro`
+- Work on {ref}`assign2_hydro_solution`
 - Read my buoyancy notes and Thompkins through p. 22
+
+### Lecture 6, week 3, Thursday
+
+1) Continue with buoyancy and Taylor Series using {ref}`worksheet4_taylor_solution`
+2) Begin work with cloud models
+   - Take a look at 3 cloud model animations
+   - Introduce {ref}`xarray_intro`
+   - Introduce {ref}`tropical_profiles_solution`
+
+#### For Tuesday
+
+- Read Thompkins through p. 31 on water vapor
+- Work on {ref}`assign2_hydro_solution` and {ref}`tropical_profiles_solution`
+
+## Week 4
+
+### Lecture 7, week 4, Tuesday
+
+- From last week:
+
+  - {ref}`worksheet4_taylor_solution`
+  - {ref}`assign2_hydro_solution`
+
+- Thompkins treatment of the Clausius-Clapeyron equation in Section 2.1 is pretty terse.  This week
+we'll go through it in much more detail, starting with the following material:
+
+  - [Shroeder free energy Chapter 5](https://drive.google.com/file/d/1GrzhzpvWbN0H4dP3Z77M4O88Cyey5k2K/view?usp=sharing)
+  - [Maxwell relations notes](https://drive.google.com/file/d/1rJO32NGhTW3TA6noQmSdNl2GNXyrZUgA/view?usp=sharing)
+  - [Lohmann Chapter 2 thermodynamics](https://drive.google.com/file/d/1YrHBkCiFduYqjd_Dn8_3fZJocmqva1PG/view?usp=sharing)
+  - {ref}`worksheet5_latent_solution`
+
+#### For Thursday
+
+- Read the [Schroeder excerpt](https://drive.google.com/file/d/1GrzhzpvWbN0H4dP3Z77M4O88Cyey5k2K/view?usp=sharing) on
+  free energies.
+- Read [Lohmann section 2.4](https://drive.google.com/file/d/1YrHBkCiFduYqjd_Dn8_3fZJocmqva1PG/view?usp=sharing) up to p. 48 on the Clausius-Clapeyron equation.
+
+- Work on {ref}`tropical_profiles_solution`.
+
+### Lecture 8, week 4, Thursday
+
+- From last time: {ref}`worksheet5_latent_solution`
+- This week's worksheet:  {ref}`worksheet6_gibbs_solution`
+- The first part of Assigment 4, due Friday midnight: {ref}`assign4_rootfind`
+
+New material covering Thompkins derivation of the Clausius-Clapeyron equation on page 27
+
+- [Clausius-Clapeyron notes](https://drive.google.com/file/d/144fXb0-of3lpwL0xGZYH16yxGJOmvDEh/view?usp=sharing)
+
+A preview of {ref}`assign4_paper`, due the weekend of Feb. 7.  This requires lecture material from next week.
+
+#### For next Tuesday
+
+- Read the [Clausius-Clapeyron notes](https://drive.google.com/file/d/144fXb0-of3lpwL0xGZYH16yxGJOmvDEh/view?usp=sharing)
+- Read Thompkins through the end of Chapter 2 (p. 38)
+- Read Thompkins Sec 3.2 p. 48-55 on convective stability
+
+Work on {ref}`tropical_profiles_solution` and {ref}`assign4_rootfind`.
+
+## Week 5
+
+### Lecture 9, week 5, Ttuesday
+
+- Reading summary:  The most important concepts in the Thompkins reading are:
+
+1) virtual temperature (problem coming on this later): moist air is
+   lighter than dry air because $H_2O$ is lighter than $N_2$
+   
+2) Different measures of liquid water: $\rho_l$, $r_l$, $q_l$
+
+3) isobaric cooling vs. adiabatic expansion on a tephigram (p. 34)
+
+4) The saturated moist adiabat (eqn 2.44. 2.45, p. 35)
+
+5) Equivalent potential temperature, eq.. 2.49 p 35
+
+6) wet bulb temperature eq. 2.53 on p. 37
+
+7) Normand's construction Fig 2.19 p. 38
+
+8) Moist and dry stability, p. 48 Figure 3.17
+
+9) CAPE and $w_{max}$ eq. 3.3 and 3.4 
+
+- For thermodynamic diagram review -- see [Stull Chapter 5](https://www.eoas.ubc.ca/books/Practical_Meteorology/)
+
+- This week:
+  - go over: 
+    - {ref}`worksheet6_gibbs_solution`
+    - {ref}`tropical_profiles_solution`
+
+- Preview three new sets of notes:
+  - [Virtual temperature notes](https://drive.google.com/file/d/1EQI86M4I76ARXDV54VOHKQP3J0-kyyDq/view?usp=sharing)
+  - [Static energy and moist adiabats](https://drive.google.com/file/d/1BPTvFijtktG4135T1X8DXwI8l_C8xHEt/view?usp=sharing)
+  - [Carnot cycle review](https://drive.google.com/file/d/131QoLZPjajoCtreV6muYOxDlF6jvRH4s/view?usp=sharing)
+  
+- Worksheet demo (no handin): {ref}`mixing_line_example`
+- A [blank tephigram](https://docs.google.com/presentation/d/1tgA2Ia1sWPzZVlgspuW7MOUfokDDZmfvS2eDTtFr-Mw/edit?usp=sharing) to use in {ref}`assign4_paper`
+
+#### For Tuesday
+
+- Read the three new sets of notes and work on {ref}`assign4_rootfind` and {ref}`assign4_paper`
+
+### Lecture 10, week 5, Thursday
+
+- Final assignment before break (note new due dates): {ref}`assignment5_thompkins`
+- New worksheets:
+  - {ref}`convec_instab`
+  - {ref}`convective_lifting`
+  - {ref}`moist_adiabats`
+  - {ref}`tropical_engine_solution`
+
+#### For next Tuesday 
+   - Finish Thompkins reading
+   - Work on Assigments 4b and 5
 
 
