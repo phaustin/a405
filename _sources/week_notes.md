@@ -212,4 +212,14 @@ Work on {ref}`tropical_profiles_solution` and {ref}`assign4_rootfind_solution`.
 
 ### Lecture 11, week 6, Tuesday
 
-- {ref}`assign4_rootfind_solution`
+- Go over the {ref}`assign4_rootfind_solution` -- demonstrating list comprehensions in Python
+- Here is an initial version of the  [mid-term equation sheet](https://drive.google.com/file/d/1L8am0jnhBdlTNzQNR8lE-Iyw0V6lwqg2/view?usp=sharing)
+- Go over Thompkins p. 37 on the wet bulb temperature using my [wet bulb notes](https://drive.google.com/file/d/1wsfzaorhVKiMwDlrolf2gtTrSLT4p4iM/view?usp=sharing)
+- The {ref}`cape_part1` notebook shows how to calculate CAPE from a sounding as described in Thompkins p. 49
+- Today's worksheet on Taylor series {ref}`worksheet7_taylor`
+
+#### For next Thursday
+
+- read Thompkins pp. 55-60 on mixing and downdrafts
+- Work on Assigments 4b and 5
+

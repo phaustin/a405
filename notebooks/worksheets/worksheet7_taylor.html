@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Worksheet 5 solution: Latent heat &#8212; ATSC 405</title>
+    <title>Worksheet 7 – Taylor series problem &#8212; ATSC 405</title>
   
   
   
@@ -59,12 +59,12 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/worksheets/worksheet5_latent_solution';</script>
-    <link rel="canonical" href="https://phaustin.github.io/a405/notebooks/worksheets/worksheet5_latent_solution.html" />
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/worksheets/worksheet7_taylor';</script>
+    <link rel="canonical" href="https://phaustin.github.io/a405/notebooks/worksheets/worksheet7_taylor.html" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Worksheet 6 solution: Gibbs free energy" href="worksheet6_gibbs_solution.html" />
-    <link rel="prev" title="Demo: Introduction to Xarray" href="../week4/xarray-intro.html" />
+    <link rel="next" title="Adiabatic Box - Solution" href="../../assignments/adiabatic_box_solution.html" />
+    <link rel="prev" title="Cape Part 1 – demo" href="cape_part1.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -203,7 +203,7 @@
 <li class="toctree-l1"><a class="reference internal" href="worksheet3_derivs_and_ints_solution.html">worksheet 3 solution: working with numpy arrays</a></li>
 <li class="toctree-l1"><a class="reference internal" href="worksheet4_taylor_series_solution.html">Worksheet 4: Taylor series solution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../week4/xarray-intro.html">Demo: Introduction to Xarray</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Worksheet 5 solution: Latent heat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="worksheet5_latent_solution.html">Worksheet 5 solution: Latent heat</a></li>
 <li class="toctree-l1"><a class="reference internal" href="worksheet6_gibbs_solution.html">Worksheet 6 solution: Gibbs free energy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mixing_line_example.html">Mixing line example</a></li>
 <li class="toctree-l1"><a class="reference internal" href="convec_instability.html">Convective instability – lifting demo</a></li>
@@ -211,7 +211,7 @@
 <li class="toctree-l1"><a class="reference internal" href="moist_adiabats.html">Moist adiabats and the LCL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tropical_engine_solution.html">Tropical Heat Engine</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cape_part1.html">Cape Part 1  – demo</a></li>
-<li class="toctree-l1"><a class="reference internal" href="worksheet7_taylor.html">Worksheet 7 – Taylor series problem</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Worksheet 7 – Taylor series problem</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="nav bd-sidenav">
@@ -300,7 +300,7 @@
       
       
       
-      <li><a href="../../_sources/notebooks/worksheets/worksheet5_latent_solution.md" target="_blank"
+      <li><a href="../../_sources/notebooks/worksheets/worksheet7_taylor.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -371,9 +371,7 @@ document.write(`
   </button>
 `);
 </script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</button>
+
 </div></div>
       
     </div>
@@ -384,20 +382,11 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Worksheet 5 solution: Latent heat</h1>
+    <h1>Worksheet 7 – Taylor series problem</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question">Question</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#answer">Answer</a></li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -407,34 +396,27 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="worksheet-5-solution-latent-heat">
-<span id="worksheet5-latent-solution"></span><h1>Worksheet 5 solution: Latent heat<a class="headerlink" href="#worksheet-5-solution-latent-heat" title="Link to this heading">#</a></h1>
-<p>This is a pencil and paper problem asking you to show that <span class="math notranslate nohighlight">\(l_v = h_v - h_l\)</span></p>
-<section id="question">
-<h2>Question<a class="headerlink" href="#question" title="Link to this heading">#</a></h2>
-<p>Starting with the first law of thermodynamics, use the definition of the enthalphy <span class="math notranslate nohighlight">\(h = u + p \alpha\)</span> to show that for liquid water and water vapor in equilibrium (i.e. constant pressure and temperature) the latent heat is just the difference between the vapor and liquid water enthalpies.</p>
-<p>Hint:  This is mostly done by Thompkins on p. 26.</p>
-<p>Hand in a scanned pdf with your solution.</p>
-</section>
-<section id="answer">
-<h2>Answer<a class="headerlink" href="#answer" title="Link to this heading">#</a></h2>
-<p>First law:</p>
-<div class="math notranslate nohighlight" id="equation-eq-first">
-<span class="eqno">(7)<a class="headerlink" href="#equation-eq-first" title="Link to this equation">#</a></span>\[
-du = q\,dt - w\,dt = q\,dt - p\,dv
-\]</div>
-<p>Definition of enthalpy:</p>
-<div class="math notranslate nohighlight" id="equation-eq-enthalpy">
-<span class="eqno">(8)<a class="headerlink" href="#equation-eq-enthalpy" title="Link to this equation">#</a></span>\[\begin{split}
-h = u + pv \\
-dh = du + p\,dv + v\,dp
-\end{split}\]</div>
-<p>At constant pressure <span class="math notranslate nohighlight">\(dp = 0\)</span> so insert <a class="reference internal" href="#equation-eq-enthalpy">(8)</a> into <a class="reference internal" href="#equation-eq-first">(7)</a> and integrate between the transition from liquid to vapor phases over the time period <span class="math notranslate nohighlight">\(t1\)</span> to <span class="math notranslate nohighlight">\(t2\)</span> using total integrated heating Q</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="worksheet-7-taylor-series-problem">
+<span id="worksheet7-taylor"></span><h1>Worksheet 7 – Taylor series problem<a class="headerlink" href="#worksheet-7-taylor-series-problem" title="Link to this heading">#</a></h1>
+<ol class="arabic simple">
+<li><p>Use a Taylor series to expand the following expression with respect to a temperature perturbation (this should yield 3 terms)</p></li>
+</ol>
 <div class="math notranslate nohighlight">
 \[
-\int_l^v dh = h_v - h_l = \int_{t1}^{t2} q\,dt = Q = l_v
+d  \left ( \frac{l_v(T) r_s(T)}{c_p T} \right ) 
 \]</div>
-</section>
+<p>Use the <a class="reference external" href="https://docs.google.com/presentation/d/18DG-wXVmWE2lj38h2tS_axL7-uBQvpiINoUlARlmiaE/edit?usp=sharing">assignment 4b tephigram</a> to estimate the size of each of the three terms for a 2 deg C  temperature perturbation at a pressure of 900 hPa and a temperature of 10 deg C.  To first order, what is error in percent caused by dropping two of those terms in the following approximation?  (Hint: get <span class="math notranslate nohighlight">\(dr_s/dT\)</span> from the tephigram, not the C-C equation)</p>
+<div class="math notranslate nohighlight">
+\[
+d  \left ( \frac{l_v(T) r_s(T)}{c_p T} \right ) \approx  \left ( \frac{l_v(T) }{c_p T} \right ) dr_s
+\]</div>
+<ol class="arabic simple" start="2">
+<li><p>Using this approximation, integrate the moist entropy equation to show that</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+\phi = c_p \log \theta_e 
+\]</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -468,20 +450,20 @@ dh = du + p\,dv + v\,dp
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../week4/xarray-intro.html"
+       href="cape_part1.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Demo: Introduction to Xarray</p>
+        <p class="prev-next-title">Cape Part 1  – demo</p>
       </div>
     </a>
     <a class="right-next"
-       href="worksheet6_gibbs_solution.html"
+       href="../../assignments/adiabatic_box_solution.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Worksheet 6 solution: Gibbs free energy</p>
+        <p class="prev-next-title">Adiabatic Box - Solution</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -491,22 +473,6 @@ dh = du + p\,dv + v\,dp
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question">Question</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#answer">Answer</a></li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>

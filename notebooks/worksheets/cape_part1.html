@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Moist adiabats and the LCL &#8212; ATSC 405</title>
+    <title>Cape Part 1 – demo &#8212; ATSC 405</title>
   
   
   
@@ -59,12 +59,12 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/worksheets/moist_adiabats';</script>
-    <link rel="canonical" href="https://phaustin.github.io/a405/notebooks/worksheets/moist_adiabats.html" />
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/worksheets/cape_part1';</script>
+    <link rel="canonical" href="https://phaustin.github.io/a405/notebooks/worksheets/cape_part1.html" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Tropical Heat Engine" href="tropical_engine_solution.html" />
-    <link rel="prev" title="Convective instability – lifting demo" href="convective_lifting.html" />
+    <link rel="next" title="Worksheet 7 – Taylor series problem" href="worksheet7_taylor.html" />
+    <link rel="prev" title="Tropical Heat Engine" href="tropical_engine_solution.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -208,9 +208,9 @@
 <li class="toctree-l1"><a class="reference internal" href="mixing_line_example.html">Mixing line example</a></li>
 <li class="toctree-l1"><a class="reference internal" href="convec_instability.html">Convective instability – lifting demo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="convective_lifting.html">Convective instability – lifting demo</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Moist adiabats and the LCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="moist_adiabats.html">Moist adiabats and the LCL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tropical_engine_solution.html">Tropical Heat Engine</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cape_part1.html">Cape Part 1  – demo</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Cape Part 1  – demo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="worksheet7_taylor.html">Worksheet 7 – Taylor series problem</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
@@ -300,7 +300,7 @@
       
       
       
-      <li><a href="../../_sources/notebooks/worksheets/moist_adiabats.md" target="_blank"
+      <li><a href="../../_sources/notebooks/worksheets/cape_part1.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -384,7 +384,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Moist adiabats and the LCL</h1>
+    <h1>Cape Part 1  – demo</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -395,14 +395,18 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grab-a-little-rock-sounding">Grab a Little Rock sounding</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#select-one-sounding-july-17-2012-at-0-uct">Select one sounding – July 17, 2012 at 0 UCT</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#select-one-july-2012-sounding">Select one July 2012 sounding</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#save-the-metadata-for-plotting">Save the metadata for plotting</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convert-temperature-and-dewpoint-to-skew-coords">Convert temperature and dewpoint to skew coords</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-sounding-making-the-sounding-lines-thicker">Plot the sounding, making the sounding lines thicker</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#find-the-theta-es-of-the-lcl">Find the <span class="math notranslate nohighlight">\(\theta_{es}\)</span> of the  LCL</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-the-lcl-of-this-air">What is the LCL of this air?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-sounding">Plot the sounding</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#turn-off-log-0-warning">Turn off log(0) warning</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cape-calculation">CAPE calculation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-result">plot the result</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#put-this-in-a-get-cape-function">Put this in a get_cape function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-the-maximum-vertical-velocity">Compute the maximum vertical velocity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#to-do">To do</a></li>
 </ul>
             </nav>
         </div>
@@ -414,10 +418,9 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="moist-adiabats-and-the-lcl">
-<span id="moist-adiabats"></span><h1>Moist adiabats and the LCL<a class="headerlink" href="#moist-adiabats-and-the-lcl" title="Link to this heading">#</a></h1>
-<p>The link for this notebook: <a class="reference external" href="https://drive.google.com/file/d/1mCpXEO7Bl4zDGVwhDhw_l6H3noRMZbY4/view?usp=sharing">moist_adiabats.ipynb</a></p>
-<p>This notebook shows how to find the lifting condensation level of a sounding, and identify <span class="math notranslate nohighlight">\(\theta_{es}\)</span> for the moist adiabat going through cloud base.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="cape-part-1-demo">
+<span id="cape-part1"></span><h1>Cape Part 1  – demo<a class="headerlink" href="#cape-part-1-demo" title="Link to this heading">#</a></h1>
+<p>This notebook shows how to calculate CAPE for soundings downloaded from the Wyoming website.  It does the CAPE integration described in Thompkins p. 49</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -441,83 +444,15 @@ document.write(`
 </div>
 <section id="grab-a-little-rock-sounding">
 <h2>Grab a Little Rock sounding<a class="headerlink" href="#grab-a-little-rock-sounding" title="Link to this heading">#</a></h2>
-<p>Set get_data = True to fetch the Wyoming sounding data from the website and store it.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">get_data</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="n">values</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">region</span><span class="o">=</span><span class="s1">&#39;naconf&#39;</span><span class="p">,</span><span class="n">year</span><span class="o">=</span><span class="s1">&#39;2012&#39;</span><span class="p">,</span><span class="n">month</span><span class="o">=</span><span class="s1">&#39;7&#39;</span><span class="p">,</span><span class="n">start</span><span class="o">=</span><span class="s1">&#39;0100&#39;</span><span class="p">,</span><span class="n">stop</span><span class="o">=</span><span class="s1">&#39;3000&#39;</span><span class="p">,</span><span class="n">station</span><span class="o">=</span><span class="s1">&#39;72340&#39;</span><span class="p">)</span>
-<span class="k">if</span> <span class="n">get_data</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">write</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="k">if</span> <span class="n">write</span><span class="p">:</span>
+    <span class="n">values</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">region</span><span class="o">=</span><span class="s1">&#39;naconf&#39;</span><span class="p">,</span><span class="n">year</span><span class="o">=</span><span class="s1">&#39;2012&#39;</span><span class="p">,</span><span class="n">month</span><span class="o">=</span><span class="s1">&#39;7&#39;</span><span class="p">,</span><span class="n">start</span><span class="o">=</span><span class="s1">&#39;0100&#39;</span><span class="p">,</span><span class="n">stop</span><span class="o">=</span><span class="s1">&#39;3000&#39;</span><span class="p">,</span><span class="n">station</span><span class="o">=</span><span class="s1">&#39;72340&#39;</span><span class="p">)</span>
     <span class="n">write_soundings</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="s1">&#39;littlerock&#39;</span><span class="p">)</span>
-<span class="n">soundings</span><span class="o">=</span> <span class="n">read_soundings</span><span class="p">(</span><span class="s1">&#39;littlerock&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>input_dict={&#39;region&#39;: &#39;naconf&#39;, &#39;year&#39;: &#39;2012&#39;, &#39;month&#39;: &#39;7&#39;, &#39;start&#39;: &#39;0100&#39;, &#39;stop&#39;: &#39;3000&#39;, &#39;station&#39;: &#39;72340&#39;}
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>len(html_doc)=687501 from write_soundings
-header is:  72340 LZK Little Rock Observations at 00Z 01 Jul 2012
-here is the day:  120701
-here is the day:  120701
-here is the day:  120702
-here is the day:  120702
-here is the day:  120703
-here is the day:  120703
-here is the day:  120704
-here is the day:  120704
-here is the day:  120705
-here is the day:  120705
-here is the day:  120706
-here is the day:  120706
-here is the day:  120707
-here is the day:  120707
-here is the day:  120708
-here is the day:  120708
-here is the day:  120709
-here is the day:  120709
-here is the day:  120710
-here is the day:  120710
-here is the day:  120711
-here is the day:  120711
-here is the day:  120712
-here is the day:  120712
-here is the day:  120713
-here is the day:  120713
-here is the day:  120714
-here is the day:  120714
-here is the day:  120715
-here is the day:  120715
-here is the day:  120716
-here is the day:  120716
-here is the day:  120717
-here is the day:  120717
-here is the day:  120718
-here is the day:  120718
-here is the day:  120719
-here is the day:  120719
-here is the day:  120720
-here is the day:  120720
-here is the day:  120721
-here is the day:  120721
-here is the day:  120722
-here is the day:  120722
-here is the day:  120723
-here is the day:  120723
-here is the day:  120724
-here is the day:  120724
-here is the day:  120725
-here is the day:  120725
-here is the day:  120726
-here is the day:  120726
-here is the day:  120727
-here is the day:  120727
-here is the day:  120728
-here is the day:  120728
-here is the day:  120729
-here is the day:  120729
-here is the day:  120730
-files written to littlerock
+    <span class="n">soundings</span><span class="o">=</span> <span class="n">read_soundings</span><span class="p">(</span><span class="s1">&#39;littlerock&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">soundings</span><span class="o">=</span> <span class="n">read_soundings</span><span class="p">(</span><span class="s1">&#39;littlerock&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -535,11 +470,12 @@ files written to littlerock
 </div>
 </div>
 </section>
-<section id="select-one-sounding-july-17-2012-at-0-uct">
-<h2>Select one sounding – July 17, 2012 at 0 UCT<a class="headerlink" href="#select-one-sounding-july-17-2012-at-0-uct" title="Link to this heading">#</a></h2>
+<section id="select-one-july-2012-sounding">
+<h2>Select one July 2012 sounding<a class="headerlink" href="#select-one-july-2012-sounding" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">the_time</span><span class="o">=</span><span class="p">(</span><span class="mi">2012</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">day</span> <span class="o">=</span> <span class="mi">9</span>
+<span class="n">the_time</span><span class="o">=</span><span class="p">(</span><span class="mi">2012</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="n">day</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">sounding</span><span class="o">=</span><span class="n">soundings</span><span class="p">[</span><span class="s1">&#39;sounding_dict&#39;</span><span class="p">][</span><span class="n">the_time</span><span class="p">]</span>
 <span class="n">sounding</span><span class="o">.</span><span class="n">columns</span>
 </pre></div>
@@ -608,8 +544,8 @@ units: {&#39;drct&#39;: &#39;deg&#39;,
 </div>
 </div>
 </section>
-<section id="plot-the-sounding-making-the-sounding-lines-thicker">
-<h2>Plot the sounding, making the sounding lines thicker<a class="headerlink" href="#plot-the-sounding-making-the-sounding-lines-thicker" title="Link to this heading">#</a></h2>
+<section id="plot-the-sounding">
+<h2>Plot the sounding<a class="headerlink" href="#plot-the-sounding" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">label_fun</span><span class="p">():</span>
@@ -622,7 +558,7 @@ units: {&#39;drct&#39;: &#39;deg&#39;,
     <span class="c1">#</span>
     <span class="n">tempLabels</span><span class="p">,</span><span class="n">rsLabels</span><span class="p">,</span> <span class="n">thetaLabels</span><span class="p">,</span> <span class="n">thetaeLabels</span> <span class="o">=</span> <span class="n">make_default_labels</span><span class="p">()</span>
     <span class="c1">#</span>
-    <span class="c1"># change the temperature and rs grids to get a finer mesh</span>
+    <span class="c1"># change the temperature and rs grids</span>
     <span class="c1">#</span>
     <span class="n">tempLabels</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
     <span class="n">rsLabels</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span> 
@@ -639,7 +575,7 @@ units: {&#39;drct&#39;: &#39;deg&#39;,
 <span class="c1">#ax,skew = makeSkewWet(ax,corners=corners,skew=skew)</span>
 <span class="n">out</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="n">title_string</span><span class="p">)</span>
 <span class="n">xcorners</span><span class="o">=</span><span class="n">find_corners</span><span class="p">(</span><span class="n">corners</span><span class="p">,</span><span class="n">skew</span><span class="o">=</span><span class="n">skew</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlim</span><span class="o">=</span><span class="n">xcorners</span><span class="p">,</span><span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="mi">1000</span><span class="p">,</span><span class="mi">400</span><span class="p">]);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlim</span><span class="o">=</span><span class="n">xcorners</span><span class="p">,</span><span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="mi">1000</span><span class="p">,</span><span class="mi">200</span><span class="p">]);</span>
 <span class="n">l1</span><span class="p">,</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xcoord_T</span><span class="p">,</span><span class="n">sounding</span><span class="p">[</span><span class="s1">&#39;pres&#39;</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;temp&#39;</span><span class="p">)</span>
 <span class="n">l2</span><span class="p">,</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xcoord_Td</span><span class="p">,</span><span class="n">sounding</span><span class="p">[</span><span class="s1">&#39;pres&#39;</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;dew&#39;</span><span class="p">)</span>
 <span class="p">[</span><span class="n">line</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="p">[</span><span class="n">l1</span><span class="p">,</span><span class="n">l2</span><span class="p">]];</span>
@@ -647,104 +583,245 @@ units: {&#39;drct&#39;: &#39;deg&#39;,
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/7cb805f276a8d324c5c58777d6e8c91d7c57136292a82f72ffff63eefcbd018e.png" src="../../_images/7cb805f276a8d324c5c58777d6e8c91d7c57136292a82f72ffff63eefcbd018e.png" />
+<img alt="../../_images/ef20abd240d1c299b15e82268c5f8c291fd013517097905bac2a4a1cbf1827c3.png" src="../../_images/ef20abd240d1c299b15e82268c5f8c291fd013517097905bac2a4a1cbf1827c3.png" />
+</div>
+</div>
+<section id="turn-off-log-0-warning">
+<h3>Turn off log(0) warning<a class="headerlink" href="#turn-off-log-0-warning" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">seterr</span><span class="p">(</span><span class="nb">all</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
 </div>
 </div>
 </section>
-<section id="find-the-theta-es-of-the-lcl">
-<h2>Find the <span class="math notranslate nohighlight">\(\theta_{es}\)</span> of the  LCL<a class="headerlink" href="#find-the-theta-es-of-the-lcl" title="Link to this heading">#</a></h2>
-<p>The thermo.thermlib docs are <a class="reference external" href="https://phaustin.github.io/a405_lib/full_listing.html#module-a405.thermo.thermlib">here</a></p>
+</section>
+<section id="cape-calculation">
+<h2>CAPE calculation<a class="headerlink" href="#cape-calculation" title="Link to this heading">#</a></h2>
+<p>The function below finds the buoyancy defined by Thompkins eq. 1.61 as a function of height, where Tv,a is the virtual temperature of the pseudoadiabat and Tv,env is the virtual temperature of your particular environmental sounding as a function of height using the lowest level to calculate the thetae for the moist adiabat. Check in a notebook that extends cape_part1_html by defining the function (ok to copy code from my library), running it and plotting it vs. height.</p>
+<hr class="docutils" />
+<p><em>Thompkins equation 1.61:</em></p>
+<div class="math notranslate nohighlight">
+\[
+B = g\left(\frac{T_{v,a}-T_{v,env}}{T_{v,env}}\right)
+\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">a405.thermo.thermlib</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span><span class="n">find_Tmoist</span><span class="p">,</span><span class="n">find_thetaep</span><span class="p">,</span><span class="n">find_rsat</span><span class="p">,</span>
-                                 <span class="n">find_Tv</span><span class="p">,</span><span class="n">find_lcl</span><span class="p">,</span><span class="n">find_thetaes</span><span class="p">,</span><span class="n">find_thetaet</span><span class="p">)</span>
-<span class="c1">#</span>
-<span class="c1"># find thetae of the surface air, which is at index 0</span>
-<span class="c1">#</span>
-<span class="n">sfc_press</span><span class="p">,</span><span class="n">sfc_temp</span><span class="p">,</span><span class="n">sfc_td</span> <span class="o">=</span><span class="p">[</span><span class="n">sounding</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;pres&#39;</span><span class="p">,</span><span class="s1">&#39;temp&#39;</span><span class="p">,</span><span class="s1">&#39;dwpt&#39;</span><span class="p">]]</span>
-<span class="c1">#</span>
-<span class="c1"># convert to Kelvin</span>
-<span class="c1">#</span>
-<span class="n">sfc_press</span><span class="p">,</span><span class="n">sfc_temp</span><span class="p">,</span><span class="n">sfc_td</span> <span class="o">=</span> <span class="n">sfc_press</span><span class="o">*</span><span class="mf">100.</span><span class="p">,</span><span class="n">sfc_temp</span><span class="o">+</span><span class="n">c</span><span class="o">.</span><span class="n">Tc</span><span class="p">,</span><span class="n">sfc_td</span><span class="o">+</span><span class="n">c</span><span class="o">.</span><span class="n">Tc</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">numpy.typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">ArrayLike</span> <span class="k">as</span> <span class="n">array</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">a405.thermo.thermlib</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">tl</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">a405.thermo.constants</span><span class="w"> </span><span class="kn">import</span> <span class="n">constants</span> <span class="k">as</span> <span class="n">c</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">get_buoy</span><span class="p">(</span><span class="n">T</span><span class="p">:</span> <span class="n">array</span><span class="p">,</span> <span class="n">Td</span><span class="p">:</span> <span class="n">array</span><span class="p">,</span> <span class="n">pres</span><span class="p">:</span> <span class="n">array</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">array</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Given an atmospheric sounding (Temperature and dew point profiles),</span>
+<span class="sd">    calculate the buoyant force per unit mass (m/s2) of an air parcel</span>
+<span class="sd">    originating from the surface as as it ascends. Thompkins Eqn 1.61</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    T, Td and press all need to be the same length</span>
+
+<span class="sd">    T:  Temperature profile (K)</span>
+<span class="sd">    Td:  Dew point temperature profile (K)</span>
+<span class="sd">    pres: Pressures at which to calculate B (Pa)</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+
+<span class="sd">    B: Buoyancy per unit mass (m/s2)</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># initialize arrays</span>
+    <span class="n">T_parcel</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">pres</span><span class="p">))</span>
+    
+    <span class="c1">## 1) get the trajectory of the ascending parcel ##</span>
+    <span class="n">Tsurf</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">Tdsurf</span> <span class="o">=</span> <span class="n">Td</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">psurf</span> <span class="o">=</span> <span class="n">pres</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">theta_surf</span> <span class="o">=</span> <span class="n">tl</span><span class="o">.</span><span class="n">find_theta</span><span class="p">(</span><span class="n">Tsurf</span><span class="p">,</span> <span class="n">c</span><span class="o">.</span><span class="n">p0</span><span class="p">)</span>
+    <span class="n">Tlcl</span><span class="p">,</span> <span class="n">plcl</span> <span class="o">=</span> <span class="n">tl</span><span class="o">.</span><span class="n">find_lcl</span><span class="p">(</span><span class="n">Tdsurf</span><span class="p">,</span> <span class="n">Tsurf</span><span class="p">,</span> <span class="n">psurf</span><span class="p">)</span>
+
+    <span class="c1"># trajectory below LCL follows dry adiabat</span>
+    <span class="n">T_parcel</span><span class="p">[</span><span class="n">pres</span> <span class="o">&gt;</span> <span class="n">plcl</span><span class="p">]</span> <span class="o">=</span> <span class="n">tl</span><span class="o">.</span><span class="n">make_dry_adiabat</span><span class="p">(</span><span class="n">theta_surf</span><span class="p">,</span> <span class="n">pres</span><span class="p">[</span><span class="n">pres</span> <span class="o">&gt;</span> <span class="n">plcl</span><span class="p">])</span>
+    
+    <span class="c1"># trajectory above LCL follows moist adiabat</span>
+    <span class="n">thetaes</span> <span class="o">=</span> <span class="n">tl</span><span class="o">.</span><span class="n">find_thetaes</span><span class="p">(</span><span class="n">Tlcl</span><span class="p">,</span> <span class="n">plcl</span><span class="p">)</span>
+    <span class="n">T_parcel</span><span class="p">[</span><span class="n">pres</span> <span class="o">&lt;=</span> <span class="n">plcl</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">tl</span><span class="o">.</span><span class="n">find_Tmoist</span><span class="p">(</span><span class="n">thetaes</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">use_theta</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">pres</span><span class="p">[</span><span class="n">pres</span> <span class="o">&lt;=</span> <span class="n">plcl</span><span class="p">]]</span>
+
+    <span class="c1">## 2) calculate the buoyant force per unit mass</span>
+    <span class="c1"># get the virtual temperatures of the sounding and pseudo-adiabatic ascent</span>
+    <span class="n">r_parcel</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">T_parcel</span><span class="p">)</span>
+    <span class="n">r_parcel</span><span class="p">[</span><span class="n">pres</span> <span class="o">&gt;</span> <span class="n">plcl</span><span class="p">]</span> <span class="o">=</span> <span class="n">tl</span><span class="o">.</span><span class="n">find_rsat</span><span class="p">(</span><span class="n">Tdsurf</span><span class="p">,</span> <span class="n">psurf</span><span class="p">)</span> <span class="c1"># unsaturated ascent</span>
+    <span class="n">r_parcel</span><span class="p">[</span><span class="n">pres</span> <span class="o">&lt;=</span> <span class="n">plcl</span><span class="p">]</span> <span class="o">=</span> <span class="n">tl</span><span class="o">.</span><span class="n">find_rsat</span><span class="p">(</span><span class="n">T_parcel</span><span class="p">[</span><span class="n">pres</span> <span class="o">&lt;=</span> <span class="n">plcl</span><span class="p">],</span> <span class="n">pres</span><span class="p">[</span><span class="n">pres</span> <span class="o">&lt;=</span> <span class="n">plcl</span><span class="p">])</span> <span class="c1"># all water precipitates out</span>
+    <span class="n">Tv_parcel</span> <span class="o">=</span> <span class="n">tl</span><span class="o">.</span><span class="n">find_Tv</span><span class="p">(</span><span class="n">T_parcel</span><span class="p">,</span> <span class="n">r_parcel</span><span class="p">)</span>
+   
+    <span class="n">r_env</span> <span class="o">=</span> <span class="n">tl</span><span class="o">.</span><span class="n">find_rsat</span><span class="p">(</span><span class="n">Td</span><span class="p">,</span> <span class="n">pres</span><span class="p">)</span>
+    <span class="n">Tv_env</span> <span class="o">=</span> <span class="n">tl</span><span class="o">.</span><span class="n">find_Tv</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">r_env</span><span class="p">)</span>
+    
+    <span class="c1"># Thompkins 1.61</span>
+    <span class="n">buoy</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">g0</span> <span class="o">*</span> <span class="p">(</span><span class="n">Tv_parcel</span> <span class="o">-</span> <span class="n">Tv_env</span><span class="p">)</span> <span class="o">/</span> <span class="n">Tv_env</span>
+    <span class="k">return</span> <span class="n">T_parcel</span><span class="p">,</span> <span class="n">buoy</span>
 </pre></div>
 </div>
 </div>
 </div>
-<section id="what-is-the-lcl-of-this-air">
-<h3>What is the LCL of this air?<a class="headerlink" href="#what-is-the-lcl-of-this-air" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Tlcl</span><span class="p">,</span> <span class="n">plcl</span><span class="o">=</span><span class="n">find_lcl</span><span class="p">(</span><span class="n">sfc_td</span><span class="p">,</span> <span class="n">sfc_temp</span><span class="p">,</span><span class="n">sfc_press</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># convert pandas series to numpy  arrays with SI units and get buoyancy</span>
+<span class="n">temp</span> <span class="o">=</span> <span class="n">sounding</span><span class="p">[</span><span class="s1">&#39;temp&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span> <span class="o">+</span> <span class="n">c</span><span class="o">.</span><span class="n">Tc</span>
+<span class="n">dwpt</span> <span class="o">=</span> <span class="n">sounding</span><span class="p">[</span><span class="s1">&#39;dwpt&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span> <span class="o">+</span> <span class="n">c</span><span class="o">.</span><span class="n">Tc</span>
+<span class="n">pres</span> <span class="o">=</span> <span class="n">sounding</span><span class="p">[</span><span class="s1">&#39;pres&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span> <span class="o">*</span> <span class="n">c</span><span class="o">.</span><span class="n">hPa2pa</span>
+<span class="n">height</span> <span class="o">=</span> <span class="n">sounding</span><span class="p">[</span><span class="s1">&#39;hght&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+
+<span class="n">T_parcel</span><span class="p">,</span> <span class="n">buoy</span> <span class="o">=</span> <span class="n">get_buoy</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span> <span class="n">dwpt</span><span class="p">,</span> <span class="n">pres</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
+</section>
+<section id="plot-the-result">
+<h2>plot the result<a class="headerlink" href="#plot-the-result" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;found Tlcl=</span><span class="si">{</span><span class="n">Tlcl</span><span class="si">:</span><span class="s1">0.1f</span><span class="si">}</span><span class="s1"> K, plcl=</span><span class="si">{</span><span class="n">plcl</span><span class="si">:</span><span class="s1">0.1f</span><span class="si">}</span><span class="s1"> Pa&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>found Tlcl=294.4 K, plcl=87210.4 Pa
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#  convert to mks and find surface rv and thetae</span>
-<span class="c1">#</span>
-<span class="n">sfc_rvap</span> <span class="o">=</span> <span class="n">find_rsat</span><span class="p">(</span><span class="n">sfc_td</span><span class="p">,</span><span class="n">sfc_press</span><span class="p">)</span>
-<span class="n">lcl_rvap</span> <span class="o">=</span> <span class="n">find_rsat</span><span class="p">(</span><span class="n">Tlcl</span><span class="p">,</span><span class="n">plcl</span><span class="p">)</span>
-<span class="n">sfc_thetae</span><span class="o">=</span><span class="n">find_thetaes</span><span class="p">(</span><span class="n">Tlcl</span><span class="p">,</span><span class="n">plcl</span><span class="p">)</span>
-<span class="n">press</span><span class="o">=</span><span class="n">sounding</span><span class="p">[</span><span class="s1">&#39;pres&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">*</span><span class="mf">100.</span>
-<span class="c1">#</span>
-<span class="c1"># find the index for 70 hPa pressure -- searchsorted requires</span>
-<span class="c1"># the pressure array to be increasing, so flip it for the search,</span>
-<span class="c1"># then flip the index.  Above 70 hPa thetae goes bananas, so</span>
-<span class="c1"># so trim so we only have good values</span>
-<span class="c1">#</span>
-<span class="n">toplim</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">press</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">searchsorted</span><span class="p">(</span><span class="n">press</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="mf">.7e4</span><span class="p">)</span>
-<span class="n">clipped_press</span><span class="o">=</span><span class="n">press</span><span class="p">[:</span><span class="n">toplim</span><span class="p">]</span>
-<span class="c1">#</span>
-<span class="c1"># find temps, rv and rl along that adiabat</span>
-<span class="c1">#</span>
-<span class="n">adia_temps</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">find_Tmoist</span><span class="p">(</span><span class="n">sfc_thetae</span><span class="p">,</span><span class="n">the_press</span><span class="p">)</span> 
-                      <span class="k">for</span> <span class="n">the_press</span> <span class="ow">in</span> <span class="n">clipped_press</span><span class="p">])</span>
-<span class="n">adia_rvaps</span> <span class="o">=</span> <span class="n">find_rsat</span><span class="p">(</span><span class="n">adia_temps</span><span class="p">,</span><span class="n">clipped_press</span><span class="p">)</span>
-<span class="n">adia_rls</span> <span class="o">=</span> <span class="n">sfc_rvap</span> <span class="o">-</span> <span class="n">adia_rvaps</span>
-<span class="n">env_temps</span> <span class="o">=</span> <span class="p">(</span><span class="n">sounding</span><span class="p">[</span><span class="s1">&#39;temp&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span> <span class="o">+</span> <span class="n">c</span><span class="o">.</span><span class="n">Tc</span><span class="p">)[:</span><span class="n">toplim</span><span class="p">]</span>
-<span class="n">env_Td</span> <span class="o">=</span> <span class="p">(</span><span class="n">sounding</span><span class="p">[</span><span class="s1">&#39;dwpt&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span> <span class="o">+</span> <span class="n">c</span><span class="o">.</span><span class="n">Tc</span><span class="p">)[:</span><span class="n">toplim</span><span class="p">]</span>
-<span class="n">height</span> <span class="o">=</span> <span class="n">sounding</span><span class="p">[</span><span class="s1">&#39;hght&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[:</span><span class="n">toplim</span><span class="p">]</span>
-<span class="n">pairs</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="n">env_Td</span><span class="p">,</span><span class="n">clipped_press</span><span class="p">)</span>
-<span class="n">env_rvaps</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">find_rsat</span><span class="p">(</span><span class="n">td</span><span class="p">,</span><span class="n">the_press</span><span class="p">)</span> <span class="k">for</span> <span class="n">td</span><span class="p">,</span><span class="n">the_press</span> <span class="ow">in</span> <span class="n">pairs</span><span class="p">])</span>
-<span class="n">env_Tv</span> <span class="o">=</span> <span class="n">find_Tv</span><span class="p">(</span><span class="n">env_temps</span><span class="p">,</span><span class="n">env_rvaps</span><span class="p">)</span>
-<span class="n">adia_Tv</span> <span class="o">=</span> <span class="n">find_Tv</span><span class="p">(</span><span class="n">adia_temps</span><span class="p">,</span><span class="n">adia_rvaps</span><span class="p">,</span><span class="n">adia_rls</span><span class="p">)</span>
-<span class="n">xcoord_thetae</span><span class="o">=</span><span class="p">[]</span>
-<span class="n">press_hPa</span> <span class="o">=</span> <span class="n">clipped_press</span><span class="o">*</span><span class="mf">1.e-2</span>
-<span class="c1">#</span>
-<span class="c1"># convert the adiabatic thetae sounding to skewT coords</span>
-<span class="c1">#</span>
-<span class="k">for</span> <span class="n">a_temp</span><span class="p">,</span><span class="n">a_press</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">adia_temps</span> <span class="o">-</span> <span class="n">c</span><span class="o">.</span><span class="n">Tc</span><span class="p">,</span><span class="n">press_hPa</span><span class="p">):</span>
-    <span class="n">out</span><span class="o">=</span><span class="n">convertTempToSkew</span><span class="p">(</span><span class="n">a_temp</span><span class="p">,</span><span class="n">a_press</span><span class="p">,</span><span class="n">skew</span><span class="p">)</span>
-    <span class="n">xcoord_thetae</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xcoord_thetae</span><span class="p">,</span><span class="n">press_hPa</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;thetae&#39;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">3.</span><span class="p">)</span>
-<span class="n">xlcl</span><span class="o">=</span><span class="n">convertTempToSkew</span><span class="p">(</span><span class="n">Tlcl</span> <span class="o">-</span> <span class="n">c</span><span class="o">.</span><span class="n">Tc</span><span class="p">,</span><span class="n">plcl</span><span class="o">*</span><span class="mf">0.01</span><span class="p">,</span><span class="n">skew</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xlcl</span><span class="p">,</span><span class="n">plcl</span><span class="o">*</span><span class="mf">0.01</span><span class="p">,</span><span class="s1">&#39;bo&#39;</span><span class="p">,</span><span class="n">markersize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add parcel trajectory (pseudo-adiabatic)</span>
+<span class="n">skew_parcel</span> <span class="o">=</span> <span class="n">convertTempToSkew</span><span class="p">(</span><span class="n">T_parcel</span> <span class="o">-</span> <span class="n">c</span><span class="o">.</span><span class="n">Tc</span><span class="p">,</span> <span class="n">sounding</span><span class="o">.</span><span class="n">pres</span><span class="p">,</span> <span class="n">skew</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">skew_parcel</span><span class="p">,</span> <span class="n">sounding</span><span class="o">.</span><span class="n">pres</span><span class="p">,</span> <span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># add subplot to show buoyant force/mass with height</span>
+<span class="n">cutoff</span> <span class="o">=</span> <span class="n">sounding</span><span class="o">.</span><span class="n">pres</span> <span class="o">&gt;</span> <span class="mi">200</span>  <span class="c1"># (hPa) </span>
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_axes</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">),</span> <span class="n">sharey</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">buoy</span><span class="p">[</span><span class="n">cutoff</span><span class="p">],</span> <span class="n">sounding</span><span class="o">.</span><span class="n">pres</span><span class="p">[</span><span class="n">cutoff</span><span class="p">])</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Buoyancy (m/s$^2$)&quot;</span><span class="p">)</span>
+
 <span class="n">display</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/phil/mini313/miniconda3/envs/a405/lib/python3.14/site-packages/a405/thermo/thermlib.py:469: RuntimeWarning: invalid value encountered in log
-  s = cp * np.log(T) - c.Rd * np.log(pd) + lv * rv / T - vapor_term
-</pre></div>
-</div>
-<img alt="../../_images/c55c46b4f18fa804b7e2f34b258a1af539b3e68de65a8da49568d11b99b640a2.png" src="../../_images/c55c46b4f18fa804b7e2f34b258a1af539b3e68de65a8da49568d11b99b640a2.png" />
+<img alt="../../_images/4beec2c80ed311da140980ecee88228825155218aef69c206d8578245978e7ea.png" src="../../_images/4beec2c80ed311da140980ecee88228825155218aef69c206d8578245978e7ea.png" />
 </div>
 </div>
 </section>
+<section id="put-this-in-a-get-cape-function">
+<h2>Put this in a get_cape function<a class="headerlink" href="#put-this-in-a-get-cape-function" title="Link to this heading">#</a></h2>
+<p>We’ve got the buoyancy now we need to find the vertical limits on the force x distance integral</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get the distance bw each point</span>
+<span class="n">cape_layers</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">height</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># now we have a fencepost problem, one more buoy measurements than layers</span>
+<span class="c1"># so average right and left levels of each layer</span>
+<span class="n">mid_buoy</span> <span class="o">=</span> <span class="p">(</span><span class="n">buoy</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">buoy</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span><span class="o">/</span><span class="mf">2.</span>
+<span class="c1">#</span>
+<span class="c1"># get the positive values</span>
+<span class="c1">#</span>
+<span class="n">hit_pos</span> <span class="o">=</span> <span class="n">mid_buoy</span> <span class="o">&gt;</span> <span class="mf">0.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># solve by averaging the bouyancy across each layer</span>
+<span class="n">CAPE_elems</span> <span class="o">=</span> <span class="n">mid_buoy</span><span class="p">[</span><span class="n">hit_pos</span><span class="p">]</span> <span class="o">*</span> <span class="n">cape_layers</span><span class="p">[</span><span class="n">hit_pos</span><span class="p">]</span> <span class="c1"># F * dz</span>
+<span class="n">CAPE</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">CAPE_elems</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">CAPE</span><span class="si">=:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> J/kg&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CAPE=295.1 J/kg
+</pre></div>
+</div>
+</div>
+</div>
+<p>Put this in a function that takes in a sounding and calculates CAPE up to a specified cut pressure</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_CAPE</span><span class="p">(</span><span class="n">sounding</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    calculates CAPE</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+
+<span class="sd">    sounding: dictionary of pandas series from wyoming sounding</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">temp</span> <span class="o">=</span> <span class="n">sounding</span><span class="p">[</span><span class="s2">&quot;temp&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span> <span class="o">+</span> <span class="n">c</span><span class="o">.</span><span class="n">Tc</span>
+    <span class="n">dwpt</span> <span class="o">=</span> <span class="n">sounding</span><span class="p">[</span><span class="s2">&quot;dwpt&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span> <span class="o">+</span> <span class="n">c</span><span class="o">.</span><span class="n">Tc</span>
+    <span class="n">pres</span> <span class="o">=</span> <span class="n">sounding</span><span class="p">[</span><span class="s2">&quot;pres&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span> <span class="o">*</span> <span class="n">c</span><span class="o">.</span><span class="n">hPa2pa</span>
+    <span class="n">levels</span> <span class="o">=</span> <span class="n">sounding</span><span class="p">[</span><span class="s1">&#39;hght&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+  
+    <span class="n">_</span><span class="p">,</span> <span class="n">cape_buoy</span> <span class="o">=</span> <span class="n">get_buoy</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span> <span class="n">dwpt</span><span class="p">,</span> <span class="n">pres</span><span class="p">)</span>
+    <span class="n">mid_buoy</span> <span class="o">=</span> <span class="p">(</span><span class="n">cape_buoy</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">cape_buoy</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span><span class="o">/</span><span class="mf">2.</span>
+    <span class="n">cape_layers</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">levels</span><span class="p">)</span>
+    <span class="n">hit_pos</span> <span class="o">=</span> <span class="n">mid_buoy</span> <span class="o">&gt;</span> <span class="mi">0</span>
+    <span class="n">CAPE_elems</span> <span class="o">=</span> <span class="n">mid_buoy</span><span class="p">[</span><span class="n">hit_pos</span><span class="p">]</span> <span class="o">*</span> <span class="n">cape_layers</span><span class="p">[</span><span class="n">hit_pos</span><span class="p">]</span>
+    <span class="n">CAPE</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">CAPE_elems</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">CAPE</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">CAPE</span> <span class="o">=</span> <span class="n">get_CAPE</span><span class="p">(</span><span class="n">sounding</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">CAPE</span><span class="si">=:</span><span class="s2">0.1f</span><span class="si">}</span><span class="s2"> J/kg&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CAPE=295.1 J/kg
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="compute-the-maximum-vertical-velocity">
+<h2>Compute the maximum vertical velocity<a class="headerlink" href="#compute-the-maximum-vertical-velocity" title="Link to this heading">#</a></h2>
+<p>Now, we want the maximum updraft velocity.  Ignoring the effects of entrainment and aerodynamic drag, we can use the relation from our buoyancy notes or Thompkins 3.4:</p>
+<div class="math notranslate nohighlight">
+\[
+w_{max} = \sqrt{2 \,\text{CAPE}}\tag{AT3.4}
+\]</div>
+<p>Find <span class="math notranslate nohighlight">\(w_{max}\)</span> of our sounding:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wmax</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">CAPE</span><span class="p">)</span> <span class="o">**</span> <span class="mf">0.5</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">wmax</span><span class="si">=:</span><span class="s2">0.1f</span><span class="si">}</span><span class="s2"> m/s&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>wmax=24.3 m/s
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="to-do">
+<h2>To do<a class="headerlink" href="#to-do" title="Link to this heading">#</a></h2>
+<p>Write two rootfinders:</p>
+<ol class="arabic simple">
+<li><p>find the level of neutral buoyancy where the adiabat temperature crosses the environment</p></li>
+<li><p>find the maximum cloud top  height where negative and positive CAPE balance</p></li>
+</ol>
 </section>
 </section>
 
@@ -779,20 +856,20 @@ units: {&#39;drct&#39;: &#39;deg&#39;,
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="convective_lifting.html"
+       href="tropical_engine_solution.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Convective instability – lifting demo</p>
+        <p class="prev-next-title">Tropical Heat Engine</p>
       </div>
     </a>
     <a class="right-next"
-       href="tropical_engine_solution.html"
+       href="worksheet7_taylor.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Tropical Heat Engine</p>
+        <p class="prev-next-title">Worksheet 7 – Taylor series problem</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -813,14 +890,18 @@ units: {&#39;drct&#39;: &#39;deg&#39;,
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grab-a-little-rock-sounding">Grab a Little Rock sounding</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#select-one-sounding-july-17-2012-at-0-uct">Select one sounding – July 17, 2012 at 0 UCT</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#select-one-july-2012-sounding">Select one July 2012 sounding</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#save-the-metadata-for-plotting">Save the metadata for plotting</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convert-temperature-and-dewpoint-to-skew-coords">Convert temperature and dewpoint to skew coords</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-sounding-making-the-sounding-lines-thicker">Plot the sounding, making the sounding lines thicker</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#find-the-theta-es-of-the-lcl">Find the <span class="math notranslate nohighlight">\(\theta_{es}\)</span> of the  LCL</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-the-lcl-of-this-air">What is the LCL of this air?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-sounding">Plot the sounding</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#turn-off-log-0-warning">Turn off log(0) warning</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cape-calculation">CAPE calculation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-result">plot the result</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#put-this-in-a-get-cape-function">Put this in a get_cape function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-the-maximum-vertical-velocity">Compute the maximum vertical velocity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#to-do">To do</a></li>
 </ul>
   </nav></div>
 
