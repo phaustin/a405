@@ -21,7 +21,9 @@ Upload a scanned image with your answer to the following questions
 
 You can use the same tephigram (in separate copies) for questions 1/2 and then question 3.  
 
-Here is the link to [assign4b_tephi](https://docs.google.com/presentation/d/1UMxOLz9VCRBHDpUvJOuWqgN6eFeSkVGErlthLPhbDVw/edit?usp=sharing)
+Here is the link to the tephigram: [assign4b_tephi_new](https://docs.google.com/presentation/d/18DG-wXVmWE2lj38h2tS_axL7-uBQvpiINoUlARlmiaE/edit?usp=sharing)
+
+Here is the link to this notebook: [assignment4_paper.ipynb](https://drive.google.com/file/d/1AubiWcojVdDnHC8UX5LGHMSCE0E4epZj/view?usp=sharing)
 
 +++
 
