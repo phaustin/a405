@@ -135,7 +135,7 @@ we'll go through it in much more detail, starting with the following material:
 
 - From last time: {ref}`worksheet5_latent_solution`
 - This week's worksheet:  {ref}`worksheet6_gibbs_solution`
-- The first part of Assigment 4, due Friday midnight: {ref}`assign4_rootfind`
+- The first part of Assigment 4, due Friday midnight: {ref}`assign4_rootfind_solution`
 
 New material covering Thompkins derivation of the Clausius-Clapeyron equation on page 27
 
@@ -149,7 +149,7 @@ A preview of {ref}`assign4_paper`, due the weekend of Feb. 7.  This requires lec
 - Read Thompkins through the end of Chapter 2 (p. 38)
 - Read Thompkins Sec 3.2 p. 48-55 on convective stability
 
-Work on {ref}`tropical_profiles_solution` and {ref}`assign4_rootfind`.
+Work on {ref}`tropical_profiles_solution` and {ref}`assign4_rootfind_solution`.
 
 ## Week 5
 
@@ -193,7 +193,7 @@ Work on {ref}`tropical_profiles_solution` and {ref}`assign4_rootfind`.
 
 #### For Tuesday
 
-- Read the three new sets of notes and work on {ref}`assign4_rootfind` and {ref}`assign4_paper`
+- Read the three new sets of notes and work on {ref}`assign4_rootfind_solution` and {ref}`assign4_paper`
 
 ### Lecture 10, week 5, Thursday
 
@@ -212,4 +212,4 @@ Work on {ref}`tropical_profiles_solution` and {ref}`assign4_rootfind`.
 
 ### Lecture 11, week 6, Tuesday
 
-
+- {ref}`assign4_rootfind_solution`

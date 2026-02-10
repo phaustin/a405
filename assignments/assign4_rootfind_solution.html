@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Assignment 5: Thompkins questions &#8212; ATSC 405</title>
+    <title>Assignment 4a rootfinding &#8212; ATSC 405</title>
   
   
   
@@ -59,12 +59,12 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'assignments/assignment5_thompkins';</script>
-    <link rel="canonical" href="https://phaustin.github.io/a405/assignments/assignment5_thompkins.html" />
+    <script>DOCUMENTATION_OPTIONS.pagename = 'assignments/assign4_rootfind_solution';</script>
+    <link rel="canonical" href="https://phaustin.github.io/a405/assignments/assign4_rootfind_solution.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Week1: Hydrostatic balance explainer" href="../notebooks/week1/hydrostat.html" />
-    <link rel="prev" title="Assignment 4 part 2" href="assignment4_paper.html" />
+    <link rel="next" title="Assignment 4 part 2" href="assignment4_paper.html" />
+    <link rel="prev" title="Assignment 3 solution: Analyzing a model cloud dataset" href="tropical_clouds_profiles_solution.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -216,9 +216,9 @@
 <li class="toctree-l1"><a class="reference internal" href="adiabatic_box_solution.html">Adiabatic Box - Solution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hydrostatic_scaling_solution.html">Assign 2: Solution - Scale heights for typical atmospheric soundings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tropical_clouds_profiles_solution.html">Assignment 3 solution: Analyzing a model cloud dataset</a></li>
-<li class="toctree-l1"><a class="reference internal" href="assign4_rootfind_solution.html">Assignment 4a rootfinding</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Assignment 4a rootfinding</a></li>
 <li class="toctree-l1"><a class="reference internal" href="assignment4_paper.html">Assignment 4 part 2</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Assignment 5: Thompkins  questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="assignment5_thompkins.html">Assignment 5: Thompkins  questions</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">In-depth notes</span></p>
 <ul class="nav bd-sidenav">
@@ -296,7 +296,7 @@
       
       
       
-      <li><a href="../_sources/assignments/assignment5_thompkins.md" target="_blank"
+      <li><a href="../_sources/assignments/assign4_rootfind_solution.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -380,7 +380,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Assignment 5: Thompkins  questions</h1>
+    <h1>Assignment 4a rootfinding</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -390,11 +390,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#buoyancy-and-stability">1. Buoyancy and stability</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fog">2. Fog</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relative-humidity">3. Relative humidity</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#two-compartment-mixing">4. Two compartment mixing</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#taylor-series">5. Taylor series</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1-part-of-assignment-4">Problem 1 (part of assignment 4)</a></li>
 </ul>
             </nav>
         </div>
@@ -406,145 +402,132 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="assignment-5-thompkins-questions">
-<span id="assignment5-thompkins"></span><h1>Assignment 5: Thompkins  questions<a class="headerlink" href="#assignment-5-thompkins-questions" title="Link to this heading">#</a></h1>
-<p>Hand in pdfs, tephigrams or scanned images that show all your work</p>
-<p>Link to <a class="reference external" href="https://drive.google.com/file/d/1xIPs9Nl4Fo253WMs4LwzIbW-QEmdG8e8/view?usp=sharing">assigment5_thompkins.md</a></p>
-<section id="buoyancy-and-stability">
-<h2>1. Buoyancy and stability<a class="headerlink" href="#buoyancy-and-stability" title="Link to this heading">#</a></h2>
-<p>1.i)  (3pt) Our by-now familiar air parcel of moist (but non-cloudy)
-air has a temperature of 24.9 deg C. It is neutrally buoyant sitting in an
-environment that has a temperature of 25 deg C and a mixing ratio of 10
-<span class="math notranslate nohighlight">\(g kg^{-1}\)</span>. What is the mixing ratio in the air parcel?</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="assignment-4a-rootfinding">
+<span id="assign4-rootfind-solution"></span><h1>Assignment 4a rootfinding<a class="headerlink" href="#assignment-4a-rootfinding" title="Link to this heading">#</a></h1>
+<p>Download link to <a class="reference external" href="https://drive.google.com/file/d/1HBjqe9Y8WbUPuOts2RQtia2d7w8VE96A/view?usp=sharing">rootfind.ipynb</a></p>
+<p>Using a rootfinder to solve implicit equations</p>
+<p>We’ll need to use rootfinding to solve equations like finding the lifting condensation level, i.e. the level
+where the dewpoint=temperature.  This notebook works through a simple example and sets up question 1, which asks
+you to use a rootfinder to find the dewpoint temperature for a given saturation vapor pressure</p>
+<p>Documentation is here <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.brentq.html">scipy.optimize.brentq</a></p>
+<p>The cell below shows how to use a rootfinder to solve the equation</p>
+<div class="math notranslate nohighlight">
+\[
+cos(x) - 0.75 = 0
+\]</div>
+<p>The algorithm evaluates the function for increasing values of x until in sees a sign change.  It then backtracks to the other side of the sign change and starts increaing x again until it sees the sign change.  It will stop when the change in x is below a selected tolerance</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1.i Answer</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">optimize</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;ggplot&#39;</span><span class="p">)</span>
+
+
+<span class="n">xvals</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">10.</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xvals</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">xvals</span><span class="p">))</span>
+<span class="n">straight_line</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">xvals</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xvals</span><span class="p">,</span><span class="n">straight_line</span><span class="o">*</span><span class="mf">0.75</span><span class="p">,</span><span class="s1">&#39;b-&#39;</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">root_function</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Function we want to find the root of</span>
+<span class="sd">       input: x value</span>
+<span class="sd">       output: y value -- should be zero when x is a root</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.75</span>
+
+<span class="n">root1</span> <span class="o">=</span> <span class="n">optimize</span><span class="o">.</span><span class="n">brentq</span><span class="p">(</span><span class="n">root_function</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">root2</span> <span class="o">=</span> <span class="n">optimize</span><span class="o">.</span><span class="n">brentq</span><span class="p">(</span><span class="n">root_function</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">root3</span> <span class="o">=</span> <span class="n">optimize</span><span class="o">.</span><span class="n">brentq</span><span class="p">(</span><span class="n">root_function</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span>
+<span class="n">xvals</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">root1</span><span class="p">,</span><span class="n">root2</span><span class="p">,</span><span class="n">root3</span><span class="p">])</span>
+<span class="n">yvals</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">xvals</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xvals</span><span class="p">,</span><span class="n">yvals</span><span class="p">,</span><span class="s1">&#39;ro&#39;</span><span class="p">,</span><span class="n">markersize</span><span class="o">=</span><span class="mi">20</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/ff745f58a35813fa650ad999f4eafb900008a60a42d8b1304d621346616ab33e.png" src="../_images/ff745f58a35813fa650ad999f4eafb900008a60a42d8b1304d621346616ab33e.png" />
+</div>
+</div>
+<section id="problem-1-part-of-assignment-4">
+<h2>Problem 1 (part of assignment 4)<a class="headerlink" href="#problem-1-part-of-assignment-4" title="Link to this heading">#</a></h2>
+<p>Giventhe Clausius Clapeyron equation and a saturation vapor pressure  <span class="math notranslate nohighlight">\(esat\)</span> in Pa, find the dewpoint temperature in Kelvin, i.e. the temperature where:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>esat = find_esat(Tdewpoint)
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">find_esat</span><span class="p">(</span><span class="n">temp</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Thompkins 2.15 version of Clausius-Clapeyron equation</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+
+<span class="sd">    temp: temperature (K)</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+
+<span class="sd">    esatOut: saturation vapor pressure (Pa)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">Tc</span> <span class="o">=</span> <span class="n">temp</span> <span class="o">-</span> <span class="mf">273.15</span>
+    <span class="n">esatOut</span> <span class="o">=</span> <span class="mf">611.2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mf">17.67</span> <span class="o">*</span> <span class="n">Tc</span> <span class="o">/</span> <span class="p">(</span><span class="n">Tc</span> <span class="o">+</span> <span class="mf">243.5</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">esatOut</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>1.ii (2pt) the temperature of the air parcel is increased by 1 deg C, so
-that it is no longer neutrally buoyant. Assuming the resulting
-acceleration is maintained (i.e. constant) for 10 seconds, what is the
-final parcel velocity?</p>
+<p>In the cell below, use the rootfinder to write this function:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>def find_dewpoint(esat):
+   ...
+   return Tdew
+</pre></div>
+</div>
+<p>and use it to make a plot of dewpoint vs temperature from 0 deg C to 30 deg C</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1.ii Answer</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># you code here</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">root_function</span><span class="p">(</span><span class="n">Tdew</span><span class="p">,</span><span class="n">esat_target</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">esat_target</span> <span class="o">-</span> <span class="n">find_esat</span><span class="p">(</span><span class="n">Tdew</span><span class="p">)</span>
+    
+<span class="k">def</span><span class="w"> </span><span class="nf">find_dewpoint</span><span class="p">(</span><span class="n">esat</span><span class="p">):</span>
+    <span class="n">Tdew</span> <span class="o">=</span> <span class="n">optimize</span><span class="o">.</span><span class="n">brentq</span><span class="p">(</span><span class="n">root_function</span><span class="p">,</span><span class="mi">200</span><span class="p">,</span><span class="mi">350</span><span class="p">,</span><span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">esat</span><span class="p">,))</span>
+    <span class="k">return</span> <span class="n">Tdew</span>
+    
+<span class="n">find_dewpoint</span><span class="p">(</span><span class="mi">1200</span><span class="p">)</span>   
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>282.81605175569194
 </pre></div>
 </div>
 </div>
 </div>
-<p>1.iii (2 pt) Dry air at 1000 hPa is measured to have a temperature of
-<span class="math notranslate nohighlight">\(27^\circ\)</span> C, while at 900 hPa the temperature is 22 deg C, is this layer of the
-atmosphere dry stable, neutral or unstable?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1.iii Answer</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">a405.thermo.constants</span><span class="w"> </span><span class="kn">import</span> <span class="n">constants</span> <span class="k">as</span> <span class="n">c</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="n">esat_vals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">4000</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+<span class="n">dewpoint</span> <span class="o">=</span> <span class="p">[</span><span class="n">find_dewpoint</span><span class="p">(</span><span class="n">esat</span><span class="p">)</span> <span class="k">for</span> <span class="n">esat</span> <span class="ow">in</span> <span class="n">esat_vals</span><span class="p">]</span>
+<span class="n">dewpoint_tc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">dewpoint</span><span class="p">)</span> <span class="o">-</span> <span class="n">c</span><span class="o">.</span><span class="n">Tc</span>
+<span class="n">esat_vals_mb</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">esat_vals</span><span class="p">)</span><span class="o">*</span><span class="mf">0.01</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;ggplot&#39;</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span>
+
+<span class="c1"># Plot values and convert the saturation vapour pressure to hPa</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">esat_vals_mb</span><span class="p">,</span><span class="n">dewpoint_tc</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Saturation vapor pressure (hPa)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Dewpoint temperature (°C)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-</div>
-</section>
-<section id="fog">
-<h2>2. Fog<a class="headerlink" href="#fog" title="Link to this heading">#</a></h2>
-<p>In this question, for simplicity, assume the definition of relative humidity
-defined in terms of mixing ratio: RH = <span class="math notranslate nohighlight">\(r_v/r_{vsat}\)</span></p>
-<p>2.i (2pt) The environmental air with temperature of 25.0 deg C and a mixing
-ratio of 10 <span class="math notranslate nohighlight">\(g kg^{-1}\)</span> is located near the surface at a pressure of
-1000hPa. What is the relative humidity?</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span> <span class="c1"># 2.i answer</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>2.ii (1pt) The air starts to cool isobarically at night until even-
-tually a fog forms. Assuming the pressure is 1000 hPa. What is the
-temperature at which the fogs occurs? (Use the tephigram to answer
-this, please mark the answer on the tephigram)</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 2.ii answer</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>2.iii (2pt) Derive this same temperature by inverting Teton’s formula,
-showing your working. (Out of interest note how close the answer is to
-your tephigram result).</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 2.iii answer</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>iv (1pt) What is the common name given to this temperature?</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 2. iv answer</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="relative-humidity">
-<h2>3. Relative humidity<a class="headerlink" href="#relative-humidity" title="Link to this heading">#</a></h2>
-<p>In this question, for simplicity, assume the definition of relative
-humidity defined in terms of mixing ratio.</p>
-<p>3.i (2pt) A parcel of air at time t=0 has a temperature T0 of 25 deg C and a
-relative humidity RH of 0.1. What is the mixing ratio <span class="math notranslate nohighlight">\(r_{v0}\)</span>?</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 3.i answer</span>
-</pre></div>
-</div>
-</div>
-</div>
-<ol class="arabic simple" start="3">
-<li><p>ii (4pt) The parcel is cooled and moistened isobarically by the evaporation of precipitation to reach a final temperature
-of <span class="math notranslate nohighlight">\(T_1\)</span> and a final mixing ratio of <span class="math notranslate nohighlight">\(r_{v1}\)</span>.  Use a rootfinder to solve for <span class="math notranslate nohighlight">\(T_1\)</span> if the relative humidity is RH=0.6.</p></li>
-</ol>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 3.ii answer</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="two-compartment-mixing">
-<h2>4. Two compartment mixing<a class="headerlink" href="#two-compartment-mixing" title="Link to this heading">#</a></h2>
-<p>4.i (3pt) Consider two compartments, each with a volume of 1 <span class="math notranslate nohighlight">\(m^3\)</span>, separated by a rigid, perfectly insulating membrane.</p>
-<ul class="simple">
-<li><p>Initially <span class="math notranslate nohighlight">\(T_A\)</span> = 300 K and <span class="math notranslate nohighlight">\(p_A\)</span> = <span class="math notranslate nohighlight">\(10^5\)</span> Pa, and <span class="math notranslate nohighlight">\(T_B\)</span> = 100 K and <span class="math notranslate nohighlight">\(p_B\)</span> = <span class="math notranslate nohighlight">\(10^3\)</span> Pa.  Suppose the membrane breaks.  Find the final temperature and pressure in the 2 <span class="math notranslate nohighlight">\(m^3\)</span> compartment.   Does the total entropy change?  By how much?</p></li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 4.ii answer</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="taylor-series">
-<h2>5. Taylor series<a class="headerlink" href="#taylor-series" title="Link to this heading">#</a></h2>
-<p>Find the second order taylor series expansion for the following functions:</p>
-<p>5.i (2pt) <span class="math notranslate nohighlight">\((1 + \delta)^{-3}\)</span></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 5.i answer</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>5.ii(2pt) <span class="math notranslate nohighlight">\(\log(1 + \delta)\)</span></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 5.ii answer</span>
-</pre></div>
-</div>
+<div class="cell_output docutils container">
+<img alt="../_images/5f101927441386be3f535317900cb1bfc40f9d1a0f7f0ad58d22ba42fa0f2fd9.png" src="../_images/5f101927441386be3f535317900cb1bfc40f9d1a0f7f0ad58d22ba42fa0f2fd9.png" />
 </div>
 </div>
 </section>
@@ -581,20 +564,20 @@ of <span class="math notranslate nohighlight">\(T_1\)</span> and a final mixing 
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="assignment4_paper.html"
+       href="tropical_clouds_profiles_solution.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Assignment 4 part 2</p>
+        <p class="prev-next-title">Assignment 3 solution: Analyzing a model cloud dataset</p>
       </div>
     </a>
     <a class="right-next"
-       href="../notebooks/week1/hydrostat.html"
+       href="assignment4_paper.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Week1: Hydrostatic balance explainer</p>
+        <p class="prev-next-title">Assignment 4 part 2</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -614,11 +597,7 @@ of <span class="math notranslate nohighlight">\(T_1\)</span> and a final mixing 
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#buoyancy-and-stability">1. Buoyancy and stability</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fog">2. Fog</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relative-humidity">3. Relative humidity</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#two-compartment-mixing">4. Two compartment mixing</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#taylor-series">5. Taylor series</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1-part-of-assignment-4">Problem 1 (part of assignment 4)</a></li>
 </ul>
   </nav></div>
 
