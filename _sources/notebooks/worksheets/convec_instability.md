@@ -12,7 +12,7 @@ kernelspec:
   name: python3
 ---
 
-(convec_instab)=
+(convec_lifting)=
 # Convective instability -- lifting demo 
 
 This notebook shows how to obtain Thompkins Figure 3.47, p. 64 in stages, by lifting

@@ -206,11 +206,12 @@
 <li class="toctree-l1"><a class="reference internal" href="../worksheets/worksheet6_gibbs_solution.html">Worksheet 6 solution: Gibbs free energy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../worksheets/mixing_line_example.html">Mixing line example</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../worksheets/convec_instability.html">Convective instability – lifting demo</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../worksheets/convective_lifting.html">Convective instability – lifting demo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../worksheets/moist_adiabats.html">Moist adiabats and the LCL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../worksheets/tropical_engine_solution.html">Tropical Heat Engine</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../worksheets/cape_part1.html">Cape Part 1  – demo</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../worksheets/worksheet7_taylor.html">Worksheet 7 – Taylor series problem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../worksheets/worksheet7_taylor_solution.html">Worksheet 7 – Taylor series problem solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../worksheets/mixing_line_calc.html">Mixing line workbook</a></li>
+
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="nav bd-sidenav">
@@ -239,6 +240,12 @@
 <li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1BPTvFijtktG4135T1X8DXwI8l_C8xHEt/view?usp=sharing">Static energy and $\theta_e$ notes</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/131QoLZPjajoCtreV6muYOxDlF6jvRH4s/view?usp=sharing">Carnot cycle notes</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1wsfzaorhVKiMwDlrolf2gtTrSLT4p4iM/view?usp=sharing">wet bulb notes</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1j8vhmRtGaOlpe0JAAS-fvZmH9H8U2ay2/view?usp=sharing">Wet bulb vs. $\theta_e$</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">midterms</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1Nj31FAXyWur9qffnSflhx6CcLBta4PCj/view?usp=sharing">2016 midterm</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1jFKalQ9MXAvNu824LKVyHtNEleZhgI0q/view?usp=sharing">2012 midterm</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Animations</span></p>
 <ul class="nav bd-sidenav">
@@ -418,12 +425,12 @@ force necessary to balance gravity, so the atmosphere is not rising or sinking:<
 <a class="reference internal image-reference" href="../../_images/hydrostat.png"><img alt="../../_images/hydrostat.png" src="../../_images/hydrostat.png" style="width: 443.0px; height: 352.0px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 5 </span><span class="caption-text">Hydrostatic balance for a 1 <span class="math notranslate nohighlight">\(m^2\)</span> cross section of a layer</span><a class="headerlink" href="#hydrofig" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 4 </span><span class="caption-text">Hydrostatic balance for a 1 <span class="math notranslate nohighlight">\(m^2\)</span> cross section of a layer</span><a class="headerlink" href="#hydrofig" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>In symbols, the balance shown by <a class="reference internal" href="#hydrofig"><span class="std std-numref">Fig. 5</span></a> implies that:</p>
+<p>In symbols, the balance shown by <a class="reference internal" href="#hydrofig"><span class="std std-numref">Fig. 4</span></a> implies that:</p>
 <div class="math notranslate nohighlight" id="equation-hydro-eq">
-<span class="eqno">(10)<a class="headerlink" href="#equation-hydro-eq" title="Link to this equation">#</a></span>\[
+<span class="eqno">(14)<a class="headerlink" href="#equation-hydro-eq" title="Link to this equation">#</a></span>\[
 dp = - \rho g dz
 \]</div>
 <p><strong>Question: is this the same pressure p as the local pressure given by
@@ -440,9 +447,9 @@ p = p_0 \exp \left ( \frac{-z}{H_p} \right )
 \]</div>
 <p>In words – <span class="math notranslate nohighlight">\(H_p\)</span> gives the height at which gravity wins out over the kinetic energy of the air molecules – warmer atmospheres take longer to decrease their pressure by a factor of <span class="math notranslate nohighlight">\(\exp(-H_p/H_p) = \exp(-1)\)</span> (the e-folding height) because the air molecules have more energy to travel higher.</p>
 <ol class="arabic">
-<li><p>Do pressure first: Rewrite <a class="reference internal" href="#equation-hydro-eq">(10)</a> using the ideal gas law:</p>
+<li><p>Do pressure first: Rewrite <a class="reference internal" href="#equation-hydro-eq">(14)</a> using the ideal gas law:</p>
 <div class="math notranslate nohighlight" id="equation-hydro1">
-<span class="eqno">(11)<a class="headerlink" href="#equation-hydro1" title="Link to this equation">#</a></span>\[
+<span class="eqno">(15)<a class="headerlink" href="#equation-hydro1" title="Link to this equation">#</a></span>\[
    dp = - \rho g dz = - \frac{p}{R_d T}  g dz = \frac{p}{H_p}
    \]</div>
 <p>where <span class="math notranslate nohighlight">\(H_p=R_d T/g\)</span> is the pressure scale height.</p>
@@ -458,7 +465,7 @@ p = p_0 \exp \left ( \frac{-z}{H_p} \right )
 to go any further. If we don’t have those profiles, then a useful approximation is to define a vertically averaged <span class="math notranslate nohighlight">\(H_p\)</span>, since
 the average involves a large mass of air (about 10 metric tons/cubic meter), it will vary more slowly than the temperature at any one level on any given day, and we can still get a useful profile of pressure vs. height without having a specific sounding:</p>
 <div class="math notranslate nohighlight" id="equation-pressavg">
-<span class="eqno">(12)<a class="headerlink" href="#equation-pressavg" title="Link to this equation">#</a></span>\[
+<span class="eqno">(16)<a class="headerlink" href="#equation-pressavg" title="Link to this equation">#</a></span>\[
    \frac{ 1}{\overline{H_p}} = \overline{ \left ( \frac{1 }{H_p} \right )} = \frac{\int_{0 }^{z}\!\frac{1}{H_p} dz^\prime  }{z-0}
    \]</div>
 <p>Now we can replace the z integral by the average:</p>
@@ -487,15 +494,15 @@ the average involves a large mass of air (about 10 metric tons/cubic meter), it 
 \[
    \frac{d\rho }{dz}  = -\frac{\rho }{T}  \left ( \frac{g }{R_d} + \frac{ dT}{dz} \right ) = - \rho \left ( \frac{1 }{H} +  \frac{1 }{T} \frac{dT }{dz} \right ) = - \frac{\rho}{H_\rho}
    \]</div>
-<p>Bottom line – with this definition of the density scale height we’ve got an equation that looks like <a class="reference internal" href="#equation-hydro1">(11)</a>:</p>
+<p>Bottom line – with this definition of the density scale height we’ve got an equation that looks like <a class="reference internal" href="#equation-hydro1">(15)</a>:</p>
 <div class="math notranslate nohighlight" id="equation-densavg">
-<span class="eqno">(13)<a class="headerlink" href="#equation-densavg" title="Link to this equation">#</a></span>\[
+<span class="eqno">(17)<a class="headerlink" href="#equation-densavg" title="Link to this equation">#</a></span>\[
    \frac{d\rho }{\rho} = - \left ( \frac{1 }{H} +
                       \frac{1 }{T} \frac{dT }{dz} \right ) dz = - \frac{dz }{H_\rho}
    \]</div>
 <p>Pull the same trick for the vertical average:</p>
 <div class="math notranslate nohighlight" id="equation-denstrick">
-<span class="eqno">(14)<a class="headerlink" href="#equation-denstrick" title="Link to this equation">#</a></span>\[
+<span class="eqno">(18)<a class="headerlink" href="#equation-denstrick" title="Link to this equation">#</a></span>\[
    \frac{ 1}{\overline{H_\rho}} = \overline{ \left ( \frac{1 }{H_\rho} \right )} = \frac{\int_{0 }^{z}\!\frac{1}{H_\rho} dz^\prime  }{z-0}
    \]</div>
 <p>We use this vertical average in exactly the same way as before to

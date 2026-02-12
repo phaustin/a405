@@ -216,10 +216,19 @@ Work on {ref}`tropical_profiles_solution` and {ref}`assign4_rootfind_solution`.
 - Here is an initial version of the  [mid-term equation sheet](https://drive.google.com/file/d/1L8am0jnhBdlTNzQNR8lE-Iyw0V6lwqg2/view?usp=sharing)
 - Go over Thompkins p. 37 on the wet bulb temperature using my [wet bulb notes](https://drive.google.com/file/d/1wsfzaorhVKiMwDlrolf2gtTrSLT4p4iM/view?usp=sharing)
 - The {ref}`cape_part1` notebook shows how to calculate CAPE from a sounding as described in Thompkins p. 49
-- Today's worksheet on Taylor series {ref}`worksheet7_taylor`
+- Today's worksheet on Taylor series {ref}`worksheet7_taylor_solution`
 
 #### For next Thursday
 
 - read Thompkins pp. 55-60 on mixing and downdrafts
 - Work on Assigments 4b and 5
+
+### Lecture 12, week 6, Thursday
+
+- {ref}`worksheet7_taylor_solution`
+- [Wet bulb vs. $\theta_e$](https://drive.google.com/file/d/1j8vhmRtGaOlpe0JAAS-fvZmH9H8U2ay2/view?usp=sharing)
+- {ref}`mixing_line_calc`
+- [2016 midterm](https://drive.google.com/file/d/1Nj31FAXyWur9qffnSflhx6CcLBta4PCj/view?usp=sharing)
+- [2012 midterm](https://drive.google.com/file/d/1jFKalQ9MXAvNu824LKVyHtNEleZhgI0q/view?usp=sharing)
+
 

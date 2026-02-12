@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Week 1 worksheet solutions &#8212; ATSC 405</title>
+    <title>Worksheet 7 – Taylor series problem solution &#8212; ATSC 405</title>
   
   
   
@@ -59,12 +59,12 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/worksheets/worksheet1_solution';</script>
-    <link rel="canonical" href="https://phaustin.github.io/a405/notebooks/worksheets/worksheet1_solution.html" />
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/worksheets/worksheet7_taylor_solution';</script>
+    <link rel="canonical" href="https://phaustin.github.io/a405/notebooks/worksheets/worksheet7_taylor_solution.html" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Worksheet2 – Thermodynamics worksheet solution" href="worksheet2_solution.html" />
-    <link rel="prev" title="Week notes" href="../../week_notes.html" />
+    <link rel="next" title="Mixing line workbook" href="mixing_line_calc.html" />
+    <link rel="prev" title="Cape Part 1 – demo" href="cape_part1.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -197,7 +197,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Worksheets</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Week 1 worksheet solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="worksheet1_solution.html">Week 1 worksheet solutions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="worksheet2_solution.html">Worksheet2 – Thermodynamics worksheet solution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../week2/skew_coords.html">Week2: Demo – Theromodynamic diagrams</a></li>
 <li class="toctree-l1"><a class="reference internal" href="worksheet3_derivs_and_ints_solution.html">worksheet 3 solution: working with numpy arrays</a></li>
@@ -210,7 +210,7 @@
 <li class="toctree-l1"><a class="reference internal" href="moist_adiabats.html">Moist adiabats and the LCL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tropical_engine_solution.html">Tropical Heat Engine</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cape_part1.html">Cape Part 1  – demo</a></li>
-<li class="toctree-l1"><a class="reference internal" href="worksheet7_taylor_solution.html">Worksheet 7 – Taylor series problem solution</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Worksheet 7 – Taylor series problem solution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mixing_line_calc.html">Mixing line workbook</a></li>
 
 </ul>
@@ -307,7 +307,7 @@
       
       
       
-      <li><a href="../../_sources/notebooks/worksheets/worksheet1_solution.md" target="_blank"
+      <li><a href="../../_sources/notebooks/worksheets/worksheet7_taylor_solution.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -378,7 +378,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -389,11 +391,20 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Week 1 worksheet solutions</h1>
+    <h1>Worksheet 7 – Taylor series problem solution</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#answer">1 Answer</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">2 Answer</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -403,116 +414,135 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="week-1-worksheet-solutions">
-<span id="worksheet1-solution"></span><h1>Week 1 worksheet solutions<a class="headerlink" href="#week-1-worksheet-solutions" title="Link to this heading">#</a></h1>
-<p>Three problems from Lohmann Chapter 1</p>
-<p>Download link for this file <a class="reference external" href="https://drive.google.com/file/d/1dZ-ZcxA2w4rVilm_Gcm9ojpxvRI69Rh4/view?usp=sharing">worksheet1_solution.ipynb</a></p>
-<ol class="arabic simple" start="4">
-<li><p>Assume a low level cloud with the following properties: vertical extent 1.5 km, horizontal
-extent 1 km, cloud droplet number concentration 90 <span class="math notranslate nohighlight">\(cm^{−3}\)</span> air and mean diameter 10
-μm. Estimate the mass of the cloud by assuming that all the cloud droplets are spherical
-and have the same size. Take 1000 <span class="math notranslate nohighlight">\(kg\,m^{−3}\)</span> to be the density of water.</p></li>
+  <section class="tex2jax_ignore mathjax_ignore" id="worksheet-7-taylor-series-problem-solution">
+<span id="worksheet7-taylor-solution"></span><h1>Worksheet 7 – Taylor series problem solution<a class="headerlink" href="#worksheet-7-taylor-series-problem-solution" title="Link to this heading">#</a></h1>
+<p>The link to <a class="reference external" href="https://drive.google.com/file/d/1lD93cY3wWHKVC6ie7WJ_ghZXjlieoOwM/view?usp=sharing">worksheet7_taylor_solution.ipynb</a></p>
+<ol class="arabic simple">
+<li><p>Use a Taylor series to expand the following expression with respect to a temperature perturbation (this should yield 3 terms)</p></li>
 </ol>
-<ol class="arabic simple" start="4">
-<li><p>Answer</p></li>
-</ol>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cloud_diameter</span><span class="o">=</span><span class="mi">1000</span> <span class="c1">#m</span>
-<span class="n">cloud_height</span> <span class="o">=</span> <span class="mi">1500</span> <span class="c1">#m</span>
-<span class="n">drop_density</span> <span class="o">=</span> <span class="mf">90e6</span> <span class="c1"># /m^3</span>
-<span class="n">drop_diameter</span> <span class="o">=</span> <span class="mf">10.e-6</span>  <span class="c1">#m</span>
-<span class="n">rho</span> <span class="o">=</span> <span class="mi">1000</span>  <span class="c1">#kg/m^3</span>
-<span class="n">pi</span> <span class="o">=</span> <span class="mf">3.1416</span>
-<span class="n">cloud_volume</span> <span class="o">=</span> <span class="n">cloud_height</span><span class="o">*</span><span class="n">pi</span><span class="o">*</span><span class="p">(</span><span class="n">cloud_diameter</span><span class="o">/</span><span class="mf">2.</span><span class="p">)</span><span class="o">**</span><span class="mf">2.</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">cloud_volume</span><span class="o">*</span><span class="mf">1.e-6</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="n">drop_volume</span> <span class="o">=</span> <span class="mf">4.</span><span class="o">/</span><span class="mf">3.</span><span class="o">*</span><span class="n">pi</span><span class="o">*</span><span class="p">(</span><span class="n">drop_diameter</span><span class="o">/</span><span class="mf">2.</span><span class="p">)</span><span class="o">**</span><span class="mf">3.</span>
-<span class="n">total_number</span> <span class="o">=</span> <span class="n">cloud_volume</span><span class="o">*</span><span class="n">drop_density</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">total_number</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="n">total_mass</span> <span class="o">=</span> <span class="n">total_number</span><span class="o">*</span><span class="n">drop_volume</span><span class="o">*</span><span class="n">rho</span> <span class="c1">#kg</span>
-<span class="n">total_mass_tonnes</span> <span class="o">=</span> <span class="n">total_mass</span><span class="o">/</span><span class="mf">1000.</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Answer: </span><span class="si">{</span><span class="n">total_mass_tonnes</span><span class="si">:</span><span class="s2">0.1f</span><span class="si">}</span><span class="s2"> tonnes&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>cloud_volume*1.e-6=1178.1
-total_number=1.06029e+17
-Answer: 55.5 tonnes
-</pre></div>
-</div>
-</div>
-</div>
-<ol class="arabic" start="5">
-<li><p>Imagine a pure water cloud which consists of cloud droplets of uniform size with <span class="math notranslate nohighlight">\(R_d\)</span>
-=5 μm. Assume a uniform spacing of the cloud droplets, with a number concentration of
-Nc = 170 <span class="math notranslate nohighlight">\(cm^{-3}\)</span></p>
-<p>(a) Calculate the average distance between the cloud droplets</p>
-<p>(b) What would happen to the distance if the number concentration was trippled?</p>
-</li>
-</ol>
-<ol class="arabic simple" start="5">
-<li><p>Answer</p></li>
-</ol>
-<p>Assume that each drop gets its own cube inside the 1  <span class="math notranslate nohighlight">\(cm^{3}\)</span> of air.  How many cubes does it take to pack a cm?</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mf">170.</span>
-<span class="n">drop_cube_volume</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">N</span>
-<span class="n">cube_edge_size</span> <span class="o">=</span> <span class="n">drop_cube_volume</span><span class="o">**</span><span class="mf">0.3333</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">cube_edge_size</span><span class="si">=:</span><span class="s2">0.2f</span><span class="si">}</span><span class="s2"> cm&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>cube_edge_size=0.18 cm
-</pre></div>
-</div>
-</div>
-</div>
-<p>So if the drop diameter is 10 microns = <span class="math notranslate nohighlight">\(10^{-3}\)</span> cm, then there are about 0.18/0.001 = 180 drop diameters between droplets.</p>
-<p>b) If the concentration is trippled, then the drop volume is smaller by a factor of 3, and the edge is shorter by <span class="math notranslate nohighlight">\(1/3^{1/3}\)</span> = 0.7</p>
-<ol class="arabic simple" start="3">
-<li><p>The average pressure at Earth’s surface is 985 hPa. Knowing the radius of the Earth
-<span class="math notranslate nohighlight">\(r_{Earth}\)</span> = 6370 km and using the definition of pressure, estimate the total mass of the
-atmosphere.</p></li>
-</ol>
-<ol class="arabic simple" start="3">
-<li><p>Answer</p></li>
-</ol>
-<ul class="simple">
-<li><p>pressure = force of gravity per unit area</p></li>
-<li><p>force of gravity = mass <span class="math notranslate nohighlight">\(\times\)</span> acceleration</p></li>
-</ul>
-<p>So find the mass M of a 1 <span class="math notranslate nohighlight">\(m^2\)</span> column</p>
 <div class="math notranslate nohighlight">
-\[M= \int_0^\infty \rho dz\]</div>
-<p>by integrating the hydrostatic equation</p>
+\[
+d  \left ( \frac{l_v(T) r_s(T)}{c_p T} \right ) 
+\]</div>
+<p>Use the <a class="reference external" href="https://docs.google.com/presentation/d/18DG-wXVmWE2lj38h2tS_axL7-uBQvpiINoUlARlmiaE/edit?usp=sharing">assignment 4b tephigram</a> to estimate the size of each of the three terms for a 2 deg C  temperature perturbation at a pressure of 900 hPa and a temperature of 10 deg C.  To first order, what is error in percent caused by dropping two of those terms in the following approximation?  (Hint: get <span class="math notranslate nohighlight">\(dr_s/dT\)</span> from the tephigram, not the C-C equation)</p>
+<div class="math notranslate nohighlight">
+\[
+d  \left ( \frac{l_v(T) r_s(T)}{c_p T} \right ) \approx  \left ( \frac{l_v(T) }{c_p T} \right ) dr_s
+\]</div>
+<section id="answer">
+<h2>1 Answer<a class="headerlink" href="#answer" title="Link to this heading">#</a></h2>
+<p>Use the chain rule on the three temperature dependent variables:</p>
+<div class="math notranslate nohighlight" id="equation-eq-approx">
+<span class="eqno">(10)<a class="headerlink" href="#equation-eq-approx" title="Link to this equation">#</a></span>\[\begin{split}
+d\left(\frac{l_v r_s}{c_p T}\right)=\frac{1}{c_p}\left [ \underbrace{\left(\frac{r_s}{T}\right) \frac{dl_v}{dT} d T }_a +
+\underbrace{\left(\frac{l_v}{T}\right) \frac{d r_s}{\partial T} d T}_b \\
+- \underbrace{\left(\frac{l_v r_s}{T^2}\right) d T}_c \right ] \approx \underbrace{\left(\frac{l_v}{T}\right) \frac{d r_s}{\partial T} d T}_b  = \underbrace{\left(\frac{l_v}{T} dr_s\right) }_b 
+\end{split}\]</div>
+<p>We know the following:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{dl_v}{dT} = c_{pv} - c_l 
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\frac{dr_s}{dT} dT = dr_x
+\]</div>
+<p>put in some numbers from the tephigram</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(r_s\)</span>(14 deg) \approx 11.5 g/kg</p></li>
+<li><p><span class="math notranslate nohighlight">\(r_s\)</span>(16 deg) \approx 12.5 g/gk</p></li>
+<li><p><span class="math notranslate nohighlight">\(l_v\)</span> \approx 2.5 <span class="math notranslate nohighlight">\(\times 10^6\)</span> J/kg</p></li>
+<li><p><span class="math notranslate nohighlight">\(c_{pv}\)</span> = 1870 J/kg/K</p></li>
+<li><p><span class="math notranslate nohighlight">\(c_l\)</span> = 4190 J/kg/K</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">drs</span> <span class="o">=</span> <span class="mf">1.e-3</span> <span class="c1">#kg/kg</span>
+<span class="n">dT</span> <span class="o">=</span> <span class="mi">2</span>  <span class="c1"># K</span>
+<span class="n">rs</span> <span class="o">=</span> <span class="mf">12.e-3</span> <span class="c1"># kg/kg</span>
+<span class="n">cpv</span> <span class="o">=</span> <span class="mi">1870</span> <span class="c1">#J/kg/K</span>
+<span class="n">cl</span> <span class="o">=</span> <span class="mi">4190</span> <span class="c1"># J/kg/K</span>
+<span class="n">lv</span> <span class="o">=</span> <span class="mf">2.5e6</span> <span class="c1"># J/kg</span>
+<span class="n">temp</span> <span class="o">=</span> <span class="mf">273.15</span> <span class="o">+</span> <span class="mi">15</span> <span class="c1"># K</span>
+<span class="n">term_a</span> <span class="o">=</span> <span class="p">(</span><span class="n">rs</span><span class="o">/</span><span class="n">temp</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">cpv</span> <span class="o">-</span> <span class="n">cl</span><span class="p">)</span><span class="o">*</span><span class="n">dT</span>
+<span class="n">term_b</span> <span class="o">=</span> <span class="p">(</span><span class="n">lv</span><span class="o">/</span><span class="n">temp</span><span class="p">)</span><span class="o">*</span><span class="n">drs</span>
+<span class="n">term_c</span> <span class="o">=</span> <span class="p">(</span><span class="n">lv</span><span class="o">*</span><span class="n">rs</span><span class="o">/</span><span class="n">temp</span><span class="o">**</span><span class="mf">2.</span><span class="p">)</span><span class="o">*</span><span class="n">dT</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">term_a</span><span class="si">=:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">term_b</span><span class="si">=:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">term_c</span><span class="si">=:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>term_a=-0.2, term_b=8.7, term_c=0.7
+</pre></div>
+</div>
+</div>
+</div>
+<p>Conclusion, terms a and c can be dropped if we can live with an error of about 10%</p>
+<ol class="arabic simple" start="2">
+<li><p>Using this approximation, integrate the moist entropy equation to show that</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+\phi = c_p \log \theta_e 
+\]</div>
+</section>
+<section id="id1">
+<h2>2 Answer<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<p>i) Start with the first law of thermodynamics for a saturated process:</p>
+<div class="math notranslate nohighlight" id="equation-eq-first-taylor">
+<span class="eqno">(11)<a class="headerlink" href="#equation-eq-first-taylor" title="Link to this equation">#</a></span>\[
+q\,dt = dh - \alpha dp =  c_p\, dT\ + l_v\,dr_s - \alpha dp =   c_p\, dT\ + l_v\,dr_s - R_d T \frac{dp}{p}
+\]</div>
+<p>where the specific volume <span class="math notranslate nohighlight">\(\alpha = 1/\rho = R_d T/p\)</span></p>
+<p>ii) Recall the second law:</p>
+<div class="math notranslate nohighlight">
+\[
+d\phi = \frac{q\,dt}{T}
+\]</div>
+<p>So divide <a class="reference internal" href="#equation-eq-first-taylor">(11)</a> by T:</p>
+<div class="math notranslate nohighlight">
+\[
+d\phi = c_p\, \frac{dT}{T}\ + \frac{l_v}{T}\,dr_s - R_d  \frac{dp}{p}
+\]</div>
+<p>Now use the approximation <a class="reference internal" href="#equation-eq-approx">(10)</a>.</p>
+<div class="math notranslate nohighlight">
+\[
+d\phi = c_p\, d \log T\ + d \left ( \frac{l_v}{T}\,r_s \right ) - R_d  d \log p
+\]</div>
+<p>and using (11) in the midterm equation sheet we can write that as</p>
+<div class="math notranslate nohighlight" id="equation-eq-dentropy">
+<span class="eqno">(12)<a class="headerlink" href="#equation-eq-dentropy" title="Link to this equation">#</a></span>\[
+d\phi = c_p\, d \log \theta + d \left ( \frac{l_v}{T}\,r_s \right )
+\]</div>
+<p>So how do we integrate this  along an adiabat?  Set <span class="math notranslate nohighlight">\(d\phi = 0\)</span> and integrate from the bottom of the atmosphere where</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-dp = -\rho g dz \\
-\int_{psfc}^0 dp = 0 - p_{sfc} = \int_0^\infty -\rho g dz \approx -g M\\
-M = p_{sfc}/g
+\theta^\prime = \theta \\
+\left ( \frac{l_v}{T}\,r_s \right )^\prime = \left ( \frac{l_v}{T}\,r_s \right )
 \end{split}\]</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pressure</span> <span class="o">=</span> <span class="mi">98500</span>  <span class="c1">#pascals</span>
-<span class="n">g</span> <span class="o">=</span> <span class="mf">9.8</span> <span class="c1"># m/s/s</span>
-<span class="n">mass_m2</span> <span class="o">=</span> <span class="n">pressure</span><span class="o">/</span><span class="n">g</span>
-<span class="n">r_earth</span> <span class="o">=</span> <span class="mf">6370e3</span>  <span class="c1">#m</span>
-<span class="n">earth_area</span> <span class="o">=</span> <span class="mi">4</span><span class="o">*</span><span class="n">pi</span><span class="o">*</span><span class="n">r_earth</span><span class="o">**</span><span class="mf">2.</span>
-<span class="n">mass_atm</span> <span class="o">=</span> <span class="n">mass_m2</span><span class="o">*</span><span class="n">earth_area</span> <span class="c1">#kg</span>
-<span class="n">mass_atm_gtonne</span> <span class="o">=</span> <span class="n">mass_atm</span><span class="o">/</span><span class="mf">1.e12</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">mass_atm_gtonne</span><span class="si">:</span><span class="s2">0.1f</span><span class="si">}</span><span class="s2"> gtonnes&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5125071.2 gtonnes
-</pre></div>
-</div>
-</div>
-</div>
+<p>to the top of the atmosphere where</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\theta^\prime = \theta_e \\
+\left ( \frac{l_v}{T}\,r_s \right )^\prime = 0
+\end{split}\]</div>
+<p>This gives us:</p>
+<div class="math notranslate nohighlight">
+\[
+ - c_p \log \theta + c_p \log \theta_e =  0 - \left ( \frac{l_v}{T}\,r_s \right )
+\]</div>
+<p>Finally, rearranging and taking the <span class="math notranslate nohighlight">\(\exp\)</span> of both sides to get:</p>
+<div class="math notranslate nohighlight" id="equation-eq-thetae">
+<span class="eqno">(13)<a class="headerlink" href="#equation-eq-thetae" title="Link to this equation">#</a></span>\[
+\theta_e = \theta \exp \left ( \frac{l_v r_s}{c_p T} \right )
+\]</div>
+<p>Taking the differential of <a class="reference internal" href="#equation-eq-thetae">(13)</a> and comparing it to <a class="reference internal" href="#equation-eq-dentropy">(12)</a> gives:</p>
+<div class="math notranslate nohighlight">
+\[
+d\phi = c_p d\log \theta_e =  c_p\, d \log \theta + d \left ( \frac{l_v}{T}\,r_s \right )
+\]</div>
+<p>So changes in <span class="math notranslate nohighlight">\(c_p \log \theta_e\)</span> are the same as changes in <span class="math notranslate nohighlight">\(\phi\)</span></p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -546,20 +576,20 @@ M = p_{sfc}/g
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../../week_notes.html"
+       href="cape_part1.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Week notes</p>
+        <p class="prev-next-title">Cape Part 1  – demo</p>
       </div>
     </a>
     <a class="right-next"
-       href="worksheet2_solution.html"
+       href="mixing_line_calc.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Worksheet2 – Thermodynamics worksheet solution</p>
+        <p class="prev-next-title">Mixing line workbook</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -569,6 +599,22 @@ M = p_{sfc}/g
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#answer">1 Answer</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">2 Answer</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
