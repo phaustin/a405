@@ -37,21 +37,25 @@ parts:
     - file: notebooks/worksheets/worksheet6_gibbs_solution.md
     - file: notebooks/worksheets/mixing_line_example.md
     - file: notebooks/worksheets/convec_instability.md
-    - file: notebooks/worksheets/convective_lifting.md
     - file: notebooks/worksheets/moist_adiabats.md
     - file: notebooks/worksheets/tropical_engine_solution.md
+    - file: notebooks/worksheets/cape_part1.md
+    - file: notebooks/worksheets/worksheet7_taylor_solution.md
+    - file: notebooks/worksheets/mixing_line_calc.md
   - caption: Assignments
     chapters:
     - file: assignments/adiabatic_box_solution.md
     - file: assignments/hydrostatic_scaling_solution.md
     - file: assignments/tropical_clouds_profiles_solution.md
-    - file: assignments/rootfind.md
+    - file: assignments/assign4_rootfind_solution.md
     - file: assignments/assignment4_paper.md
     - file: assignments/assignment5_thompkins.md
   - caption: In-depth notes
     chapters:
     - url: https://www.dropbox.com/scl/fi/5scb458wnoymr4s8ta4vt/equation_sheet.pdf?rlkey=29ymawiljakqnv3wquqa4wm8e&st=4mmzb2ii&dl=0
       title: final exam equation sheet
+    - url: https://drive.google.com/file/d/1L8am0jnhBdlTNzQNR8lE-Iyw0V6lwqg2/view?usp=sharing
+      title: mid-term equation sheet
     - file: notebooks/week1/hydrostat.md
     - url: https://drive.google.com/file/d/1dBxcwxe0quNjYAihiFwMpF8kVmjmYh1p/view?usp=sharing
       title: Week2 - Kinetic Temperature notes
@@ -77,6 +81,19 @@ parts:
       title: Static energy and $\theta_e$ notes
     - url: https://drive.google.com/file/d/131QoLZPjajoCtreV6muYOxDlF6jvRH4s/view?usp=sharing
       title: Carnot cycle notes
+    - url: https://drive.google.com/file/d/1wsfzaorhVKiMwDlrolf2gtTrSLT4p4iM/view?usp=sharing
+      title: wet bulb notes
+    - url: https://drive.google.com/file/d/1j8vhmRtGaOlpe0JAAS-fvZmH9H8U2ay2/view?usp=sharing
+      title: Wet bulb vs. $\theta_e$
+      
+  - caption: midterms
+    chapters:
+    - url: https://drive.google.com/file/d/1Nj31FAXyWur9qffnSflhx6CcLBta4PCj/view?usp=sharing
+      title: 2016 midterm
+    - url: https://drive.google.com/file/d/1jFKalQ9MXAvNu824LKVyHtNEleZhgI0q/view?usp=sharing
+      title: 2012 midterm
+      
+        
       
   - caption: Animations
     chapters:

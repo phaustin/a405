@@ -1,0 +1,109 @@
+\documentclass[12pt]{article}
+\usepackage{geometry,fancyhdr,xr,hyperref,ifpdf,amsmath,rcs,shortcuts}
+\usepackage{lastpage,longtable,color,paunits,amsmath}
+\geometry{letterpaper,headsep=5mm,head=10mm,hmargin={20mm,30mm},bottom=10mm,top=5mm}
+
+
+\pagestyle{fancy} 
+
+\RCS $Revision: 1.5 $
+\RCS $Date: 2002/01/09 03:50:54 $
+
+\fancypagestyle{first}{
+\lhead{}
+\chead{Wet bulb vs $\theta_e$}
+\rhead{page~\thepage/\pageref{LastPage}}
+\lfoot{} 
+\cfoot{} 
+\rfoot{}
+}
+
+\ifpdf
+    \usepackage[pdftex]{graphicx} 
+    \usepackage{hyperref}
+    \pdfcompresslevel=0
+    \DeclareGraphicsExtensions{.pdf,.jpg,.mps,.png}
+\else
+    \usepackage{hyperref}
+    \usepackage[dvips]{graphicx}
+    \DeclareGraphicsRule{.eps.gz}{eps}{.eps.bb}{`gzip -d #1}
+    \DeclareGraphicsExtensions{.eps,.eps.gz}
+\fi
+\externaldocument[lec6,]{lec6}
+
+\begin{document}
+
+\pagestyle{first}
+
+\begin{center}
+Atsc405: Lecture Summary: Monday, Jan. 30\\
+\end{center}
+
+
+
+
+\section{Converting between $\theta_e$ and $\theta_w$}
+
+Note that Canadian and  UK  tephigrams  do not use $\theta_e$ to label their moist
+adiabats, they use $\theta_w$, the web bulb potential temperature, defined
+as the temperature found by saturated adiabatic ascent/descent to 100 kPa
+(i.e.~the name comes from the fact that this is what you would get
+if you physically moved a saturated wick upward/downward in an adiabatic
+parcel.
+
+Convince yourself that from the above definition we get the following limits
+of integration for a saturated parcel with a temperature of $\theta_w$ 
+and mixing ratio $w_{s0}$:
+
+\begin{equation}
+\label{eq:thetaodew}
+\int_{\theta_w}^{\theta_e} d \ln \theta = -\int_{w_{s0}}^0 \frac{l_v}{c_p T} d w_s \approx - 
+\int_{(w_{s0},\theta_w)}^0 d \left ( \frac{l_v w_s}{c_p T} \right )  
+\end{equation}
+which integrated gives;
+
+\begin{equation}
+  \label{eq:thetaint}
+  \theta_e = \theta_w \exp \left ( \frac{l_v w_{s0}}{c_p \theta_w} \right )
+\end{equation}
+
+if $ \frac{l_v w_{s0}}{c_p \theta_w} \ll 1$ (is it?) then we can expand
+
+\begin{equation}
+  \label{eq:exp}
+  \exp(x) = 1 + x + \frac{x^2}{2} + \ldots
+\end{equation}
+and drop order 2 and higher to get:
+
+\begin{equation}
+  \label{eq:expand}
+  \theta_e=\theta_w \left ( 1 + \frac{l_v w_{s0}}{c_p \theta_w} \right )
+\end{equation}
+
+or rearranging:
+
+\begin{equation}
+  \label{eq:expand2}
+  \theta_e - \theta_w  \approx  \frac{l_v w_{s0}}{c_p}
+\end{equation}
+
+Try this out for the point ($p=100\ \un{kPa},T=10\degc = 283.15\ K, w_{s}= 7.8\ \un{g\,kg^{-1}}$),
+use lecture 6 $\theta_e$ definition (\ref{lec6,eq:thetae2}) and find for the $10\degc$ $\theta_w$
+adiabat that
+$\theta_e= 283.15 \exp \left ( \frac{2.5 \times 10^6 \times 0.0078}{ 1004 \times 283.15} \right )$
+$=303.25K$
+so that $\theta_e - \theta_w=303.25 K - 283.15 K =20.1$ degrees.  Compare this to the
+prediction of (\ref{eq:expand2}) that 
+$\theta_e - \theta_w = \frac{2.5 \times 10^6 \times 0.0078}{ 1004}$=19.4 degrees.
+
+Note the technical difficulty if we want to do any better than this (if, for example,
+we need more exact thermodynamics for a computer model) -- getting $\theta_w$ in
+terms of $\theta$, $T_{lcl}$, and $w_s$ via (\ref{eq:thetaint}) is a bit of a mess.
+
+\end{document}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

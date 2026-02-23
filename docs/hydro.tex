@@ -1,0 +1,286 @@
+\documentclass[12pt]{article}
+\usepackage{geometry,fancyhdr,xr,hyperref,ifpdf,amsmath,rcs,indentfirst}
+\usepackage{lastpage,longtable,Ventry,url,paunits,shortcuts,smallsec,color,tightlist,float}
+\geometry{letterpaper,top=50pt,hmargin={20mm,20mm},headheight=15pt} 
+\usepackage[stable]{footmisc}
+\pagestyle{fancy} 
+
+\RCS $Revision: 1.5 $
+\RCS $Date: 2002/01/09 03:50:54 $
+
+\fancypagestyle{first}{
+\lhead{Hydrostatic balance and weighted averages}
+\chead{}
+\rhead{page~\thepage/\pageref{LastPage}}
+\lfoot{} 
+\cfoot{} 
+\rfoot{}
+}
+
+\ifpdf
+    \usepackage[pdftex]{graphicx} 
+    \usepackage{hyperref}
+    \pdfcompresslevel=0
+    \DeclareGraphicsExtensions{.pdf,.jpg,.mps,.png}
+\else
+    \usepackage{hyperref}
+    \usepackage[dvips]{graphicx}
+    \DeclareGraphicsRule{.eps.gz}{eps}{.eps.bb}{`gzip -d #1}
+    \DeclareGraphicsExtensions{.eps,.eps.gz}
+\fi
+
+
+\begin{document}
+\newcommand{\vect}[1]{\boldsymbol{\vec{#1}}}
+\pagestyle{first}
+
+\section{Weighted Averages}
+\label{sec:weighted-averages}
+
+\subsection{Discrete case}
+\label{sec:discrete-case}
+
+
+Suppose you have 15 measurements of the vapor mixing ratio and want to calculate the average.  
+
+\begin{center}
+\begin{tabular}{rr}
+Number of samples n & mixing ratio wv (g/kg)\\
+\hline
+2 & 0.17\\
+5 & 0.008\\
+8 & 0.022\\
+\end{tabular}
+\end{center}
+
+The average vapor mixing ratio for these 15 samples is:
+
+\begin{equation}
+  \label{eq:discrete}
+  \overline{w_v} = \frac{2*0.17 + 5*0.08 + 8*0.022}{2 + 5 + 8}
+\end{equation}
+which is exactly what you would get if you added the 15 measurements individually and divided by 15.
+
+We can rewrite \eqref{eq:discrete} in terms of fractions as:
+
+\begin{equation}
+  \label{eq:discrete}
+  \overline{w_v} = \frac{2}{15}*0.17 + \frac{5}{15}*0.08 + \frac{8}{15}*0.022 = \sum_{i=1}^{3} p_i w_{vi}
+\end{equation}
+and interpret $p_i$ as the probability that the sample will have vapor mixing ratio $w_{vi}$
+
+\subsection{Continuous case}
+\label{sec:continuous-case}
+
+We can extend this definition to functions by defining the probability density $p(x)$ for variable x as follows:
+
+\begin{quote}
+  \textbf{The probability that the variable $x$ will take on a value $\hat{x}$ that lies between $x$ and $x + dx$ is
+$p(x)dx$.} We also require that $0 \le p(x) \le 1$ and $\int_0^\infty p(x) dx = 1$
+\end{quote}
+
+With this definition, we can define the mean value of x in the same way as for the weighted average:
+
+\begin{equation}
+  \label{eq:mean}
+  \overline{x} = \int_0^\infty x p(x) dx
+\end{equation}
+
+A couple common pdfs:
+
+\begin{itemize}
+
+\item \textbf{Uniform distribution:}
+
+
+\begin{equation}
+p(x) = 
+  \begin{cases}
+                  \frac{1}{b - a} & \text{for } x \in [a,b]  \\
+                  0               & \text{otherwise}
+\end{cases}
+\end{equation}
+
+\begin{equation}
+  \label{eq:unif}
+  \overline{x} = \frac{b-a}{2}
+\end{equation}
+(you should show that this follows from \eqref{eq:mean})
+
+
+\item \textbf{Exponential distribution}
+
+  \begin{equation}
+    \label{eq:expon}
+    p(x) = \lambda \exp ( -\lambda x)
+  \end{equation}
+
+  \begin{equation}
+    \label{eq:exmean}
+    \overline{x} = 1/\lambda
+  \end{equation}
+(again, show this follow from \eqref{eq:mean} using 
+
+\href{https://en.wikipedia.org/wiki/List_of_integrals_of_exponential_functions}%
+{\url{https://en.wikipedia.org/wiki/List_of_integrals_of_exponential_functions}})
+
+\item \textbf{Gaussian distribution}
+
+\begin{equation}
+  \label{eq:gaussian}
+   p(x;\mu,\sigma^2) = \frac{1}{\sigma\sqrt{2\pi}} e^{ -\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2 }
+\end{equation}
+
+\begin{equation}
+\overline{x} = \mu
+  \label{eq:gaussmean}
+\end{equation}
+
+\end{itemize}
+
+
+\section{Hydrostatic balance}
+
+
+For the the large scale average atmosphere, it is a very good approximation to
+assume \textit{hydrostatic balance}, which is the statement that 
+the vertical pressure differential across a layer provides exactly the
+amount of force necessary to balance gravity:
+
+  \begin{figure}[H]
+    \begin{center}
+       \input hydro.pstex_t
+      \caption{hydrostatic balance for a $1 \times dz\  \un{m^3}$ layer}
+      \label{fig:hydro}
+    \end{center}
+  \end{figure}
+
+\vspace{0.1in}
+
+In symbols, the balance shown by Figure \ref{fig:hydro} implies that:
+
+\begin{equation}
+  \label{eq:hydro}
+  \frac{dp}{dt} = - \rho g \frac{dz}{dt}
+\end{equation}
+\textit{Question:  is this the same pressure p as the local pressure given by the equation of state: $p=\rho R_d T$?}
+
+\section{Scale Heights}
+\label{sec:scale-heights}
+
+We can define a characteristic scale for the variation of pressure and density in a hydrostatic atmosphere. 
+(Head's up -- I'm out of letters, so am using capital P for pressure and p for probability)
+
+
+\begin{enumerate}
+\item Do pressure first: Rewrite (\ref{eq:hydro}) using the ideal gas law:
+
+  \begin{subequations}
+  \begin{align}
+  dP =& - \rho g dz = - \frac{P}{R_d T}  g dz \label{eq:one}\\
+  d\ln P =& - \frac{g }{R_d T} dz \label{eq:two}\\
+  \int_{P_0}^{P}\!\,d \ln P =& - \int_{0 }^{z}\!\frac{g }{R_d T} \,dz^\prime = - \int_{0 }^{z}\!\frac{1}{H} dz^\prime \label{eq:hydro1}
+  \end{align}
+\end{subequations}
+where $H=R_d T/g$ is the pressure scale height.  Since temperature (and gravity) are changing with height,
+we need to work with a vertical mean. To do that, define 
+
+\begin{equation}
+  f(z) = g/(R_d T(z)) = 1/H
+\end{equation}
+
+We want to average $f(z)$ over height between the surface
+where $z=0$ and a top level $z_T$, with the pdf $p(z)$ for the uniform distribution \eqref{eq:unif}:
+
+\begin{equation}
+  \label{eq:uniz}
+  p(z) = \frac{1}{z_T - 0} = \frac{1}{z_T}
+\end{equation}
+
+In other words:
+
+\begin{equation}
+  \label{eq:oneoverh}
+  \overline{f(z)} = \int_0^{z_T} f(z) p(z) dz = \frac{\int_{0 }^{z_T}\!\frac{1}{H} dz^\prime  }{z_T} = \overline{ \left ( \frac{1 }{H} \right )}
+\end{equation}
+Again, to save letters, we'll write:
+
+\begin{equation}
+  \label{eq:simple}
+  \overline{ \left ( \frac{1 }{H} \right )} = \frac{1}{\overline{H}}
+\end{equation}
+
+So that \eqref{eq:oneoverh} becomes
+
+\begin{subequations}
+  \begin{align}
+  \label{eq:oneoverh2}
+  \overline{f(z)} =&  \frac{\int_{0 }^{z_T}\!\frac{1}{H} dz^\prime  }{z_T} = \left ( \frac{1 }{\overline{H}} \right )\\
+\text{and rearranging this gives:} \nonumber\\
+\int_{0 }^{z_T}\!\frac{1}{H} dz^\prime =& \frac{z_T}{\overline{H}}
+\end{align}
+\end{subequations}
+Inserting this into \eqref{eq:hydro1} gives:
+
+
+\begin{subequations}
+  \begin{align}
+  \int_{P_0}^{P}\!\,d \ln P =& -\frac{z}{\overline{H}}\\
+\text{which integrates to: }\nonumber\\
+P(z) =& P_0 \exp \left ( -z/\overline{H} \right )
+\end{align}
+\end{subequations}
+
+We can turn $P(z)$ into a probability density function $p(z)$ by normalizing it so $\int_0^\infty p(z) dz = 1$.
+To do this note that:
+
+\begin{equation}
+  \label{eq:normP}
+  \int_0^\infty P_0 \exp (-z/\overline{H} ) dz = \overline{H} P_0
+\end{equation}
+Dividing $P(z)$ by $\overline{H} P_0$ gives an exponential distribution with $\lambda = 1/\overline{H}$:
+
+\begin{equation}
+  \label{eq:pweight}
+  p(z) = \frac{1}{\overline{H}} \exp(-z/\overline{H})
+\end{equation}
+and using \eqref{eq:exmean}:
+
+\begin{equation}
+  \label{eq:finalscale}
+  \overline{H} = \int_0^\infty\, z\,\left [ \frac{1}{\overline{H}} \exp(-z/\overline{H}) \right ] dz
+\end{equation}
+
+\textbf{\textit{In other words, the pressure scale height is an average height weighted by the vertical pressure profile of the atmosphere.
+}}
+
+\item Now repeat this for density:
+
+  \begin{align}
+ \frac{dp }{dz}  =& \frac{d }{dz}  (\rho R_d T) = R_d \left ( \frac{d\rho }{dz} T 
+              + \rho \frac{ dT}{dz} \right )  = - \rho g \\
+\frac{d\rho }{dz}  =& -\frac{\rho }{T}  \left ( \frac{g }{R_d} + \frac{ dT}{dz} \right )\\
+\frac{d\rho }{\rho} =& - \left ( \frac{1 }{H} + 
+                   \frac{1 }{T} \frac{dT }{dz} \right ) dz \equiv - \frac{dz }{H_\rho} 
+  \end{align}
+The vertical average is taken in exactly the same way as before to get the density profile:
+
+\begin{align}
+  \ln \rho/\rho_0 =& - \frac{z }{\overline{H_\rho }} \\
+  \rho =& \rho_0 \exp \left ( - \frac{z }{\overline H_\rho} \right )
+\end{align}
+
+Using  python to calculate pressure and density scale heights for a typical midlatitude summer sounding gives
+me $H\approx 8$ km and $H_\rho \approx 10$ km.
+
+
+\end{enumerate}
+
+
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

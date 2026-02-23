@@ -135,7 +135,7 @@ we'll go through it in much more detail, starting with the following material:
 
 - From last time: {ref}`worksheet5_latent_solution`
 - This week's worksheet:  {ref}`worksheet6_gibbs_solution`
-- The first part of Assigment 4, due Friday midnight: {ref}`assign4_rootfind`
+- The first part of Assigment 4, due Friday midnight: {ref}`assign4_rootfind_solution`
 
 New material covering Thompkins derivation of the Clausius-Clapeyron equation on page 27
 
@@ -149,7 +149,7 @@ A preview of {ref}`assign4_paper`, due the weekend of Feb. 7.  This requires lec
 - Read Thompkins through the end of Chapter 2 (p. 38)
 - Read Thompkins Sec 3.2 p. 48-55 on convective stability
 
-Work on {ref}`tropical_profiles_solution` and {ref}`assign4_rootfind`.
+Work on {ref}`tropical_profiles_solution` and {ref}`assign4_rootfind_solution`.
 
 ## Week 5
 
@@ -193,13 +193,12 @@ Work on {ref}`tropical_profiles_solution` and {ref}`assign4_rootfind`.
 
 #### For Tuesday
 
-- Read the three new sets of notes and work on {ref}`assign4_rootfind` and {ref}`assign4_paper`
+- Read the three new sets of notes and work on {ref}`assign4_rootfind_solution` and {ref}`assign4_paper`
 
 ### Lecture 10, week 5, Thursday
 
 - Final assignment before break (note new due dates): {ref}`assignment5_thompkins`
 - New worksheets:
-  - {ref}`convec_instab`
   - {ref}`convective_lifting`
   - {ref}`moist_adiabats`
   - {ref}`tropical_engine_solution`
@@ -207,5 +206,29 @@ Work on {ref}`tropical_profiles_solution` and {ref}`assign4_rootfind`.
 #### For next Tuesday 
    - Finish Thompkins reading
    - Work on Assigments 4b and 5
+
+
+## Week 6
+
+### Lecture 11, week 6, Tuesday
+
+- Go over the {ref}`assign4_rootfind_solution` -- demonstrating list comprehensions in Python
+- Here is an initial version of the  [mid-term equation sheet](https://drive.google.com/file/d/1L8am0jnhBdlTNzQNR8lE-Iyw0V6lwqg2/view?usp=sharing)
+- Go over Thompkins p. 37 on the wet bulb temperature using my [wet bulb notes](https://drive.google.com/file/d/1wsfzaorhVKiMwDlrolf2gtTrSLT4p4iM/view?usp=sharing)
+- The {ref}`cape_part1` notebook shows how to calculate CAPE from a sounding as described in Thompkins p. 49
+- Today's worksheet on Taylor series {ref}`worksheet7_taylor_solution`
+
+#### For next Thursday
+
+- read Thompkins pp. 55-60 on mixing and downdrafts
+- Work on Assigments 4b and 5
+
+### Lecture 12, week 6, Thursday
+
+- {ref}`worksheet7_taylor_solution`
+- [Wet bulb vs. $\theta_e$](https://drive.google.com/file/d/1j8vhmRtGaOlpe0JAAS-fvZmH9H8U2ay2/view?usp=sharing)
+- {ref}`mixing_line_calc`
+- [2016 midterm](https://drive.google.com/file/d/1Nj31FAXyWur9qffnSflhx6CcLBta4PCj/view?usp=sharing)
+- [2012 midterm](https://drive.google.com/file/d/1jFKalQ9MXAvNu824LKVyHtNEleZhgI0q/view?usp=sharing)
 
 

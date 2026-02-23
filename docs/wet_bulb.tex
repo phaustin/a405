@@ -1,0 +1,169 @@
+\documentclass[12pt]{article}
+\usepackage{geometry,fancyhdr,xr,hyperref,ifpdf,amsmath,rcs,indentfirst}
+\usepackage{lastpage,longtable,Ventry,url,paunits,shortcuts,smallsec,color,tightlist,float}
+\geometry{letterpaper,top=50pt,hmargin={20mm,20mm},headheight=15pt} 
+\usepackage[stable]{footmisc}
+
+\pagestyle{fancy} 
+
+\RCS $Revision: 1.5 $
+\RCS $Date: 2002/01/09 03:50:54 $
+
+\fancypagestyle{first}{
+\lhead{Wet bulb equation}
+\chead{}
+\rhead{page~\thepage/\pageref{LastPage}}
+\lfoot{} 
+\cfoot{} 
+\rfoot{}
+}
+
+\ifpdf
+    \usepackage[pdftex]{graphicx} 
+    \usepackage{hyperref}
+    \pdfcompresslevel=0
+    \DeclareGraphicsExtensions{.pdf,.jpg,.mps,.png}
+\else
+    \usepackage{hyperref}
+    \usepackage[dvips]{graphicx}
+    \DeclareGraphicsRule{.eps.gz}{eps}{.eps.bb}{`gzip -d #1}
+    \DeclareGraphicsExtensions{.eps,.eps.gz}
+\fi
+
+\newcommand{\dbar}{d\mkern-6mu\mathchar'26} 
+\begin{document}
+\newcommand{\vect}[1]{\boldsymbol{\vec{#1}}}
+\pagestyle{first}
+
+
+\section{Introduction}
+\label{sec:introduction}
+
+This note expands on Thompkins p. 36 on the wet bulb process and the evaporation of precipitation.
+
+A wet bulb thermometer is a good example of the first law in action.
+It is really a pair of thermometers, one measuring
+the temperature of incoming  air with vapor mixing ratio $w_v$, and the other the temperature of a saturated
+wick evaporating into the air.  As the air blows past the two thermometers,
+moist entlapy (as defined in  the
+\href{https://drive.google.com/file/d/1BPTvFijtktG4135T1X8DXwI8l_C8xHEt/view?usp=sharing}%
+{moist static energy notes} is conserved.
+
+
+\section{Wet bulb enthalpy}
+\label{sec:wet-bulb-enthalpy}
+
+
+To see how this works, consider the system that consists of 
+
+\begin{itemize}
+\item A wet wick with liquid water mass $m_l$ and enthalpy $m_l c_l T_{w}$
+\item $m_d$ kg of dry air with enthalpy of $m_d c_{pd} T_{dry}$
+\item $m_v$ kg of water vapor with enthalpy $h_v(T_{dry})=c_{pv} T_{dry} + l_{v0}$
+\end{itemize}
+
+When the air/vapor hits the wick water will evaporate until the liquid, vapor
+and dry air are all at  the new temperature $T_w$ which we know is cooler\
+that $T_{dry}$ (since the air coming in is unsaturated).  The new enthalpy
+of the sistem will now be the sum of:
+
+
+\begin{itemize}
+\item A wet wick with liquid water mass $m^\prime_l$ and enthalpy $m^\prime_l c_l T_{w}$
+\item $m_d$ kg of dry air with enthalpy of $m_d c_{pd} T_{w}$
+\item $m_{vs}$ kg of water vapor with enthalpy $h_v(T_{w})=c_{pv} T_{w} + l_{v0}$
+\end{itemize}
+
+Since water is conserved we know that the gain in vapor has to be equal to the
+loss in liquid:
+
+\begin{equation}
+  \label{eq:liquid_bal}
+  (m_l - m_l^\prime ) = (m_{vs} - m_v) = m_d ( w_{vs} - w_v )
+\end{equation}
+
+
+So put this all together:
+
+\begin{equation}
+  \label{eq:hdry}
+H_{before} = m_l c_l T_w + m_d c_{pd} T_{dry} + m_v h_v(T_{dry})
+\end{equation}
+
+\begin{equation}
+  \label{eq:twet}
+H_{after}=  m_l^\prime c_l T_w + m_d c_{pd} T_w + m_{vs} h_v(T_w)
+\end{equation}
+
+
+According to the first law:
+
+\begin{equation}
+  \label{eq:first}
+  Q dt = dH - V dp
+\end{equation}
+and since $dp$=0 and $Q$=0, $H$ for the mixture has to stay constant.
+
+Since $H_{before}$=$H_{after}$, I can subtract them and rearrange to get:
+
+\begin{equation}
+  \label{eq:subtract}
+(m_l - m_l^\prime) c_l T_w + m_d c_{pd} (T_d - T_w)
+= m_{vs} h_v(T_w) - m_v h_v(T_{dry})
+\end{equation}
+
+Finally, divide through by $m_d$ and  use (\ref{eq:liquid_bal})  and (\ref{eq:subtract}) becomes:
+
+\begin{equation}
+  \label{eq:subtract2}
+(w_{vs} - w_v) c_l T_w +  c_{pd} (T_d - T_w)
+= w_{vs} h_v(T_w) - w_v h_v(T_{dry})
+\end{equation}
+
+or remembering that $c_l T = h_l$
+
+\begin{align}
+  \label{eq:subtract2}
+  c_{pd} (T_d - T_w)
+=& -w_v (h_v(T_{dry}) - c_l T_w) + w_{vs} (h_v(T_w) -  c_lT_w) \nonumber\\
+  c_{pd} (T_d - T_w) \approx&   -w_v (h_v - h_l) + w_{vs}(T_w) (h_v - h_l)
+\end{align}
+
+
+
+There's an approximate sign on (\ref{eq:subtract2}) because I've neglected the temperature
+difference in the $h_v$  by saying that $c_{pv} T_{dry} + l_{v0} \approx c_{pv} T_{w} + l_{v0}$.
+(Question, what is $l_{v0}$ and how big an error am I making here?)  So:
+
+\begin{equation}
+  \label{eq:latent}
+(h_v(T_{dry}) - c_l T_w ) = (h_v(T_w) -  c_lT_w) = h_v - h_l = l_v
+\end{equation}
+
+\section{The wet bulb equation}
+\label{sec:wet-bulb-equation}
+
+
+With that approximation I've got:
+
+\begin{equation}
+  \label{eq:wetfinal}
+  c_{pd} (T_{dry} - T_w) \approx  l_v ( w_{vs}(T_w) -w_v)
+\end{equation}
+
+What is (\ref{eq:wetfinal}) good for?  I can measure $T_{dry}$ and $T_w$, calculate
+$w_{vs}(T_w)$ (if I also know the pressure), and solve for the
+mixing ratio, $w_v$.
+
+As Thompkins notes -- raindrops also behave like wet bulbs, so that the wet bulb equation is generally important for the evaporative cooling of air by falling precipitation.
+
+
+\end{document}
+
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

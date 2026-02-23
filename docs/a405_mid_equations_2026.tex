@@ -1,0 +1,141 @@
+\documentclass[12pt]{article}
+%midterm_2012.tex
+\usepackage{Ventry, calc,fancyhdr, url,hanging,paunits,multicol,geometry,shortcuts,lastpage}
+\geometry{letterpaper,top=50pt,hmargin={20mm,20mm},headheight=15pt} 
+\onecolumn
+
+\pagestyle{fancy}
+\lhead{A405}
+\chead{mid-term equations}
+\rhead{page~\thepage/\pageref{LastPage}}
+
+
+\lfoot{}
+\rfoot{}
+\cfoot{}
+
+
+\begin{document}
+
+
+
+\begin{multicols}{2}
+
+  \begin{equation}
+\label{eq:first}
+du = q\,dt - w\,dt = q\,dt - p\,d\alpha
+  \end{equation}
+
+\begin{equation}
+e = \rho_v\, R_v\, T
+\end{equation}
+
+\begin{equation}
+p = \rho\, R_d\, T_v
+\end{equation}
+
+
+\begin{equation}
+w \,dt = p\,d\alpha
+\end{equation}
+
+\begin{equation}
+h = u + p \,\alpha
+\end{equation}
+
+\begin{equation}
+  \label{eq:tv}
+  T_v = T(1 + 0.608 r_v - r_l)
+\end{equation}
+
+\begin{equation}
+  \label{eq:wv}
+  r_v = \rho_s/\rho_d = \epsilon \frac{e_s}{p - e_s}
+\end{equation}
+
+\begin{equation}
+dh = c_{px}\, dT\ \mathrm(dry\ air\ or\ liquid)
+\end{equation}
+
+\begin{equation}
+dh = c_p\, dT\ + l_v\,dr_v\ \mathrm(air/water\ mixture)
+\end{equation}
+
+
+\begin{equation}
+\label{eq:firstenthalpy}
+dh = T\,d\phi + \alpha\,dp\ \mathrm(reversible)
+\end{equation}
+
+\begin{equation}
+d\phi = c_p \frac{d\theta}{\theta} = c_p \frac{dT}{T} - R_d \frac{dp}{p}
+\end{equation}
+
+\begin{equation}
+  \label{eq:ds}
+  d\phi \geq \frac{q\,dt}{T}
+\end{equation}
+
+\begin{equation}
+l_v = h_v - h_l
+\end{equation}
+
+
+\begin{equation}
+dp = - \rho\,g\,dz
+\end{equation}
+
+
+\begin{equation}
+\label{eq:moist}
+  ds_v = c_p\,dT + l_v\,dr_v + g\,dz
+\end{equation}
+
+\begin{equation}
+\label{eq:theta}
+  d\phi = c_p \frac{d\theta_e}{\theta_e} = c_p \frac{d\theta}{\theta} + d\left (\frac{l_v\,r_s}{T} \right )
+\end{equation}
+
+\begin{equation}
+  d\phi = c_p \frac{d\theta_l}{\theta_l} = c_p \frac{d\theta}{\theta} - d\left ( \frac{l_v\,r_l}{T} \right )
+\end{equation}
+
+\begin{equation}
+  \label{eq:thetae_int}
+  \theta_e = \theta \exp \left ( \frac{l_v r_v}{c_p T} \right )
+\end{equation}
+
+\begin{equation}
+  b = - g \frac{\rho_v^\prime}{\overline{\rho_v}} = g \frac{T_v^\prime}{\overline{T_v}}  \approx g \frac{T_{vp} - T_{ve}}{T_{ve}}
+\end{equation}
+
+\begin{equation}
+  \label{eq:wdiff}
+  d r_v = \frac{r_v}{p-e} \left ( \frac{p}{e} de - dp \right )
+\end{equation}
+
+\begin{eqnarray}
+  \label{eq:taylor}
+  f(x)  &=& f(x_0) + f^\prime(x_0)(x - x_0) \nonumber\\ 
+        &+&  \frac{f^{\prime\prime}(x_0)}{2}(x-x_0)^2 +  \ldots
+\end{eqnarray}
+
+
+\begin{tabular}{ll}
+$c_{pd}$ & 1006\ \un{J\,kg^{-1}\,K^{-1}}\\
+$c_{pv}$ & 1870\ \un{J\,kg^{-1}\,K^{-1}}\\
+$c_l$    & 4190\ \un{J\,kg^{-1}\,K^{-1}}\\
+$R_d$    & 287\ \un{J\,kg^{-1}\,K^{-1}}\\
+$R_v$    & 461\ \un{J\,kg^{-1}\,K^{-1}}\\
+$k$      & 1.381 $\times 10^{-23}$\ \un{J\,K^{-1}\,molecule^{-1}}\\
+$l_{v0}$    & 2.5 $\times 10^6 $\ \un{J\,kg}\mbox{ at 0 deg C}
+\end{tabular}
+
+\end{multicols}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

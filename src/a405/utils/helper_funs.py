@@ -1,6 +1,30 @@
 import numpy as np
 from collections import namedtuple
 
+def formatvar(fmtstring='{:5.2f}'):
+    """
+    given a formatting string, return a closure that
+    takes a single number and returns a string created
+    using that format
+
+    Parameters
+    ----------
+
+    fmtstring (optional): str
+       desired format for numeric variable
+
+    Returns
+    -------
+
+    
+    """
+    def s(the_num):
+        out=fmtstring.format(the_num)
+        return out
+    return s
+
+
+
 def test_scalar(*args):
     """
     return true if every argument is a scalar
