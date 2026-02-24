@@ -2,9 +2,6 @@
 requires = ["hatchling","hatch-vcs"]
 build-backend = "hatchling.build"
 
-
-
-
 [project]
 name = "a405"
 description = "atsc405 code"
@@ -18,8 +15,11 @@ killprocs = "a405.utils.killprocs:main"
 killjobs = "a405.utils.killjobs:main"
 pyncdump = "a405.utils.ncdump:main"
 
-
 [tool.hatch.version]
-path = "src/a405/_version.py"
+source = "vcs"
+
+[tool.hatch.build.hooks.vcs]
+version-file = "src/a405/_version.py"
+
 
 
