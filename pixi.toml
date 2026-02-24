@@ -1,0 +1,26 @@
+[workspace]
+authors = ["Phil Austin <paustin@eos.ubc.ca>"]
+channels = ["eoas_ubc", "conda-forge"]
+name = "a405"
+platforms = ["osx-arm64"]
+version = "0.1.0"
+
+[tasks]
+
+[dependencies]
+python = ">3.12"
+numpy = "*"
+scipy = "*"
+pip = "*"
+zarr = "*"
+git = "*"
+jupyterlab = "*"
+jupyterlab-myst = "*"
+jupytext = "*"
+pythia-datasets = "*"
+metpy = "*"
+netcdf4 = "*"
+
+
+[pypi-dependencies]
+a405 = { path = ".", editable = true }

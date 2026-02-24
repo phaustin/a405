@@ -21,3 +21,6 @@ _version*
 /pdfs/
 /solutions/
 *.ipynb
+# pixi environments
+.pixi/*
+!.pixi/config.toml

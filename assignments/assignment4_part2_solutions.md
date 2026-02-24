@@ -5,7 +5,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.18.1
+    jupytext_version: 1.19.1
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -30,6 +30,8 @@ Here is the link to [assign4b_tephi](https://docs.google.com/presentation/d/1UMx
 -  The linked tephigram shows the temperature (circle) and dewpoint (diamond) for air at 900 hPa and 800 hPa Find (showing your work on the tephigram):
 
       - The LCL (hPa) of the 900 hPa air
+ 
+  
       - The equivalent potential temperature $\theta_e$ (K) 
       - The entropy $\phi$ (J/kg/K) or the 900 hPa air
       - The wet bulb potential temperature $\theta_w$ (K) of the 900 hPa air 
@@ -41,6 +43,154 @@ Here is the link to [assign4b_tephi](https://docs.google.com/presentation/d/1UMx
 +++
 
 ### Question 1 answer
+
+```{code-cell} ipython3
+---
+jupyter:
+  outputs_hidden: false
+---
+from a405.utils.helper_funs import formatvar as f
+#
+# now make one of these functions with the default 5.2f format
+#
+n = f()
+#
+# and another function with exponential format
+#
+e = f(fmtstring = '{:6.3e}')
+#
+#  use n() below like this
+#
+print('here0: {} K'.format(n(273.14156)))
+print('here1: {} K'.format(e(273.14156)))
+#
+#write a regular function to convert from K to deg C
+#
+from a405.thermo.constants import constants as c
+def k2c(temp): return (temp - c.Tc)
+print('here2: {} deg C'.format(n(k2c(300))))
+```
+
+## back to midterm question 2:  make the tephigram -- with LCLs as black dots
+
+```{code-cell} ipython3
+---
+jupyter:
+  outputs_hidden: false
+---
+pa2hPa=1.e-2
+from a405.skewT.fullskew import makeSkewWet, find_corners
+from matplotlib import pyplot as plt
+import numpy as np
+fig, ax = plt.subplots(1, 1, figsize=(12, 8))
+corners=[10,30]
+ax, skew = makeSkewWet(ax,corners=corners)
+ax.set(ylim=[1000,700])
+from a405.thermo.thermlib import find_Tmoist,find_rsat,find_Td,tinvert_thetae,convertTempToSkew,\
+              find_lcl
+import a405.thermo.thermlib as tl
+#
+# set the lcl for 900 hPa to 860 hPa and thetae to 338 K
+#
+press=860.e2
+thetae_900=338.  #K
+Temp_860=find_Tmoist(thetae_900,press)
+rv_860=find_rsat(Temp_860,press)
+rv_900 = rv_860  #vapor is conserved
+Tdew_860=Temp_860
+print("temp,Tdew,rv at LCL press:  {} hPa {} C {} C {} kg/kg"\
+      .format(n(press*1.e-2),e(k2c(Temp_860)),e(k2c(Tdew_860)),e(rv_900)))
+#
+# now descend adiabatically to 900 hPa
+#
+press=900.e2
+Temp_900,rv_900,rl_900=tinvert_thetae(thetae_900,rv_900,press)
+Tdew_900=find_Td(rv_900,press)
+print("temperature and dewpoint at {} hPa hPa = {} C {} C".format(n(press*1.e-2),e(k2c(Temp_900)), e(k2c(Tdew_900))))
+#
+#  draw these on the sounding at 900 hPa as a red circle and blue diamond
+#
+xplot=convertTempToSkew(Temp_900 - c.Tc,press*pa2hPa,skew)
+bot=ax.plot(xplot, press*pa2hPa, 'ro', markersize=14, markerfacecolor='r')
+xplot=convertTempToSkew(Tdew_900 - c.Tc,press*pa2hPa,skew)
+bot=ax.plot(xplot, press*pa2hPa, 'bd', markersize=14, markerfacecolor='b')
+#
+#now look at an LCL of 700 hPa  -- with thetae = 332 K
+#
+press=700.e2
+thetae_800=332.  #K
+Temp_700=find_Tmoist(thetae_800,press)
+Tdew_700 = Temp_700
+rv_700=find_rsat(Temp_700,press)
+
+print("temp,Tdew, rv at LCL press: {} hPa: {} C  {} C {} kg/kg"\
+      .format(n(press*1.e-2),e(k2c(Temp_700)),e(k2c(Tdew_700)),e(rv_700)))
+# get the temperature and dewpoint at 800 hPa
+#
+press=800.e2
+rv_800=rv_700   #total water is conserved
+Temp_800,rv_800,rl=tinvert_thetae(thetae_800,rv_800,press)
+Tdew_800=find_Td(rv_800,press)
+print("temperature and dewpoint at {} hPa = {} C {} C".format(n(press*1.e-2),n(k2c(Temp_800)),n(k2c(Tdew_800))))
+#
+# put these points on the sounding at 800 hPa
+#
+xplot=convertTempToSkew(Temp_800 - c.Tc,press*pa2hPa,skew)
+bot=ax.plot(xplot, press*pa2hPa, 'ro', markersize=14, markerfacecolor='r')
+xplot=convertTempToSkew(Tdew_800 - c.Tc,press*pa2hPa,skew)
+bot=ax.plot(xplot, press*pa2hPa, 'bd', markersize=14, markerfacecolor='b')
+#
+# draw the two LCLs as black circles
+#
+press=860.e2
+xplot=convertTempToSkew(Temp_860 - c.Tc,press*pa2hPa,skew)
+bot=ax.plot(xplot, press*pa2hPa, 'ko', markersize=14, markerfacecolor='k')
+press=702.e2  #add 2 hPa so we can see it
+xplot=convertTempToSkew(Temp_700 - c.Tc,press*pa2hPa,skew)
+bot=ax.plot(xplot, press*pa2hPa, 'ko', markersize=14, markerfacecolor='k')
+fig.savefig('mid-tephi.pdf')
+
+
+def find_thetaes(temp,press,rv):
+    """ input temp in K, press in Pa, rv in kg/kg
+        output thetae in K
+    """
+    thetaes = temp*(c.p0/press)**(c.Rd/c.cpd)*np.exp(c.lv0*rv/(c.cpd*temp))
+    return thetaes
+
+press=700.e2
+thetaes_700 = find_thetaes(Temp_700,press,rv_700)
+accu_thetaes_700 = tl.find_thetaes(Temp_700,press)
+print('approx thetaes at {} = {} K'.format(press*1.e-2,n(thetaes_700)))
+print('accurate thetaes at {} = {} K'.format(press*1.e-2,n(accu_thetaes_700)))
+
+press=860.e2
+thetaes_860 = find_thetaes(Temp_860,press,rv_860)
+accu_thetaes_860 = tl.find_thetaes(Temp_860,press)
+print('approx thetaes at {} = {} K'.format(press*1.e-2,n(thetaes_860)))
+print('accu thetaes at {} = {} K'.format(press*1.e-2,n(accu_thetaes_860)))
+print('entropy for 860 hPa = {}'.format(e(c.cpd*np.log(thetaes_860))))
+
+#
+#wet bulb temp potential temperature for 900 hPa  -- bring air to 1000 hPa
+#along a moist adiabat
+#
+press = 1.e5
+Temp_1000=find_Tmoist(thetae_900,press)
+print('wet bulb potential temperature for 900 hPa air = {} C'.format(n(k2c(Temp_1000))))
+#
+# add as a green circle
+#
+press=998.e2  #subtrack 2 hPa so we can see it
+xplot=convertTempToSkew(Temp_1000 - c.Tc,press*pa2hPa,skew)
+bot=ax.plot(xplot, press*pa2hPa, 'go', markersize=14, markerfacecolor='g')
+xcorners=find_corners(corners,skew=skew)
+ax.set(xlim=xcorners,ylim=[1000,700])
+```
+
+```{code-cell} ipython3
+help(find_corners)
+```
 
 ```{code-cell} ipython3
 def label_fun():
