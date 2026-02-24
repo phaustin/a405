@@ -1,0 +1,899 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Background &#8212; ATSC 405</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../../../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../../../../_static/togglebutton.js?v=1ae7504c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '.pixi/envs/default/share/doc/libjpeg-turbo/README';</script>
+    <link rel="canonical" href="https://phaustin.github.io/a405/.pixi/envs/default/share/doc/libjpeg-turbo/README.html" />
+    <link rel="index" title="Index" href="../../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">ATSC 405</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../../../../index.html">
+                    ATSC 405 syllabus
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Background information</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../integrity.html">UBC academic integrity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../ai_policy.html">Course policy for generative AI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../learning_goals.html">Learning goals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../schedule.html">Course schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../python_install.html">Python links</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.dropbox.com/scl/fo/9grhb2cr0lpfc1d5jci4a/h?rlkey=shnjpq4kvndrcatbgrri44eyw&amp;dl=0">Thompkins text</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://gw2jh3xr2c.search.serialssolutions.com/?sid=sersol&amp;SS_jc=TC0001980404&amp;title=An%20introduction%20to%20clouds%20%3A%20from%20the%20microscale%20to%20climate">Lohmann et al. text</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.dropbox.com/scl/fi/r7zhctw6usest2rirpe2f/wallace_hobbs_chap6.pdf?rlkey=oxdanppj9wkocmwe4nn4cc4fi&amp;dl=0">Wallace and Hobbs chapter 6</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.eoas.ubc.ca/books/Practical_Meteorology">Stull, Practical Meteorolgy</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://phaustin.github.io/a405_lib/full_listing.html">A405 library documentation</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/phaustin/a405/tree/main/src/a405">A405 library source code</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.google.com/presentation/d/1tgA2Ia1sWPzZVlgspuW7MOUfokDDZmfvS2eDTtFr-Mw/edit?usp=sharing">Blank tephigram - 1000-800 hPa</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Weekly topics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../week_notes.html">Week notes</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Worksheets</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../notebooks/worksheets/worksheet1_solution.html">Week 1 worksheet solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../notebooks/worksheets/worksheet2_solution.html">Worksheet2 – Thermodynamics worksheet solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../notebooks/week2/skew_coords.html">Week2: Demo – Theromodynamic diagrams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../notebooks/worksheets/worksheet3_derivs_and_ints_solution.html">worksheet 3 solution: working with numpy arrays</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../notebooks/worksheets/worksheet4_taylor_series_solution.html">Worksheet 4: Taylor series solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../notebooks/week4/xarray-intro.html">Demo: Introduction to Xarray</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../notebooks/worksheets/worksheet5_latent_solution.html">Worksheet 5 solution: Latent heat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../notebooks/worksheets/worksheet6_gibbs_solution.html">Worksheet 6 solution: Gibbs free energy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../notebooks/worksheets/mixing_line_example.html">Mixing line example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../notebooks/worksheets/convec_instability.html">Convective instability – lifting demo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../notebooks/worksheets/moist_adiabats.html">Moist adiabats and the LCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../notebooks/worksheets/tropical_engine_solution.html">Tropical Heat Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../notebooks/worksheets/cape_part1.html">Cape Part 1  – demo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../notebooks/worksheets/worksheet7_taylor_solution.html">Worksheet 7 – Taylor series problem solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../notebooks/worksheets/mixing_line_calc.html">Mixing line workbook</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../assignments/adiabatic_box_solution.html">Adiabatic Box - Solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../assignments/hydrostatic_scaling_solution.html">Assign 2: Solution - Scale heights for typical atmospheric soundings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../assignments/tropical_clouds_profiles_solution.html">Assignment 3 solution: Analyzing a model cloud dataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../assignments/assign4_rootfind_solution.html">Assignment 4a rootfinding solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../assignments/assignment4_paper_solution.html">Assignment 4 part 2  – solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../assignments/thompkins_practice_answers.html">Tompkins practice questions – solution</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">In-depth notes</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://www.dropbox.com/scl/fi/5scb458wnoymr4s8ta4vt/equation_sheet.pdf?rlkey=29ymawiljakqnv3wquqa4wm8e&amp;st=4mmzb2ii&amp;dl=0">final exam equation sheet</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1L8am0jnhBdlTNzQNR8lE-Iyw0V6lwqg2/view?usp=sharing">mid-term equation sheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../notebooks/week1/hydrostat.html">Week1: Hydrostatic balance explainer</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1dBxcwxe0quNjYAihiFwMpF8kVmjmYh1p/view?usp=sharing">Week2 - Kinetic Temperature notes</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/12xontZRhRTKBjtG9y27RS6CH35eARcgp/view?usp=sharing">Week 2 - First law of thermodynamics</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1_ZpKjfR3OGHkmnk9-lKEmP8SSGNM8Is_/view?usp=sharing">Week 2 - Hydrostatic balance and scale heights</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1CjXm0AHYMJYmxf-Mm6CuWD7tIM_KBRI0/view?usp=sharing">Week 3 - Entropy and potential temperature</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1Id1EECa8qefSD6YhJoJzVp2neEarD9Wa/view?usp=sharing">Week 3 - Buoyancy and Taylor's series</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1GrzhzpvWbN0H4dP3Z77M4O88Cyey5k2K/view?usp=sharing">Schroeder Chapter 5 free energy</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1YrHBkCiFduYqjd_Dn8_3fZJocmqva1PG/view?usp=sharing">Lohmann Chapter 2 - Thermodynamics</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1rJO32NGhTW3TA6noQmSdNl2GNXyrZUgA/view?usp=sharing">Maxwell relations</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/144fXb0-of3lpwL0xGZYH16yxGJOmvDEh/view?usp=sharing">Clausius-Clapeyron equation</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1EQI86M4I76ARXDV54VOHKQP3J0-kyyDq/view?usp=sharing">Virtual temperature notes</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1BPTvFijtktG4135T1X8DXwI8l_C8xHEt/view?usp=sharing">Static energy and $\theta_e$ notes</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/131QoLZPjajoCtreV6muYOxDlF6jvRH4s/view?usp=sharing">Carnot cycle notes</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1wsfzaorhVKiMwDlrolf2gtTrSLT4p4iM/view?usp=sharing">wet bulb notes</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1j8vhmRtGaOlpe0JAAS-fvZmH9H8U2ay2/view?usp=sharing">Wet bulb vs. $\theta_e$</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">midterms</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../assignments/study_topics.html">Midterm study topics</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1Nj31FAXyWur9qffnSflhx6CcLBta4PCj/view?usp=sharing">2016 midterm</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1jFKalQ9MXAvNu824LKVyHtNEleZhgI0q/view?usp=sharing">2012 midterm</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Animations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1Qwioo3qSyEzr4tTuC3Sx54oXLKg-3g3D/view?usp=sharing">ARM diurnal over land</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1lCb3G9EhiPzRGO2m0FQWMTTUv2fSTnbi/view?usp=sharing">BOMEX -- trade cumulus over water</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/14ZLSAHCrjv8U0IKD9sQMHdql33Ebxkp3/view?usp=sharing">CGILS trade cumulus over water</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../../../../_sources/.pixi/envs/default/share/doc/libjpeg-turbo/README.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Background</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Background</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#funding">Funding</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#license">License</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#building-libjpeg-turbo">Building libjpeg-turbo</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#using-libjpeg-turbo">Using libjpeg-turbo</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#colorspace-extensions">Colorspace Extensions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#libjpeg-v7-and-v8-api-abi-emulation">libjpeg v7 and v8 API/ABI Emulation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#support-for-libjpeg-v7-and-v8-features">Support for libjpeg v7 and v8 Features</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#fully-supported">Fully supported</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#not-supported">Not supported</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-about-libjpeg-v9">What About libjpeg v9?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#in-memory-source-destination-managers">In-Memory Source/Destination Managers</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mathematical-compatibility">Mathematical Compatibility</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#performance-pitfalls">Performance Pitfalls</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#restart-markers">Restart Markers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fast-integer-forward-dct-at-high-quality-levels">Fast Integer Forward DCT at High Quality Levels</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#memory-debugger-pitfalls">Memory Debugger Pitfalls</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="background">
+<h1>Background<a class="headerlink" href="#background" title="Link to this heading">#</a></h1>
+<p>libjpeg-turbo is a JPEG image codec that uses SIMD instructions to accelerate
+baseline JPEG compression and decompression on x86, x86-64, Arm, PowerPC, and
+MIPS systems, as well as progressive JPEG compression on x86, x86-64, and Arm
+systems.  On such systems, libjpeg-turbo is generally 2-6x as fast as libjpeg,
+all else being equal.  On other types of systems, libjpeg-turbo can still
+outperform libjpeg by a significant amount, by virtue of its highly-optimized
+Huffman coding routines.  In many cases, the performance of libjpeg-turbo
+rivals that of proprietary high-speed JPEG codecs.</p>
+<p>libjpeg-turbo implements both the traditional libjpeg API as well as the less
+powerful but more straightforward TurboJPEG API.  libjpeg-turbo also features
+colorspace extensions that allow it to compress from/decompress to 32-bit and
+big-endian pixel buffers (RGBX, XBGR, etc.), as well as a full-featured Java
+interface.</p>
+<p>libjpeg-turbo was originally based on libjpeg/SIMD, an MMX-accelerated
+derivative of libjpeg v6b developed by Miyasaka Masaru.  The TigerVNC and
+VirtualGL projects made numerous enhancements to the codec in 2009, and in
+early 2010, libjpeg-turbo spun off into an independent project, with the goal
+of making high-speed JPEG compression/decompression technology available to a
+broader range of users and developers.  libjpeg-turbo is an ISO/IEC and ITU-T
+reference implementation of the JPEG standard.</p>
+<p>More information about libjpeg-turbo can be found at
+<a class="reference external" href="https://libjpeg-turbo.org">https://libjpeg-turbo.org</a>.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="funding">
+<h1>Funding<a class="headerlink" href="#funding" title="Link to this heading">#</a></h1>
+<p>libjpeg-turbo is an independent open source project, but we rely on patronage
+and funded development in order to maintain that independence.  The easiest way
+to ensure that libjpeg-turbo remains community-focused and free of any one
+organization’s agenda is to
+<a class="reference external" href="https://github.com/sponsors/libjpeg-turbo">sponsor our project through GitHub</a>.
+All sponsorship money goes directly toward funding the labor necessary to
+maintain libjpeg-turbo, support the user community, and implement bug fixes and
+strategically important features.</p>
+<p><a class="reference external" href="https://github.com/sponsors/libjpeg-turbo"><img alt="Sponsor libjpeg-turbo" src="https://img.shields.io/github/sponsors/libjpeg-turbo?label=Sponsor&amp;logo=GitHub" /></a></p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="license">
+<h1>License<a class="headerlink" href="#license" title="Link to this heading">#</a></h1>
+<p>libjpeg-turbo is covered by three compatible BSD-style open source licenses.
+Refer to <a class="reference internal" href="LICENSE.html"><span class="std std-doc">LICENSE.md</span></a> for a roll-up of license terms.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="building-libjpeg-turbo">
+<h1>Building libjpeg-turbo<a class="headerlink" href="#building-libjpeg-turbo" title="Link to this heading">#</a></h1>
+<p>Refer to <a class="reference internal" href="#BUILDING.md"><span class="xref myst">BUILDING.md</span></a> for complete instructions.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="using-libjpeg-turbo">
+<h1>Using libjpeg-turbo<a class="headerlink" href="#using-libjpeg-turbo" title="Link to this heading">#</a></h1>
+<p>libjpeg-turbo includes two APIs that can be used to compress and decompress
+JPEG images:</p>
+<ul class="simple">
+<li><p><strong>TurboJPEG API</strong><br>
+This API provides an easy-to-use interface for compressing and decompressing
+JPEG images in memory.  It also provides some functionality that would not be
+straightforward to achieve using the underlying libjpeg API, such as
+generating planar YUV images and performing multiple simultaneous lossless
+transforms on an image.  The Java interface for libjpeg-turbo is written on
+top of the TurboJPEG API.  The TurboJPEG API is recommended for first-time
+users of libjpeg-turbo.  Refer to <a class="reference internal" href="#src/tjcomp.c"><span class="xref myst">tjcomp.c</span></a>,
+<a class="reference internal" href="#src/tjdecomp.c"><span class="xref myst">tjdecomp.c</span></a>, <a class="reference internal" href="#src/tjtran.c"><span class="xref myst">tjtran.c</span></a>,
+<a class="reference internal" href="#java/TJComp.java"><span class="xref myst">TJComp.java</span></a>, <a class="reference internal" href="#java/TJDecomp.java"><span class="xref myst">TJDecomp.java</span></a>, and
+<a class="reference internal" href="#java/TJTran.java"><span class="xref myst">TJTran.java</span></a> for examples of its usage and to
+<a class="reference external" href="https://libjpeg-turbo.org/Documentation/Documentation">https://libjpeg-turbo.org/Documentation/Documentation</a> for API
+documentation.</p></li>
+<li><p><strong>libjpeg API</strong><br>
+This is the de facto industry-standard API for compressing and decompressing
+JPEG images.  It is more difficult to use than the TurboJPEG API but also
+more powerful.  The libjpeg API implementation in libjpeg-turbo is both
+API/ABI-compatible and mathematically compatible with libjpeg v6b.  It can
+also optionally be configured to be API/ABI-compatible with libjpeg v7 and v8
+(see below.)  Refer to <a class="reference internal" href="#src/cjpeg.c"><span class="xref myst">cjpeg.c</span></a> and <a class="reference internal" href="#src/djpeg.c"><span class="xref myst">djpeg.c</span></a> for
+examples of its usage and to <a class="reference internal" href="#doc/libjpeg.txt"><span class="xref myst">libjpeg.txt</span></a> for API
+documentation.</p></li>
+</ul>
+<p>There is no significant performance advantage to either API when both are used
+to perform similar operations.</p>
+<section id="colorspace-extensions">
+<h2>Colorspace Extensions<a class="headerlink" href="#colorspace-extensions" title="Link to this heading">#</a></h2>
+<p>libjpeg-turbo includes extensions that allow JPEG images to be compressed
+directly from (and decompressed directly to) buffers that use BGR, BGRX,
+RGBX, XBGR, and XRGB pixel ordering.  This is implemented with ten new
+colorspace constants:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>JCS_EXT_RGB   /* red/green/blue */
+JCS_EXT_RGBX  /* red/green/blue/x */
+JCS_EXT_BGR   /* blue/green/red */
+JCS_EXT_BGRX  /* blue/green/red/x */
+JCS_EXT_XBGR  /* x/blue/green/red */
+JCS_EXT_XRGB  /* x/red/green/blue */
+JCS_EXT_RGBA  /* red/green/blue/alpha */
+JCS_EXT_BGRA  /* blue/green/red/alpha */
+JCS_EXT_ABGR  /* alpha/blue/green/red */
+JCS_EXT_ARGB  /* alpha/red/green/blue */
+</pre></div>
+</div>
+<p>Setting <code class="docutils literal notranslate"><span class="pre">cinfo.in_color_space</span></code> (compression) or <code class="docutils literal notranslate"><span class="pre">cinfo.out_color_space</span></code>
+(decompression) to one of these values will cause libjpeg-turbo to read the
+red, green, and blue values from (or write them to) the appropriate position in
+the pixel when compressing from/decompressing to an RGB buffer.</p>
+<p>Your application can check for the existence of these extensions at compile
+time with:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#ifdef JCS_EXTENSIONS
+</pre></div>
+</div>
+<p>At run time, attempting to use these extensions with a libjpeg implementation
+that does not support them will result in a “Bogus input colorspace” error.
+Applications can trap this error in order to test whether run-time support is
+available for the colorspace extensions.</p>
+<p>When using the RGBX, BGRX, XBGR, and XRGB colorspaces during decompression, the
+X byte is undefined, and in order to ensure the best performance, libjpeg-turbo
+can set that byte to whatever value it wishes.  If an application expects the X
+byte to be used as an alpha channel, then it should specify <code class="docutils literal notranslate"><span class="pre">JCS_EXT_RGBA</span></code>,
+<code class="docutils literal notranslate"><span class="pre">JCS_EXT_BGRA</span></code>, <code class="docutils literal notranslate"><span class="pre">JCS_EXT_ABGR</span></code>, or <code class="docutils literal notranslate"><span class="pre">JCS_EXT_ARGB</span></code>.  When these colorspace
+constants are used, the X byte is guaranteed to be 0xFF, which is interpreted
+as opaque.</p>
+<p>Your application can check for the existence of the alpha channel colorspace
+extensions at compile time with:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#ifdef JCS_ALPHA_EXTENSIONS
+</pre></div>
+</div>
+<p><a class="reference internal" href="#src/jcstest.c"><span class="xref myst">jcstest.c</span></a>, located in the libjpeg-turbo source tree,
+demonstrates how to check for the existence of the colorspace extensions at
+compile time and run time.</p>
+</section>
+<section id="libjpeg-v7-and-v8-api-abi-emulation">
+<h2>libjpeg v7 and v8 API/ABI Emulation<a class="headerlink" href="#libjpeg-v7-and-v8-api-abi-emulation" title="Link to this heading">#</a></h2>
+<p>With libjpeg v7 and v8, new features were added that necessitated extending the
+compression and decompression structures.  Unfortunately, due to the exposed
+nature of those structures, extending them also necessitated breaking backward
+ABI compatibility with previous libjpeg releases.  Thus, programs that were
+built to use libjpeg v7 or v8 did not work with libjpeg-turbo, since it is
+based on the libjpeg v6b code base.  Although libjpeg v7 and v8 are not
+as widely used as v6b, enough programs (including a few Linux distros) made
+the switch that there was a demand to emulate the libjpeg v7 and v8 ABIs
+in libjpeg-turbo.  It should be noted, however, that this feature was added
+primarily so that applications that had already been compiled to use libjpeg
+v7+ could take advantage of accelerated baseline JPEG encoding/decoding
+without recompiling.  libjpeg-turbo does not claim to support all of the
+libjpeg v7+ features, nor to produce identical output to libjpeg v7+ in all
+cases (see below.)</p>
+<p>By passing an argument of <code class="docutils literal notranslate"><span class="pre">-DWITH_JPEG7=1</span></code> or <code class="docutils literal notranslate"><span class="pre">-DWITH_JPEG8=1</span></code> to <code class="docutils literal notranslate"><span class="pre">cmake</span></code>, you
+can build a version of libjpeg-turbo that emulates the libjpeg v7 or v8 ABI, so
+that programs that are built against libjpeg v7 or v8 can be run with
+libjpeg-turbo.  The following section describes which libjpeg v7+ features are
+supported and which aren’t.</p>
+<section id="support-for-libjpeg-v7-and-v8-features">
+<h3>Support for libjpeg v7 and v8 Features<a class="headerlink" href="#support-for-libjpeg-v7-and-v8-features" title="Link to this heading">#</a></h3>
+<section id="fully-supported">
+<h4>Fully supported<a class="headerlink" href="#fully-supported" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>libjpeg API: IDCT scaling extensions in decompressor</strong><br>
+libjpeg-turbo supports IDCT scaling with scaling factors of 1/8, 1/4, 3/8,
+1/2, 5/8, 3/4, 7/8, 9/8, 5/4, 11/8, 3/2, 13/8, 7/4, 15/8, and 2/1 (only 1/4
+and 1/2 are SIMD-accelerated.)</p></li>
+<li><p><strong>libjpeg API: Arithmetic coding</strong></p></li>
+<li><p><strong>libjpeg API: In-memory source and destination managers</strong><br>
+See notes below.</p></li>
+<li><p><strong>cjpeg: Separate quality settings for luminance and chrominance</strong><br>
+Note that the libpjeg v7+ API was extended to accommodate this feature only
+for convenience purposes.  It has always been possible to implement this
+feature with libjpeg v6b (see rdswitch.c for an example.)</p></li>
+<li><p><strong>cjpeg: 32-bit BMP support</strong></p></li>
+<li><p><strong>cjpeg: <code class="docutils literal notranslate"><span class="pre">-rgb</span></code> option</strong></p></li>
+<li><p><strong>jpegtran: Lossless cropping</strong></p></li>
+<li><p><strong>jpegtran: <code class="docutils literal notranslate"><span class="pre">-perfect</span></code> option</strong></p></li>
+<li><p><strong>jpegtran: Forcing width/height when performing lossless crop</strong></p></li>
+<li><p><strong>rdjpgcom: <code class="docutils literal notranslate"><span class="pre">-raw</span></code> option</strong></p></li>
+<li><p><strong>rdjpgcom: Locale awareness</strong></p></li>
+</ul>
+</section>
+<section id="not-supported">
+<h4>Not supported<a class="headerlink" href="#not-supported" title="Link to this heading">#</a></h4>
+<p>NOTE:  As of this writing, extensive research has been conducted into the
+usefulness of DCT scaling as a means of data reduction and SmartScale as a
+means of quality improvement.  Readers are invited to peruse the research at
+<a class="reference external" href="https://libjpeg-turbo.org/About/SmartScale">https://libjpeg-turbo.org/About/SmartScale</a> and draw their own conclusions,
+but it is the general belief of our project that these features have not
+demonstrated sufficient usefulness to justify inclusion in libjpeg-turbo.</p>
+<ul class="simple">
+<li><p><strong>libjpeg API: DCT scaling in compressor</strong><br>
+<code class="docutils literal notranslate"><span class="pre">cinfo.scale_num</span></code> and <code class="docutils literal notranslate"><span class="pre">cinfo.scale_denom</span></code> are silently ignored.
+There is no technical reason why DCT scaling could not be supported when
+emulating the libjpeg v7+ API/ABI, but without the SmartScale extension (see
+below), only scaling factors of 1/2, 8/15, 4/7, 8/13, 2/3, 8/11, 4/5, and
+8/9 would be available, which is of limited usefulness.</p></li>
+<li><p><strong>libjpeg API: SmartScale</strong><br>
+<code class="docutils literal notranslate"><span class="pre">cinfo.block_size</span></code> is silently ignored.
+SmartScale is an extension to the JPEG format that allows for DCT block
+sizes other than 8x8.  Providing support for this new format would be
+feasible (particularly without full acceleration.)  However, until/unless
+the format becomes either an official industry standard or, at minimum, an
+accepted solution in the community, we are hesitant to implement it, as
+there is no sense of whether or how it might change in the future.  It is
+our belief that SmartScale has not demonstrated sufficient usefulness as a
+lossless format nor as a means of quality enhancement, and thus our primary
+interest in providing this feature would be as a means of supporting
+additional DCT scaling factors.</p></li>
+<li><p><strong>libjpeg API: Fancy downsampling in compressor</strong><br>
+<code class="docutils literal notranslate"><span class="pre">cinfo.do_fancy_downsampling</span></code> is silently ignored.
+This requires the DCT scaling feature, which is not supported.</p></li>
+<li><p><strong>jpegtran: Scaling</strong><br>
+This requires both the DCT scaling and SmartScale features, which are not
+supported.</p></li>
+<li><p><strong>Lossless RGB JPEG files</strong><br>
+This requires the SmartScale feature, which is not supported.</p></li>
+</ul>
+</section>
+</section>
+<section id="what-about-libjpeg-v9">
+<h3>What About libjpeg v9?<a class="headerlink" href="#what-about-libjpeg-v9" title="Link to this heading">#</a></h3>
+<p>libjpeg v9 introduced yet another field to the JPEG compression structure
+(<code class="docutils literal notranslate"><span class="pre">color_transform</span></code>), thus making the ABI backward incompatible with that of
+libjpeg v8.  This new field was introduced solely for the purpose of supporting
+lossless SmartScale encoding.  Furthermore, there was actually no reason to
+extend the API in this manner, as the color transform could have just as easily
+been activated by way of a new JPEG colorspace constant, thus preserving
+backward ABI compatibility.</p>
+<p>Our research (see link above) has shown that lossless SmartScale does not
+generally accomplish anything that can’t already be accomplished better with
+existing, standard lossless formats.  Therefore, at this time it is our belief
+that there is not sufficient technical justification for software projects to
+upgrade from libjpeg v8 to libjpeg v9, and thus there is not sufficient
+technical justification for us to emulate the libjpeg v9 ABI.</p>
+</section>
+</section>
+<section id="in-memory-source-destination-managers">
+<h2>In-Memory Source/Destination Managers<a class="headerlink" href="#in-memory-source-destination-managers" title="Link to this heading">#</a></h2>
+<p>By default, libjpeg-turbo 1.3 and later includes the <code class="docutils literal notranslate"><span class="pre">jpeg_mem_src()</span></code> and
+<code class="docutils literal notranslate"><span class="pre">jpeg_mem_dest()</span></code> functions, even when not emulating the libjpeg v8 API/ABI.
+Previously, it was necessary to build libjpeg-turbo from source with libjpeg v8
+API/ABI emulation in order to use the in-memory source/destination managers,
+but several projects requested that those functions be included when emulating
+the libjpeg v6b API/ABI as well.  This allows the use of those functions by
+programs that need them, without breaking ABI compatibility for programs that
+don’t, and it allows those functions to be provided in the “official”
+libjpeg-turbo binaries.</p>
+<p>Note that, on most Un*x systems, the dynamic linker will not look for a
+function in a library until that function is actually used.  Thus, if a program
+is built against libjpeg-turbo 1.3+ and uses <code class="docutils literal notranslate"><span class="pre">jpeg_mem_src()</span></code> or
+<code class="docutils literal notranslate"><span class="pre">jpeg_mem_dest()</span></code>, that program will not fail if run against an older version
+of libjpeg-turbo or against libjpeg v7- until the program actually tries to
+call <code class="docutils literal notranslate"><span class="pre">jpeg_mem_src()</span></code> or <code class="docutils literal notranslate"><span class="pre">jpeg_mem_dest()</span></code>.  Such is not the case on Windows.
+If a program is built against the libjpeg-turbo 1.3+ DLL and uses
+<code class="docutils literal notranslate"><span class="pre">jpeg_mem_src()</span></code> or <code class="docutils literal notranslate"><span class="pre">jpeg_mem_dest()</span></code>, then it must use the libjpeg-turbo 1.3+
+DLL at run time.</p>
+<p>Both cjpeg and djpeg have been extended to allow testing the in-memory
+source/destination manager functions.  See their respective man pages for more
+details.</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="mathematical-compatibility">
+<h1>Mathematical Compatibility<a class="headerlink" href="#mathematical-compatibility" title="Link to this heading">#</a></h1>
+<p>For the most part, libjpeg-turbo should produce identical output to libjpeg
+v6b.  There are two exceptions:</p>
+<ol class="arabic simple">
+<li><p>When decompressing a JPEG image that uses 4:4:0 chrominance subsampling, the
+outputs of libjpeg v6b and libjpeg-turbo can differ because libjpeg-turbo
+implements a “fancy” (smooth) 4:4:0 upsampling algorithm and libjpeg did not.</p></li>
+<li><p>When using the floating point DCT/IDCT, the outputs of libjpeg v6b and
+libjpeg-turbo can differ for the following reasons:</p>
+<ul class="simple">
+<li><p>The SSE/SSE2 floating point DCT implementation in libjpeg-turbo is ever
+so slightly more accurate than the implementation in libjpeg v6b, but not
+by any amount perceptible to human vision (generally in the range of 0.01
+to 0.08 dB gain in PNSR.)</p></li>
+<li><p>When not using the SIMD extensions, libjpeg-turbo uses the more accurate
+(and slightly faster) floating point IDCT algorithm introduced in libjpeg
+v8a as opposed to the algorithm used in libjpeg v6b.  It should be noted,
+however, that this algorithm basically brings the accuracy of the
+floating point IDCT in line with the accuracy of the accurate integer
+IDCT.  The floating point DCT/IDCT algorithms are mainly a legacy
+feature, and they do not produce significantly more accuracy than the
+accurate integer algorithms.  (To put numbers on this, the typical
+difference in PNSR between the two algorithms is less than 0.10 dB,
+whereas changing the quality level by 1 in the upper range of the quality
+scale is typically more like a 1.0 dB difference.)</p></li>
+<li><p>If the floating point algorithms in libjpeg-turbo are not implemented
+using SIMD instructions on a particular platform, then the accuracy of
+the floating point DCT/IDCT can depend on the compiler settings.</p></li>
+</ul>
+</li>
+</ol>
+<p>While libjpeg-turbo does emulate the libjpeg v8 API/ABI, under the hood it is
+still using the same algorithms as libjpeg v6b, so there are several specific
+cases in which libjpeg-turbo cannot be expected to produce the same output as
+libjpeg v8:</p>
+<ul class="simple">
+<li><p>When decompressing using scaling factors of 1/2 and 1/4, because libjpeg v8
+implements those scaling algorithms differently than libjpeg v6b does, and
+libjpeg-turbo’s SIMD extensions are based on the libjpeg v6b behavior.</p></li>
+<li><p>When using chrominance subsampling, because libjpeg v8 implements this
+with its DCT/IDCT scaling algorithms rather than with a separate
+downsampling/upsampling algorithm.  In our testing, the subsampled/upsampled
+output of libjpeg v8 is less accurate than that of libjpeg v6b for this
+reason.</p></li>
+<li><p>When decompressing using a scaling factor &gt; 1 and merged (AKA “non-fancy” or
+“non-smooth”) chrominance upsampling, because libjpeg v8 does not support
+merged upsampling with scaling factors &gt; 1.</p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="performance-pitfalls">
+<h1>Performance Pitfalls<a class="headerlink" href="#performance-pitfalls" title="Link to this heading">#</a></h1>
+<section id="restart-markers">
+<h2>Restart Markers<a class="headerlink" href="#restart-markers" title="Link to this heading">#</a></h2>
+<p>The optimized Huffman decoder in libjpeg-turbo does not handle restart markers
+in a way that makes the rest of the libjpeg infrastructure happy, so it is
+necessary to use the slow Huffman decoder when decompressing a JPEG image that
+has restart markers.  This can cause the decompression performance to drop by
+as much as 20%, but the performance will still be much greater than that of
+libjpeg.  Many consumer packages, such as Photoshop, use restart markers when
+generating JPEG images, so images generated by those programs will experience
+this issue.</p>
+</section>
+<section id="fast-integer-forward-dct-at-high-quality-levels">
+<h2>Fast Integer Forward DCT at High Quality Levels<a class="headerlink" href="#fast-integer-forward-dct-at-high-quality-levels" title="Link to this heading">#</a></h2>
+<p>The algorithm used by the SIMD-accelerated quantization function cannot produce
+correct results whenever the fast integer forward DCT is used along with a JPEG
+quality of 98-100.  Thus, libjpeg-turbo must use the non-SIMD quantization
+function in those cases.  This causes performance to drop by as much as 40%.
+It is therefore strongly advised that you use the accurate integer forward DCT
+whenever encoding images with a JPEG quality of 98 or higher.</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="memory-debugger-pitfalls">
+<h1>Memory Debugger Pitfalls<a class="headerlink" href="#memory-debugger-pitfalls" title="Link to this heading">#</a></h1>
+<p>Valgrind and Memory Sanitizer (MSan) can generate false positives
+(specifically, incorrect reports of uninitialized memory accesses) when used
+with libjpeg-turbo’s SIMD extensions.  It is generally recommended that the
+SIMD extensions be disabled, either by passing an argument of <code class="docutils literal notranslate"><span class="pre">-DWITH_SIMD=0</span></code>
+to <code class="docutils literal notranslate"><span class="pre">cmake</span></code> when configuring the build or by setting the environment variable
+<code class="docutils literal notranslate"><span class="pre">JSIMD_FORCENONE</span></code> to <code class="docutils literal notranslate"><span class="pre">1</span></code> at run time, when testing libjpeg-turbo with Valgrind,
+MSan, or other memory debuggers.</p>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./.pixi/envs/default/share/doc/libjpeg-turbo"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Background</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#funding">Funding</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#license">License</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#building-libjpeg-turbo">Building libjpeg-turbo</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#using-libjpeg-turbo">Using libjpeg-turbo</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#colorspace-extensions">Colorspace Extensions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#libjpeg-v7-and-v8-api-abi-emulation">libjpeg v7 and v8 API/ABI Emulation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#support-for-libjpeg-v7-and-v8-features">Support for libjpeg v7 and v8 Features</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#fully-supported">Fully supported</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#not-supported">Not supported</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-about-libjpeg-v9">What About libjpeg v9?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#in-memory-source-destination-managers">In-Memory Source/Destination Managers</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mathematical-compatibility">Mathematical Compatibility</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#performance-pitfalls">Performance Pitfalls</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#restart-markers">Restart Markers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fast-integer-forward-dct-at-high-quality-levels">Fast Integer Forward DCT at High Quality Levels</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#memory-debugger-pitfalls">Memory Debugger Pitfalls</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Philip Austin
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
