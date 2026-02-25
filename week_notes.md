@@ -231,4 +231,12 @@ Work on {ref}`tropical_profiles_solution` and {ref}`assign4_rootfind_solution`.
 - [2016 midterm](https://drive.google.com/file/d/1Nj31FAXyWur9qffnSflhx6CcLBta4PCj/view?usp=sharing)
 - [2012 midterm](https://drive.google.com/file/d/1jFKalQ9MXAvNu824LKVyHtNEleZhgI0q/view?usp=sharing)
 
+## Week 7
+
+### Lecture 17, week 7, Tuesday
+
+- go over {ref}`assign4_paper_solution`
+- go over {ref}`thompkins_solutions`
+- go over the {ref}`study_topics` for the midterm
+
 

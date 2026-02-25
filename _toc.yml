@@ -48,8 +48,8 @@ parts:
     - file: assignments/hydrostatic_scaling_solution.md
     - file: assignments/tropical_clouds_profiles_solution.md
     - file: assignments/assign4_rootfind_solution.md
-    - file: assignments/assignment4_paper.md
-    - file: assignments/assignment5_thompkins.md
+    - file: assignments/assignment4_paper_solution.md
+    - file: assignments/thompkins_practice_answers.md
   - caption: In-depth notes
     chapters:
     - url: https://www.dropbox.com/scl/fi/5scb458wnoymr4s8ta4vt/equation_sheet.pdf?rlkey=29ymawiljakqnv3wquqa4wm8e&st=4mmzb2ii&dl=0
@@ -85,16 +85,15 @@ parts:
       title: wet bulb notes
     - url: https://drive.google.com/file/d/1j8vhmRtGaOlpe0JAAS-fvZmH9H8U2ay2/view?usp=sharing
       title: Wet bulb vs. $\theta_e$
-      
+
   - caption: midterms
     chapters:
+    - file: assignments/study_topics.md
     - url: https://drive.google.com/file/d/1Nj31FAXyWur9qffnSflhx6CcLBta4PCj/view?usp=sharing
       title: 2016 midterm
     - url: https://drive.google.com/file/d/1jFKalQ9MXAvNu824LKVyHtNEleZhgI0q/view?usp=sharing
       title: 2012 midterm
-      
-        
-      
+
   - caption: Animations
     chapters:
     - url: https://drive.google.com/file/d/1Qwioo3qSyEzr4tTuC3Sx54oXLKg-3g3D/view?usp=sharing
