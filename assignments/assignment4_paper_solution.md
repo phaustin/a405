@@ -364,13 +364,13 @@ $$
 We know that:
 
 $$
-  \Delta s = c_{p} \Delta \log \theta_e = 1004*(\log(317.69) - \log(349.726)) = -96.66
+  \Delta \phi = c_{p} \Delta \log \theta_e = 1004*(\log(317.69) - \log(349.726)) = -96.66
 $$
 
 and since the isotherm is 10.44 \degc = 283.59 K
 
 $$
-\Delta q_{out} = T \Delta s = 283.59 \times  -96.66 = -27411.80
+\Delta q_{out} = T \Delta \phi = 283.59 \times  -96.66 = -27411.80
 $$
 and the efficiency is:
 
