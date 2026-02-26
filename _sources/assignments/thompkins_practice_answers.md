@@ -92,6 +92,16 @@ iv (1pt) What is the common name given to this temperature?
 from a405.skewT.fullskew import makeSkewWet, find_corners
 import matplotlib.pyplot as plt
 import numpy as np
+from a405.thermo.thermlib import find_rsat, find_Td
+
+Temp=25 + c.Tc
+rv = 10.e-3  # kg/kg
+press=1.e5
+rsat = find_rsat(Temp,press)
+print(f"relative humidity {rv/rsat=:.2f}")
+Tdew = find_Td(rv,press)
+print(f"dewpoint for {rv=:.3f} kg/kg is {Tdew - c.Tc:.1f} deg C")
+
 fig, ax = plt.subplots(1, 1, figsize=(10, 10))
 corners=[10,30]
 ax, skew = makeSkewWet(ax,corners=corners)
@@ -122,9 +132,35 @@ of $T_1$ and a final mixing ratio of $r_{v1}$.  Use a rootfinder to solve for $T
 from a405.thermo.thermlib import find_rsat
 from a405.thermo.constants import constants as c
 press=1.e5 # Pa
-rs25 = find_rsat(25 + c.Tc,press)
-rv = 0.1*rs25
+temp_before = 25 + c.Tc
+rs25 = find_rsat(temp_before,press)
+RH = 0.1
+rv = RH*rs25
 print(f'mixing ratio rv = {rv*1.e3:5.2f} g/kg')
+```
+
+ii) Now evaporate precipitation while keeping the enthalpy the same.
+
+```{code-cell} ipython3
+from scipy import optimize
+enthalpy_before = c.cpd*temp_before + c.lv0*rv
+print(f"{enthalpy_before=:.0f} J/kg")
+#
+# make the rootfinder target this enthalpy
+# pass both the enthalpy target and RH=0.6
+#
+def zero_temp(Tevap, enthalpy_target,RH,press):
+    enthalpy = c.cpd*Tevap + c.lv0*RH*find_rsat(Tevap,press)
+    return enthalpy - enthalpy_target
+
+def find_evaptemp(enthalpy_target,RH,press):
+    Tevap = optimize.brentq(zero_temp,200,300,args=(enthalpy_target,RH,press))
+    return Tevap - c.Tc
+
+RH=0.6
+press = 1.e5 #Pa
+Tevap = find_evaptemp(enthalpy_before,RH,press)
+print(f"evaporatively cooled temperature {Tevap=:.1f} deg C")
 ```
 
 ## Two compartment mixing
@@ -200,14 +236,34 @@ Find the second order taylor series expansion for the following functions:
 
 +++
 
-5.i (2pt) $(1 + \delta)^{-3}$
+### 5.i (2pt) $(1 + \delta)^{-3}$
+
++++
+
+#### 5.i answer
+
+$\begin{aligned} 
+& f(\delta)=(1+\delta)^{-3} \quad f(0)=1 \\ 
+& f^{\prime}(\delta)=-3(1+\delta)^{-4} \quad f^{\prime}(0)=-3 \\ 
+& f^{\prime \prime}(\delta)=12(1+\delta)^{-5} \quad f^{\prime \prime}(0)=12 \\ 
+& f(\delta)=1-3 \delta+6 \delta^2
+\end{aligned}$
+
++++
+
+### 5.ii(2pt) $\log(1 + \delta)$
+
++++
+
+#### 5.ii answer
+
+$\begin{aligned}  
+& f(\delta)=\log (1+\delta) \quad f(0)=0 \\ 
+& f^{\prime}(\delta)=\frac{1}{1+\delta} \quad f^{\prime}(0)=1 \\ 
+& f^{\prime \prime}(\delta)=-1(1+\delta)^{-2} \quad f^{\prime \prime}(0)=-1 \\ 
+& f(\delta)=0+\delta-\frac{\delta^2}{2}
+\end{aligned}$
 
 ```{code-cell} ipython3
-# 5.i answer
-```
 
-5.ii(2pt) $\log(1 + \delta)$
-
-```{code-cell} ipython3
-# 5.ii answer
 ```

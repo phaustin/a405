@@ -286,7 +286,7 @@ Using the tephigram what is the LCL of the resulting mixture?  -- Clearly label 
 ```{code-cell} ipython3
 logmix= 0.5*np.log(thetae_900) + 0.5*np.log(thetae_800)
 thetae_mix=np.exp(logmix)
-print('50/50 mixture of the logthetas is {n(thetae_mix))} K')
+print(f'50/50 mixture of the logthetas is {n(thetae_mix)} K')
 rt_mix = 0.5*rv_900 + 0.5*rv_800
 print(f'50/50 mixture of the rTs is {n(rt_mix*1.e3)} g/kg')
 temp_1000,rvap_1000,rl_1000=tinvert_thetae(thetae_mix,rt_mix,1.e5)
@@ -364,13 +364,13 @@ $$
 We know that:
 
 $$
-  \Delta s = c_{p} \Delta \log \theta_e = 1004*(\log(317.69) - \log(349.726)) = -96.66
+  \Delta \phi = c_{p} \Delta \log \theta_e = 1004*(\log(317.69) - \log(349.726)) = -96.66
 $$
 
 and since the isotherm is 10.44 \degc = 283.59 K
 
 $$
-\Delta q_{out} = T \Delta s = 283.59 \times  -96.66 = -27411.80
+\Delta q_{out} = T \Delta \phi = 283.59 \times  -96.66 = -27411.80
 $$
 and the efficiency is:
 

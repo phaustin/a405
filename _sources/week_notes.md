@@ -238,5 +238,5 @@ Work on {ref}`tropical_profiles_solution` and {ref}`assign4_rootfind_solution`.
 - go over {ref}`assign4_paper_solution`
 - go over {ref}`thompkins_solutions`
 - go over the {ref}`study_topics` for the midterm
-
+- new: {ref}`gibbs_notes`
 

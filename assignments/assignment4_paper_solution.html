@@ -242,6 +242,7 @@
 <li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/131QoLZPjajoCtreV6muYOxDlF6jvRH4s/view?usp=sharing">Carnot cycle notes</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1wsfzaorhVKiMwDlrolf2gtTrSLT4p4iM/view?usp=sharing">wet bulb notes</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1j8vhmRtGaOlpe0JAAS-fvZmH9H8U2ay2/view?usp=sharing">Wet bulb vs. $\theta_e$</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/week7/gibbs_notes.html">Gibbs Free Energy notes</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">midterms</span></p>
 <ul class="nav bd-sidenav">
@@ -745,7 +746,7 @@ air at that level.</p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">logmix</span><span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">thetae_900</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">thetae_800</span><span class="p">)</span>
 <span class="n">thetae_mix</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">logmix</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;50/50 mixture of the logthetas is {n(thetae_mix))} K&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;50/50 mixture of the logthetas is </span><span class="si">{</span><span class="n">n</span><span class="p">(</span><span class="n">thetae_mix</span><span class="p">)</span><span class="si">}</span><span class="s1"> K&#39;</span><span class="p">)</span>
 <span class="n">rt_mix</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">rv_900</span> <span class="o">+</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">rv_800</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;50/50 mixture of the rTs is </span><span class="si">{</span><span class="n">n</span><span class="p">(</span><span class="n">rt_mix</span><span class="o">*</span><span class="mf">1.e3</span><span class="p">)</span><span class="si">}</span><span class="s1"> g/kg&#39;</span><span class="p">)</span>
 <span class="n">temp_1000</span><span class="p">,</span><span class="n">rvap_1000</span><span class="p">,</span><span class="n">rl_1000</span><span class="o">=</span><span class="n">tinvert_thetae</span><span class="p">(</span><span class="n">thetae_mix</span><span class="p">,</span><span class="n">rt_mix</span><span class="p">,</span><span class="mf">1.e5</span><span class="p">)</span>
@@ -762,7 +763,7 @@ air at that level.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>50/50 mixture of the logthetas is {n(thetae_mix))} K
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>50/50 mixture of the logthetas is 334.99 K
 50/50 mixture of the rTs is 10.81 g/kg
 temperature and pressure of LCL is 11.45 C and 791.06 hPa
 </pre></div>
@@ -825,12 +826,12 @@ temperature:</p>
 <p>We know that:</p>
 <div class="math notranslate nohighlight">
 \[
-  \Delta s = c_{p} \Delta \log \theta_e = 1004*(\log(317.69) - \log(349.726)) = -96.66
+  \Delta \phi = c_{p} \Delta \log \theta_e = 1004*(\log(317.69) - \log(349.726)) = -96.66
 \]</div>
 <p>and since the isotherm is 10.44 \degc = 283.59 K</p>
 <div class="math notranslate nohighlight">
 \[
-\Delta q_{out} = T \Delta s = 283.59 \times  -96.66 = -27411.80
+\Delta q_{out} = T \Delta \phi = 283.59 \times  -96.66 = -27411.80
 \]</div>
 <p>and the efficiency is:</p>
 <div class="math notranslate nohighlight">
