@@ -240,3 +240,25 @@ Work on {ref}`tropical_profiles_solution` and {ref}`assign4_rootfind_solution`.
 - go over the {ref}`study_topics` for the midterm
 - new: {ref}`gibbs_notes`
 
+### Lecture 18, week 7, Thursday
+
+- midterm exam
+
+
+#### Do for next Tuesday
+
+- review Thompkins pp. 45-63 on convection and mixing,
+  especially pp. 56 to 61 on [entrainment and mixing]
+  
+- read my [notes on entrainment](https://drive.google.com/file/d/1VgY5LWMSmavpoHFQYFE-wkPxGnD5x44O/view?usp=sharing)
+
+## Week 8
+
+### Modeling an entraining plume
+
+#### Do for next Thursday
+
+- Read Thompkins pp. 65-73 on the Köhler equation
+
+
+
