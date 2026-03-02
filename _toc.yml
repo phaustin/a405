@@ -86,6 +86,8 @@ parts:
     - url: https://drive.google.com/file/d/1j8vhmRtGaOlpe0JAAS-fvZmH9H8U2ay2/view?usp=sharing
       title: Wet bulb vs. $\theta_e$
     - file: notebooks/week7/gibbs_notes.md
+    - url: https://drive.google.com/file/d/1VgY5LWMSmavpoHFQYFE-wkPxGnD5x44O/view?usp=sharing
+      title: entrainment and mixing
 
   - caption: midterms
     chapters:
