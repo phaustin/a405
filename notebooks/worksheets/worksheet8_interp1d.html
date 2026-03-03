@@ -2,13 +2,13 @@
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="./" >
+<html lang="en" data-content_root="../../" >
 
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>ATSC 405 syllabus &#8212; ATSC 405</title>
+    <title>Worksheet 8: Interp1d &#8212; ATSC 405</title>
   
   
   
@@ -18,52 +18,51 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="_static/doctools.js?v=9a2dae69"></script>
-    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="_static/copybutton.js?v=f281be69"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js?v=1ae7504c"></script>
+    <script src="../../_static/togglebutton.js?v=1ae7504c"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'index';</script>
-    <link rel="canonical" href="https://phaustin.github.io/a405/index.html" />
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="UBC academic integrity" href="integrity.html" />
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/worksheets/worksheet8_interp1d';</script>
+    <link rel="canonical" href="https://phaustin.github.io/a405/notebooks/worksheets/worksheet8_interp1d.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Adiabatic Box - Solution" href="../../assignments/adiabatic_box_solution.html" />
+    <link rel="prev" title="Modeling an entraining cloud updraft" href="entraining_plume.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -95,7 +94,7 @@
     <div class="search-button__overlay"></div>
     <div class="search-button__search-container">
 <form class="bd-search d-flex align-items-center"
-      action="search.html"
+      action="../../search.html"
       method="get">
   <i class="fa-solid fa-magnifying-glass"></i>
   <input type="search"
@@ -126,8 +125,6 @@
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -146,7 +143,7 @@
     
   
 
-<a class="navbar-brand logo" href="#">
+<a class="navbar-brand logo" href="../../index.html">
   
   
   
@@ -171,19 +168,19 @@
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1 current active">
-                <a class="reference internal" href="#">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../index.html">
                     ATSC 405 syllabus
                 </a>
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Background information</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="integrity.html">UBC academic integrity</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ai_policy.html">Course policy for generative AI</a></li>
-<li class="toctree-l1"><a class="reference internal" href="learning_goals.html">Learning goals</a></li>
-<li class="toctree-l1"><a class="reference internal" href="schedule.html">Course schedule</a></li>
-<li class="toctree-l1"><a class="reference internal" href="python_install.html">Python links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../integrity.html">UBC academic integrity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ai_policy.html">Course policy for generative AI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../learning_goals.html">Learning goals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../schedule.html">Course schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_install.html">Python links</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://www.dropbox.com/scl/fo/9grhb2cr0lpfc1d5jci4a/h?rlkey=shnjpq4kvndrcatbgrri44eyw&amp;dl=0">Thompkins text</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://gw2jh3xr2c.search.serialssolutions.com/?sid=sersol&amp;SS_jc=TC0001980404&amp;title=An%20introduction%20to%20clouds%20%3A%20from%20the%20microscale%20to%20climate">Lohmann et al. text</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://www.dropbox.com/scl/fi/r7zhctw6usest2rirpe2f/wallace_hobbs_chap6.pdf?rlkey=oxdanppj9wkocmwe4nn4cc4fi&amp;dl=0">Wallace and Hobbs chapter 6</a></li>
@@ -194,43 +191,43 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Weekly topics</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="week_notes.html">Week notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../week_notes.html">Week notes</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Worksheets</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="notebooks/worksheets/worksheet1_solution.html">Week 1 worksheet solutions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks/worksheets/worksheet2_solution.html">Worksheet2 – Thermodynamics worksheet solution</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks/week2/skew_coords.html">Week2: Demo – Theromodynamic diagrams</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks/worksheets/worksheet3_derivs_and_ints_solution.html">worksheet 3 solution: working with numpy arrays</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks/worksheets/worksheet4_taylor_series_solution.html">Worksheet 4: Taylor series solution</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks/week4/xarray-intro.html">Demo: Introduction to Xarray</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks/worksheets/worksheet5_latent_solution.html">Worksheet 5 solution: Latent heat</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks/worksheets/worksheet6_gibbs_solution.html">Worksheet 6 solution: Gibbs free energy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks/worksheets/mixing_line_example.html">Mixing line example</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks/worksheets/convec_instability.html">Convective instability – lifting demo</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks/worksheets/moist_adiabats.html">Moist adiabats and the LCL</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks/worksheets/tropical_engine_solution.html">Tropical Heat Engine</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks/worksheets/cape_part1.html">Cape Part 1  – demo</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks/worksheets/worksheet7_taylor_solution.html">Worksheet 7 – Taylor series problem solution</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks/worksheets/mixing_line_calc.html">Mixing line workbook</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="worksheet1_solution.html">Week 1 worksheet solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="worksheet2_solution.html">Worksheet2 – Thermodynamics worksheet solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week2/skew_coords.html">Week2: Demo – Theromodynamic diagrams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="worksheet3_derivs_and_ints_solution.html">worksheet 3 solution: working with numpy arrays</a></li>
+<li class="toctree-l1"><a class="reference internal" href="worksheet4_taylor_series_solution.html">Worksheet 4: Taylor series solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week4/xarray-intro.html">Demo: Introduction to Xarray</a></li>
+<li class="toctree-l1"><a class="reference internal" href="worksheet5_latent_solution.html">Worksheet 5 solution: Latent heat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="worksheet6_gibbs_solution.html">Worksheet 6 solution: Gibbs free energy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mixing_line_example.html">Mixing line example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="convec_instability.html">Convective instability – lifting demo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="moist_adiabats.html">Moist adiabats and the LCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tropical_engine_solution.html">Tropical Heat Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cape_part1.html">Cape Part 1  – demo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="worksheet7_taylor_solution.html">Worksheet 7 – Taylor series problem solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mixing_line_calc.html">Mixing line workbook</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="notebooks/worksheets/entraining_plume.html">Modeling an entraining cloud updraft</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks/worksheets/worksheet8_interp1d.html">Worksheet 8: Interp1d</a></li>
+<li class="toctree-l1"><a class="reference internal" href="entraining_plume.html">Modeling an entraining cloud updraft</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Worksheet 8: Interp1d</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="assignments/adiabatic_box_solution.html">Adiabatic Box - Solution</a></li>
-<li class="toctree-l1"><a class="reference internal" href="assignments/hydrostatic_scaling_solution.html">Assign 2: Solution - Scale heights for typical atmospheric soundings</a></li>
-<li class="toctree-l1"><a class="reference internal" href="assignments/tropical_clouds_profiles_solution.html">Assignment 3 solution: Analyzing a model cloud dataset</a></li>
-<li class="toctree-l1"><a class="reference internal" href="assignments/assign4_rootfind_solution.html">Assignment 4a rootfinding solution</a></li>
-<li class="toctree-l1"><a class="reference internal" href="assignments/assignment4_paper_solution.html">Assignment 4 part 2  – solution</a></li>
-<li class="toctree-l1"><a class="reference internal" href="assignments/thompkins_practice_answers.html">Tompkins practice questions – solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../assignments/adiabatic_box_solution.html">Adiabatic Box - Solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../assignments/hydrostatic_scaling_solution.html">Assign 2: Solution - Scale heights for typical atmospheric soundings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../assignments/tropical_clouds_profiles_solution.html">Assignment 3 solution: Analyzing a model cloud dataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../assignments/assign4_rootfind_solution.html">Assignment 4a rootfinding solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../assignments/assignment4_paper_solution.html">Assignment 4 part 2  – solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../assignments/thompkins_practice_answers.html">Tompkins practice questions – solution</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">In-depth notes</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference external" href="https://www.dropbox.com/scl/fi/5scb458wnoymr4s8ta4vt/equation_sheet.pdf?rlkey=29ymawiljakqnv3wquqa4wm8e&amp;st=4mmzb2ii&amp;dl=0">final exam equation sheet</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1L8am0jnhBdlTNzQNR8lE-Iyw0V6lwqg2/view?usp=sharing">mid-term equation sheet</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks/week1/hydrostat.html">Week1: Hydrostatic balance explainer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week1/hydrostat.html">Week1: Hydrostatic balance explainer</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1dBxcwxe0quNjYAihiFwMpF8kVmjmYh1p/view?usp=sharing">Week2 - Kinetic Temperature notes</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/12xontZRhRTKBjtG9y27RS6CH35eARcgp/view?usp=sharing">Week 2 - First law of thermodynamics</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1_ZpKjfR3OGHkmnk9-lKEmP8SSGNM8Is_/view?usp=sharing">Week 2 - Hydrostatic balance and scale heights</a></li>
@@ -245,12 +242,12 @@
 <li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/131QoLZPjajoCtreV6muYOxDlF6jvRH4s/view?usp=sharing">Carnot cycle notes</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1wsfzaorhVKiMwDlrolf2gtTrSLT4p4iM/view?usp=sharing">wet bulb notes</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1j8vhmRtGaOlpe0JAAS-fvZmH9H8U2ay2/view?usp=sharing">Wet bulb vs. $\theta_e$</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks/week7/gibbs_notes.html">Gibbs Free Energy notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week7/gibbs_notes.html">Gibbs Free Energy notes</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1VgY5LWMSmavpoHFQYFE-wkPxGnD5x44O/view?usp=sharing">entrainment and mixing</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">midterms</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="assignments/study_topics.html">Midterm study topics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../assignments/study_topics.html">Midterm study topics</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1Nj31FAXyWur9qffnSflhx6CcLBta4PCj/view?usp=sharing">2016 midterm</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1jFKalQ9MXAvNu824LKVyHtNEleZhgI0q/view?usp=sharing">2012 midterm</a></li>
 </ul>
@@ -313,7 +310,7 @@
       
       
       
-      <li><a href="_sources/index.md" target="_blank"
+      <li><a href="../../_sources/notebooks/worksheets/worksheet8_interp1d.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -395,7 +392,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>ATSC 405 syllabus</h1>
+    <h1>Worksheet 8: Interp1d</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -409,63 +406,23 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="atsc-405-syllabus">
-<h1>ATSC 405 syllabus<a class="headerlink" href="#atsc-405-syllabus" title="Link to this heading">#</a></h1>
-<ul class="simple">
-<li><p>Logistics</p>
-<ul>
-<li><p>Instructor:  Phil Austin EOS South Room 157</p></li>
-<li><p>TA: Luke Brown</p></li>
-<li><p>Term 2, Jan 2026, Days TBD</p></li>
-<li><p>Room: EOS Main 107</p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="learning_goals.html#sec-learning-goals"><span class="std std-ref">Learning goals</span></a></p></li>
-<li><p>Main course homepage: <a class="reference external" href="https://phaustin.github.io">phaustin.github.io/a405</a></p></li>
-<li><p><a class="reference external" href="https://canvas.ubc.ca/courses/180886">Canvas website</a> (for handins, grades, emails)</p></li>
-<li><p>Textbooks</p>
-<ul>
-<li><p><a class="reference external" href="https://www.dropbox.com/scl/fo/9grhb2cr0lpfc1d5jci4a/h?rlkey=shnjpq4kvndrcatbgrri44eyw&amp;amp;dl=0">Adrian Thompkins: Atmospheric Physics</a></p></li>
-<li><p><a class="reference external" href="https://gw2jh3xr2c.search.serialssolutions.com/?sid=sersol&amp;amp;SS_jc=TC0001980404&amp;amp;title=An%20introduction%20to%20clouds%20%3A%20from%20the%20microscale%20to%20climate">Lohmann, Luond and Mahrt: An Introduction to Clouds from Microscale to Climate</a></p></li>
-<li><p><a class="reference external" href="http://www.eos.ubc.ca/books/Practical_Meteorology/">Stull, R. B., 2015: Practical
-Meteorology</a></p></li>
-<li><p><a class="reference external" href="https://www.dropbox.com/scl/fi/2eflyvz31e1vq3nryhqa2/python-setup_macos_2024.pdf?rlkey=rxbbl8pwdevxyry0toumolh6t&amp;amp;dl=0">Intro to Python</a></p></li>
-</ul>
-</li>
-<li><p><strong>Catalog entry</strong>: Atmospheric thermodynamics, cloud chemistry and
-microphysics. Computer modeling of droplet growth, convection, and
-mixing. Application of differential equations to atmospheric problems.</p></li>
-<li><p><strong>Description</strong>: This course focuses on how to observe and understand
-cloud processes, including mixing and convection, rain formation,
-thunderstorms and cloud/climate interactions. It also introduces Python
-programming and the use of numerical methods to solve simple
-differential equations.</p></li>
-<li><p><strong>Pre or co-requisites</strong>: Classical thermodynamics (PHYS 203 or CHEM 205)
-and introductory ordinary differential equations (MATH 215) and
-familiarity with a programming language.</p></li>
-<li><p>Evaluation</p>
-<ul>
-<li><p>Problem sets/in-class work-sheets: 30%</p></li>
-<li><p>Mid-term(s): 25%</p></li>
-<li><p>Final (in-class and take home): 45%</p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="schedule.html"><span class="std std-doc">Topic schedule</span></a></p></li>
-<li><p><a class="reference internal" href="python_install.html#sec-python"><span class="std std-ref">Python links</span></a></p></li>
-</ul>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
+  <section class="tex2jax_ignore mathjax_ignore" id="worksheet-8-interp1d">
+<h1>Worksheet 8: Interp1d<a class="headerlink" href="#worksheet-8-interp1d" title="Link to this heading">#</a></h1>
+<p>Modify a copy of the <a class="reference external" href="https://drive.google.com/file/d/1rLSqA6c6DqP_DVNW2ie2HfERtL4_t002/view?usp=sharing">entraining_plume.ipynb</a> to add a new function called  <code class="docutils literal notranslate"><span class="pre">calc_interp</span></code></p>
+<p>that contains the following lines from</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>press = df_sounding[&#39;pres&#39;].values
+height = df_sounding[&#39;hght&#39;].values
+temp = df_sounding[&#39;temp&#39;].values
+dewpoint = df_sounding[&#39;dwpt&#39;].values
+#
+# 
+#
+envHeight= nudge(height)
+
+interpTenv = interp1d(envHeight,temp)
+interpTdEnv = interp1d(envHeight,dewpoint)
+interpPress = interp1d(envHeight,press)
+</pre></div>
 </div>
 </section>
 
@@ -482,7 +439,7 @@ familiarity with a programming language.</p></li>
         },
         kernelOptions: {
             name: "python3",
-            path: "./."
+            path: "./notebooks/worksheets"
         },
         predefinedOutput: true
     }
@@ -499,12 +456,21 @@ familiarity with a programming language.</p></li>
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="entraining_plume.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Modeling an entraining cloud updraft</p>
+      </div>
+    </a>
     <a class="right-next"
-       href="integrity.html"
+       href="../../assignments/adiabatic_box_solution.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">UBC academic integrity</p>
+        <p class="prev-next-title">Adiabatic Box - Solution</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -558,8 +524,8 @@ By Philip Austin
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>
