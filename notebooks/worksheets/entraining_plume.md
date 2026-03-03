@@ -57,6 +57,10 @@ Note that we really should be mixing $\log \theta_e$, not $\theta_e$ (why?).  We
 
 For the entrainment calculation, we need environmental temperature, dewpoint and pressure at arbitrary heights.  Use [scipy.interpolate.interp1d](https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.interp1d.html) for this
 
++++
+
+## Specify the derivative function
+
 ```{code-cell} ipython3
 def derivs(t, y, entrain_rate=None, tinterp=None, tdinterp = None, pinterp=None):
     """Function that computes the derivative vector for the ode integrator
@@ -165,7 +169,7 @@ def calcBuoy(height, thetae0, tinterp, tdinterp, pinterp):
     return buoy
 ```
 
-## Integrator 
+## Define the integrator  function
 
 
 Use [scipy.integrate.RK45](https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.RK45.html) to integrate our system of 4 odes
@@ -310,11 +314,15 @@ sounding=soundings['sounding_dict'][the_time]
 
 ## Do the integration
 
++++
+
+### Initial conditions
+
 ```{code-cell} ipython3
-entrain_rate = 8.e-4  #s^{-1}
-wvel_init = 10
-press_init = 900
-df = integ_entrain(sounding,entrain_rate,wvel_init,press_init,integ_time=3500,time_interval=3)
+entrain_rate = 15.e-4  #s^{-1}
+wvel_init =  2
+press_init = 820
+df = integ_entrain(sounding,entrain_rate,wvel_init,press_init,integ_time=5000,time_interval=10)
 ```
 
 ```{code-cell} ipython3
@@ -380,6 +388,10 @@ the_ds["env_temp"] = env_temp
 env_dewpoint = xr.DataArray(data = sounding['dwpt'], dims={'envlevs':len(sounding)})
 env_dewpoint = env_dewpoint.assign_attrs(units = 'degC')
 the_ds["env_dewpoint"] = env_dewpoint
+
+env_press = xr.DataArray(data = sounding['pres'], dims={'envlevs':len(sounding)})
+env_press = env_press.assign_attrs(units = 'hPa')
+the_ds["env_press"] = env_press
 ```
 
 ```{code-cell} ipython3
@@ -398,6 +410,22 @@ the_ds.to_netcdf(output_filename)
 from a405.thermo.constants import constants as c
 from a405.thermo.thermlib import convertSkewToTemp, convertTempToSkew
 from a405.skewT.fullskew import makeSkewWet,find_corners,make_default_labels
+pa2hPa = 0.01
+
+fig,ax =plt.subplots(1,1,figsize=(10,10))
+corners = [10, 35]
+ax, skew = makeSkewWet(ax, corners=corners, skew=tephigram_skew)
+xcorners=find_corners(corners,skew=skew)
+ax.set(xlim=xcorners,ylim=[1000,300])
+ax.set_title("entrainment example")
+
+xcoord_envtemp = convertTempToSkew(sounding['temp'],sounding['pres'],tephigram_skew)
+xcoord_envdew = convertTempToSkew(sounding['dwpt'],sounding['pres'],tephigram_skew)
+xcoord_cloud = convertTempToSkew(cloud_temp - c.Tc,the_ds['press']*pa2hPa,tephigram_skew)
+ax.plot(xcoord_envtemp,sounding['pres'],'g-',linewidth=3)
+ax.plot(xcoord_envdew,sounding['pres'],'b-',linewidth=3);
+ax.plot(xcoord_cloud,the_ds['press']*pa2hPa,'k-',linewidth=3);
+
 ```
 
 ```{code-cell} ipython3
