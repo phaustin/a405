@@ -331,6 +331,17 @@ the_ds
 ## Add units to the variables plus dataset attributes
 
 ```{code-cell} ipython3
+cloud_temp=[]
+cloud_dewpoint=[]
+for the_thetae,the_press in zip(the_ds.thetae_cloud.data,
+                                       the_ds.press.data):
+    cloud_temp.append(find_Tmoist(the_thetae,the_press))
+cloud_temp = np.array(cloud_temp)
+cloud_temp = xr.DataArray(data = cloud_temp, dims={'time':len(cloud_temp)})
+cloud_temp = cloud_temp.assign_attrs(units = 'K')
+the_ds["cloud_temp"] = cloud_temp
+
+
 the_ds = the_ds.set_coords(['cloud_height','press'])
 the_ds['press'] = the_ds['press'].assign_attrs(units = 'Pa')
 the_ds['cloud_height'] = the_ds['cloud_height'].assign_attrs(units = 'm')
