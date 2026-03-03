@@ -1,0 +1,170 @@
+\documentclass[12pt]{article}
+\usepackage{geometry,fancyhdr,xr,hyperref,ifpdf,amsmath,rcs,indentfirst}
+\usepackage{lastpage,longtable,Ventry,url,paunits,shortcuts,smallsec,color,tightlist,float}
+\geometry{letterpaper,top=50pt,hmargin={20mm,20mm},headheight=15pt} 
+\usepackage[stable]{footmisc}
+
+\pagestyle{fancy} 
+
+\RCS $Revision: 1.5 $
+\RCS $Date: 2002/01/09 03:50:54 $
+
+\fancypagestyle{first}{
+\lhead{Mixing}
+\chead{}
+\rhead{page~\thepage/\pageref{LastPage}}
+\lfoot{} 
+\cfoot{} 
+\rfoot{}
+}
+
+\ifpdf
+    \usepackage[pdftex]{graphicx} 
+    \usepackage{hyperref}
+    \pdfcompresslevel=0
+    \DeclareGraphicsExtensions{.pdf,.jpg,.mps,.png}
+\else
+    \usepackage{hyperref}
+    \usepackage[dvips]{graphicx}
+    \DeclareGraphicsRule{.eps.gz}{eps}{.eps.bb}{`gzip -d #1}
+    \DeclareGraphicsExtensions{.eps,.eps.gz}
+\fi
+
+\newcommand{\dbar}{d\mkern-6mu\mathchar'26} 
+\begin{document}
+\newcommand{\vect}[1]{\boldsymbol{\vec{#1}}}
+\pagestyle{first}
+
+\section{Introduction}
+\label{sec:introduction}
+
+(a more in-depth discussion of the Thompkins entrainment and mixing material on pp. 56 to 61)
+
+In the real atmosphere air is constantly mixing.  How do we do
+thermodynamics on this ``open system''?  On page 57, equations 3.6 to
+3.9 Thompkins shows that for unsaturated air, the vapor mixing ratio
+and the temperature both mix approximately linearly, which is why
+you can get supersaturated vapor on a cold day and see your
+breath.   But what happens when we add the fact that mixtures can
+also condense and evaporate water vapor and liquid water?
+
+  \begin{itemize}
+  \item Use conservation of enthalpy to get a new version of the
+    first law, assuming that mixing doesn't change the enthalpy of
+    either of the mixtures, so that the mixing is ``conservative''
+   (i.e. like mixing blue and red marbles, or chemicals that don't
+   react with each other).
+
+  \item Suppose we have a cloud $c$ mixing in environmental air $e$
+
+
+  \item Let a ``c'' subscript denote the cloud parcel and an ``e'' subscript denote
+   environment. Between time $t_0$ and $t_0 + \Delta t$ its mass grows by $\Delta m_c =
+    m_{c}(t + \Delta t) - m_{c0} = m_e$  i.e., it's taken a gulp of environmental
+    air with mass $m_e$.
+
+  \item That new mass brings in environmental enthalpy $h_e$, which
+    doesn't change during the mixing process.
+  \item So the new enthalpy is:
+    \begin{gather}
+      H_{new} = (m_{c} h_c + m_e h_e) = (m - m_e)h_c + m_e h_e \nonumber \\
+H_{new} = m h_c + m_e (h_e - h_c)\\
+\text{where $m=m_0 + m_e$}\\
+\text{rearranging: }\nonumber \\
+m (h_{new} - h_c) = m \Delta h_{mixing} = m_e (h_e - h_c) \\
+\text{in the limit $m_e \rightarrow dm$ and $\Delta h_{mixing}$ = $dh_{mixing}$}\nonumber \\
+dh_{mixing} = \frac{ dm}{m} (h_e - h_c) \label{eq:mixh}
+    \end{gather}
+
+    \end{itemize}
+
+
+
+
+How does mixing effect the second law?  The second
+law still holds if the enthalpy is changing from mixing:
+
+
+\begin{gather}
+  T d\phi  =  dh_{mixing} - \alpha dp
+\label{eq:tdphi}
+\end{gather}
+If we are at constant pressure then $dp=0$ and using
+(\ref{eq:mixh}) and the definition of $\theta_e$ in terms of entropy (s)
+we can rewrite (\ref{eq:tdphi}) as:
+
+\begin{gather}
+   d\phi = c_p \frac{d \theta_e }{\theta_e} = c_p \frac{ d\theta}{\theta}
+   + d \left ( \frac{l_v r_s}{T} \right ) =  \frac{ dm}{m} \frac{ (h_e - h_c)}{T}\label{eq:simple}\\
+\text{expand the environment - saturated cloud $(h_e - h_c)$: }\nonumber \\
+h_e - h_c =  (c_p T_e + l_v\, r_{ve} + g z) - (c_p T_c + l_v\, r_s(T_c,p) + g z)\\
+\text{rearrange to get  an express for the change }\\
+  \frac{d\theta_c}{\theta_c} + d \left ( \frac{l_v\,r_s(T_c,p)}{T_c} \right ) = 
+  - \left [ \frac{T_c - T_e}{T_c} + \frac{l_v}{c_p T_c} (r_s(T_c,p) - r_{ve}) \right ]
+   \frac{dm}{m}
+\label{eq:tds2}
+\end{gather}
+
+So given the pressure and the environmental temperature and vapor mixing ratio you could
+iteratively solve \eqref{eq:tds2} for the cloud temperature $T_c$ (note that $T_c$ is also
+inside $\theta_c$ and $r_s$).   This shows all the terms involving the vapor mixing ratio $r$ which
+are missing when you mix dry air but contribute strongly to the temperature change for 
+a cloud mixture.  Luckily there is an easier way to find the mixed parcel temperature: use \eqref{eq:simple}  to 
+integrate the time evolution of the entropy parcel entropy $d\phi/dt$, in terms of the mixing rate $\frac{1}{m}\frac{dm}{dt}$. 
+So how do we find the fraction of entrained air, $dm/m$?
+
+The simplest assumption is  that the cloud is mixing
+like an \textit{ascending thermal} with \textit{entrainment rate}
+$\lambda$:
+
+\begin{equation}
+  \label{eq:plume}
+  \frac{1}{m} \frac{dm}{dt} = \lambda
+\end{equation}
+
+Equation (\ref{eq:plume}) says that the bigger the parcel gets, the
+more it mixes, possibly because the larger surface area provides more
+of an interface to mix across.  You should convince yourself that
+the solution to (\ref{eq:plume}) for constant $\lambda$ is:
+
+\begin{equation}
+  \label{eq:sol}
+  m(t) = m_0 \exp ( \lambda  t)
+\end{equation}
+
+So how do we use this?  We will need to use an ode integrator in python
+to solve four ordinary differential equations, starting with the entropy ($\phi$ or $c_p \log \theta_e$ and the total water mixing ratio $r_T$):
+
+
+\begin{align}
+  \label{eq:odeent}
+     \frac{d\,\phi}{dt} &= \lambda \frac{ (h_e - h_c)}{T} \\
+     \frac{d\,r_T}{dt} &= \lambda \left (r_{Te} - r_{Tc}) \right )
+\end{align}
+
+We also need to track the height as a function of time as well as the total water in
+the parcel.
+If we know the total water $r_{Tc}$, we can find temperature, $r_s$,
+$r_l$ as usual by iterating to find the mixture temperature $T_c$
+that satisfies $c_p \log \theta_{e}(T_c, p) = c_p \log \theta_{ec} $.  Given the temperature
+of the cloud and the environment, we can find the buoyant acceleration and get
+the acceleration for the  updraft speed $w_{vel}$, and the change in height per unit time, which is just $w_{vel}$:
+
+  \begin{align}
+    \frac{ d\,w_{vel}}{dt} & = \text{buoyant acceleration} \\
+    \frac{dz}{dt} & = w_{vel}
+  \end{align}
+
+To summarize,  we want to solve for $\theta_{ec}$, $r_{Tc}$ for an ascending cloud parcel given
+a cloud base $\theta_e$ and $r_T$, a constant entrainment rate $\lambda$, and an environmental
+sounding.  Next we'll see how this looks in a Jupyter notebook.
+
+\end{document}
+
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

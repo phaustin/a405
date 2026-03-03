@@ -24,3 +24,8 @@ _version*
 # pixi environments
 .pixi/*
 !.pixi/config.toml
+*.DS_Store
+*.png
+*.jpg
+*.pdf
+*.nc

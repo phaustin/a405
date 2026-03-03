@@ -43,7 +43,17 @@ from a405.skewT.nudge import nudge
 
 ## Find the derivatives wrt time of each of the 4 variables
 
-See [entrain.pdf](https://www.dropbox.com/scl/fi/uj7sq0hcdbcgtxomly4vd/entrain.pdf?rlkey=feaufh1d7lixg5rtdlxj4vdzu&dl=0)  notes.
+See [entrain.pdf](https://drive.google.com/file/d/1VgY5LWMSmavpoHFQYFE-wkPxGnD5x44O/view?usp=sharing)  notes.  We want to integrate to find $[\theta_e, r_T, w_{vel}, z]$ for the ascending cloud parcel.
+
+The equations:
+
+$$
+\frac{d\,\theta_e}{dt} &= \lambda \left (\theta_{e\,e} - \theta_{e,c} \right )\\
+\frac{d\,r_T}{dt} &= \lambda \left (r_{T\,e} - r_{T\,c} \right ) \\
+\frac{ d\,w_{vel}}{dt} & = \text{buoyant acceleration} \\
+\frac{dz}{dt} & = w_{vel}
+$$
+Note that we really should be mixing $\log \theta_e$, not $\theta_e$ (why?).  We'll see whether that makes a difference later.
 
 For the entrainment calculation, we need environmental temperature, dewpoint and pressure at arbitrary heights.  Use [scipy.interpolate.interp1d](https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.interp1d.html) for this
 
@@ -294,7 +304,7 @@ else:
 day = 9
 hour = 0
 the_time=(2012,7,day,hour)
-filename = f"little_rock_august_{day:d}.nc"
+output_filename = curr_dir / f"little_rock_july_{day:d}.nc"
 sounding=soundings['sounding_dict'][the_time]
 ```
 
@@ -327,10 +337,12 @@ the_ds['cloud_height'] = the_ds['cloud_height'].assign_attrs(units = 'm')
 the_ds['wvel'] = the_ds['wvel'].assign_attrs(units = 'm/s')
 the_ds['thetae_cloud'] = the_ds['thetae_cloud'].assign_attrs(units = 'K')
 the_ds['rt_cloud'] = the_ds['rt_cloud'].assign_attrs(units = 'kg/kg')
+tephigram_skew = 35
 the_ds.attrs = {'history': ' written by entraining_plume.ipynb',
                 'entrainment_rate':entrain_rate,
                 'entrainment_units':'s^{-1}',
-                'sounding_dir':sounding_dir,
+                'tephigram_skew' :tephigram_skew,
+                'sounding_dir' : str(sounding_dir),
                 'sounding_time':the_time,
                 'station':station}
 ```
@@ -339,19 +351,24 @@ the_ds.attrs = {'history': ' written by entraining_plume.ipynb',
 the_ds
 ```
 
-```{code-cell} ipython3
-the_ds['press']
-```
-
 ## Add the environment variables
 
 ```{code-cell} ipython3
 env_height = xr.DataArray(data = sounding['hght'], dims={'envlevs':len(sounding)})
 env_height = env_height.assign_attrs(units = 'm')
 the_ds["env_height"] = env_height
+
 env_thetae = xr.DataArray(data = sounding['thte'], dims={'envlevs':len(sounding)})
 env_thetae = env_thetae.assign_attrs(units = 'K')
 the_ds["env_thetae"] = env_thetae
+
+env_temp = xr.DataArray(data = sounding['temp'], dims={'envlevs':len(sounding)})
+env_temp = env_temp.assign_attrs(units = 'degC')
+the_ds["env_temp"] = env_temp
+
+env_dewpoint = xr.DataArray(data = sounding['dwpt'], dims={'envlevs':len(sounding)})
+env_dewpoint = env_dewpoint.assign_attrs(units = 'degC')
+the_ds["env_dewpoint"] = env_dewpoint
 ```
 
 ```{code-cell} ipython3
@@ -361,11 +378,15 @@ the_ds
 ## write the dataset to netcdf
 
 ```{code-cell} ipython3
-the_ds.to_netcdf(filename)
+the_ds.to_netcdf(output_filename)
 ```
 
-```{code-cell} ipython3
+## Plot the result on a tephigram
 
+```{code-cell} ipython3
+from a405.thermo.constants import constants as c
+from a405.thermo.thermlib import convertSkewToTemp, convertTempToSkew
+from a405.skewT.fullskew import makeSkewWet,find_corners,make_default_labels
 ```
 
 ```{code-cell} ipython3
