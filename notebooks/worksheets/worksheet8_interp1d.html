@@ -407,23 +407,48 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="worksheet-8-interp1d">
-<h1>Worksheet 8: Interp1d<a class="headerlink" href="#worksheet-8-interp1d" title="Link to this heading">#</a></h1>
-<p>Modify a copy of the <a class="reference external" href="https://drive.google.com/file/d/1rLSqA6c6DqP_DVNW2ie2HfERtL4_t002/view?usp=sharing">entraining_plume.ipynb</a> to add a new function called  <code class="docutils literal notranslate"><span class="pre">calc_interp</span></code></p>
-<p>that contains the following lines from</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>press = df_sounding[&#39;pres&#39;].values
-height = df_sounding[&#39;hght&#39;].values
-temp = df_sounding[&#39;temp&#39;].values
-dewpoint = df_sounding[&#39;dwpt&#39;].values
-#
-# 
-#
-envHeight= nudge(height)
+<span id="worksheet8-interp1d"></span><h1>Worksheet 8: Interp1d<a class="headerlink" href="#worksheet-8-interp1d" title="Link to this heading">#</a></h1>
+<p>This worksheet is part 1 of Assignment 6 and is due with the rest of the assignment on March 12.</p>
+<p>Download ]worksheet8_interp1d.ipynb](https://drive.google.com/file/d/1KzMEkSRzKD61yhLW01-hBK8DUjkCEAIR/view?usp=sharing)</p>
+<p>Modify a copy of the <a class="reference external" href="https://drive.google.com/file/d/1rLSqA6c6DqP_DVNW2ie2HfERtL4_t002/view?usp=sharing">entraining_plume.ipynb</a> notebook to add a new function called  <code class="docutils literal notranslate"><span class="pre">calc_interp</span></code></p>
+<p>that contains the following lines from <a class="reference external" href="https://phaustin.github.io/a405/notebooks/worksheets/entraining_plume.html#define-the-integrator-function">integ_entrain</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">press</span> <span class="o">=</span> <span class="n">df_sounding</span><span class="p">[</span><span class="s1">&#39;pres&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">height</span> <span class="o">=</span> <span class="n">df_sounding</span><span class="p">[</span><span class="s1">&#39;hght&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">temp</span> <span class="o">=</span> <span class="n">df_sounding</span><span class="p">[</span><span class="s1">&#39;temp&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">dewpoint</span> <span class="o">=</span> <span class="n">df_sounding</span><span class="p">[</span><span class="s1">&#39;dwpt&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="c1">#</span>
+<span class="c1"># the nudge function moves any identical heights slightly up or down</span>
+<span class="c1"># to avoid breaking the interpolation</span>
 
-interpTenv = interp1d(envHeight,temp)
-interpTdEnv = interp1d(envHeight,dewpoint)
-interpPress = interp1d(envHeight,press)
+<span class="n">envHeight</span><span class="o">=</span> <span class="n">nudge</span><span class="p">(</span><span class="n">height</span><span class="p">)</span>
+
+<span class="n">interpTenv</span> <span class="o">=</span> <span class="n">interp1d</span><span class="p">(</span><span class="n">envHeight</span><span class="p">,</span><span class="n">temp</span><span class="p">)</span>
+<span class="n">interpTdEnv</span> <span class="o">=</span> <span class="n">interp1d</span><span class="p">(</span><span class="n">envHeight</span><span class="p">,</span><span class="n">dewpoint</span><span class="p">)</span>
+<span class="n">interpPress</span> <span class="o">=</span> <span class="n">interp1d</span><span class="p">(</span><span class="n">envHeight</span><span class="p">,</span><span class="n">press</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">press</span> <span class="o">=</span> <span class="n">df_sounding</span><span class="p">[</span><span class="s1">&#39;pres&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">height</span> <span class="o">=</span> <span class="n">df_sounding</span><span class="p">[</span><span class="s1">&#39;hght&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">df_sounding</span><span class="p">[</span><span class="s1">&#39;temp&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+
+<span class="ne">NameError</span>: name &#39;df_sounding&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>The signature should look like this:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> def calc_interp(df_sounding):
+</pre></div>
+</div>
+<p>and it should return the three interperlators interpTenv, interpTdEnv, interpPress.</p>
+<p>Check the accuracy of the interpolaters by adding the interpolated soundings onto the environmental sounding plot as a series of large dots.  Are the interpolaters accurately mapping the jagged changes in the temperature and depoint with height?</p>
 </section>
 
     <script type="text/x-thebe-config">

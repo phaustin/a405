@@ -260,6 +260,7 @@ Work on {ref}`tropical_profiles_solution` and {ref}`assign4_rootfind_solution`.
 and Thompkins pp. 56 to 61
 
 - Introduce {ref}`entrain_cloud`
+- Work on {ref}`worksheet8_interp1d`  which is the first part of Assignment 6
 
 #### Do for next Thursday
 
