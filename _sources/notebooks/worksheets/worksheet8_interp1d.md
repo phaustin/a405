@@ -25,21 +25,23 @@ that contains the following lines from [integ_entrain](https://phaustin.github.i
 
   
 
-```{code-cell} ipython3
-press = df_sounding['pres'].values
-height = df_sounding['hght'].values
-temp = df_sounding['temp'].values
-dewpoint = df_sounding['dwpt'].values
-#
-# the nudge function moves any identical heights slightly up or down
-# to avoid breaking the interpolation
++++
 
-envHeight= nudge(height)
+    press = df_sounding['pres'].values
+    height = df_sounding['hght'].values
+    temp = df_sounding['temp'].values
+    dewpoint = df_sounding['dwpt'].values
+    #
+    # the nudge function moves any identical heights slightly up or down
+    # to avoid breaking the interpolation
+    
+    envHeight= nudge(height)
+    
+    interpTenv = interp1d(envHeight,temp)
+    interpTdEnv = interp1d(envHeight,dewpoint)
+    interpPress = interp1d(envHeight,press)
 
-interpTenv = interp1d(envHeight,temp)
-interpTdEnv = interp1d(envHeight,dewpoint)
-interpPress = interp1d(envHeight,press)
-```
++++
 
 The signature should look like this:
 
