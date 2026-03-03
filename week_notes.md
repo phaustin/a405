@@ -141,7 +141,7 @@ New material covering Thompkins derivation of the Clausius-Clapeyron equation on
 
 - [Clausius-Clapeyron notes](https://drive.google.com/file/d/144fXb0-of3lpwL0xGZYH16yxGJOmvDEh/view?usp=sharing)
 
-A preview of {ref}`assign4_paper`, due the weekend of Feb. 7.  This requires lecture material from next week.
+A preview of {ref}`assign4_paper_solution`, due the weekend of Feb. 7.  This requires lecture material from next week.
 
 #### For next Tuesday
 
@@ -189,17 +189,17 @@ Work on {ref}`tropical_profiles_solution` and {ref}`assign4_rootfind_solution`.
   - [Carnot cycle review](https://drive.google.com/file/d/131QoLZPjajoCtreV6muYOxDlF6jvRH4s/view?usp=sharing)
   
 - Worksheet demo (no handin): {ref}`mixing_line_example`
-- A [blank tephigram](https://docs.google.com/presentation/d/1tgA2Ia1sWPzZVlgspuW7MOUfokDDZmfvS2eDTtFr-Mw/edit?usp=sharing) to use in {ref}`assign4_paper`
+- A [blank tephigram](https://docs.google.com/presentation/d/1tgA2Ia1sWPzZVlgspuW7MOUfokDDZmfvS2eDTtFr-Mw/edit?usp=sharing) to use in {ref}`assign4_paper_solution`
 
 #### For Tuesday
 
-- Read the three new sets of notes and work on {ref}`assign4_rootfind_solution` and {ref}`assign4_paper`
+- Read the three new sets of notes and work on {ref}`assign4_rootfind_solution` and {ref}`assign4_paper_solution`
 
 ### Lecture 10, week 5, Thursday
 
-- Final assignment before break (note new due dates): {ref}`assignment5_thompkins`
+- Final assignment before break (note new due dates): {ref}`thompkins_solutions`
 - New worksheets:
-  - {ref}`convective_lifting`
+  - {ref}`convec_lifting`
   - {ref}`moist_adiabats`
   - {ref}`tropical_engine_solution`
 

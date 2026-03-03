@@ -25,7 +25,7 @@ and interpolated each timestep using [scipy.interpolate.interp1d](https://docs.s
 
 The variables are intergrated with respect to time using [scipy.integrate.RK45](https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.RK45.html)
 
-Download [entraining_plume.ipynb](
+Download [entraining_plume.ipynb](https://drive.google.com/file/d/1rLSqA6c6DqP_DVNW2ie2HfERtL4_t002/view?usp=sharing)
 
 ```{code-cell} ipython3
 import numpy as np
@@ -39,7 +39,7 @@ from scipy.integrate import RK45
 from a405.soundings.wyominglib import write_soundings, read_soundings
 import json
 import xarray as xr
-[
+
 import matplotlib.pyplot as plt
 from a405.skewT.nudge import nudge
 ```

@@ -42,7 +42,7 @@ parts:
     - file: notebooks/worksheets/cape_part1.md
     - file: notebooks/worksheets/worksheet7_taylor_solution.md
     - file: notebooks/worksheets/mixing_line_calc.md
-    - file: notebooks/worksheets/
+    - file: notebooks/worksheets/entraining_plume.md
   - caption: Assignments
     chapters:
     - file: assignments/adiabatic_box_solution.md
@@ -106,4 +106,4 @@ parts:
       title: BOMEX -- trade cumulus over water
     - url: https://drive.google.com/file/d/14ZLSAHCrjv8U0IKD9sQMHdql33Ebxkp3/view?usp=sharing
       title: CGILS trade cumulus over water
-e
+
