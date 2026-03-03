@@ -256,6 +256,11 @@ Work on {ref}`tropical_profiles_solution` and {ref}`assign4_rootfind_solution`.
 
 ### Modeling an entraining plume
 
+- Go over my [notes on entrainment](https://drive.google.com/file/d/1VgY5LWMSmavpoHFQYFE-wkPxGnD5x44O/view?usp=sharing)
+and Thompkins pp. 56 to 61
+
+- Introduce {ref}`entrain_cloud`
+
 #### Do for next Thursday
 
 - Read Thompkins pp. 65-73 on the Köhler equation
