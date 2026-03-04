@@ -9,7 +9,6 @@ authors = [
   { name="Philip Austin", email="paustin@eoas.ubc.ca" },
 ]
 dynamic = ["version"]
-dependencies = ["jupyter-book<2"]
 
 [project.scripts]
 killprocs = "a405.utils.killprocs:main"
@@ -21,7 +20,6 @@ source = "vcs"
 
 [tool.hatch.build.hooks.vcs]
 version-file = "src/a405/_version.py"
-
 
 [tool.pixi.workspace]
 channels = ["conda-forge"]
@@ -47,5 +45,6 @@ ghp-import = ">=2.1.0,<3"
 
 [tool.pixi.pypi-dependencies]
 a405 = { path = ".", editable = true }
+jupyter-book = "<2"
 
 [tool.pixi.tasks]
