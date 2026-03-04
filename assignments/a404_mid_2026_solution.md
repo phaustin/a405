@@ -77,6 +77,10 @@ def label_fun():
 pa2hPa = 1.e-2
 ```
 
+### Find temperature at 700hPa (blue diamond)
+
+Saturated parcel, so plot either temperature or dewpoint
+
 ```{code-cell} ipython3
 fig,ax =plt.subplots(1,1,figsize=(11,11))
 skew = 35
@@ -86,14 +90,6 @@ ax.set_title('Cooling problem')
 
 xcorners=find_corners(corners,skew=skew)
 ax.set(xlim=xcorners,ylim=[1000,600])
-fig.savefig('cooling.pdf')
-```
-
-### Find temperature at 700hPa (blue diamond)
-
-Saturated parcel, so plot either temperature or dewpoint
-
-```{code-cell} ipython3
 press_700 = 700e2
 rv=7e-3
 rl = 1.e-3
@@ -110,7 +106,9 @@ xplot=convertTempToSkew(Td_700 - c.Tc,press_700*pa2hPa,skew)
 bot=ax.plot(xplot, press_700*pa2hPa, 'bd', markersize=14, markerfacecolor='r',label="before cooling")
 ```
 
-### Find the lcl prior cooling
+### Q1a answer: LCL at 755 hPa, $\theta$ at LCL $\approx$ 304 K
+
+#### Code: Find the lcl prior cooling
 
 Plot as a green diamond
 
@@ -130,13 +128,6 @@ ax.legend()
 display(fig)
 ```
 
-### Check that $\theta_e$ hasn't changed
-
-```{code-cell} ipython3
-thetae_check= find_thetaet(Td_900, rt_cloud, Temp_900,press_900)
-thetae_check, thetae_before
-```
-
 ### now cool by 6 K
 
 ```{code-cell} ipython3
@@ -152,6 +143,21 @@ ax.legend()
 display(fig)
 ```
 
+### Q1b  Answer: 
+
+- rsat has decreased from 7 g/kg to 4.5 g/kg, so 2.5 g/kg has been condensed
+- New LC is 914 hPa
+- Cooling = change in enthalpy = 12,000 J/kg
+
+#### Q1b code:
+
+```{code-cell} ipython3
+delta_temp = -6  #K
+delta_rv = -2.5e-3  #kg/kg
+delta_h = c.cpd*delta_temp + c.lv0*delta_rv
+print(f"change in enthalpy {delta_h:5.1e} J/kg")
+```
+
 ### Find the new lcl
 
 Go down to the surface in case lcl is below 900
@@ -165,7 +171,7 @@ press_1000=1.e5 # Pa
 Temp_1000,rv_1000,rl_1000=tinvert_thetae(thetae_after,rt_cloud,press_1000)
 Td_1000 = find_Td(rt_cloud, press_1000)
 T_lcl, press_lcl = find_lcl(Td_1000,Temp_1000,press_1000)
-print(f"{(T_lcl, press_lcl)=}")
+print(f"{T_lcl=:.1f}, {press_lcl=:.1f}")
 xplot = xplot=convertTempToSkew(T_lcl - c.Tc,press_lcl*pa2hPa,skew)
 lcl=ax.plot(xplot, press_lcl*pa2hPa, 'cd', markersize=14, markerfacecolor='c',
            label = "new lcl")

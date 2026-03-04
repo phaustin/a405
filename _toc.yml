@@ -43,6 +43,7 @@ parts:
     - file: notebooks/worksheets/worksheet7_taylor_solution.md
     - file: notebooks/worksheets/mixing_line_calc.md
     - file: notebooks/worksheets/entraining_plume.md
+    - file: notebooks/worksheets/worksheet8_interp1d.md
   - caption: Assignments
     chapters:
     - file: assignments/adiabatic_box_solution.md
