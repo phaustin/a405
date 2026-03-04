@@ -1,4 +1,5 @@
 import numpy as np
+import copy
 
 def nudge(Vec):
     """
@@ -17,9 +18,11 @@ def nudge(Vec):
     
     """
     
-    newVec = Vec
+    newVec = Vec[...]
     hit, = np.where(np.abs(np.diff(Vec)) < 1.e-8)
-    newVec[hit+1] = Vec[hit] + 1.e-3*Vec[hit]
+    count = np.sum(hit)
+    if count > 0:
+        newVec[hit+1] = Vec[hit] + 1.e-3*Vec[hit]
     return newVec
 
 def _test():
