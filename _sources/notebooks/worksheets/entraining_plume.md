@@ -12,9 +12,8 @@ kernelspec:
   name: python3
 ---
 
-
 (entrain_cloud)=
-# Modeling an entraining cloud updraft
+# Modeling an entraining cloud updraft try
 
 This notebook calculates the time evolution of four variables:
 
@@ -225,6 +224,7 @@ def integ_entrain(df_sounding,entrain_rate,wvel_init,press_init,integ_time=2500,
     interpTenv = interp1d(envHeight,temp)
     interpTdEnv = interp1d(envHeight,dewpoint)
     interpPress = interp1d(envHeight,press)
+    print("here i am and the temp is ",interpTenv(3000),interpPress(3000))
 
     args=dict(entrain_rate = entrain_rate,
               tinterp=interpTenv,
@@ -416,10 +416,10 @@ from a405.skewT.fullskew import makeSkewWet,find_corners,make_default_labels
 pa2hPa = 0.01
 
 fig,ax =plt.subplots(1,1,figsize=(10,10))
-corners = [10, 35]
+corners = [0, 35]
 ax, skew = makeSkewWet(ax, corners=corners, skew=tephigram_skew)
 xcorners=find_corners(corners,skew=skew)
-ax.set(xlim=xcorners,ylim=[1000,300])
+ax.set(xlim=xcorners,ylim=[1000,200])
 ax.set_title("entrainment example")
 
 xcoord_envtemp = convertTempToSkew(sounding['temp'],sounding['pres'],tephigram_skew)
@@ -428,7 +428,6 @@ xcoord_cloud = convertTempToSkew(cloud_temp - c.Tc,the_ds['press']*pa2hPa,tephig
 ax.plot(xcoord_envtemp,sounding['pres'],'g-',linewidth=3)
 ax.plot(xcoord_envdew,sounding['pres'],'b-',linewidth=3);
 ax.plot(xcoord_cloud,the_ds['press']*pa2hPa,'k-',linewidth=3);
-
 ```
 
 ```{code-cell} ipython3

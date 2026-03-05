@@ -233,14 +233,18 @@ Work on {ref}`tropical_profiles_solution` and {ref}`assign4_rootfind_solution`.
 
 ## Week 7
 
-### Lecture 17, week 7, Tuesday
+- midterm break
+
+## Week 8
+
+### Lecture 17, week 8, Tuesday
 
 - go over {ref}`assign4_paper_solution`
 - go over {ref}`thompkins_solutions`
 - go over the {ref}`study_topics` for the midterm
 - new: {ref}`gibbs_notes`
 
-### Lecture 18, week 7, Thursday
+### Lecture 18, week 8, Thursday
 
 - midterm exam
 
@@ -252,9 +256,11 @@ Work on {ref}`tropical_profiles_solution` and {ref}`assign4_rootfind_solution`.
   
 - read my [notes on entrainment](https://drive.google.com/file/d/1VgY5LWMSmavpoHFQYFE-wkPxGnD5x44O/view?usp=sharing)
 
-## Week 8
+## Week 9
 
-### Modeling an entraining plume
+### Lecure 19, week 9 Tuesday
+
+- Modeling an entraining plume
 
 - Go over my [notes on entrainment](https://drive.google.com/file/d/1VgY5LWMSmavpoHFQYFE-wkPxGnD5x44O/view?usp=sharing)
 and Thompkins pp. 56 to 61
@@ -266,5 +272,15 @@ and Thompkins pp. 56 to 61
 
 - Read Thompkins pp. 65-73 on the Köhler equation
 
+### Lecture 20, week 9, Thursday
 
+- {ref}`2026_midterm_solution`
 
+- {ref}`assign6_koehler`  (due next Friday March 13 midnight)
+
+- [Koehler notes](https://drive.google.com/file/d/1SU64h2sGfMsOygqHL1f6tK_K2HgLv1Nr/view?usp=sharing)
+
+#### Do for next Tuesday
+
+- Read [Lohmann Chapter 6.1-6.5](https://drive.google.com/file/d/1vXbVXKs4E4-a-CiBQp-x6gmA_uxJH8I6/view?usp=sharing)
+and my entrainment notes and work on Assignment 6

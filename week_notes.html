@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -213,7 +213,7 @@
 <li class="toctree-l1"><a class="reference internal" href="notebooks/worksheets/worksheet7_taylor_solution.html">Worksheet 7 – Taylor series problem solution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="notebooks/worksheets/mixing_line_calc.html">Mixing line workbook</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="notebooks/worksheets/entraining_plume.html">Modeling an entraining cloud updraft</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/worksheets/entraining_plume.html">Modeling an entraining cloud updraft try</a></li>
 <li class="toctree-l1"><a class="reference internal" href="notebooks/worksheets/worksheet8_interp1d.html">Worksheet 8: Interp1d</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
@@ -224,6 +224,7 @@
 <li class="toctree-l1"><a class="reference internal" href="assignments/assign4_rootfind_solution.html">Assignment 4a rootfinding solution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="assignments/assignment4_paper_solution.html">Assignment 4 part 2  – solution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="assignments/thompkins_practice_answers.html">Tompkins practice questions – solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="assignments/assign6_koehler.html">Assignment 6</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">In-depth notes</span></p>
 <ul class="nav bd-sidenav">
@@ -246,12 +247,14 @@
 <li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1j8vhmRtGaOlpe0JAAS-fvZmH9H8U2ay2/view?usp=sharing">Wet bulb vs. $\theta_e$</a></li>
 <li class="toctree-l1"><a class="reference internal" href="notebooks/week7/gibbs_notes.html">Gibbs Free Energy notes</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1VgY5LWMSmavpoHFQYFE-wkPxGnD5x44O/view?usp=sharing">entrainment and mixing</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1SU64h2sGfMsOygqHL1f6tK_K2HgLv1Nr/view?usp=sharing">Koehler equation notes</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">midterms</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="assignments/study_topics.html">Midterm study topics</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1Nj31FAXyWur9qffnSflhx6CcLBta4PCj/view?usp=sharing">2016 midterm</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1jFKalQ9MXAvNu824LKVyHtNEleZhgI0q/view?usp=sharing">2012 midterm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="assignments/a405_mid_2026_solution.html">A405 2026 midterm solutions</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Animations</span></p>
 <ul class="nav bd-sidenav">
@@ -467,17 +470,22 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-12-week-6-thursday">Lecture 12, week 6, Thursday</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-7">Week 7</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-17-week-7-tuesday">Lecture 17, week 7, Tuesday</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-18-week-7-thursday">Lecture 18, week 7, Thursday</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-7">Week 7</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-8">Week 8</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-17-week-8-tuesday">Lecture 17, week 8, Tuesday</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-18-week-8-thursday">Lecture 18, week 8, Thursday</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#do-for-next-tuesday">Do for next Tuesday</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-8">Week 8</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modeling-an-entraining-plume">Modeling an entraining plume</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-9">Week 9</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lecure-19-week-9-tuesday">Lecure 19, week 9 Tuesday</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#do-for-next-thursday">Do for next Thursday</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-20-week-9-thursday">Lecture 20, week 9, Thursday</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Do for next Tuesday</a></li>
 </ul>
 </li>
 </ul>
@@ -769,8 +777,14 @@ lighter than dry air because <span class="math notranslate nohighlight">\(H_2O\)
 </section>
 <section id="week-7">
 <h2>Week 7<a class="headerlink" href="#week-7" title="Link to this heading">#</a></h2>
-<section id="lecture-17-week-7-tuesday">
-<h3>Lecture 17, week 7, Tuesday<a class="headerlink" href="#lecture-17-week-7-tuesday" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>midterm break</p></li>
+</ul>
+</section>
+<section id="week-8">
+<h2>Week 8<a class="headerlink" href="#week-8" title="Link to this heading">#</a></h2>
+<section id="lecture-17-week-8-tuesday">
+<h3>Lecture 17, week 8, Tuesday<a class="headerlink" href="#lecture-17-week-8-tuesday" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>go over <a class="reference internal" href="assignments/assignment4_paper_solution.html#assign4-paper-solution"><span class="std std-ref">Assignment 4 part 2  – solution</span></a></p></li>
 <li><p>go over <a class="reference internal" href="assignments/thompkins_practice_answers.html#thompkins-solutions"><span class="std std-ref">Tompkins practice questions – solution</span></a></p></li>
@@ -778,8 +792,8 @@ lighter than dry air because <span class="math notranslate nohighlight">\(H_2O\)
 <li><p>new: <a class="reference internal" href="notebooks/week7/gibbs_notes.html#gibbs-notes"><span class="std std-ref">Gibbs Free Energy notes</span></a></p></li>
 </ul>
 </section>
-<section id="lecture-18-week-7-thursday">
-<h3>Lecture 18, week 7, Thursday<a class="headerlink" href="#lecture-18-week-7-thursday" title="Link to this heading">#</a></h3>
+<section id="lecture-18-week-8-thursday">
+<h3>Lecture 18, week 8, Thursday<a class="headerlink" href="#lecture-18-week-8-thursday" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>midterm exam</p></li>
 </ul>
@@ -793,20 +807,36 @@ especially pp. 56 to 61 on [entrainment and mixing]</p></li>
 </section>
 </section>
 </section>
-<section id="week-8">
-<h2>Week 8<a class="headerlink" href="#week-8" title="Link to this heading">#</a></h2>
-<section id="modeling-an-entraining-plume">
-<h3>Modeling an entraining plume<a class="headerlink" href="#modeling-an-entraining-plume" title="Link to this heading">#</a></h3>
+<section id="week-9">
+<h2>Week 9<a class="headerlink" href="#week-9" title="Link to this heading">#</a></h2>
+<section id="lecure-19-week-9-tuesday">
+<h3>Lecure 19, week 9 Tuesday<a class="headerlink" href="#lecure-19-week-9-tuesday" title="Link to this heading">#</a></h3>
 <ul class="simple">
+<li><p>Modeling an entraining plume</p></li>
 <li><p>Go over my <a class="reference external" href="https://drive.google.com/file/d/1VgY5LWMSmavpoHFQYFE-wkPxGnD5x44O/view?usp=sharing">notes on entrainment</a>
 and Thompkins pp. 56 to 61</p></li>
-<li><p>Introduce <a class="reference internal" href="notebooks/worksheets/entraining_plume.html#entrain-cloud"><span class="std std-ref">Modeling an entraining cloud updraft</span></a></p></li>
+<li><p>Introduce <a class="reference internal" href="notebooks/worksheets/entraining_plume.html#entrain-cloud"><span class="std std-ref">Modeling an entraining cloud updraft try</span></a></p></li>
 <li><p>Work on <a class="reference internal" href="notebooks/worksheets/worksheet8_interp1d.html#worksheet8-interp1d"><span class="std std-ref">Worksheet 8: Interp1d</span></a>  which is the first part of Assignment 6</p></li>
 </ul>
 <section id="do-for-next-thursday">
 <h4>Do for next Thursday<a class="headerlink" href="#do-for-next-thursday" title="Link to this heading">#</a></h4>
 <ul class="simple">
 <li><p>Read Thompkins pp. 65-73 on the Köhler equation</p></li>
+</ul>
+</section>
+</section>
+<section id="lecture-20-week-9-thursday">
+<h3>Lecture 20, week 9, Thursday<a class="headerlink" href="#lecture-20-week-9-thursday" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="assignments/a405_mid_2026_solution.html#midterm-solution"><span class="std std-ref">A405 2026 midterm solutions</span></a></p></li>
+<li><p><a class="reference internal" href="assignments/assign6_koehler.html#assign6-koehler"><span class="std std-ref">Assignment 6</span></a>  (due next Friday March 13 midnight)</p></li>
+<li><p><a class="reference external" href="https://drive.google.com/file/d/1SU64h2sGfMsOygqHL1f6tK_K2HgLv1Nr/view?usp=sharing">Koehler notes</a></p></li>
+</ul>
+<section id="id5">
+<h4>Do for next Tuesday<a class="headerlink" href="#id5" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Read <a class="reference external" href="https://drive.google.com/file/d/1vXbVXKs4E4-a-CiBQp-x6gmA_uxJH8I6/view?usp=sharing">Lohmann Chapter 6.1-6.5</a>
+and my entrainment notes and work on Assignment 6</p></li>
 </ul>
 </section>
 </section>
@@ -938,17 +968,22 @@ and Thompkins pp. 56 to 61</p></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-12-week-6-thursday">Lecture 12, week 6, Thursday</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-7">Week 7</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-17-week-7-tuesday">Lecture 17, week 7, Tuesday</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-18-week-7-thursday">Lecture 18, week 7, Thursday</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-7">Week 7</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-8">Week 8</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-17-week-8-tuesday">Lecture 17, week 8, Tuesday</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-18-week-8-thursday">Lecture 18, week 8, Thursday</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#do-for-next-tuesday">Do for next Tuesday</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-8">Week 8</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modeling-an-entraining-plume">Modeling an entraining plume</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-9">Week 9</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lecure-19-week-9-tuesday">Lecure 19, week 9 Tuesday</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#do-for-next-thursday">Do for next Thursday</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-20-week-9-thursday">Lecture 20, week 9, Thursday</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Do for next Tuesday</a></li>
 </ul>
 </li>
 </ul>
