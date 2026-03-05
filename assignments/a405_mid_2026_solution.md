@@ -12,6 +12,7 @@ kernelspec:
   language: python
 ---
 
+(2026_midterm_solution)=
 # A405 2026 midterm solutions
 
 +++
@@ -97,36 +98,23 @@ pa2hPa = 1.e-2
 ```
 
 ```{code-cell} ipython3
-fig,ax1 =plt.subplots(1,1,figsize=(11,11))
-skew = 35
-corners=[5,20]
-ax1, skew = makeSkewWet(ax1, corners=corners, skew=skew,label_fun=label_fun)
-ax1.set_title('Cooling problem')
 
-xcorners=find_corners(corners,skew=skew)
-ax1.set(xlim=xcorners,ylim=[1000,600])
-fig.savefig('cooling.pdf')
 ```
 
-#### Find temperature at 700hPa (blue diamond)
+#### Find temperature at 700 hPa
 
-Saturated parcel, so plot either temperature or dewpoint
 
 ```{code-cell} ipython3
 press_700 = 700e2
 rv=7e-3
 rl = 1.e-3
 rt_cloud = rv + rl
-#find_thetaet(Td, rt, T, p)
+
 Td_700 = find_Td(rv,press_700)
 temp_700 = Td_700
 thetae_before = find_thetaet(Td_700, rt_cloud, temp_700,press_700)
 print(f"{(temp_700 - c.Tc)=:0.1f} deg C")
-#
-# plot the dewpoint temperature
-#
-xplot=convertTempToSkew(Td_700 - c.Tc,press_700*pa2hPa,skew)
-bot=ax1.plot(xplot, press_700*pa2hPa, 'bd', markersize=14, markerfacecolor='r',label="before cooling")
+
 ```
 
 #### Q1a Find the lcl with $\theta$ prior cooling
@@ -137,16 +125,28 @@ Plot as a green diamond
 press_900 = 900.e2
 Temp_900,rv_900,rl_900=tinvert_thetae(thetae_before,rt_cloud,press_900)
 # find lcl
-Td_900 = find_Td(rv_900, press_900)
+Td_900 = find_Td(rt_cloud, press_900)
 T_lcl, press_lcl = find_lcl(Td_900,Temp_900,press_900)
+print(f"!!!!!!{press_lcl=}")
+
+fig,ax1 =plt.subplots(1,1,figsize=(11,11))
+skew = 35
+corners=[5,20]
+ax1, skew = makeSkewWet(ax1, corners=corners, skew=skew,label_fun=label_fun)
+ax1.set_title('Cooling problem')
+
+xcorners=find_corners(corners,skew=skew)
+ax1.set(xlim=xcorners,ylim=[1000,600])
+fig.savefig('cooling.pdf')
+xplot=convertTempToSkew(Td_700 - c.Tc,press_700*pa2hPa,skew)
+bot=ax1.plot(xplot, press_700*pa2hPa, 'bd', markersize=14, markerfacecolor='r',label="before cooling")
 xplot = xplot=convertTempToSkew(T_lcl - c.Tc,press_lcl*pa2hPa,skew)
-lcl=ax1.plot(xplot, press_lcl*pa2hPa, 'bd', markersize=14, markerfacecolor='g',
-           label = "original lcl")
+# lcl=ax1.plot(xplot, press_lcl*pa2hPa, 'bd', markersize=14, markerfacecolor='g',
+#            label = "original lcl")
 theta_lcl = find_theta(T_lcl,press_lcl)
 print(f"!!!!!LCL potential temperature {theta_lcl:0.1f} K")
 print(f"!!!!!LCL pressure {press_lcl*pa2hPa:0.1f} hPa")
-ax1.legend()
-display(fig)
+ax1.legend();
 ```
 
 #### Check that $\theta_e$ hasn't changed
@@ -168,6 +168,8 @@ print(f"!!!!!rv_after, rv_change: {rv_after*1.e3:0.1f} g/kg, {(rv_after - rv)*1.
 xplot = xplot=convertTempToSkew(Temp_after - c.Tc,press_700*pa2hPa,skew)
 lcl=ax1.plot(xplot, press_700*pa2hPa, 'bd', markersize=14, markerfacecolor='b',
            label = "after 6K cooling")
+lcl=ax1.plot(xplot, press_lcl*pa2hPa, 'bd', markersize=14, markerfacecolor='g',
+         label = "original lcl")
 ax1.legend()
 display(fig)
 ```
