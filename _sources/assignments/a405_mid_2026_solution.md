@@ -281,7 +281,7 @@ For adiabatic processes, $q=0$ so $ds_v=0$ and $s_v$ won't change.
 Divide the first law form from {eq}`first_law_answer` by temperature to get the entropy:
 
 $$
-\frac{q\,dt}{T} = d\phi &= c_p \frac{dT}{T} + l_v \frac{dr_v}{T} - \alpha \frac{dp}{T}
+\frac{q\,dt}{T} = d\phi = c_p \frac{dT}{T} + l_v \frac{dr_v}{T} - \alpha \frac{dp}{T}
 $$
 
 Use the equation of state (3):
