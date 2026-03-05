@@ -262,7 +262,7 @@ To connect this with $s_v$, use the first law together with the assumption of hy
 $$
 q\,dt &= dh - \alpha dp \\
 q\,dt &= c_p dT + l_v dr_v - \alpha dp \\
-dp &= \rho g dz \\
+dp &= -\rho g dz \\
 q\,dt & = c_p dT + l_v dr_v + g dz = ds_v
 $$
 
@@ -293,15 +293,25 @@ For adiabatic processes, $q=0$ so $ds_v=0$ and $s_v$ won't change.
 
 ### Question 3 answer
 
-- $\theta_e$ and LCL of surface air: $\theta_e$ = 324 K, LCL = 942 hPa
+- $\theta_e$, $r_v$ and LCL of surface air: $\theta_e$ = 324 K, $r_v$=11.5 g/kg  LCL = 942 hPa
+- $\theta_e$, $r_v$ and LCL of environment air: 307 K, 4 g/kg, LCL = 719 hPa
+- $\theta_e$, $r_v$ and LCL of mixture: 318.9 K, 9.2 g/kg, 892 hPa
 
-+++
+```{code-cell} ipython3
+thetae_cloud = 324
+thetae_env = 307
+rv_cloud = 11.5e-3
+rv_env = 4.e-3
+thetae_mix = 0.7*thetae_cloud + 0.3*thetae_env
+rv_mix = 0.7*rv_cloud + 0.3*rv_env
+print(f"!!!!!!!{thetae_mix=:.1f} K, {rv_mix=:.1e} kg/kg")
+```
 
 ### Question 3 code
 
 +++
 
-### get $\theta_e$ of the surface air
+#### get $\theta_e$ of the surface air
 
 ```{code-cell} ipython3
 temp_1000 = 20 + c.Tc
@@ -310,10 +320,10 @@ Td_1000 = 16 + c.Tc
 rt_cloud = find_rsat(Td_1000,press_1000)
 thetae_cloud = find_thetaet(Td_1000, rt_cloud, temp_1000,press_1000)
 T_lcl, press_lcl = find_lcl(Td_1000,temp_1000,press_1000)
-print(f"!!!!!!!thetae: {thetae_cloud:0.1f} K, lcl_press {press_lcl:0.1f} Pa")
+print(f"!!!!!!!thetae: {thetae_cloud:0.1f} K, r_T {rt_cloud*1.e3:0.1f} g/kg, lcl_press {press_lcl:0.1f} Pa")
 ```
 
-### Plot T, Td and the lcl
+#### Plot T, Td and the lcl
 
 ```{code-cell} ipython3
 fig,ax2 =plt.subplots(1,1,figsize=(11,11))
@@ -334,7 +344,7 @@ ax2.plot(xplot, press_lcl*pa2hPa,'kd', markersize=14, markerfacecolor='k',
            label = "lcl_cloud");
 ```
 
-### Lift to 800
+#### Lift to 800
 
 ```{code-cell} ipython3
 press_800 = 8.e4 #Pa
@@ -348,7 +358,7 @@ ax2.plot(xplot, press_800*pa2hPa,'rd', markersize=14, markerfacecolor='r',
 display(fig)
 ```
 
-### add the environment
+#### add the environment
 
 ```{code-cell} ipython3
 rt_env = 4.e-3
@@ -356,6 +366,7 @@ thetae_env = 307.
 Td_env =  find_Td(rt_env, press_800)
 Temp_env,rv_env,rl_env=tinvert_thetae(thetae_env,rt_env,press_800)
 T_lclenv, press_lclenv = find_lcl(Td_env,Temp_env,press_800)
+print(f"!!!!{press_lclenv=:.1f} Pa")
 ```
 
 ```{code-cell} ipython3
@@ -372,18 +383,16 @@ ax2.legend()
 display(fig)
 ```
 
-### add the mixture
-
-```{code-cell} ipython3
-thetae_env
-```
+#### add the mixture
 
 ```{code-cell} ipython3
 thetae_mix = 0.3*thetae_env + 0.7*thetae_cloud
 rt_mix = 0.3*rt_env + 0.7*rt_cloud
 Temp_mix,rv_mix,rl_mix=tinvert_thetae(thetae_mix,rt_mix,press_800)
 Temp_1000,rv_1000,rl_1000=tinvert_thetae(thetae_mix,rt_mix,press_1000)
+print(rv_1000)
 Td_1000 = find_Td(rv_1000,press_1000)
+print(Td_1000 - c.Tc)
 T_lclmix, press_lclmix = find_lcl(Td_1000,Temp_1000,press_1000)
 print(f"{thetae_mix=:0.1f} K, {rt_mix=:0.4f} kg/kg")
 print(f"{Temp_mix - c.Tc=:0.1f} K, {rv_mix=:0.4f} kg/kg, {rl_mix=:0.4f} kg/kg")
