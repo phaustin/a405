@@ -63,7 +63,7 @@ print(f"!!!!!!cooling total q = {delta_qout:.1e} J/kg")
 from a405.soundings.wyominglib import read_soundings
 from a405.skewT.skewlib import makeSkewDry
 from a405.thermo.thermlib import convertTempToSkew, find_lcl, find_thetaet, find_Td, tinvert_thetae
-from a405.thermo.thermlib import find_rsat, find_theta
+from a405.thermo.thermlib import find_rsat, find_theta, find_Tmoist
 
 from a405.skewT.fullskew import makeSkewWet,find_corners,make_default_labels
 
@@ -71,6 +71,8 @@ import datetime
 import pytz
 import numpy as np
 from matplotlib import pyplot as plt
+
+hPa2pa = 100  # convert hPascals to Pascals
 ```
 
 ```{code-cell} ipython3
@@ -297,6 +299,8 @@ For adiabatic processes, $q=0$ so $ds_v=0$ and $s_v$ won't change.
 - $\theta_e$, $r_v$ and LCL of environment air: 307 K, 4 g/kg, LCL = 719 hPa
 - $\theta_e$, $r_v$ and LCL of mixture: 318.9 K, 9.2 g/kg, 892 hPa
 
+The mixture is about 2 degrees cooler than unmixed cloud, and about 2 degrees warmer than the pure environment.  So if it's surrounded by unmixed cloud it will sink, or environment and it will ascend, but more slowly than unmixed cloud.
+
 ```{code-cell} ipython3
 thetae_cloud = 324
 thetae_env = 307
@@ -433,48 +437,33 @@ display(fig)
 815 hPa.  Draw the new (T,Td) sounding.  Has cloud formed?  In which part of the layer?
 Is there convective overturning?  Why or why not?
 
-```{code-cell} ipython3
++++
 
-```
+### Question 4 answer
 
-```{code-cell} ipython3
-#calculate thermodynamic variables
-#for a convectively unstable layer
-from a405.thermo.constants import constants as c
-from a405.skewT.fullskew import makeSkewWet,find_corners
-from a405.thermo.thermlib import find_thetaet, find_rsat, tinvert_thetae, find_Td, find_lcl
-from a405.thermo.thermlib import convertTempToSkew
-from a405.thermo.thermlib import find_Tmoist
-import numpy as np
-import matplotlib.pyplot as plt
-
-pa2hPa = 1.e-2
-hPa2pa = 100.
-np.seterr(all='ignore');
-
-
-# # Reproduce the convective instability plot of Thompkins p. 64
-```
-
-```{figure}  ./convective_instability.jpg
----
-width: 60%
-name: thompkins_layer
-alt: pha
----
-Thompkins Figure 3.47
-```
+- For bottom, LCL = 834 hPa
+- For top, LCL = 705 hPa
+- See {ref}`subfig_stable_lcl`
+- All points are absolutely stable, since $d\theta/dz$ > 0 at all heights
+- All points are conditionally stable, since $d\theta_e/dz > 0 at all heights
+- The layer is convectively stable, since $d\theta_e/dz$ > 0 for the whole layer
+- $\theta_w$ is 19.7 deg C, see bottom of {ref}`subfig_stable_lcl`
+- To lift layer to 815-715 hPa, see {ref}`lift_815`.  Cloud has formed in the bottom half of the layer.  There is no convective overturning, because the temperature is increasing with height.
 
 +++
 
-## Define functions to plot and lift soundings
+### Question 4 code
+
++++
+
+#### Define functions to plot and lift soundings
 
 ```{code-cell} ipython3
 def makePlot(ax,Temp=None,Tdew=None,Tpseudo=None,press=None,
-             Tlcl=None,plcl=None,botLabel='LCL bot (835 hPa)',
-             topLabel='LCL top (768 hPa)',skew=35):
+             Tlcl=None,plcl=None,botLabel=' ',
+             topLabel=' ',skew=35):
   """
-    Draw a tephigram of a convectively unstable layer with 
+    Draw a tephigram of a convectively stable layer with 
     Temp, Tdew, Tpseudo soundings, as well as the LCL of the top 
     and the bottom of the layer
     
@@ -494,7 +483,7 @@ def makePlot(ax,Temp=None,Tdew=None,Tpseudo=None,press=None,
   TdHandle, = ax.plot(xplot2, press, 'b--', linewidth=2.5,label='Dewpoint (deg C)')
   ax.legend(loc='best',numpoints=1)
   base=press[0]
-  title_string = f'convectively unstable sounding: base at {base} hPa'
+  title_string = f'convectively stable sounding: base at {base} hPa'
   ax.set_title(title_string)
   return ax
 ```
@@ -522,7 +511,7 @@ def lift_sounding(rTotal,theThetae,press):
   return Tdew,Temp,Tpseudo
 ```
 
-## construct a 100 hPa thick layer with a convectively unstable sounding
+#### construct a 100 hPa thick layer with a convectively stable sounding
 
 ```{code-cell} ipython3
 Ttop = 20.61
@@ -587,13 +576,16 @@ xplot1 = convertTempToSkew(Temp_sound, press0, skew)
 Thandle, = ax3.plot(xplot1, press0, 'k-', linewidth=2.5,label='Temp (deg C)')
 xplot2 = convertTempToSkew(Tdew_sound, press0, skew)
 TdHandle, = ax3.plot(xplot2, press0, 'b--', linewidth=2.5,label='Dewpoint (deg C)')
-ax3.set_title('convectively unstable sounding: base at 900 hPa')
+ax3.set_title('convectively stable sounding: base at 900 hPa')
 ax3.legend(numpoints=1,loc='best');
 cs=convertTempToSkew
 #fig.savefig('initial_sound.png')
 #fig.savefig('initial_sound.pdf')
 ax3.plot(cs(Temp_sound[:-1],press0[:-1],skew),press0[:-1],'bo',markersize=15);
 ```
+
+(subfig_stable_lcl)=
+#### Add the top and bottom LCL values
 
 ```{code-cell} ipython3
 #
@@ -609,8 +601,19 @@ rT_sound = apply(Tdew_soundK, (press0*hPa2pa),the_fun=find_rsat)
 Tlcl_plcl = apply(Tdew_soundK, Temp_soundK, (press0*hPa2pa),the_fun=find_lcl)
 Tlcl = np.array([item[0] for item in Tlcl_plcl])
 plcl = np.array([item[1] for item in Tlcl_plcl])
+print(f"!!!!!!Tlcl, Plcl for layer points \n{Tlcl_plcl}")
+
 thetae_sound = apply(Tdew_soundK,rT_sound,Temp_soundK, (press0*hPa2pa),the_fun=find_thetaet)
 Tpseudo_sound = apply(thetae_sound, press0*hPa2pa, the_fun=find_Tmoist)
+
+
+thetae_bot = thetae_sound[0]
+print(f"\n!!!!!!theta_e for layer bottom is {thetae_bot:.1f} K")
+#
+# move down constnt theta_e to 1000 hPa
+#
+wet_bulb_temp = find_Tmoist(thetae_bot,1.e5) - c.Tc
+print(f"Wet bulb potential temperature {wet_bulb_temp:.1f} degC")
 
 
 fig, ax4 = plt.subplots(1, 1, figsize=(10, 10))
@@ -618,14 +621,21 @@ ax4, skew = makeSkewWet(ax4,corners=corners,skew=skew)
 
 fig_dict=dict(press=press0,Tpseudo=Tpseudo_sound,Temp=Temp_soundK,
               Tdew=Tdew_soundK,
-              Tlcl=Tlcl,plcl=plcl,botLabel='LCL bot (835 hPa)',
-              topLabel='LCL top (768 hPa)',skew=skew)
+              Tlcl=Tlcl,plcl=plcl,botLabel='LCL bot (834 hPa)',
+              topLabel='LCL top (705 hPa)',skew=skew)
 xcorners=find_corners(corners,skew=skew)
 ax4.set(xlim=xcorners,ylim=[1000, 600])
-ax4 = makePlot(ax4,**fig_dict);  
+ax4 = makePlot(ax4,**fig_dict)
+sfc_pres = 1000
+xplot = convertTempToSkew(wet_bulb_temp, sfc_pres, skew)
+ax4.plot(xplot,sfc_pres-3,'cd',markersize=14)
 ```
 
-## Now lift the layer gradually
+#### Now lift the layer gradually
+
++++
+
+#### Lift by 50 hPa
 
 ```{code-cell} ipython3
 # #figure 3: lift cloud base by 50 hPa to 850 hPa
@@ -639,6 +649,8 @@ ax5 = makePlot(ax5,**fig_dict)
 ax5.set(xlim=xcorners,ylim=[1000, 600])
 ```
 
+#### Lift to bottom LCL
+
 ```{code-cell} ipython3
 #
 # figure 4 -- lift by 14.7 hPa to 835.3
@@ -650,17 +662,19 @@ fig_dict.update(dict(press=pressM65,Temp=TempM65,Tdew=TdewM65,Tpseudo=TpseudoM65
 fig, ax6 = plt.subplots(1, 1, figsize=(10, 10))
 ax6, skew = makeSkewWet(ax6,corners=corners,skew=skew)
 ax6 = makePlot(ax6,**fig_dict)   
-ax6.set(xlim=xcorners,ylim=[1000, 600])
+ax6.set(xlim=xcorners,ylim=[1000, 600]);
 ```
+
+(lift_815)=
+#### Lift base to 815, top to 715
 
 ```{code-cell} ipython3
 #
-# figure 5 -- lift by 10.3 hPa to 825
+# figure 5 -- lift so base is at 815
 #
 
 pressM75 = pressM65 - 20.3
 TdewM75, TempM75, TpseudoM75 = lift_sounding(rT_sound,thetae_sound,pressM75)
-print(f"here: {pressM75[0],pressM75[-1]}")
 fig_dict.update(dict(press=pressM75,Temp=TempM75,Tdew=TdewM75,Tpseudo=TpseudoM75))
 
 fig, ax7 = plt.subplots(1, 1, figsize=(10, 10))
@@ -668,6 +682,8 @@ ax7, skew = makeSkewWet(ax7,corners=corners,skew=skew)
 ax7 = makePlot(ax7,**fig_dict) 
 ax7.set(xlim=xcorners,ylim=[1000, 600])
 ```
+
+#### Lift past all LCLs
 
 ```{code-cell} ipython3
 #
