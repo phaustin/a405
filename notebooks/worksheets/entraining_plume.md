@@ -13,7 +13,7 @@ kernelspec:
 ---
 
 (entrain_cloud)=
-# Modeling an entraining cloud updraft
+# Modeling an entraining cloud updraft try
 
 This notebook calculates the time evolution of four variables:
 
