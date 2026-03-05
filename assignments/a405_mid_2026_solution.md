@@ -40,15 +40,22 @@ For air at 700 hPa with 7 g/kg of vapor (saturated) and 1 g/kg of liquid.
 
 #### Q1a answer
 
-LCL: 755 hPa
-$\theta$ = 303 K
+- LCL: 755 hPa
+- $\theta$ = 303 K
 
 #### Q1b answer
 
-condensed liquid water: 2.5 g/kg
-new lcl
+- condensed liquid water: 2.5 g/kg
+- new lcl:  914 hPa
+- cooling q: $-1.2 \times 10^4$ J/kg
 
-+++
+```{code-cell} ipython3
+from a405.thermo.constants import constants as c
+delta_T = -6 #K
+delta_rv = -2.5*1.e-3  #kg/kg
+delta_qout = c.cpd*delta_T + c.lv0*delta_rv
+print(f"!!!!!!cooling total q = {delta_qout:.1e} J/kg")
+```
 
 ### Question 1 cooling code
 
@@ -57,7 +64,7 @@ from a405.soundings.wyominglib import read_soundings
 from a405.skewT.skewlib import makeSkewDry
 from a405.thermo.thermlib import convertTempToSkew, find_lcl, find_thetaet, find_Td, tinvert_thetae
 from a405.thermo.thermlib import find_rsat, find_theta
-from a405.thermo.constants import constants as c
+
 from a405.skewT.fullskew import makeSkewWet,find_corners,make_default_labels
 
 import datetime
@@ -88,14 +95,14 @@ pa2hPa = 1.e-2
 ```
 
 ```{code-cell} ipython3
-fig,ax =plt.subplots(1,1,figsize=(11,11))
+fig,ax1 =plt.subplots(1,1,figsize=(11,11))
 skew = 35
 corners=[5,20]
-ax, skew = makeSkewWet(ax, corners=corners, skew=skew,label_fun=label_fun)
-ax.set_title('Cooling problem')
+ax1, skew = makeSkewWet(ax1, corners=corners, skew=skew,label_fun=label_fun)
+ax1.set_title('Cooling problem')
 
 xcorners=find_corners(corners,skew=skew)
-ax.set(xlim=xcorners,ylim=[1000,600])
+ax1.set(xlim=xcorners,ylim=[1000,600])
 fig.savefig('cooling.pdf')
 ```
 
@@ -117,7 +124,7 @@ print(f"{(temp_700 - c.Tc)=:0.1f} deg C")
 # plot the dewpoint temperature
 #
 xplot=convertTempToSkew(Td_700 - c.Tc,press_700*pa2hPa,skew)
-bot=ax.plot(xplot, press_700*pa2hPa, 'bd', markersize=14, markerfacecolor='r',label="before cooling")
+bot=ax1.plot(xplot, press_700*pa2hPa, 'bd', markersize=14, markerfacecolor='r',label="before cooling")
 ```
 
 #### Q1a Find the lcl with $\theta$ prior cooling
@@ -131,12 +138,12 @@ Temp_900,rv_900,rl_900=tinvert_thetae(thetae_before,rt_cloud,press_900)
 Td_900 = find_Td(rv_900, press_900)
 T_lcl, press_lcl = find_lcl(Td_900,Temp_900,press_900)
 xplot = xplot=convertTempToSkew(T_lcl - c.Tc,press_lcl*pa2hPa,skew)
-lcl=ax.plot(xplot, press_lcl*pa2hPa, 'bd', markersize=14, markerfacecolor='g',
+lcl=ax1.plot(xplot, press_lcl*pa2hPa, 'bd', markersize=14, markerfacecolor='g',
            label = "original lcl")
 theta_lcl = find_theta(T_lcl,press_lcl)
 print(f"!!!!!LCL potential temperature {theta_lcl:0.1f} K")
 print(f"!!!!!LCL pressure {press_lcl*pa2hPa:0.1f} hPa")
-ax.legend()
+ax1.legend()
 display(fig)
 ```
 
@@ -157,9 +164,9 @@ print(f"{(thetae_before - thetae_after)=} K")
 print(f"!!!!!New rv {rv_after*1.e3:0.1f} g/kg")
 print(f"!!!!!rv_after, rv_change: {rv_after*1.e3:0.1f} g/kg, {(rv_after - rv)*1.e3:0.1f} g/kg")
 xplot = xplot=convertTempToSkew(Temp_after - c.Tc,press_700*pa2hPa,skew)
-lcl=ax.plot(xplot, press_700*pa2hPa, 'bd', markersize=14, markerfacecolor='b',
+lcl=ax1.plot(xplot, press_700*pa2hPa, 'bd', markersize=14, markerfacecolor='b',
            label = "after 6K cooling")
-ax.legend()
+ax1.legend()
 display(fig)
 ```
 
@@ -178,9 +185,9 @@ Td_1000 = find_Td(rt_cloud, press_1000)
 T_lcl, press_lcl = find_lcl(Td_1000,Temp_1000,press_1000)
 print(f"!!!!!!!!new lcl temperature, pressure {T_lcl:.1f}, {press_lcl:.1f}")
 xplot = xplot=convertTempToSkew(T_lcl - c.Tc,press_lcl*pa2hPa,skew)
-lcl=ax.plot(xplot, press_lcl*pa2hPa, 'cd', markersize=14, markerfacecolor='c',
+lcl=ax1.plot(xplot, press_lcl*pa2hPa, 'cd', markersize=14, markerfacecolor='c',
            label = "new lcl")
-ax.legend()
+ax1.legend()
 fig.savefig("images/question1_answer.png")
 display(fig)
 ```
@@ -216,9 +223,56 @@ $$
 
 stating any approximations you need to make
 
-```{code-cell} ipython3
++++
 
-```
+### Q2a answer
+
+$$
+H&=m_d h_l+m_v h_v+m_l h_l \\
+H&=m_d c_{pd} T+m_v h_v+m_l h_l
+$$(eq:H)
+
+
+Doring phase change, temperature is constant, so $h_v$ and $h_l$ don't change.
+
+Also, total water is conserved,
+so 
+
+$$
+m_v+m_l=m_T\\
+dm_v = -dm_l
+$$(eq:water)
+
+
+Take the differential of {eq}`eq:H` and use {eq}`eq:water`
+
+$$
+d H=m_d c_{p d} d T+\left(h_v-h_e\right) d m_v \\
+$$
+
+Finally add the definition of the latent heat and divide both sides by $m_d$
+
+$$
+l_v=h_v-h_e\\
+dh=c_{pd} d T+ l_v d r_v
+$$
+
+To connect this with $s_v$, use the first law together with the assumption of hydrostatic balance:
+
+$$
+q\,dt &= dh - \alpha dp \\
+q\,dt &= c_p dT + l_v dr_v - \alpha dp \\
+dp &= \rho g dz \\
+q\,dt & = c_p dT + l_v dr_v + g dz = ds_v
+$$
+
+For adiabatic processes, $q=0$ so $ds_v=0$ and $s_v$ won't change.
+
++++
+
+### Q2b answer
+
++++
 
 ## Question 3 Mixing (12)
 
@@ -237,6 +291,16 @@ stating any approximations you need to make
 
 +++
 
+### Question 3 answer
+
+- $\theta_e$ and LCL of surface air: $\theta_e$ = 324 K, LCL = 942 hPa
+
++++
+
+### Question 3 code
+
++++
+
 ### get $\theta_e$ of the surface air
 
 ```{code-cell} ipython3
@@ -246,27 +310,27 @@ Td_1000 = 16 + c.Tc
 rt_cloud = find_rsat(Td_1000,press_1000)
 thetae_cloud = find_thetaet(Td_1000, rt_cloud, temp_1000,press_1000)
 T_lcl, press_lcl = find_lcl(Td_1000,temp_1000,press_1000)
-print(f"thetae: {thetae_cloud:0.1f} K, lcl_press {press_lcl:0.1f} Pa")
+print(f"!!!!!!!thetae: {thetae_cloud:0.1f} K, lcl_press {press_lcl:0.1f} Pa")
 ```
 
 ### Plot T, Td and the lcl
 
 ```{code-cell} ipython3
-fig,ax =plt.subplots(1,1,figsize=(11,11))
+fig,ax2 =plt.subplots(1,1,figsize=(11,11))
 skew = 35
 corners=[5,21]
-ax, skew = makeSkewWet(ax, corners=corners, skew=skew,label_fun=label_fun)
-ax.set_title('mixing problem')
+ax2, skew = makeSkewWet(ax2, corners=corners, skew=skew,label_fun=label_fun)
+ax2.set_title('mixing problem')
 xcorners=find_corners(corners,skew=skew)
-ax.set(xlim=xcorners,ylim=[1005,700])
+ax2.set(xlim=xcorners,ylim=[1005,700])
 xplot=convertTempToSkew(temp_1000 - c.Tc,press_1000*pa2hPa,skew)
-ax.plot(xplot, press_1000*pa2hPa, 'gd', markersize=14, markerfacecolor='g',
+ax2.plot(xplot, press_1000*pa2hPa, 'gd', markersize=14, markerfacecolor='g',
            label = "temp_sfc")
 xplot=convertTempToSkew(Td_1000 - c.Tc,press_1000*pa2hPa,skew)
-ax.plot(xplot, press_1000*pa2hPa,'bd', markersize=14, markerfacecolor='b',
+ax2.plot(xplot, press_1000*pa2hPa,'bd', markersize=14, markerfacecolor='b',
            label = "dewpoint_sfc")
 xplot=convertTempToSkew(T_lcl - c.Tc,press_lcl*pa2hPa,skew)
-ax.plot(xplot, press_lcl*pa2hPa,'kd', markersize=14, markerfacecolor='k',
+ax2.plot(xplot, press_lcl*pa2hPa,'kd', markersize=14, markerfacecolor='k',
            label = "lcl_cloud");
 ```
 
@@ -276,7 +340,7 @@ ax.plot(xplot, press_lcl*pa2hPa,'kd', markersize=14, markerfacecolor='k',
 press_800 = 8.e4 #Pa
 Temp_800,rv_800,rl_800=tinvert_thetae(thetae_cloud,rt_cloud,press_800)
 xplot=convertTempToSkew(Temp_800 - c.Tc,press_800*pa2hPa,skew)
-ax.plot(xplot, press_800*pa2hPa,'rd', markersize=14, markerfacecolor='r',
+ax2.plot(xplot, press_800*pa2hPa,'rd', markersize=14, markerfacecolor='r',
            label = "cloud_800");
 ```
 
@@ -296,15 +360,15 @@ T_lclenv, press_lclenv = find_lcl(Td_env,Temp_env,press_800)
 
 ```{code-cell} ipython3
 xplot=convertTempToSkew(Temp_env - c.Tc,press_800*pa2hPa,skew)
-ax.plot(xplot, press_800*pa2hPa,'gs', markersize=14, markerfacecolor='g',
+ax2.plot(xplot, press_800*pa2hPa,'gs', markersize=14, markerfacecolor='g',
            label = "temp_env")
 xplot=convertTempToSkew(Td_env - c.Tc,press_800*pa2hPa,skew)
-ax.plot(xplot, press_800*pa2hPa,'bs', markersize=14, markerfacecolor='b',
+ax2.plot(xplot, press_800*pa2hPa,'bs', markersize=14, markerfacecolor='b',
            label = "Td_env")
 xplot=convertTempToSkew(T_lclenv - c.Tc,press_lclenv*pa2hPa,skew)
-ax.plot(xplot, press_lclenv*pa2hPa,'ks', markersize=14, markerfacecolor='k',
+ax2.plot(xplot, press_lclenv*pa2hPa,'ks', markersize=14, markerfacecolor='k',
            label = "lcl_env")
-ax.legend()
+ax2.legend()
 display(fig)
 ```
 
@@ -315,8 +379,8 @@ thetae_env
 ```
 
 ```{code-cell} ipython3
-thetae_mix = 0.5*thetae_env + 0.5*thetae_cloud
-rt_mix = 0.5*rt_env + 0.5*rt_cloud
+thetae_mix = 0.3*thetae_env + 0.7*thetae_cloud
+rt_mix = 0.3*rt_env + 0.7*rt_cloud
 Temp_mix,rv_mix,rl_mix=tinvert_thetae(thetae_mix,rt_mix,press_800)
 Temp_1000,rv_1000,rl_1000=tinvert_thetae(thetae_mix,rt_mix,press_1000)
 Td_1000 = find_Td(rv_1000,press_1000)
@@ -328,12 +392,12 @@ print(f"{press_lclmix=:0.1f} Pa")
 
 ```{code-cell} ipython3
 xplot=convertTempToSkew(Temp_mix - c.Tc,press_800*pa2hPa,skew)
-ax.plot(xplot, press_800*pa2hPa,'co', markersize=14, markerfacecolor='c',
+ax2.plot(xplot, press_800*pa2hPa,'co', markersize=14, markerfacecolor='c',
            label = "mixture")
 xplot=convertTempToSkew(T_lclmix - c.Tc,press_lclmix*pa2hPa,skew)
-ax.plot(xplot, press_lclmix*pa2hPa,'cs', markersize=14, markerfacecolor='c',
+ax2.plot(xplot, press_lclmix*pa2hPa,'cs', markersize=14, markerfacecolor='c',
            label = "mixture lcl")
-ax.legend()
+ax2.legend()
 fig.savefig("images/question3_answer.png")
 display(fig)
 ```
@@ -500,27 +564,26 @@ def apply(*args,the_fun=None):
 
 ```{code-cell} ipython3
 #
-#figure 1: plot the T,Tdew profile only
+#figure 3: plot the T,Tdew profile only
 #
-fig,ax =plt.subplots(1,1,figsize=(11,11))
+fig,ax3 =plt.subplots(1,1,figsize=(11,11))
 skew=35
-fig, ax = plt.subplots(1, 1, figsize=(10, 10))
 corners=[10,30]
-ax, skew = makeSkewWet(ax,corners=corners,skew=skew)
+ax3, skew = makeSkewWet(ax3,corners=corners,skew=skew)
 #zoom the axis to focus on layer
 xcorners=find_corners(corners,skew=skew)
-ax.set(xlim=xcorners,ylim=[1000, 600])
+ax3.set(xlim=xcorners,ylim=[1000, 600])
 xplot1 = convertTempToSkew(Temp_sound, press0, skew)
 #plot() returns a list of handles for each line plotted
-Thandle, = ax.plot(xplot1, press0, 'k-', linewidth=2.5,label='Temp (deg C)')
+Thandle, = ax3.plot(xplot1, press0, 'k-', linewidth=2.5,label='Temp (deg C)')
 xplot2 = convertTempToSkew(Tdew_sound, press0, skew)
-TdHandle, = ax.plot(xplot2, press0, 'b--', linewidth=2.5,label='Dewpoint (deg C)')
-ax.set_title('convectively unstable sounding: base at 900 hPa')
-ax.legend(numpoints=1,loc='best');
+TdHandle, = ax3.plot(xplot2, press0, 'b--', linewidth=2.5,label='Dewpoint (deg C)')
+ax3.set_title('convectively unstable sounding: base at 900 hPa')
+ax3.legend(numpoints=1,loc='best');
 cs=convertTempToSkew
 #fig.savefig('initial_sound.png')
 #fig.savefig('initial_sound.pdf')
-ax.plot(cs(Temp_sound[:-1],press0[:-1],skew),press0[:-1],'bo',markersize=15);
+ax3.plot(cs(Temp_sound[:-1],press0[:-1],skew),press0[:-1],'bo',markersize=15);
 ```
 
 ```{code-cell} ipython3
@@ -541,16 +604,16 @@ thetae_sound = apply(Tdew_soundK,rT_sound,Temp_soundK, (press0*hPa2pa),the_fun=f
 Tpseudo_sound = apply(thetae_sound, press0*hPa2pa, the_fun=find_Tmoist)
 
 
-fig, ax = plt.subplots(1, 1, figsize=(10, 10))
-ax, skew = makeSkewWet(ax,corners=corners,skew=skew)
+fig, ax4 = plt.subplots(1, 1, figsize=(10, 10))
+ax4, skew = makeSkewWet(ax4,corners=corners,skew=skew)
 
 fig_dict=dict(press=press0,Tpseudo=Tpseudo_sound,Temp=Temp_soundK,
               Tdew=Tdew_soundK,
               Tlcl=Tlcl,plcl=plcl,botLabel='LCL bot (835 hPa)',
               topLabel='LCL top (768 hPa)',skew=skew)
 xcorners=find_corners(corners,skew=skew)
-ax.set(xlim=xcorners,ylim=[1000, 600])
-ax = makePlot(ax,**fig_dict);  
+ax4.set(xlim=xcorners,ylim=[1000, 600])
+ax4 = makePlot(ax4,**fig_dict);  
 ```
 
 ## Now lift the layer gradually
@@ -561,10 +624,10 @@ ax = makePlot(ax,**fig_dict);
 pressM50 = press0 - 50.
 TdewM50, TempM50, TpseudoM50 = lift_sounding(rT_sound,thetae_sound,pressM50)
 fig_dict.update(dict(press=pressM50,Temp=TempM50,Tdew=TdewM50,Tpseudo=TpseudoM50))
-fig, ax = plt.subplots(1, 1, figsize=(10, 10))
-ax, skew = makeSkewWet(ax,corners=corners,skew=skew)
-ax = makePlot(ax,**fig_dict) 
-ax.set(xlim=xcorners,ylim=[1000, 600])
+fig, ax5 = plt.subplots(1, 1, figsize=(10, 10))
+ax5, skew = makeSkewWet(ax5,corners=corners,skew=skew)
+ax5 = makePlot(ax5,**fig_dict) 
+ax5.set(xlim=xcorners,ylim=[1000, 600])
 ```
 
 ```{code-cell} ipython3
@@ -575,10 +638,10 @@ ax.set(xlim=xcorners,ylim=[1000, 600])
 pressM65 = pressM50 - 14.7
 TdewM65, TempM65, TpseudoM65 = lift_sounding(rT_sound,thetae_sound,pressM65)
 fig_dict.update(dict(press=pressM65,Temp=TempM65,Tdew=TdewM65,Tpseudo=TpseudoM65))
-fig, ax = plt.subplots(1, 1, figsize=(10, 10))
-ax, skew = makeSkewWet(ax,corners=corners,skew=skew)
-ax = makePlot(ax,**fig_dict)   
-ax.set(xlim=xcorners,ylim=[1000, 600])
+fig, ax6 = plt.subplots(1, 1, figsize=(10, 10))
+ax6, skew = makeSkewWet(ax6,corners=corners,skew=skew)
+ax6 = makePlot(ax6,**fig_dict)   
+ax6.set(xlim=xcorners,ylim=[1000, 600])
 ```
 
 ```{code-cell} ipython3
@@ -591,10 +654,10 @@ TdewM75, TempM75, TpseudoM75 = lift_sounding(rT_sound,thetae_sound,pressM75)
 print(f"here: {pressM75[0],pressM75[-1]}")
 fig_dict.update(dict(press=pressM75,Temp=TempM75,Tdew=TdewM75,Tpseudo=TpseudoM75))
 
-fig, ax = plt.subplots(1, 1, figsize=(10, 10))
-ax, skew = makeSkewWet(ax,corners=corners,skew=skew)
-ax = makePlot(ax,**fig_dict) 
-ax.set(xlim=xcorners,ylim=[1000, 600])
+fig, ax7 = plt.subplots(1, 1, figsize=(10, 10))
+ax7, skew = makeSkewWet(ax7,corners=corners,skew=skew)
+ax7 = makePlot(ax7,**fig_dict) 
+ax7.set(xlim=xcorners,ylim=[1000, 600])
 ```
 
 ```{code-cell} ipython3
@@ -607,10 +670,10 @@ TdewM100, TempM100, TpseudoM100 = lift_sounding(rT_sound,thetae_sound,pressM100)
 fig_dict.update(dict(press=pressM100,Temp=TempM100,Tdew=TdewM100,Tpseudo=TpseudoM100))
 
 
-fig, ax = plt.subplots(1, 1, figsize=(10, 10))
-ax, skew = makeSkewWet(ax,corners=corners,skew=skew)
-ax = makePlot(ax,**fig_dict) 
-ax.set(xlim=xcorners,ylim=[1000, 600])
+fig, ax8 = plt.subplots(1, 1, figsize=(10, 10))
+ax8, skew = makeSkewWet(ax8,corners=corners,skew=skew)
+ax8 = makePlot(ax8,**fig_dict) 
+ax8.set(xlim=xcorners,ylim=[1000, 600])
 ```
 
 ```{code-cell} ipython3
@@ -624,8 +687,8 @@ fig_dict.update(dict(press=pressM132,Temp=TempM132,Tdew=TdewM132,Tpseudo=Tpseudo
 
 
 
-fig, ax = plt.subplots(1, 1, figsize=(10, 10))
-ax, skew = makeSkewWet(ax,corners=corners,skew=skew)
-ax = makePlot(ax,**fig_dict)   
-ax.set(xlim=xcorners,ylim=[1000, 600])
+fig, ax9 = plt.subplots(1, 1, figsize=(10, 10))
+ax9, skew = makeSkewWet(ax9,corners=corners,skew=skew)
+ax9 = makePlot(ax9,**fig_dict)   
+ax9.set(xlim=xcorners,ylim=[1000, 600])
 ```
