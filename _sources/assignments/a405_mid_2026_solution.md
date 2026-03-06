@@ -297,7 +297,7 @@ $$
 to get:
 
 $$
- d\phi &= c_p \frac{d\theta}{\theta} + l_v \frac{dr_v}{T} 
+ d\phi = c_p \frac{d\theta}{\theta} + l_v \frac{dr_v}{T} 
 $$
 
 Assuming saturation, and making  the approximation from worksheet 7 that:
