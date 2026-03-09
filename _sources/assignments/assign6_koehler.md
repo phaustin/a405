@@ -13,7 +13,7 @@ kernelspec:
 ---
 
 (assign6_koehler)=
-# Assignment 6
+# Assignment 6 -- Koehler equation
 
 ## Notebook part
 
