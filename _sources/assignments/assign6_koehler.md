@@ -23,11 +23,11 @@ kernelspec:
   w_{max} = \sqrt{2 \,\text{CAPE}}
   $$
 
+Download link for [assign6_koehler.ipynb](https://drive.google.com/file/d/1TIFGXv2OzEl9AsfJXf7nMc-v2K5UGVvC/view?usp=sharing)
+
 ## On paper
 
-
 +++
-
 
 ### Problem 1: Taylor series
 
@@ -44,12 +44,18 @@ For the aerosol defined in the kohler.ipynb notebook ($10^{-19}$ kg, ammonium su
       find the size of the smallest term you've kept (either $\frac{a}{r}$ or $\frac{b}{r^3}$ and compare it to
       the size of the largest term you've dropped.   Repeat this for a droplet of radius   $r=0.1\ \mu m$
 
-+++
+```{code-cell} ipython3
+# you answer here
+```
 
 ### Problem 3: surface energy:
 
 Suppose you have $r_l$ =1 g/kg of liquid water spread among N spherical drops of radius 10 $\mu m$.  Compare the surface energy of this
       population (which we've been neglecting) with the enthalpy required to vaporize it:  $l_v r_l$.  Is it negligible in comparison?
+
+```{code-cell} ipython3
+# your answer here
+```
 
 ```{code-cell} ipython3
 

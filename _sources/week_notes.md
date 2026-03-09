@@ -284,3 +284,12 @@ and Thompkins pp. 56 to 61
 
 - Read [Lohmann Chapter 6.1-6.5](https://drive.google.com/file/d/1vXbVXKs4E4-a-CiBQp-x6gmA_uxJH8I6/view?usp=sharing)
 and my entrainment notes and work on Assignment 6
+
+## Week 10
+
+### Lecture 21, week 10, Tuesday
+
+- [Koehler notes](https://drive.google.com/file/d/1SU64h2sGfMsOygqHL1f6tK_K2HgLv1Nr/view?usp=sharing)
+
+- {ref}`worksheet9_koehler`
+
