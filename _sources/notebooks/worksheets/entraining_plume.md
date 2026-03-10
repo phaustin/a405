@@ -405,6 +405,7 @@ the_ds
 
 ```{code-cell} ipython3
 the_ds.to_netcdf(output_filename)
+print(f"write netcdf file {str(output_filename.absolute())}")
 ```
 
 ## Plot the result on a tephigram
