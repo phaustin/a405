@@ -305,7 +305,7 @@ and my entrainment notes and work on Assignment 6
   - [Lohmann Chapter 6.1-6.5](https://drive.google.com/file/d/1vXbVXKs4E4-a-CiBQp-x6gmA_uxJH8I6/view?usp=sharing)
   - [Koehler notes](https://drive.google.com/file/d/1SU64h2sGfMsOygqHL1f6tK_K2HgLv1Nr/view?usp=sharing)
 
-- Work on {ref}`worksheet9_koehler` and {ref}`assign6_koehler`
+- Work on {ref}`worksheet9_koehler_solution` and {ref}`assign6_koehler`
 
 ### For Thursday
 

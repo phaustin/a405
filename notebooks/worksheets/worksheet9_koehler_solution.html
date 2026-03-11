@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Worksheet 6 solution: Gibbs free energy &#8212; ATSC 405</title>
+    <title>Worksheet9: Koehler Equilibrium solution &#8212; ATSC 405</title>
   
   
   
@@ -59,12 +59,12 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/worksheets/worksheet6_gibbs_solution';</script>
-    <link rel="canonical" href="https://phaustin.github.io/a405/notebooks/worksheets/worksheet6_gibbs_solution.html" />
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/worksheets/worksheet9_koehler_solution';</script>
+    <link rel="canonical" href="https://phaustin.github.io/a405/notebooks/worksheets/worksheet9_koehler_solution.html" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Mixing line example" href="mixing_line_example.html" />
-    <link rel="prev" title="Worksheet 5 solution: Latent heat" href="worksheet5_latent_solution.html" />
+    <link rel="next" title="Adiabatic Box - Solution" href="../../assignments/adiabatic_box_solution.html" />
+    <link rel="prev" title="Worksheet 8: Interp1d" href="worksheet8_interp1d.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -204,7 +204,7 @@
 <li class="toctree-l1"><a class="reference internal" href="worksheet4_taylor_series_solution.html">Worksheet 4: Taylor series solution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../week4/xarray-intro.html">Demo: Introduction to Xarray</a></li>
 <li class="toctree-l1"><a class="reference internal" href="worksheet5_latent_solution.html">Worksheet 5 solution: Latent heat</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Worksheet 6 solution: Gibbs free energy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="worksheet6_gibbs_solution.html">Worksheet 6 solution: Gibbs free energy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mixing_line_example.html">Mixing line example</a></li>
 <li class="toctree-l1"><a class="reference internal" href="convec_instability.html">Convective instability – lifting demo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="moist_adiabats.html">Moist adiabats and the LCL</a></li>
@@ -215,7 +215,7 @@
 
 <li class="toctree-l1"><a class="reference internal" href="entraining_plume.html">Modeling an entraining cloud updraft try</a></li>
 <li class="toctree-l1"><a class="reference internal" href="worksheet8_interp1d.html">Worksheet 8: Interp1d</a></li>
-<li class="toctree-l1"><a class="reference internal" href="worksheet9_koehler_solution.html">Worksheet9: Koehler Equilibrium solution</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Worksheet9: Koehler Equilibrium solution</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="nav bd-sidenav">
@@ -316,7 +316,7 @@
       
       
       
-      <li><a href="../../_sources/notebooks/worksheets/worksheet6_gibbs_solution.md" target="_blank"
+      <li><a href="../../_sources/notebooks/worksheets/worksheet9_koehler_solution.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -400,7 +400,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Worksheet 6 solution: Gibbs free energy</h1>
+    <h1>Worksheet9: Koehler Equilibrium solution</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -410,17 +410,14 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question">Question</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#approach">Approach</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-1">Question 1</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#making-dictionaries-more-convenient">Making dictionaries more convenient</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-namedtuple-version">The namedtuple version</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">Solution</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-find-esat">Step 1: find esat</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-find-the-mass-of-vapor">Step 2: find the mass of vapor</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-now-change-from-this-reference">Step 3: Now change from this reference</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#worksheet-7-not-for-handin">Worksheet 7 (not for handin)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-2-rootfinding-the-equilibrium-radius">Question 2 – rootfinding the equilibrium radius</a></li>
 </ul>
             </nav>
         </div>
@@ -432,94 +429,232 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="worksheet-6-solution-gibbs-free-energy">
-<span id="worksheet6-gibbs-solution"></span><h1>Worksheet 6 solution: Gibbs free energy<a class="headerlink" href="#worksheet-6-solution-gibbs-free-energy" title="Link to this heading">#</a></h1>
-<p>Upload a scanned image with your answer</p>
-<section id="question">
-<h2>Question<a class="headerlink" href="#question" title="Link to this heading">#</a></h2>
-<p>Starting with the definition of the Gibbs free energy on Thompkins p. 26</p>
-<div class="math notranslate nohighlight" id="equation-eq-g">
-<span class="eqno">(9)<a class="headerlink" href="#equation-eq-g" title="Link to this equation">#</a></span>\[
-G=u+e_s v-T \phi
-\]</div>
-<p>Use the first and second law to show that <span class="math notranslate nohighlight">\(G\)</span> is conserved for phase changes at constant temperature and pressure.</p>
-<section id="approach">
-<h3>Approach<a class="headerlink" href="#approach" title="Link to this heading">#</a></h3>
-<p>Consider the cylinder on Thompkins p. 25:</p>
-<figure class="align-default" id="cylinder">
-<a class="reference internal image-reference" href="../../_images/thompkins_chamber.jpeg"><img alt="pha" src="../../_images/thompkins_chamber.jpeg" style="width: 20%;" />
-</a>
-<figcaption>
-<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Thompkins chamber</span><a class="headerlink" href="#cylinder" title="Link to this image">#</a></p>
-</figcaption>
-</figure>
-<p>Imagine that the top is a moveable piston, which can be slowly raised keeping the vapor pressure <span class="math notranslate nohighlight">\(e_s(T)\)</span> and the temperature <span class="math notranslate nohighlight">\(T\)</span> constant as water changes phase from liquid to vapor.   How much heating is needed to do this, and how does it relate to the terms in <a class="reference internal" href="#equation-eq-g">(9)</a>?</p>
-</section>
-</section>
-<section id="solution">
-<h2>Solution<a class="headerlink" href="#solution" title="Link to this heading">#</a></h2>
-<p>Put in some numbers to get a concrete example.  Assumptions:</p>
-<ul class="simple">
-<li><p>total liquid water mass to start is 2 kg, with a volume of 2 l</p></li>
-<li><p>total initial volume of the container is 3 l</p></li>
-<li><p>The reference starting state is liquid water at the triple point temperature of 273.16 K</p></li>
-<li><p>We are interested in a system that starts with 2 kg of liquid water at 283 K.  We can use
-<a class="reference external" href="https://phaustin.github.io/a405_lib/full_listing.html#a405.thermo.thermlib.find_esat">find_esat</a> to get the
-saturation vapor pressure at this temperature.</p></li>
-</ul>
-<section id="step-1-find-esat">
-<h3>Step 1: find esat<a class="headerlink" href="#step-1-find-esat" title="Link to this heading">#</a></h3>
+  <section class="tex2jax_ignore mathjax_ignore" id="worksheet9-koehler-equilibrium-solution">
+<span id="worksheet9-koehler-solution"></span><h1>Worksheet9: Koehler Equilibrium solution<a class="headerlink" href="#worksheet9-koehler-equilibrium-solution" title="Link to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">a405.thermo.thermlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">find_esat</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">optimize</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">a405.thermo.constants</span><span class="w"> </span><span class="kn">import</span> <span class="n">constants</span> <span class="k">as</span> <span class="n">c</span>
-<span class="n">temp</span><span class="o">=</span><span class="mi">283</span>
-<span class="n">esat</span> <span class="o">=</span> <span class="n">find_esat</span><span class="p">(</span><span class="mi">283</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">esat</span><span class="si">=:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2"> Pa&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>esat=1215 Pa
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">namedtuple</span>
 </pre></div>
 </div>
 </div>
 </div>
-</section>
-<section id="step-2-find-the-mass-of-vapor">
-<h3>Step 2: find the mass of vapor<a class="headerlink" href="#step-2-find-the-mass-of-vapor" title="Link to this heading">#</a></h3>
-<p>With a 3 l container, and 2 kg in liquid, that leaves 1 l = 0.001 <span class="math notranslate nohighlight">\(m^3\)</span> for the vapor.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Rv</span> <span class="o">=</span> <span class="mi">461</span> <span class="c1"># J/kg/K</span>
-<span class="n">volume</span> <span class="o">=</span> <span class="mf">0.001</span>  <span class="c1">#m^3</span>
-<span class="n">rho_v</span> <span class="o">=</span> <span class="n">esat</span><span class="o">/</span><span class="p">(</span><span class="n">Rv</span><span class="o">*</span><span class="n">temp</span><span class="p">)</span>
-<span class="n">mass_v</span><span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">rho_v</span><span class="o">*</span><span class="n">volume</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">mass_v</span><span class="si">=:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> kg&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mass_v=0.107 kg
-</pre></div>
-</div>
-</div>
-</div>
-<p>To keep this simple, assume that we added in the missing 0.107 kg of liquid so that we have exactly 2 l of liquid again and 1 l of vapor.  Make this the new reference state.</p>
-</section>
-<section id="step-3-now-change-from-this-reference">
-<h3>Step 3: Now change from this reference<a class="headerlink" href="#step-3-now-change-from-this-reference" title="Link to this heading">#</a></h3>
-<p>The system has total enthalpy <span class="math notranslate nohighlight">\(H\)</span>, and total water mass <span class="math notranslate nohighlight">\(M\)</span>.   If we expand the container at constant temperature, we will evaporate liquid and will increase the enthalpy by <span class="math notranslate nohighlight">\(l_v(T) \times m_v\)</span> where <span class="math notranslate nohighlight">\(m_v\)</span> is the amount of new vapor created by the phase change.  But this change required that we supply heat <span class="math notranslate nohighlight">\(Q = T\Phi = l_v \times m_v\)</span>, so although the enthalpy has increased</p>
+<p>This worksheet is designed to get you familiar with the Koehler equation for a specific aerosol.</p>
+<p>The download link for <a class="reference external" href="https://drive.google.com/file/d/1FMPECmV2p99NreL32B843KHJWbCoz5mN/view?usp=sharing">worksheet9_koehler_solution.ipynb</a></p>
+<section id="question-1">
+<h2>Question 1<a class="headerlink" href="#question-1" title="Link to this heading">#</a></h2>
+<p>Plot the Kohler curve (Thompkins equation 4.15, and Fig. 4.13) for an aerosol:</p>
 <div class="math notranslate nohighlight">
 \[
-G = H_{new} - T\Phi = H + l_v(T) m_v - l_v(T) m_v
+S = \frac{e_\chi}{e_{s\,\infty}} \approx 1 + \frac{a}{r} - \frac{b}{r^3}\tag{AT 4.15}
 \]</div>
-<p>stays the same.</p>
+<p>where <span class="math notranslate nohighlight">\(e_\chi\)</span> is the equilibrium vapor pressure over a curved surface with water and ions, and <span class="math notranslate nohighlight">\(e_{s\, \infty}\)</span> is the equilibrium vapor pressure over pure water with a flat surface (i.e. the Clausius-Clapeyron equation)</p>
+<div class="math notranslate nohighlight">
+\[
+a = \frac{2\sigma}{\rho_l R_v T}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+b = \frac{imM_w}{4/3\pi \rho_s M_s}
+\]</div>
+<p>Download this <a class="reference external" href="https://drive.google.com/file/d/1BFG11eITRO_6qLblE_U1g457RC5JYvde/view?usp=sharing">aerosol_file</a> into the same folder as  your notebook</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># load the properties of ammonium sulphate from JSON file</span>
+<span class="n">filename</span> <span class="o">=</span>  <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;ammonium_sulphate.json&quot;</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">infile</span><span class="p">:</span>
+    <span class="n">ammonium_sulphate</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">infile</span><span class="p">)</span>
+<span class="n">ammonium_sulphate</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Ms&#39;: 132,
+ &#39;Mw&#39;: 18.0,
+ &#39;Sigma&#39;: 0.075,
+ &#39;vanHoff&#39;: 3.0,
+ &#39;rho&#39;: 1775,
+ &#39;mass&#39;: 1e-19,
+ &#39;comments&#39;: &#39;ammonum sulfate (NH4)2SO4&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<section id="making-dictionaries-more-convenient">
+<h3>Making dictionaries more convenient<a class="headerlink" href="#making-dictionaries-more-convenient" title="Link to this heading">#</a></h3>
+<p>The function below creates new claases of <a class="reference external" href="https://realpython.com/python-namedtuple/">named tuples</a>, which are more
+convenient to use in equations than dictionaries because instead of typing <code class="docutils literal notranslate"><span class="pre">a['Sigma']</span></code> you can type <code class="docutils literal notranslate"><span class="pre">a.Sigma</span></code>. Once you’ve defined the namedtuple class, you pass it a dictionary and
+it will generate a named tuple with attributes matching the dictionary keys.  My <code class="docutils literal notranslate"><span class="pre">make_tuple</span></code> wrapper combines the namedtuple creation and the instance definition so you can turn a dictionary into a named tuple in one step.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">make_tuple</span><span class="p">(</span><span class="n">in_dict</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span><span class="n">tupname</span><span class="o">=</span><span class="s1">&#39;values&#39;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    make a named tuple from a dictionary</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+
+<span class="sd">    in_dict: dictionary</span>
+<span class="sd">         Any python object with key/value pairs</span>
+
+<span class="sd">    tupname: string</span>
+<span class="sd">         optional name for the new namedtuple type</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+
+<span class="sd">    the_tup: namedtuple</span>
+<span class="sd">          named tuple with keys as attributes</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1">#</span>
+    <span class="c1"># create the class/type tup_class</span>
+    <span class="c1">#</span>
+    <span class="n">tup_class</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="n">tupname</span><span class="p">,</span> <span class="n">in_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+    <span class="c1">#</span>
+    <span class="c1"># create an instance of the class with in_dict values</span>
+    <span class="c1">#</span>
+    <span class="n">the_tup</span> <span class="o">=</span> <span class="n">tup_class</span><span class="p">(</span><span class="o">**</span><span class="n">in_dict</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">the_tup</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="the-namedtuple-version">
+<h4>The namedtuple version<a class="headerlink" href="#the-namedtuple-version" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ammonium_sulphate</span> <span class="o">=</span> <span class="n">make_tuple</span><span class="p">(</span><span class="n">ammonium_sulphate</span><span class="p">)</span>
+<span class="n">ammonium_sulphate</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>values(Ms=132, Mw=18.0, Sigma=0.075, vanHoff=3.0, rho=1775, mass=1e-19, comments=&#39;ammonum sulfate (NH4)2SO4&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">find_S</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">aerosol</span><span class="p">,</span> <span class="n">Temp</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    calculates supersaturation S given an aerosol dictionary,</span>
+<span class="sd">    temperature T, and droplet radius r </span>
+<span class="sd">    uses Thompkins 4.15</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    r: radius (m)</span>
+<span class="sd">    aerosol: named tuple with attibutes: Sigma (N/m^2), vanHoff (int), Mw (kg/kmol), Ms (kg/kmol), mass (kg)</span>
+<span class="sd">    Temp: temperature (K)</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    S: saturation (unitless)</span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># your code here</span>
+    <span class="n">a</span><span class="o">=</span><span class="p">(</span><span class="mf">2.</span><span class="o">*</span><span class="n">aerosol</span><span class="o">.</span><span class="n">Sigma</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">Rv</span><span class="o">*</span><span class="n">Temp</span><span class="o">*</span><span class="n">c</span><span class="o">.</span><span class="n">rhol</span><span class="p">)</span>  <span class="c1">#curvature term</span>
+    <span class="n">b</span><span class="o">=</span><span class="p">(</span><span class="n">aerosol</span><span class="o">.</span><span class="n">vanHoff</span><span class="o">*</span><span class="n">aerosol</span><span class="o">.</span><span class="n">mass</span><span class="o">*</span><span class="n">aerosol</span><span class="o">.</span><span class="n">Mw</span><span class="p">)</span><span class="o">/</span><span class="p">((</span><span class="mf">4.</span><span class="o">/</span><span class="mf">3.</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">c</span><span class="o">.</span><span class="n">rhol</span><span class="o">*</span><span class="n">aerosol</span><span class="o">.</span><span class="n">Ms</span><span class="p">)</span>  <span class="c1">#solution term</span>
+    <span class="n">S</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">a</span><span class="o">/</span><span class="n">r</span> <span class="o">-</span> <span class="n">b</span><span class="o">/</span><span class="n">r</span><span class="o">**</span><span class="mf">3.</span>
+    <span class="k">return</span> <span class="n">S</span>
+    
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># In this cell create a vector of radii r and use find_S to get the corresponding S values</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mf">0.01</span><span class="p">)</span><span class="o">*</span><span class="mf">1.e-6</span>
+<span class="n">Temp</span> <span class="o">=</span> <span class="mf">280.</span>
+<span class="n">the_S</span> <span class="o">=</span> <span class="n">find_S</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">ammonium_sulphate</span><span class="p">,</span> <span class="n">Temp</span><span class="p">)</span>
+<span class="n">the_S</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-8.65024495, -0.16275021,  0.67697792,  0.87642143,  0.94508561,
+        0.97413238,  0.98810976,  0.99543528,  0.99950102,  1.00184178])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># In this cell make an (x,y) plot of (r,S)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r</span><span class="o">*</span><span class="mf">1.e6</span><span class="p">,</span><span class="n">the_S</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="mf">0.995</span><span class="p">,</span><span class="mf">1.006</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;radius (microns)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Saturation S&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/67b75acad4202dd0653d06a0abd5f71448e248b54e6d38c021126e622ee91dd7.png" src="../../_images/67b75acad4202dd0653d06a0abd5f71448e248b54e6d38c021126e622ee91dd7.png" />
+</div>
+</div>
 </section>
 </section>
-<section id="worksheet-7-not-for-handin">
-<h2>Worksheet 7 (not for handin)<a class="headerlink" href="#worksheet-7-not-for-handin" title="Link to this heading">#</a></h2>
-<p>Find the volume of liquid and vapor if we increase the container volume in this example from 3 l to 4 l.  Why is this a tricky problem?</p>
+</section>
+<section id="question-2-rootfinding-the-equilibrium-radius">
+<h2>Question 2 – rootfinding the equilibrium radius<a class="headerlink" href="#question-2-rootfinding-the-equilibrium-radius" title="Link to this heading">#</a></h2>
+<p>Use our rootfinder to find the equilibrium radius for a haze particle at a relative humidity of 90% and a temperature of 15 deg C</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">find_r</span><span class="p">(</span><span class="n">RH</span><span class="p">,</span><span class="n">aerosol</span><span class="p">,</span><span class="n">Temp</span><span class="p">,</span><span class="n">leftbracket</span><span class="p">,</span><span class="n">right_bracket</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">S_diff</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">RH</span><span class="p">,</span><span class="n">aerosol</span><span class="p">,</span><span class="n">Temp</span><span class="p">):</span>
+        <span class="n">Senv</span><span class="o">=</span><span class="n">RH</span><span class="o">*</span><span class="mf">0.01</span>
+        <span class="n">Sequil</span><span class="o">=</span><span class="n">find_S</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">aerosol</span><span class="p">,</span><span class="n">Temp</span><span class="p">)</span>
+        <span class="n">the_diff</span> <span class="o">=</span> <span class="n">Senv</span> <span class="o">-</span> <span class="n">Sequil</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">r</span><span class="si">=}</span><span class="s2">,</span><span class="si">{</span><span class="n">Sequil</span><span class="si">=}</span><span class="s2">,</span><span class="si">{</span><span class="n">Senv</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">the_diff</span>
+    
+    <span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="n">RH</span><span class="p">,</span><span class="n">aerosol</span><span class="p">,</span><span class="n">Temp</span><span class="p">)</span>
+    
+    <span class="n">equil_r</span> <span class="o">=</span> <span class="n">optimize</span><span class="o">.</span><span class="n">brentq</span><span class="p">(</span><span class="n">S_diff</span><span class="p">,</span>
+                             <span class="n">left_bracket</span><span class="p">,</span>
+                             <span class="n">right_bracket</span><span class="p">,</span>
+                             <span class="n">args</span> <span class="o">=</span> <span class="n">args</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">equil_r</span>
+
+<span class="n">left_bracket</span> <span class="o">=</span> <span class="mf">1.e-8</span>
+<span class="n">right_bracket</span> <span class="o">=</span> <span class="mf">1.e-6</span>
+<span class="n">RH</span> <span class="o">=</span> <span class="mi">90</span>
+<span class="n">the_r</span> <span class="o">=</span> <span class="n">find_r</span><span class="p">(</span><span class="n">RH</span><span class="p">,</span><span class="n">ammonium_sulphate</span><span class="p">,</span><span class="n">Temp</span><span class="p">,</span><span class="n">left_bracket</span><span class="p">,</span><span class="n">right_bracket</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">equilibribum haze radius at </span><span class="si">{</span><span class="n">RH</span><span class="si">=}</span><span class="s2"> percent is </span><span class="si">{</span><span class="n">the_r</span><span class="o">*</span><span class="mf">1.e6</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> microns&quot;</span><span class="p">)</span>
+    
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>r=1e-08,Sequil=-8.650244951369707,Senv=0.9
+r=1e-06,Sequil=1.0011510446939125,Senv=0.9
+r=9.896243471630616e-07,Sequil=1.0011629047272623,Senv=0.9
+r=4.998121735815308e-07,Sequil=1.0022442757670016,Senv=0.9
+r=2.549060867907654e-07,Sequil=1.0039642322378441,Senv=0.9
+r=1.324530433953827e-07,Sequil=1.0045610791788981,Senv=0.9
+r=7.122652169769135e-08,Sequil=0.9892699464769273,Senv=0.9
+r=4.0613260848845675e-08,Sequil=0.8827921018518972,Senv=0.9
+r=4.556067386723811e-08,Sequil=0.9222115351660237,Senv=0.9
+r=4.277297173658657e-08,Sequil=0.9023364887771813,Senv=0.9
+r=4.25147830161906e-08,Sequil=0.9002137211415143,Senv=0.9
+r=4.2489107357110654e-08,Sequil=0.8999996843228435,Senv=0.9
+r=4.2490107357110675e-08,Sequil=0.9000080305564703,Senv=0.9
+
+equilibribum haze radius at RH=90 percent is 0.042 microns
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 
@@ -554,20 +689,20 @@ G = H_{new} - T\Phi = H + l_v(T) m_v - l_v(T) m_v
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="worksheet5_latent_solution.html"
+       href="worksheet8_interp1d.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Worksheet 5 solution: Latent heat</p>
+        <p class="prev-next-title">Worksheet 8: Interp1d</p>
       </div>
     </a>
     <a class="right-next"
-       href="mixing_line_example.html"
+       href="../../assignments/adiabatic_box_solution.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Mixing line example</p>
+        <p class="prev-next-title">Adiabatic Box - Solution</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -587,17 +722,14 @@ G = H_{new} - T\Phi = H + l_v(T) m_v - l_v(T) m_v
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question">Question</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#approach">Approach</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-1">Question 1</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#making-dictionaries-more-convenient">Making dictionaries more convenient</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-namedtuple-version">The namedtuple version</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">Solution</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-find-esat">Step 1: find esat</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-find-the-mass-of-vapor">Step 2: find the mass of vapor</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-now-change-from-this-reference">Step 3: Now change from this reference</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#worksheet-7-not-for-handin">Worksheet 7 (not for handin)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-2-rootfinding-the-equilibrium-radius">Question 2 – rootfinding the equilibrium radius</a></li>
 </ul>
   </nav></div>
 

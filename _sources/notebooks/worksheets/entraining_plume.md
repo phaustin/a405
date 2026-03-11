@@ -38,6 +38,7 @@ from scipy.integrate import RK45
 from a405.soundings.wyominglib import write_soundings, read_soundings
 import json
 import xarray as xr
+import os
 
 import matplotlib.pyplot as plt
 from a405.skewT.nudge import nudge
@@ -404,7 +405,11 @@ the_ds
 ## write the dataset to netcdf
 
 ```{code-cell} ipython3
+if os.path.exists(output_filename):
+    os.remove(output_filename) 
+
 the_ds.to_netcdf(output_filename)
+
 print(f"write netcdf file {str(output_filename.absolute())}")
 ```
 
