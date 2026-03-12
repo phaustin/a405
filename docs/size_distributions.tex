@@ -1,0 +1,182 @@
+\documentclass[12pt]{article}
+\usepackage{geometry,fancyhdr,xr,hyperref,ifpdf,amsmath,rcs,shortcuts}
+\usepackage{lastpage,longtable,color,paunits,amsmath}
+\geometry{letterpaper,headsep=5mm,head=10mm,hmargin={20mm,30mm},bottom=10mm,top=5mm}
+
+
+\pagestyle{fancy} 
+
+\RCS $Revision: 1.5 $
+\RCS $Date: 2002/01/09 03:50:54 $
+
+\fancypagestyle{first}{
+\lhead{A405: Lec. 19}
+\chead{\textbf{Wednesday, Feb. 21}}
+\rhead{page~\thepage/\pageref{LastPage}}
+\lfoot{} 
+\cfoot{} 
+\rfoot{}
+}
+
+\ifpdf
+    \usepackage[pdftex]{graphicx} 
+    \usepackage{hyperref}
+    \pdfcompresslevel=0
+    \DeclareGraphicsExtensions{.pdf,.jpg,.mps,.png}
+\else
+    \usepackage{hyperref}
+    \usepackage[dvips]{graphicx}
+    \DeclareGraphicsRule{.eps.gz}{eps}{.eps.bb}{`gzip -d #1}
+    \DeclareGraphicsExtensions{.eps,.eps.gz}
+\fi
+\externaldocument[lec6,]{lec6}
+
+\begin{document}
+
+\pagestyle{first}
+
+\begin{center}
+Atsc405: Lecture 19\\
+\end{center}
+
+
+\vspace{0.1in}
+\noindent
+\textbf{Aerosol size distributions}
+\vspace{0.1in}
+
+Wallace and Hobbs give several examples of histograms of aerosol
+number concentration as a function of aerosol radius (e.g.~5.9,
+5.10, 5.11) .  These curves are called aerosol number distributions,
+and are written $n(r)$, with typical units of ($\ccm\, \mum^{-1}$)
+(pronounced ``number per cubic centimeter per micron bin width''.
+Note that the radius bins could be measured in cm, in which case the
+units would look like \un{cm^{-4}}, but would still be pronounced
+``number per cubic centimeter per centimeter bin width''.
+
+The key to making sense of any histogram is to focus on the product of
+the density times the bin width:
+
+\begin{equation}
+  \label{eq:prod}
+  n(r)dr
+\end{equation}
+This has units of \ccm, and is the number of aerosols per \cc with radii
+ranging from $r$ to $r+dr$.
+
+Since aerosols span a radius range of several orders of magnitude, it is
+usual to work with $\log r$ (I'll write $\log_{10} r=\log r$ and
+$\log_e r = \ln r$ below).  We can multiply (\ref{eq:prod}) by $r$ to get
+
+\begin{equation}
+  \label{eq:prod}
+  n(r)dr = r\,n(r) \frac{dr}{r} = r\,n(r) d\ln r
+\end{equation}
+Either way, this is still number of aerosols per \cc with radii
+ranging from $r$ to $r+dr$ (or alternatively $\ln r$ to $\ln r + d\ln r$).
+
+Most of the plots in W\&H represent this a little differently, using
+the cumulative number distribution $N(r)$ (\ccm) defined as:
+
+\begin{equation}
+  \label{eq:cum}
+  N(r) = \int_r^\infty n(r^\prime) dr^\prime
+\end{equation}
+which is read as ``the number concentration of aerosols with radii
+larger than $r$''.
+
+$N(r)$ and $n(r)$ are related by the one-dimensional version of Leibniz' rule:
+
+\begin{equation}
+  \label{eq:lieb1}
+  \frac{d}{dr} \int_r^\infty n(r^\prime) dr^\prime = -n(r)
+\end{equation}
+
+Equation (\ref{eq:lieb1}) is just a consequence of the fundamental theorem of calculus:
+
+\begin{equation}
+  \label{eq:fund}
+   \frac{d}{dr}\left [ \int_a^b f(r^\prime) dr^\prime \right ] = \frac{d}{dr}\left [ F(b) - F(a) \right ]
+\end{equation}
+and
+
+\begin{equation}
+  \label{eq:fund2}
+   \frac{dF(r)}{dr} =  f(r)
+\end{equation}
+along with the fact that $n(\infty)=0$ if there is a finite number of aerosols.
+
+
+Although we don't need it  here,  Leibniz' rule for the total differential of an integral 
+of a two-dimensional function is also a good thing to know:
+
+\begin{equation}
+  \label{eq:lieb}
+  \frac{d}{dx} \int_A^B f(x,t) dt = \int_A^B \frac{\partial f}{\partial x} dt + f(x,B) \frac{dB}{dx}
+      - f(x,A) \frac{dA}{dx}
+\end{equation}
+
+Given the above we can see that the W\&H plot of $-dN/d\log r$ vs $d\log r$ still
+gives the same result as (\ref{eq:prod}):
+
+\begin{eqnarray}
+  \label{eq:same}
+  -\frac{dN}{d\log r} \times d\log r &=& -\ln 10 \frac{dN}{d\ln r} \times 
+      \frac{1}{\ln 10} d \ln r = - r \frac{dN}{d r} d \ln r \nonumber\\
+        & = & r n(r) \frac{dr}{r} = n(r) dr
+\end{eqnarray}
+
+Given that  $dr$, the width of the bin, is infinitesimally thin, we can
+consider the radius to be constant in the bin, and find various moments
+for the size range $r \rightarrow r + dr$:
+
+Aerosol surface area per \cc:
+
+\begin{equation}
+  \label{eq:surface}
+dS=  4 \pi r^2 n(r) dr
+\end{equation}
+
+Aerosol volume per \cc:
+
+\begin{equation}
+  \label{eq:volume}
+dV  = \frac{4}{3} \pi r^3 n(r) dr
+\end{equation}
+
+Aerosol mass per \cc:
+
+\begin{equation}
+  \label{eq:mass}
+dM  = \rho_{aero} \frac{4}{3} \pi r^3 n(r) dr
+\end{equation}
+where $\rho_{aero}$ is the aerosol density.
+
+If we divide (\ref{eq:surface}), (\ref{eq:volume}) or (\ref{eq:mass})
+by the total number concentration $N(0)=N_0$ then we get the average
+surface area, volume or mass of an individual aerosol given the size distribution
+$n(r)$.  One particularly
+useful moment is the \textit{effective radius} $r_{eff}$, defined as the average
+radius weighted by the aerosol surface area:
+
+\begin{equation}
+  \label{eq:reff}
+  r_{eff}= \frac{\int_0^\infty r \left [ 4\pi \left ( \frac{r}{2} \right )^2 n(r) \right ] dr}%
+              {\int_0^\infty  \left [ 4\pi \left ( \frac{r}{2} \right )^2 n(r) \right ] dr}
+       = \frac{\left < r^3 \right >}{\left < r^2 \right >}
+\end{equation}
+where:
+
+\begin{equation}
+  \label{eq:bracket}
+\left < x \right > = \frac{\int_0^\infty  x n(r) dr}{\int_0^\infty  n(r) dr} =  \frac{\int_0^\infty  x n(r) dr}{N_{tot}}
+\end{equation}
+Because the total surface area per unit mass plays a large role in determining the reflectance
+of the aerosol size distribution, $r_{eff}$ is used frequently in studies of
+the radiative effect of aerosols on the planetary energy balance.
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
