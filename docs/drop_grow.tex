@@ -1,0 +1,348 @@
+\documentclass[12pt]{article}
+\usepackage{geometry,fancyhdr,xr,hyperref,ifpdf,amsmath,rcs,shortcuts}
+\usepackage{lastpage,longtable,color,paunits,amsmath}
+\geometry{letterpaper,headsep=5mm,head=10mm,hmargin={20mm,30mm},bottom=10mm,top=5mm}
+
+
+\pagestyle{fancy} 
+\lhead{Atsc. 405} 
+\chead{Notes on Droplet Growth} 
+\rhead{page~\thepage/\pageref{LastPage}} 
+\lfoot{} 
+\cfoot{} 
+\rfoot{}
+
+
+\ifpdf
+    \usepackage[pdftex]{graphicx} 
+    \usepackage{hyperref}
+    \pdfcompresslevel=0
+    \DeclareGraphicsExtensions{.pdf,.jpg,.mps,.png}
+\else
+    \usepackage{hyperref}
+    \usepackage[dvips]{graphicx}
+    \DeclareGraphicsRule{.eps.gz}{eps}{.eps.bb}{`gzip -d #1}
+    \DeclareGraphicsExtensions{.eps,.eps.gz}
+\fi
+
+
+\begin{document}
+
+\begin{center}
+{\bf
+Atsc. 405\\
+Notes on droplet growth\\
+ }
+\end{center}
+
+
+\textit{The following note extends Thompkins Chapter 4 pp. 73-75}
+
+For this course -- understanding the derivation of the droplet growth equation
+4.25 is good enough, but the parcel model we are developing as part of entraining\_plume.md needs
+something more accurate.   This note shows how to get a more accurate treatment, as derived in
+Lohmann Chapter 7 pp. 86-195.
+
+We want to compute something called \textit{equilibrium} droplet
+growth, i.e., what is the instantaneous droplet growth rate in an
+environment in which the concentration of vapor molecules is changing
+very slowly?  It is possible to show (see me if you care) that in a
+binary mixture of gasses (water vapor and nitrogen) the water vapor
+mass flux $F_m\ (\un{kg\,m^{-2}\,s^{-1}})$ is given by:
+
+\begin{equation}
+  \label{eq:ficks1}
+  F_m = -D\, m_w\, n\, \nabla \left (\frac{n_v}{n} \right )
+\end{equation}
+where $m_w$ is the weight of an individual water molecule, $n_v$ is
+the number density of the vapor (\un{vapor\ molecules\,m^{-3}}),
+$n$ is the total number density for all gas molecules
+and  $D \approx
+2.2 \times 10^{-5}~\un{m^2\,s^{-1}}$ is the diffusivity of water vapor.
+In words (\ref{eq:ficks1}) says that it is spatial variations in
+the number mixing ratio $n_v/n$ (and not, for example, the vapor
+density $\rho_v$) that drive diffusion.
+
+We also know from the equation of state that the total number density
+$n$ and the vapor molecule density $n_v$ are related to the temperature by:
+
+\begin{eqnarray}
+  \label{eq:state0}
+  p v &=& n k_b T\nonumber\\
+  e &=& m_w\, n_v\, R_v\, T
+\end{eqnarray}
+where $p$  is the total pressure, $v$ is the specific volume (\un{m^3\,kg^{-1}}),
+$n$ is defined as above and $k_b$ is Boltzman's constant (the gas constant per molecule).
+
+Consider an environment in which the total pressure $p$, volume $V$
+and mass (and therefore total density $\rho$ and specific volume
+$1/\rho = v$) are all independent of position (for example, in a
+laboratory chamber at uniform pressure).  Then insert (\ref{eq:state0}) into
+(\ref{eq:ficks1}) and get (do this):
+
+\begin{equation}
+  \label{eq:goodeqn}
+  F_m = -\frac{D}{R_v\,T} \nabla e
+\end{equation}
+
+Can we write (\ref{eq:goodeqn}) in terms of the vapor density 
+$\rho_v = m_w\,n_v$?
+Remember that $p\,v \propto T$, so that from (\ref{eq:state0})
+we have $n \propto 1/T$.  Using the chain rule on (\ref{eq:ficks1})
+I get:
+
+\begin{equation}
+  \label{eq:ficks2}
+  F_m = -D\,n\, \nabla \left (\frac{m_w\,n_v}{n} \right ) =
+ -D\,n\,\left ( \frac{\nabla \rho_v}{n} - \frac{\rho_v}{n^2} \nabla n \right )
+= -D \left ( \nabla \rho_v + \frac{\rho_v \nabla T}{T} \right )
+\end{equation}
+
+It turns out that many people (including Thompkins) write down the diffusion
+equation as:
+
+\begin{equation}
+  \label{eq:ficks3}
+  F_m  = -D  \nabla \rho_v 
+\end{equation}
+Comparing (\ref{eq:ficks3}) with (\ref{eq:ficks2}) shows that
+this is equivalent to assuming $\nabla T=0$, which isn't
+quite true for a growing cloud drop.  If we can accept and error of 10\% or 
+we can neglect this complication and 
+and use (\ref{eq:ficks3}).
+
+
+We also have a similar expression for the diffusion of energy
+(i.e.~enthalpy = $c_p T$):
+
+\begin{equation}
+  \label{ficksheat}
+  F_Q~(\un{J\,m^{-2}\,s^{-1}})= -K \nabla T
+\end{equation}
+
+\noindent 
+where $K \approx 2.2 \times 10^{-2}~\un{J\,m^{-1}\,s^{-1}\,K^{-1}}$ is
+the thermal conductivity of dry air and we're neglecting the
+difference between the heat capcities and diffusivities of water and
+nitrogen.  Both $D$ and $K$ are also weak functions of temperature and
+pressure, which we'll also ignore.  The minus signs in
+(\ref{eq:ficks3}) and (\ref{ficksheat}) indicate that when $n_v$, for
+example, increases to the right, the flux is \emph{down-gradient} to
+the left.
+
+As shown in class, in one dimension we can get the time rate of change of the
+density by taking the derivative of the flux (why?):
+
+\begin{equation}
+  \label{old}
+  \frac{\partial \rho_v}{\partial t} = - \frac{ dF_m}{dx}
+\end{equation}
+
+\noindent
+In three dimensions this becomes:
+
+\begin{equation}
+  \label{divergence}
+  \frac{\partial \rho_v}{\partial t} = - \nabla F_m = D m_w \nabla^2 n_v
+\end{equation}
+and
+
+\begin{equation}
+  \label{divergenceT}
+  \frac{\partial T}{\partial t} = - \nabla F_Q = K \nabla^2 T
+\end{equation}
+
+
+\noindent
+where we have small the variation in $D$ with $T$.
+
+Now take a look at what $\nabla^2 n_v$ looks like in spherical
+coordinates:
+
+\begin{equation}
+  \label{spherical}
+  \nabla^2 n_v = \frac{1}{R^2} \frac{\partial}{\partial R} \left ( 
+               R^2 \frac{\partial n_v}{\partial R} \right )
+             + \frac{1}{R^2 \mathrm{sin \theta}}
+             \frac{\partial}{\partial \theta} 
+              \left (\mathrm{sin \theta} \frac{\partial n_v}{\partial \theta} \right )
+             + \frac{1}{R^2 \mathrm{sin \theta}}
+             \frac{\partial^2 n_v}{\partial \phi^2} 
+\end{equation}
+
+Equation~(\ref{spherical}) simplifies considerably, because we know
+that $\frac{\partial^2 n_v}{\partial \phi^2}=\frac{\partial
+  n_v}{\partial \theta}=0$ for droplets (why?).  Also, if we assume
+that the droplet is growing in equilibrium, then even though it is
+continuously using up water vapor, there is always more water vapor
+available energy availble, and so 
+$\frac{\partial n_v}{\partial t} = \frac{\partial T}{\partial t} =0$. This is 
+what is meant by equilbrium in the phrase \textit{equilibrium droplet growth}.
+(The other part is that $T$ of the environment around the droplet is
+also assumed constant).
+
+Using (\ref{spherical}) we have new equations for the vapor and
+temperature fields via (\ref{divergence}) and (\ref{divergenceT}):
+
+\begin{eqnarray}
+  \label{duel}
+  \frac{\partial n_v}{\partial t}& = & D \nabla^2 n_v = D \frac{1}{R^2}
+               \frac{\partial}{\partial R} \left ( R^2 \frac{\partial
+               n_v}{\partial R} \right ) = 0 \nonumber \\
+  \frac{\partial Q}{\partial t}& = &  K \nabla^2 T = c_p K \frac{1}{R^2}
+               \frac{\partial}{\partial R} \left ( R^2 \frac{\partial
+               T}{\partial R} \right ) = 0
+\end{eqnarray}
+
+To solve (\ref{duel}) you need to integrate it twice wrt R (do this).
+You should find that you get solutions of the form:
+
+\begin{eqnarray}
+  \label{soln}
+  n_v(R) &=& c_1 - \frac{c_2}{R} \nonumber\\
+  T(R) &=& c_3 - \frac{c_4}{R}
+\end{eqnarray}
+
+To determine the coefficients, recognize that we know the values of
+$n_v$ and $T$ at $R=\infty$ (say 100 droplet radii away from the
+surface) where they are just determined by the bulk $\rho_v$ and $T$
+of the cloudy air, without any influence due to surface curvature or
+solution effects.  At the droplet surface $R=r$, $n_v$ will be
+determined from the K\"ohler curve: 
+
+\begin{equation}
+  \label{rhovr}
+   n_v(r)= \rho_v(r)/m_w= \frac{e_r}{R_v T(r)}=\frac{e_s(T(r))(1 + a/r -
+     b/r^3)}{R_v T(r)}
+\end{equation}
+
+Writing $n_r=n_v(r)$ and $T_r=T(r)$:
+
+\begin{eqnarray}
+  \label{soln2}
+  n_v(R) &=& n_{v\,\infty} - \frac{r}{R}(n_{v\,\infty} - n_r) \nonumber\\
+  T(R) &=& T_\infty - \frac{r}{R}(T_\infty - T_r)
+\end{eqnarray}
+
+In equilibrium it will turn out that $n_v$ will increase, and $T$ will
+decrease as we move out from the surface of the drop, so that vapor
+can move toward the drop, and the heat of condensation can be
+conducted away from the drop.
+
+In spherical coordinates with $\theta$ and $\phi$ symmetry we have
+only radial dependence, so that:
+
+\begin{equation}
+  \label{symm}
+  \nabla n_v = \frac{\partial n_v}{\partial R}
+\end{equation}
+
+Putting (\ref{soln2}) into (\ref{eq:ficks3}) gives:
+
+\begin{equation}
+  \label{fluxes}
+  F_m = -D m_w \frac{\partial n_v}{\partial R} = -D m_w ( \frac{r}{R^2}
+  (n_\infty - n_r))
+\end{equation}
+
+\noindent
+and for the temperature:
+
+\begin{equation}
+  \label{fluxes2}
+  F_T = -K \frac{\partial T}{\partial R} = -K ( \frac{r}{R^2}
+  (T_\infty - T_r))
+\end{equation}
+
+But what happens to all of this water?  It goes into making the
+droplet bigger, because at some point it hits the surface of the
+droplet and condenses.  Thus we have (using (\ref{fluxes}) at $R=r$):
+
+\begin{eqnarray}
+  \label{final}
+  \frac{dm}{dt}& =& -4 \pi r^2 m_w \left ( -D \left [ \frac{n_{v\,\infty} - n_r}{r} \right ] \right ) 
+        \nonumber\\ 
+  \frac{dm}{dt}& = &4 \pi r D (\rho_{v \infty} - \rho_{v r})
+\end{eqnarray}
+
+\noindent
+which is just Thompkins 4.19 (where like them we've assumed no gradient
+in $T$).
+
+You should repeat this for the temperature and show that the flux of
+enthalpy away from the droplet is just:
+
+
+\begin{equation}
+  \label{heatflux}
+  \frac{dH}{dt}~(\un{J\,s^{-1}})= 4 \pi r K (T_r - T_\infty)
+\end{equation}
+
+Now all of the vapor that is condensing onto the growing droplet has
+to be diffused away, so balancing (\ref{heatflux}) with (\ref{final})
+gives a relationship between the vapor density and the temperature at
+the surface of the droplet:
+
+\begin{eqnarray}
+  \label{balance}
+  L \frac{dm}{dt} - \frac{dH}{dt} &=& 0 ~\mathrm{~~~~~~~or:} \nonumber\\
+  4 \pi  r D L ( \rho_{v \infty} - \rho_{v r})&=&  4 \pi r K (T_r
+  - T_\infty )
+\end{eqnarray}
+
+
+Taken together, we now have a closed system, with five unknowns
+($m$, $\rho_{v r}$, $\rho_{v \infty}$, $T_r$, $T_\infty$) and five
+equations (\ref{rhovr}), (\ref{final}), (\ref{balance}), and equations for
+the far-field $T_\infty$ and $\rho_{v \infty}$: 
+
+\begin{eqnarray}
+  \label{moistad}
+  \frac{dT_\infty}{dt}& =& \left [ \frac{ -g}{c_p + L \frac{d w_{v \infty}}{dt}}
+     \right ] \frac{dz}{dt}~~~~~~~~~~~(\mathrm{moist~adiabat})\nonumber\\
+  \frac{dw_{v \infty}}{dt}& =& -\frac{dw_{l}}{dt}= -\frac{4 \pi}{3}
+   \frac{\rho_l}{\rho_a} \int_0^\infty \eta(r) r^2 \frac{dr}{dt} dr~~~~~~~~~~~(\mathrm{conservation~of~water})
+\end{eqnarray}
+
+\noindent
+where $\rho_l$ and $\rho_a$ are the densities of water and dry air and
+$\eta (r)~(\# m^{-3} \mu m^{-1})$ represents the number distribution
+of droplets, that is $\eta (r) dr$ gives the droplet concentration of
+droplets with radii between $r$ and $r + dr$.  Remember that we need
+to convert the droplet concentration from ($kg\,m^{-3}$) to
+($kg\,kg^{-1}$).  We can integrate $\eta(r)$ over all $r$ to get the
+total number:
+
+\begin{equation}
+  \label{integ}
+  N_{total} = \int_0^\infty \eta(r) dr
+\end{equation}
+
+
+Remember also that we can get $\rho_{v \infty}$ from $w_{v \infty}$ through
+the definition:
+
+\begin{equation}
+  \label{definition}
+  w_{v \infty}= \frac{\rho_{v \infty}}{\rho_{d \infty}} = \frac{e/(R_v T_\infty)}{\rho_{d \infty}}
+\end{equation}
+where $\rho_{d \infty}$, the density of dry air for the environment, can
+be found from the equation of state, as long as we specify the pressure
+and find the vapor pressure $e$, from 
+
+\begin{equation}
+  \label{eq:state}
+  \rho_{d \infty} = \frac{p - e}{R_d T_\infty}
+\end{equation}
+
+\includegraphics{rplot.png}
+
+
+\includegraphics{splot.png}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
