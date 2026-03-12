@@ -307,9 +307,24 @@ and my entrainment notes and work on Assignment 6
 
 - Work on {ref}`worksheet9_koehler_solution` and {ref}`assign6_koehler`
 
-### For Thursday
+#### For Thursday
 
 Read Thompkins pages 73-75 on condensation growth
 
 
+### Lecture 22, week 10, Thursday
 
+- Review Thompkins on the droplet growth equation, and my [droplet growth notes](https://drive.google.com/file/d/1mF4ES2IewpnLB-lQHOBuK5JwSnelqkYs/view?usp=sharing)
+- How quickly does the vapor concentration adjust to changes, compared to cloud droplets?
+  Go over the calculation in my  [timescale notes](https://drive.google.com/file/d/1i_2_LTQ496FScNK8V-b3pb-rvh6Qzapa/view?usp=sharing)
+- Start on [Lohmann Aerosols Chapter 5](https://drive.google.com/file/d/1frWt9QyWx8RhSQ8FO3Q6IM4vH4NgrOsU/view) and my
+  notes on [aerosol size distributions](https://drive.google.com/file/d/1YYr2dFO4csFNsdOL7IEZJCPEh6LXMoof/view?usp=sharing)
+
+#### For Tueday
+
+- Read
+  - Lohmann Chapter 5 pp. 115-131 on aerosol size distributions
+  - Lohmann Chapter 6 pp. 177-182 on Cloud condensation nuclei counters
+  - My notes on droplet growth, timescales, and size distributions
+  
+- Start on {ref}`assign7_aerosols`
