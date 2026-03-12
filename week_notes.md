@@ -276,5 +276,40 @@ and Thompkins pp. 56 to 61
 
 - {ref}`2026_midterm_solution`
 
+- {ref}`assign6_koehler`  (due next Friday March 13 midnight)
+
+- [Koehler notes](https://drive.google.com/file/d/1SU64h2sGfMsOygqHL1f6tK_K2HgLv1Nr/view?usp=sharing)
+
+#### Do for next Tuesday
+
+- Read [Lohmann Chapter 6.1-6.5](https://drive.google.com/file/d/1vXbVXKs4E4-a-CiBQp-x6gmA_uxJH8I6/view?usp=sharing)
+and my entrainment notes and work on Assignment 6
+
+## Week 10
+
+### Lecture 21, week 10, Tuesday
+
+- Review {ref}`gibbs_notes`
+
+- In-class: derive 
+
+  $$
+    dg= -\phi dT + v de
+  $$
+  
+  Starting from the first and second law
+
+- Go over
+
+  - Thompkins pp. 56 to 61
+  - [Lohmann Chapter 6.1-6.5](https://drive.google.com/file/d/1vXbVXKs4E4-a-CiBQp-x6gmA_uxJH8I6/view?usp=sharing)
+  - [Koehler notes](https://drive.google.com/file/d/1SU64h2sGfMsOygqHL1f6tK_K2HgLv1Nr/view?usp=sharing)
+
+- Work on {ref}`worksheet9_koehler_solution` and {ref}`assign6_koehler`
+
+### For Thursday
+
+Read Thompkins pages 73-75 on condensation growth
+
 
 

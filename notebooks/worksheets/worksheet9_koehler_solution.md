@@ -27,7 +27,7 @@ from collections import namedtuple
 
 This worksheet is designed to get you familiar with the Koehler equation for a specific aerosol.
 
-The download link for [worksheet9_koehler.ipynb](https://drive.google.com/file/d/1fIWW1Zo1-2Qm0ROP6ZqgG6rKcrC_ntuy/view?usp=sharing)
+The download link for [worksheet9_koehler_solution.ipynb](https://drive.google.com/file/d/1FMPECmV2p99NreL32B843KHJWbCoz5mN/view?usp=sharing)
 
 +++
 
@@ -137,6 +137,7 @@ def find_S(r, aerosol, Temp):
 # In this cell create a vector of radii r and use find_S to get the corresponding S values
 
 r = np.arange(0.01,3,0.01)*1.e-6
+Temp = 280.
 the_S = find_S(r,ammonium_sulphate, Temp)
 the_S[:10]
 ```
@@ -175,7 +176,6 @@ def find_r(RH,aerosol,Temp,leftbracket,right_bracket):
 left_bracket = 1.e-8
 right_bracket = 1.e-6
 RH = 90
-Temp=280
 the_r = find_r(RH,ammonium_sulphate,Temp,left_bracket,right_bracket)
 print(f"\nequilibribum haze radius at {RH=} percent is {the_r*1.e6:.3f} microns")
     

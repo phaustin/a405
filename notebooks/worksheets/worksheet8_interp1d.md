@@ -17,13 +17,11 @@ kernelspec:
 
 This worksheet is part 1 of Assignment 6 and is due with the rest of the assignment on March 12.
 
-Download ]worksheet8_interp1d.ipynb](https://drive.google.com/file/d/1KzMEkSRzKD61yhLW01-hBK8DUjkCEAIR/view?usp=sharing)
+Download [worksheet8_interp1d.ipynb](https://drive.google.com/file/d/1KzMEkSRzKD61yhLW01-hBK8DUjkCEAIR/view?usp=sharing)
 
 Modify a copy of the [entraining_plume.ipynb](https://drive.google.com/file/d/1rLSqA6c6DqP_DVNW2ie2HfERtL4_t002/view?usp=sharing) notebook to add a new function called  `calc_interp`
 
 that contains the following lines from [integ_entrain](https://phaustin.github.io/a405/notebooks/worksheets/entraining_plume.html#define-the-integrator-function)
-
-  
 
 +++
 

@@ -295,8 +295,8 @@ packages:
   timestamp: 1744137672556
 - pypi: ./
   name: a405
-  version: 0.1.3.dev17+g4f4b14d5a.d20260304
-  sha256: ff1667b0a625598fbb5da240558b33cdb71d504b20e4ebb84369b561efd0c6c1
+  version: 0.1.3.dev23+g88b49fa50.d20260310
+  sha256: 0f3e92ab957055fba85af9b9ff8433a180b6727b1c8517dc03e8dea0089a0dff
 - conda: https://conda.anaconda.org/conda-forge/noarch/anyio-4.12.1-pyhcf101f3_0.conda
   sha256: eb0c4e2b24f1fbefaf96ce6c992c6bd64340bc3c06add4d7415ab69222b201da
   md5: 11a2b8c732d215d977998ccd69a9d5e8
