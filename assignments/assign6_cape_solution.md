@@ -15,11 +15,13 @@ kernelspec:
 (assign6_cape_solution)=
 # Assignment 6 CAPE solution
 
+Download [assign6_cape_solution.ipynb](https://drive.google.com/file/d/1c4988ZVOhiehq4WbS9u-qBMc9WoUuloC/view?usp=sharing)
+
 ## Notebook question
 
 ### Original problem statement
 
-- Hand in {ref}`worksheet8_interp1d`
+- Hand in {ref}`worksheet8_interp1d_solution`
 - Add a plot of vertical velocity vs. CAPE, borrowing the code from {ref}`cape_part1`.  Does the plot agree with Thompkins equation 3.4?
   $$
   w_{max} = \sqrt{2 \,\text{CAPE}}
@@ -34,10 +36,10 @@ kernelspec:
 The solution below reads from the netcdf file produced by {ref}`entrain_cloud` and calculates and plots the CAPE as a function of height, using Thompkins equation 3.2.  As Thompkins says, the CAPE is just the integrated work between an initial height (we can start at $z^\prime = 0$) and the observation height $z$, if all that buoyant accleration is converted to kinetic energy with $E_k = \frac{1}{2} m w^2$ and for m=1 kg  then the velocity $w$ at height $z$ is:
 
 $$
-B &= g \left(\frac{T_{v\,\text{cloud}}-T_{v\,\text{env}}}{T_{v\,\text{env}}}\right) 
+B = g \left(\frac{T_{v\,\text{cloud}}-T_{v\,\text{env}}}{T_{v\,\text{env}}}\right) 
 $$
 $$
-\text{CAPE}&=\int_0^{z} B dz^ \prime
+\text{CAPE}=\int_0^{z} B dz^ \prime
 $$
 
 $$
@@ -47,10 +49,6 @@ $$
 $$
 w(z) = \sqrt{2 \, \text{CAPE}}
 $$
-
-+++
-
-
 
 ```{code-cell} ipython3
 import numpy as np

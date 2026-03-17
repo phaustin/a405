@@ -43,8 +43,9 @@ parts:
     - file: notebooks/worksheets/worksheet7_taylor_solution.md
     - file: notebooks/worksheets/mixing_line_calc.md
     - file: notebooks/worksheets/entraining_plume.md
-    - file: notebooks/worksheets/worksheet8_interp1d.md
+    - file: notebooks/worksheets/worksheet8_interp1d_solution.md
     - file: notebooks/worksheets/worksheet9_koehler_solution.md
+    - file: notebooks/worksheets/worksheet10_aero_dist.md
   - caption: Assignments
     chapters:
     - file: assignments/adiabatic_box_solution.md
@@ -54,6 +55,9 @@ parts:
     - file: assignments/assignment4_paper_solution.md
     - file: assignments/thompkins_practice_answers.md
     - file: assignments/assign6_koehler.md
+    - file: assignments/worksheet8_interp1d_solution.md
+    - file: assignments/assign6_cape_solution.md
+    - file: assignments/assignment6_koehler_solution.md
     - file: assignments/assignment7_aerosols.md
   - caption: In-depth notes
     chapters:
@@ -112,12 +116,18 @@ parts:
       title: 2012 midterm
     - file: assignments/a405_mid_2026_solution.md
 
+  - caption: final exam
+    chapters:
+    - url: https://drive.google.com/file/d/1o9HOkiaXsestzA7P0Njt9X1r5IlEj34D/view?usp=sharing
+      title: Final Exam Practice Questions
+
+      
   - caption: Animations
     chapters:
     - url: https://drive.google.com/file/d/1Qwioo3qSyEzr4tTuC3Sx54oXLKg-3g3D/view?usp=sharing
       title: ARM diurnal over land
     - url: https://drive.google.com/file/d/1lCb3G9EhiPzRGO2m0FQWMTTUv2fSTnbi/view?usp=sharing
-      title: BOMEX -- trade cumulus over water
+      title: BOMEX -- trade cumulus over water 
     - url: https://drive.google.com/file/d/14ZLSAHCrjv8U0IKD9sQMHdql33Ebxkp3/view?usp=sharing
       title: CGILS trade cumulus over water
 
