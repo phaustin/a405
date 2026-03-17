@@ -285,8 +285,8 @@ the surface of the droplet:
 
 \begin{eqnarray}
   \label{balance}
-  L \frac{dm}{dt} - \frac{dH}{dt} &=& 0 ~\mathrm{~~~~~~~or:} \nonumber\\
-  4 \pi  r D L ( \rho_{v \infty} - \rho_{v r})&=&  4 \pi r K (T_r
+  l_v \frac{dm}{dt} - \frac{dH}{dt} &=& 0 ~\mathrm{~~~~~~~or:} \nonumber\\
+  4 \pi  r D l_v ( \rho_{v \infty} - \rho_{v r})&=&  4 \pi r K (T_r
   - T_\infty )
 \end{eqnarray}
 
@@ -298,7 +298,7 @@ the far-field $T_\infty$ and $\rho_{v \infty}$:
 
 \begin{eqnarray}
   \label{moistad}
-  \frac{dT_\infty}{dt}& =& \left [ \frac{ -g}{c_p + L \frac{d w_{v \infty}}{dt}}
+  \frac{dT_\infty}{dt}& =& \left [ \frac{ -g}{c_p + l_v \frac{d w_{v \infty}}{dt}}
      \right ] \frac{dz}{dt}~~~~~~~~~~~(\mathrm{moist~adiabat})\nonumber\\
   \frac{dw_{v \infty}}{dt}& =& -\frac{dw_{l}}{dt}= -\frac{4 \pi}{3}
    \frac{\rho_l}{\rho_a} \int_0^\infty \eta(r) r^2 \frac{dr}{dt} dr~~~~~~~~~~~(\mathrm{conservation~of~water})
@@ -335,10 +335,6 @@ and find the vapor pressure $e$, from
   \rho_{d \infty} = \frac{p - e}{R_d T_\infty}
 \end{equation}
 
-\includegraphics{rplot.png}
-
-
-\includegraphics{splot.png}
 
 \end{document}
 

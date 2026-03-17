@@ -54,6 +54,7 @@ parts:
     - file: assignments/assignment4_paper_solution.md
     - file: assignments/thompkins_practice_answers.md
     - file: assignments/assign6_koehler.md
+    - file: assignments/assignment7_aerosols.md
   - caption: In-depth notes
     chapters:
     - url: https://www.dropbox.com/scl/fi/5scb458wnoymr4s8ta4vt/equation_sheet.pdf?rlkey=29ymawiljakqnv3wquqa4wm8e&st=4mmzb2ii&dl=0
@@ -94,7 +95,13 @@ parts:
       title: entrainment and mixing
     - url: https://drive.google.com/file/d/1SU64h2sGfMsOygqHL1f6tK_K2HgLv1Nr/view?usp=sharing
       title: Koehler equation notes
-      
+    - url: https://drive.google.com/file/d/1mF4ES2IewpnLB-lQHOBuK5JwSnelqkYs/view?usp=sharing
+      title: Droplet growth notes
+    - url: https://drive.google.com/file/d/1i_2_LTQ496FScNK8V-b3pb-rvh6Qzapa/view?usp=sharing
+      title: timescales for diffusion and droplet growth
+    - url: https://drive.google.com/file/d/1YYr2dFO4csFNsdOL7IEZJCPEh6LXMoof/view?usp=sharing
+      title: aerosol size distributions
+
 
   - caption: midterms
     chapters:

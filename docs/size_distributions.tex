@@ -10,8 +10,8 @@
 \RCS $Date: 2002/01/09 03:50:54 $
 
 \fancypagestyle{first}{
-\lhead{A405: Lec. 19}
-\chead{\textbf{Wednesday, Feb. 21}}
+\lhead{A405}
+\chead{Aerosol size distributions}
 \rhead{page~\thepage/\pageref{LastPage}}
 \lfoot{} 
 \cfoot{} 
@@ -35,18 +35,13 @@
 
 \pagestyle{first}
 
-\begin{center}
-Atsc405: Lecture 19\\
-\end{center}
-
-
 \vspace{0.1in}
 \noindent
 \textbf{Aerosol size distributions}
 \vspace{0.1in}
 
-Wallace and Hobbs give several examples of histograms of aerosol
-number concentration as a function of aerosol radius (e.g.~5.9,
+Lohmann et al. Chapter 5  give several examples of histograms of aerosol
+number concentration as a function of aerosol radius (e.g.~Figs 5.2-5.6
 5.10, 5.11) .  These curves are called aerosol number distributions,
 and are written $n(r)$, with typical units of ($\ccm\, \mum^{-1}$)
 (pronounced ``number per cubic centimeter per micron bin width''.
@@ -83,7 +78,9 @@ the cumulative number distribution $N(r)$ (\ccm) defined as:
   N(r) = \int_r^\infty n(r^\prime) dr^\prime
 \end{equation}
 which is read as ``the number concentration of aerosols with radii
-larger than $r$''.
+larger than $r$''.   As we will see later in the chapter, this cumulautive size
+distribution $N(r)$ is the natural way to report readings from a cloud condensation
+nuclei counter.
 
 $N(r)$ and $n(r)$ are related by the one-dimensional version of Leibniz' rule:
 
@@ -107,16 +104,7 @@ and
 along with the fact that $n(\infty)=0$ if there is a finite number of aerosols.
 
 
-Although we don't need it  here,  Leibniz' rule for the total differential of an integral 
-of a two-dimensional function is also a good thing to know:
-
-\begin{equation}
-  \label{eq:lieb}
-  \frac{d}{dx} \int_A^B f(x,t) dt = \int_A^B \frac{\partial f}{\partial x} dt + f(x,B) \frac{dB}{dx}
-      - f(x,A) \frac{dA}{dx}
-\end{equation}
-
-Given the above we can see that the W\&H plot of $-dN/d\log r$ vs $d\log r$ still
+Given the above we can see that a plot of $-dN/d\log r$ vs $d\log r$ still
 gives the same result as (\ref{eq:prod}):
 
 \begin{eqnarray}

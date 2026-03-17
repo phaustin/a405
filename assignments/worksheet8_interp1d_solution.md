@@ -58,10 +58,6 @@ Check the accuracy of the interpolaters by adding the interpolated soundings ont
 Since I have the sounding data in the netcdf file written by the entraining_plume notebook, I'll use that below.
 
 ```{code-cell} ipython3
-
-```
-
-```{code-cell} ipython3
 from pathlib import Path
 import xarray as xr
 from a405.skewT.nudge import nudge
@@ -98,6 +94,9 @@ even_height = np.arange(200,9500,10)
 even_press=interpPress(even_height)
 even_temp = interpTenv(even_height)
 even_dew = interpTdEnv(even_height)
+press = entrain_ds['env_press'].values
+temp = entrain_ds['env_temp'].values
+dewpoint = entrain_ds['env_dewpoint'].values
 ```
 
 ```{code-cell} ipython3
