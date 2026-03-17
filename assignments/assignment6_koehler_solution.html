@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Assignment 7 – Due Friday March 20 midnight &#8212; ATSC 405</title>
+    <title>Assignment 6 paper/pencil problems &#8212; ATSC 405</title>
   
   
   
@@ -59,12 +59,12 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'assignments/assignment7';</script>
-    <link rel="canonical" href="https://phaustin.github.io/a405/assignments/assignment7.html" />
+    <script>DOCUMENTATION_OPTIONS.pagename = 'assignments/assignment6_koehler_solution';</script>
+    <link rel="canonical" href="https://phaustin.github.io/a405/assignments/assignment6_koehler_solution.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Week1: Hydrostatic balance explainer" href="../notebooks/week1/hydrostat.html" />
-    <link rel="prev" title="Assignment 6 – Koehler equation" href="assign6_koehler.html" />
+    <link rel="next" title="Assignment 7: aerosols" href="assignment7_aerosols.html" />
+    <link rel="prev" title="Assignment 6 CAPE solution" href="assign6_cape_solution.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -214,8 +214,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/worksheets/mixing_line_calc.html">Mixing line workbook</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/worksheets/entraining_plume.html">Modeling an entraining cloud updraft try</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/worksheets/worksheet8_interp1d.html">Worksheet 8: Interp1d</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/worksheets/worksheet8_interp1d_solution.html">Worksheet 8: Interp1d Solution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/worksheets/worksheet9_koehler_solution.html">Worksheet9: Koehler Equilibrium solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/worksheets/worksheet10_aero_dist.html">Worksheet 10: Aerosol distributions</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="current nav bd-sidenav">
@@ -226,7 +227,10 @@
 <li class="toctree-l1"><a class="reference internal" href="assignment4_paper_solution.html">Assignment 4 part 2  – solution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="thompkins_practice_answers.html">Tompkins practice questions – solution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="assign6_koehler.html">Assignment 6 – Koehler equation</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Assignment 7  – Due Friday March 20 midnight</a></li>
+<li class="toctree-l1"><a class="reference internal" href="assign6_cape_solution.html">Assignment 6 CAPE solution</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Assignment 6 paper/pencil problems</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="assignment7_aerosols.html">Assignment 7: aerosols</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">In-depth notes</span></p>
 <ul class="nav bd-sidenav">
@@ -260,6 +264,10 @@
 <li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1Nj31FAXyWur9qffnSflhx6CcLBta4PCj/view?usp=sharing">2016 midterm</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1jFKalQ9MXAvNu824LKVyHtNEleZhgI0q/view?usp=sharing">2012 midterm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="a405_mid_2026_solution.html">A405 2026 midterm solutions</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">final exam</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1o9HOkiaXsestzA7P0Njt9X1r5IlEj34D/view?usp=sharing">Final Exam Practice Questions</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Animations</span></p>
 <ul class="nav bd-sidenav">
@@ -320,7 +328,7 @@
       
       
       
-      <li><a href="../_sources/assignments/assignment7.md" target="_blank"
+      <li><a href="../_sources/assignments/assignment6_koehler_solution.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -404,7 +412,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Assignment 7  – Due Friday March 20 midnight</h1>
+    <h1>Assignment 6 paper/pencil problems</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -414,10 +422,26 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1-cloud-chamber">Problem 1: cloud chamber</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2-koehler-stability">Problem 2: Koehler stability</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3-ccn-lifetime">Problem 3: CCN lifetime</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Assignment 6 paper/pencil problems</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#kohler-problem-solutions">Kohler problem solutions</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#taylor-series">1. Taylor series</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#answer">1. Answer</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#first-taylor-series">First taylor series</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#second-taylor-series">Second taylor series</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#combining">Combining:</a></li>
 </ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#term-comparison">2. Term Comparison</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">2. Answer</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#surface-energy-vs-latent-heat">Surface energy vs. latent heat</a></li>
+</ul>
+</li>
+</ul>
+
             </nav>
         </div>
     </div>
@@ -428,50 +452,139 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="assignment-7-due-friday-march-20-midnight">
-<span id="assignment7"></span><h1>Assignment 7  – Due Friday March 20 midnight<a class="headerlink" href="#assignment-7-due-friday-march-20-midnight" title="Link to this heading">#</a></h1>
-<section id="problem-1-cloud-chamber">
-<h2>Problem 1: cloud chamber<a class="headerlink" href="#problem-1-cloud-chamber" title="Link to this heading">#</a></h2>
-<ol class="arabic">
-<li><p>Given the critical supersaturation from the kohler notes:</p>
-<div class="math notranslate nohighlight">
-\[
-    SS=S^* - 1= \left ( \frac{4 a^3}{27b} \right )^{1/2}
-    \]</div>
-</li>
-</ol>
-<p>show that this implies, for <span class="math notranslate nohighlight">\((NH_4)_2 SO_4\)</span>, density <span class="math notranslate nohighlight">\(\rho_{aer}\)</span> = 1775
-<span class="math notranslate nohighlight">\({kg}\,{m^{-3}}\)</span> , van hoft i=3, that:</p>
-<div class="math notranslate nohighlight">
-\[
-S^* -1 \approx 1.54 \times 10^{-12}~ m_{aer}^{-0.5}
- \]</div>
-<p>where <span class="math notranslate nohighlight">\(m_{aer}\)</span> is the ammonium sulphate aerosol mass in kg.</p>
-<p>Note that this is why a cloud chamber can get the aerosol mass distribution from a series of
-saturation and light scattering measurements as smaller and smaller aerosols are pushed over
-their critical supersaturation and activated.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="assignment-6-paper-pencil-problems">
+<span id="assign6-koehler-solution"></span><h1>Assignment 6 paper/pencil problems<a class="headerlink" href="#assignment-6-paper-pencil-problems" title="Link to this heading">#</a></h1>
+<p>Download <a class="reference external" href="https://drive.google.com/file/d/14Cb42uWdlw1OMWCd7v2KoRMVysVAC_9_/view?usp=sharing">assignmen6_koehler_solution.ipynb</a></p>
 </section>
-<section id="problem-2-koehler-stability">
-<h2>Problem 2: Koehler stability<a class="headerlink" href="#problem-2-koehler-stability" title="Link to this heading">#</a></h2>
-<ol class="arabic" start="2">
-<li><p>Show that the expression for second derivative of the thermodynamic potential derived in the  kohler stability notes:</p>
+<section class="tex2jax_ignore mathjax_ignore" id="kohler-problem-solutions">
+<h1>Kohler problem solutions<a class="headerlink" href="#kohler-problem-solutions" title="Link to this heading">#</a></h1>
+<section id="taylor-series">
+<h2>1. Taylor series<a class="headerlink" href="#taylor-series" title="Link to this heading">#</a></h2>
+<p>Show using two Taylor series expansions how to get  Lohmann 6.24:</p>
+<p><span class="math notranslate nohighlight">\(S= a_w \exp \left [ \frac{2\sigma}{\rho_l R_v T r} \right ] \approx \left ( 1 + \frac{a}{r} - \frac{b}{r^3} \right )\)</span></p>
+<section id="answer">
+<h3>1. Answer<a class="headerlink" href="#answer" title="Link to this heading">#</a></h3>
+<section id="first-taylor-series">
+<h4>First taylor series<a class="headerlink" href="#first-taylor-series" title="Link to this heading">#</a></h4>
+<p><span class="math notranslate nohighlight">\(a_w = \left ( \frac{n_w}{n_w + n_s} \right ) = \left ( \frac{1}{1 + n_s/n_w} \right ) = (1 + n_s/n_w)^{-1}\)</span></p>
+<p>If <span class="math notranslate nohighlight">\(n_s/n_w  = x \ll 1\)</span>  then expand <span class="math notranslate nohighlight">\((1 + x)^{-1}\)</span> in a Taylor series about x=0:</p>
+<p><span class="math notranslate nohighlight">\(f^\prime (0) = -(1 + 0 )^{-2} = -1\)</span>, <span class="math notranslate nohighlight">\(f^{\prime \prime} (0) = 2 ( 1 + 0 )^{-3} = 2\)</span></p>
+<p>so <span class="math notranslate nohighlight">\((1 + x)^{-1} \approx 1 - x + 2x^2/2 + \ldots\)</span></p>
+</section>
+<section id="second-taylor-series">
+<h4>Second taylor series<a class="headerlink" href="#second-taylor-series" title="Link to this heading">#</a></h4>
+<p><span class="math notranslate nohighlight">\(\exp \left [ \frac{2\sigma}{\rho_l R_v T r} \right ] = \exp \left ( \frac{a}{r} \right ) = \exp(y)\)</span></p>
+<p>if <span class="math notranslate nohighlight">\(y \ll 1\)</span> then expand exp in a taylor series about y=0:</p>
+<p><span class="math notranslate nohighlight">\(f^\prime (0) =\exp(0) = 1\)</span></p>
+<p><span class="math notranslate nohighlight">\(f^{\prime \prime}(0) = 1\)</span></p>
+<p>so <span class="math notranslate nohighlight">\(\exp(y) \approx 1 + y  + y^2/2 + \ldots\)</span></p>
+</section>
+<section id="combining">
+<h4>Combining:<a class="headerlink" href="#combining" title="Link to this heading">#</a></h4>
+<p><span class="math notranslate nohighlight">\(a_w \exp \left [ \frac{2\sigma}{\rho_l R_v T r} \right ] \approx (1 - x + x^2 )(1 + y + y^2/2) = 1 + y - x + y^2/2 + x^2 + \ldots\)</span></p>
+<p>and keeping only first order terms:</p>
+<p><span class="math notranslate nohighlight">\(S = 1 + y - x = 1 + \frac{a}{r} - n_s/n_w\)</span></p>
+<p>and since <span class="math notranslate nohighlight">\(n_w \propto r^3\)</span>: <span class="math notranslate nohighlight">\(S = 1 + y - x = 1 + \frac{a}{r} - \frac{b}{r^3}\)</span></p>
+<p>where we’ve dropped all terms of order <span class="math notranslate nohighlight">\(xy\)</span> or higher, i.e. we’ve dropped</p>
 <div class="math notranslate nohighlight">
 \[
-     \frac{\delta ^2G}{\delta r^2} = - 4 \pi R_v T \rho_l \left [ 2 a - r^2 \left ( 1 +
-           \frac{b}{r^3} \right ) \frac{3b}{r^4}  \right ] + 8 \pi \sigma
-     \]</div>
-<p>Changes sign from stable (positive) to unstable (negative) at <span class="math notranslate nohighlight">\(r_{crit}\)</span>.</p>
-<p>Hint – first show that the second derivative is zero at the critical radius.  Then show that
-the third derivative is negative above and below the critical radius, which means that
-there has to be a sign change from + to -.</p>
-</li>
-</ol>
+\text{dropped\_term} =\frac{ab}{r^4}
+\]</div>
 </section>
-<section id="problem-3-ccn-lifetime">
-<h2>Problem 3: CCN lifetime<a class="headerlink" href="#problem-3-ccn-lifetime" title="Link to this heading">#</a></h2>
-<ol class="arabic simple" start="3">
-<li><p>Assuming that cloud condensation nuclei (CCN) are removed from the atmosphere by first serving as the centers on which cloud droplets form, and the droplets subsequently grow to form precipitation particles, estimate the residence time of a CCN in a column extending from the surface of the Earth to an altitude of 5 km. Assume that the annual rainfall is 100 cm/year and the cloud liquid water content is 0.30 <span class="math notranslate nohighlight">\(g/kg\)</span> .  <em>Hint:  Assume that all drops in the cloud droplets have  a radii of 10 microns and that every droplet contains exactly 1 CCN.   How many CCN are in 1 kg of air?  About how many kg of air are there in a 5 km column?  About how many CCN are taken out by a rain rate of 1 m/year?  Find the time constant for removal of the form  1/N dN/dt = 1/tau</em></p></li>
-</ol>
+</section>
+</section>
+<section id="term-comparison">
+<h2>2. Term Comparison<a class="headerlink" href="#term-comparison" title="Link to this heading">#</a></h2>
+<p>For the aerosol defined in the kohler.ipynb notebook (<span class="math notranslate nohighlight">\(10^{-19}\)</span> kg, ammonium sulphate), inside a droplet of radius <span class="math notranslate nohighlight">\(r=1\ \mu m\)</span>
+find the size of the smallest term you’ve kept (either <span class="math notranslate nohighlight">\(\frac{a}{r}\)</span> or <span class="math notranslate nohighlight">\(\frac{b}{r^3}\)</span> and compare it to
+the size of the largest term you’ve dropped.   Repeat this for a droplet of radius   <span class="math notranslate nohighlight">\(r=0.1\ \mu m\)</span></p>
+<section id="id1">
+<h3>2. Answer<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">a405.thermo.constants</span><span class="w"> </span><span class="kn">import</span> <span class="n">constants</span> <span class="k">as</span> <span class="n">c</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">find_terms</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
+    <span class="n">Tinit</span><span class="o">=</span><span class="n">c</span><span class="o">.</span><span class="n">Tc</span> <span class="o">+</span> <span class="mi">15</span> <span class="c1">#Temperature K</span>
+    <span class="n">Ms</span><span class="o">=</span><span class="mi">132</span> <span class="c1">#ammonium sulphae kg/Kmole</span>
+    <span class="n">Mw</span><span class="o">=</span><span class="mf">18.</span> <span class="c1">#water kg/Kmole</span>
+    <span class="n">Sigma</span><span class="o">=</span><span class="mf">0.075</span>  <span class="c1">#N/m</span>
+    <span class="n">vanHoff</span><span class="o">=</span><span class="mf">3.</span> <span class="c1">#van hoff for ammonium bisulphate</span>
+    <span class="c1">#calculate kohler coefficients:</span>
+    <span class="n">a</span><span class="o">=</span><span class="p">(</span><span class="mf">2.</span><span class="o">*</span><span class="n">Sigma</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">Rv</span><span class="o">*</span><span class="n">Tinit</span><span class="o">*</span><span class="n">c</span><span class="o">.</span><span class="n">rhol</span><span class="p">)</span>  <span class="c1">#curvature term</span>
+    <span class="n">mass_aero</span> <span class="o">=</span> <span class="mf">1.e-19</span>  <span class="c1">#kg</span>
+    <span class="n">b</span><span class="o">=</span><span class="p">(</span><span class="n">vanHoff</span><span class="o">*</span><span class="n">Mw</span><span class="p">)</span><span class="o">/</span><span class="p">((</span><span class="mf">4.</span><span class="o">/</span><span class="mf">3.</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">c</span><span class="o">.</span><span class="n">rhol</span><span class="o">*</span><span class="n">Ms</span><span class="p">)</span><span class="o">*</span><span class="n">mass_aero</span>   <span class="c1">#solution term</span>
+    <span class="n">kv</span><span class="o">=</span><span class="n">a</span><span class="o">/</span><span class="n">r</span>
+    <span class="n">rt</span><span class="o">=</span><span class="n">b</span><span class="o">/</span><span class="p">(</span><span class="n">r</span><span class="o">**</span><span class="mf">3.</span><span class="p">)</span>
+    <span class="n">dropped</span><span class="o">=</span> <span class="n">kv</span><span class="o">*</span><span class="n">rt</span>
+    <span class="k">return</span> <span class="n">kv</span><span class="p">,</span><span class="n">rt</span> <span class="p">,</span><span class="n">dropped</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">template</span><span class="p">(</span><span class="n">kelvin_term</span><span class="p">,</span><span class="n">raoult_term</span><span class="p">,</span><span class="n">radius</span><span class="p">,</span><span class="n">dropped</span><span class="p">):</span>
+    <span class="n">out</span><span class="o">=</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;kelvin term = </span><span class="si">{</span><span class="n">kelvin_term</span><span class="si">:</span><span class="s1">8.1g</span><span class="si">}</span><span class="s1"> vs &#39;</span>
+       <span class="sa">f</span><span class="s1">&#39;raoult term </span><span class="si">{</span><span class="n">raoult_term</span><span class="si">:</span><span class="s1">8.1g</span><span class="si">}</span><span class="s1"> for &#39;</span> 
+       <span class="sa">f</span><span class="s1">&#39;radius= </span><span class="si">{</span><span class="n">radius</span><span class="o">*</span><span class="mf">1.e6</span><span class="si">:</span><span class="s1">5.1f</span><span class="si">}</span><span class="s1"> microns</span><span class="se">\n</span><span class="s1">&#39;</span>
+       <span class="sa">f</span><span class="s1">&#39;largest term dropped is: </span><span class="si">{</span><span class="n">dropped</span><span class="si">:</span><span class="s1">8.1e</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">out</span>
+
+
+<span class="k">for</span> <span class="n">radius</span> <span class="ow">in</span> <span class="p">[</span><span class="mf">1.e-6</span><span class="p">,</span><span class="mf">1.e-7</span><span class="p">,</span><span class="mf">1.e-8</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">radius = </span><span class="si">{</span><span class="n">radius</span><span class="o">*</span><span class="mf">1.e6</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> microns</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">kelvin_term</span><span class="p">,</span><span class="n">raoult_term</span><span class="p">,</span> <span class="n">dropped</span><span class="o">=</span><span class="n">find_terms</span><span class="p">(</span><span class="n">radius</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">template</span><span class="p">(</span><span class="n">kelvin_term</span><span class="p">,</span><span class="n">raoult_term</span><span class="p">,</span><span class="n">radius</span><span class="p">,</span> <span class="n">dropped</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>radius = 1.000 microns
+
+kelvin term =    0.001 vs raoult term    1e-05 for radius=   1.0 microns
+largest term dropped is:  1.1e-08
+
+radius = 0.100 microns
+
+kelvin term =     0.01 vs raoult term     0.01 for radius=   0.1 microns
+largest term dropped is:  1.1e-04
+
+radius = 0.010 microns
+
+kelvin term =      0.1 vs raoult term    1e+01 for radius=   0.0 microns
+largest term dropped is:  1.1e+00
+</pre></div>
+</div>
+</div>
+</div>
+<p>Conclusion: don’t use the Taylor series expansion for very small droplets</p>
+</section>
+</section>
+<section id="surface-energy-vs-latent-heat">
+<h2>Surface energy vs. latent heat<a class="headerlink" href="#surface-energy-vs-latent-heat" title="Link to this heading">#</a></h2>
+<p>Suppose you have <span class="math notranslate nohighlight">\(r_l\)</span> =1 g/kg of liquid water spread among N spherical drops of radius 10 <span class="math notranslate nohighlight">\(\mu m\)</span>.  Compare the surface energy of this
+population (which we’ve been neglecting) with the enthalpy required to vaporize it:  <span class="math notranslate nohighlight">\(l_v r_l\)</span>.  Is it negligible in comparison?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sigma</span> <span class="o">=</span> <span class="mf">0.075</span> <span class="c1"># N/m^2</span>
+<span class="n">rhol</span><span class="o">=</span><span class="mi">1000</span>  <span class="c1">#kg/m^3</span>
+<span class="n">rl</span><span class="o">=</span><span class="mf">1.e-3</span> <span class="c1">#g/kg</span>
+<span class="n">r</span><span class="o">=</span><span class="mf">1.e-5</span>  <span class="c1">#m</span>
+<span class="n">N</span> <span class="o">=</span> <span class="n">rl</span><span class="o">/</span><span class="p">(</span><span class="mf">4.</span><span class="o">/</span><span class="mf">3.</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">r</span><span class="o">**</span><span class="mf">3.</span><span class="o">*</span><span class="n">rhol</span><span class="p">)</span>
+<span class="n">surface_energy</span> <span class="o">=</span> <span class="n">N</span><span class="o">*</span><span class="n">sigma</span><span class="o">*</span><span class="mi">4</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">r</span><span class="o">**</span><span class="mf">2.</span>
+<span class="n">bulk_enthalpy</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">lv0</span><span class="o">*</span><span class="n">rl</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;there are </span><span class="si">{</span><span class="n">N</span><span class="si">=:</span><span class="s1">6.1g</span><span class="si">}</span><span class="s1"> drops/kg&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">surface_energy</span><span class="si">=:</span><span class="s1">6.3f</span><span class="si">}</span><span class="s1"> J/kg, bulk enthalpy of evaporation </span><span class="si">{</span><span class="n">bulk_enthalpy</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1"> J/kg&#39;</span><span class="p">)</span>
+<span class="n">error</span> <span class="o">=</span> <span class="n">surface_energy</span><span class="o">/</span><span class="n">bulk_enthalpy</span><span class="o">*</span><span class="mi">100</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;we are neglecting </span><span class="si">{</span><span class="n">error</span><span class="si">:</span><span class="s2">.1e</span><span class="si">}</span><span class="s2">% of the energy&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>there are N= 2e+08 drops/kg
+surface_energy= 0.023 J/kg, bulk enthalpy of evaporation 2501.0 J/kg
+we are neglecting 9.0e-04% of the energy
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 
@@ -506,20 +619,20 @@ there has to be a sign change from + to -.</p>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="assign6_koehler.html"
+       href="assign6_cape_solution.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Assignment 6 – Koehler equation</p>
+        <p class="prev-next-title">Assignment 6 CAPE solution</p>
       </div>
     </a>
     <a class="right-next"
-       href="../notebooks/week1/hydrostat.html"
+       href="assignment7_aerosols.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Week1: Hydrostatic balance explainer</p>
+        <p class="prev-next-title">Assignment 7: aerosols</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -539,10 +652,26 @@ there has to be a sign change from + to -.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1-cloud-chamber">Problem 1: cloud chamber</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2-koehler-stability">Problem 2: Koehler stability</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3-ccn-lifetime">Problem 3: CCN lifetime</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Assignment 6 paper/pencil problems</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#kohler-problem-solutions">Kohler problem solutions</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#taylor-series">1. Taylor series</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#answer">1. Answer</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#first-taylor-series">First taylor series</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#second-taylor-series">Second taylor series</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#combining">Combining:</a></li>
 </ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#term-comparison">2. Term Comparison</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">2. Answer</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#surface-energy-vs-latent-heat">Surface energy vs. latent heat</a></li>
+</ul>
+</li>
+</ul>
+
   </nav></div>
 
 </div></div>

@@ -1,0 +1,1020 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Worksheet 10: Aerosol distributions &#8212; ATSC 405</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=1ae7504c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/worksheets/worksheet10_aero_dist';</script>
+    <link rel="canonical" href="https://phaustin.github.io/a405/notebooks/worksheets/worksheet10_aero_dist.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Adiabatic Box - Solution" href="../../assignments/adiabatic_box_solution.html" />
+    <link rel="prev" title="Worksheet9: Koehler Equilibrium solution" href="worksheet9_koehler_solution.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">ATSC 405</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../index.html">
+                    ATSC 405 syllabus
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Background information</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../integrity.html">UBC academic integrity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ai_policy.html">Course policy for generative AI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../learning_goals.html">Learning goals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../schedule.html">Course schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_install.html">Python links</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.dropbox.com/scl/fo/9grhb2cr0lpfc1d5jci4a/h?rlkey=shnjpq4kvndrcatbgrri44eyw&amp;dl=0">Thompkins text</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://gw2jh3xr2c.search.serialssolutions.com/?sid=sersol&amp;SS_jc=TC0001980404&amp;title=An%20introduction%20to%20clouds%20%3A%20from%20the%20microscale%20to%20climate">Lohmann et al. text</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.dropbox.com/scl/fi/r7zhctw6usest2rirpe2f/wallace_hobbs_chap6.pdf?rlkey=oxdanppj9wkocmwe4nn4cc4fi&amp;dl=0">Wallace and Hobbs chapter 6</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.eoas.ubc.ca/books/Practical_Meteorology">Stull, Practical Meteorolgy</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://phaustin.github.io/a405_lib/full_listing.html">A405 library documentation</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/phaustin/a405/tree/main/src/a405">A405 library source code</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.google.com/presentation/d/1tgA2Ia1sWPzZVlgspuW7MOUfokDDZmfvS2eDTtFr-Mw/edit?usp=sharing">Blank tephigram - 1000-800 hPa</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Weekly topics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../week_notes.html">Week notes</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Worksheets</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="worksheet1_solution.html">Week 1 worksheet solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="worksheet2_solution.html">Worksheet2 – Thermodynamics worksheet solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week2/skew_coords.html">Week2: Demo – Theromodynamic diagrams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="worksheet3_derivs_and_ints_solution.html">worksheet 3 solution: working with numpy arrays</a></li>
+<li class="toctree-l1"><a class="reference internal" href="worksheet4_taylor_series_solution.html">Worksheet 4: Taylor series solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week4/xarray-intro.html">Demo: Introduction to Xarray</a></li>
+<li class="toctree-l1"><a class="reference internal" href="worksheet5_latent_solution.html">Worksheet 5 solution: Latent heat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="worksheet6_gibbs_solution.html">Worksheet 6 solution: Gibbs free energy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mixing_line_example.html">Mixing line example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="convec_instability.html">Convective instability – lifting demo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="moist_adiabats.html">Moist adiabats and the LCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tropical_engine_solution.html">Tropical Heat Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cape_part1.html">Cape Part 1  – demo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="worksheet7_taylor_solution.html">Worksheet 7 – Taylor series problem solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mixing_line_calc.html">Mixing line workbook</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="entraining_plume.html">Modeling an entraining cloud updraft try</a></li>
+<li class="toctree-l1"><a class="reference internal" href="worksheet8_interp1d_solution.html">Worksheet 8: Interp1d Solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="worksheet9_koehler_solution.html">Worksheet9: Koehler Equilibrium solution</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Worksheet 10: Aerosol distributions</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../assignments/adiabatic_box_solution.html">Adiabatic Box - Solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../assignments/hydrostatic_scaling_solution.html">Assign 2: Solution - Scale heights for typical atmospheric soundings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../assignments/tropical_clouds_profiles_solution.html">Assignment 3 solution: Analyzing a model cloud dataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../assignments/assign4_rootfind_solution.html">Assignment 4a rootfinding solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../assignments/assignment4_paper_solution.html">Assignment 4 part 2  – solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../assignments/thompkins_practice_answers.html">Tompkins practice questions – solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../assignments/assign6_koehler.html">Assignment 6 – Koehler equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../assignments/assign6_cape_solution.html">Assignment 6 CAPE solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../assignments/assignment6_koehler_solution.html">Assignment 6 paper/pencil problems</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../../assignments/assignment7_aerosols.html">Assignment 7: aerosols</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">In-depth notes</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://www.dropbox.com/scl/fi/5scb458wnoymr4s8ta4vt/equation_sheet.pdf?rlkey=29ymawiljakqnv3wquqa4wm8e&amp;st=4mmzb2ii&amp;dl=0">final exam equation sheet</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1L8am0jnhBdlTNzQNR8lE-Iyw0V6lwqg2/view?usp=sharing">mid-term equation sheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week1/hydrostat.html">Week1: Hydrostatic balance explainer</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1dBxcwxe0quNjYAihiFwMpF8kVmjmYh1p/view?usp=sharing">Week2 - Kinetic Temperature notes</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/12xontZRhRTKBjtG9y27RS6CH35eARcgp/view?usp=sharing">Week 2 - First law of thermodynamics</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1_ZpKjfR3OGHkmnk9-lKEmP8SSGNM8Is_/view?usp=sharing">Week 2 - Hydrostatic balance and scale heights</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1CjXm0AHYMJYmxf-Mm6CuWD7tIM_KBRI0/view?usp=sharing">Week 3 - Entropy and potential temperature</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1Id1EECa8qefSD6YhJoJzVp2neEarD9Wa/view?usp=sharing">Week 3 - Buoyancy and Taylor's series</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1GrzhzpvWbN0H4dP3Z77M4O88Cyey5k2K/view?usp=sharing">Schroeder Chapter 5 free energy</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1YrHBkCiFduYqjd_Dn8_3fZJocmqva1PG/view?usp=sharing">Lohmann Chapter 2 - Thermodynamics</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1rJO32NGhTW3TA6noQmSdNl2GNXyrZUgA/view?usp=sharing">Maxwell relations</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/144fXb0-of3lpwL0xGZYH16yxGJOmvDEh/view?usp=sharing">Clausius-Clapeyron equation</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1EQI86M4I76ARXDV54VOHKQP3J0-kyyDq/view?usp=sharing">Virtual temperature notes</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1BPTvFijtktG4135T1X8DXwI8l_C8xHEt/view?usp=sharing">Static energy and $\theta_e$ notes</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/131QoLZPjajoCtreV6muYOxDlF6jvRH4s/view?usp=sharing">Carnot cycle notes</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1wsfzaorhVKiMwDlrolf2gtTrSLT4p4iM/view?usp=sharing">wet bulb notes</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1j8vhmRtGaOlpe0JAAS-fvZmH9H8U2ay2/view?usp=sharing">Wet bulb vs. $\theta_e$</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week7/gibbs_notes.html">Gibbs Free Energy notes</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1VgY5LWMSmavpoHFQYFE-wkPxGnD5x44O/view?usp=sharing">entrainment and mixing</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1SU64h2sGfMsOygqHL1f6tK_K2HgLv1Nr/view?usp=sharing">Koehler equation notes</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1mF4ES2IewpnLB-lQHOBuK5JwSnelqkYs/view?usp=sharing">Droplet growth notes</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1i_2_LTQ496FScNK8V-b3pb-rvh6Qzapa/view?usp=sharing">timescales for diffusion and droplet growth</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1YYr2dFO4csFNsdOL7IEZJCPEh6LXMoof/view?usp=sharing">aerosol size distributions</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">midterms</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../assignments/study_topics.html">Midterm study topics</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1Nj31FAXyWur9qffnSflhx6CcLBta4PCj/view?usp=sharing">2016 midterm</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1jFKalQ9MXAvNu824LKVyHtNEleZhgI0q/view?usp=sharing">2012 midterm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../assignments/a405_mid_2026_solution.html">A405 2026 midterm solutions</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">final exam</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1o9HOkiaXsestzA7P0Njt9X1r5IlEj34D/view?usp=sharing">Final Exam Practice Questions</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Animations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1Qwioo3qSyEzr4tTuC3Sx54oXLKg-3g3D/view?usp=sharing">ARM diurnal over land</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1lCb3G9EhiPzRGO2m0FQWMTTUv2fSTnbi/view?usp=sharing">BOMEX -- trade cumulus over water</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/14ZLSAHCrjv8U0IKD9sQMHdql33Ebxkp3/view?usp=sharing">CGILS trade cumulus over water</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/notebooks/worksheets/worksheet10_aero_dist.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Worksheet 10: Aerosol distributions</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-normal-distribution">The normal distribution</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-and-standard-deviation-mu-sigma">mean and standard deviation, <span class="math notranslate nohighlight">\(\mu\)</span>, <span class="math notranslate nohighlight">\(\sigma\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-area-should-be-1-for-pdf">numerical area – should be 1 for pdf</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-mean-should-be-5">numerical mean should be 5</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-sd-should-be-2">numerical sd should be 2</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-lognormal-distribution">The lognormal distribution</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#total-probability-should-be-1">total probability should be 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-should-be-log-5">mean should be log(5)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sd-should-be-log-2">sd should be log(2)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lognormal-aerosol-mass-distribution">lognormal aerosol mass distribution</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-mass-distribution-as-a-function-of-aerosol-dry-radius">Plot the mass distribution as a function of aerosol dry radius.</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#number-distribution-n-r-m-3-m-1">Number distribution n(r)  (<span class="math notranslate nohighlight">\(\# \,m^{-3}\;m^{-1}\)</span>)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#log-units">log units</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#worksheet-question-1">Worksheet question 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#worksheet-question-2">Worksheet question 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#study-problem">Study Problem</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="worksheet-10-aerosol-distributions">
+<span id="worksheet10-aerosol-dists"></span><h1>Worksheet 10: Aerosol distributions<a class="headerlink" href="#worksheet-10-aerosol-distributions" title="Link to this heading">#</a></h1>
+<p>Download <a class="reference external" href="https://drive.google.com/file/d/1T5WBvo9MPTjpeKrgZY-fXAn6jwDFct9d/view?usp=sharing">worksheet10_aero_dist.ipynb</a></p>
+<p>Below we look at some mass and number distribution functions for atmospheric aerosols.</p>
+<p>How do we describe the observations given by measurements such as those in Lohmann Fig. 5.5?</p>
+<figure class="align-default" id="lohmann-f55">
+<a class="reference internal image-reference" href="../../_images/lohmann_5_5.png"><img alt="pha" src="../../_images/lohmann_5_5.png" style="width: 80%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Lohmann textbook figure 5.5</span><a class="headerlink" href="#lohmann-f55" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="the-normal-distribution">
+<h2>The normal distribution<a class="headerlink" href="#the-normal-distribution" title="Link to this heading">#</a></h2>
+<p>Recall the definition for the normal distribution</p>
+<p><span class="math notranslate nohighlight">\(\mathcal{N}(\alpha;\mu,\sigma) = \frac{1}{\sigma\sqrt{2\pi}} \exp\left[-\frac {(\alpha - \mu)^{2}} {2\sigma^{2}}\right]\)</span></p>
+<p>In python we can write this as</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">normal</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span><span class="n">mu</span><span class="p">,</span><span class="n">sigma</span><span class="p">):</span>
+    <span class="n">out</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">sigma</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)))</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">alpha</span> <span class="o">-</span> <span class="n">mu</span><span class="p">)</span><span class="o">**</span><span class="mf">2.</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">sigma</span><span class="o">**</span><span class="mf">2.</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">out</span>
+    
+</pre></div>
+</div>
+</div>
+</div>
+<section id="mean-and-standard-deviation-mu-sigma">
+<h3>mean and standard deviation, <span class="math notranslate nohighlight">\(\mu\)</span>, <span class="math notranslate nohighlight">\(\sigma\)</span><a class="headerlink" href="#mean-and-standard-deviation-mu-sigma" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alpha</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">mu</span><span class="o">=</span><span class="mi">5</span>
+<span class="n">sigma</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">out</span><span class="o">=</span><span class="n">normal</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span><span class="n">mu</span><span class="p">,</span><span class="n">sigma</span><span class="p">)</span>
+<span class="n">out_centers</span> <span class="o">=</span> <span class="p">(</span><span class="n">out</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">+</span> <span class="n">out</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="mf">2.</span>
+<span class="n">alpha_centers</span> <span class="o">=</span> <span class="p">(</span><span class="n">alpha</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">+</span> <span class="n">alpha</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="mf">2.</span>
+<span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span><span class="n">out</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/57d64f1fc5be66ccdab4e264c02500a9767fdd2ce66205844c946ee15575abe7.png" src="../../_images/57d64f1fc5be66ccdab4e264c02500a9767fdd2ce66205844c946ee15575abe7.png" />
+</div>
+</div>
+</section>
+<section id="numerical-area-should-be-1-for-pdf">
+<h3>numerical area – should be 1 for pdf<a class="headerlink" href="#numerical-area-should-be-1-for-pdf" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">area</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">out_centers</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">alpha</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;gaussian normalizes to </span><span class="si">{</span><span class="n">area</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>gaussian normalizes to 1.000
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="numerical-mean-should-be-5">
+<h3>numerical mean should be 5<a class="headerlink" href="#numerical-mean-should-be-5" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nummean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">alpha_centers</span><span class="o">*</span><span class="n">out_centers</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">alpha</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;numerical mean is </span><span class="si">{</span><span class="n">nummean</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">, analytic mean is </span><span class="si">{</span><span class="n">mu</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>numerical mean is 5.000, analytic mean is 5.000
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="numerical-sd-should-be-2">
+<h3>numerical sd should be 2<a class="headerlink" href="#numerical-sd-should-be-2" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numvar</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">alpha_centers</span> <span class="o">-</span> <span class="n">nummean</span><span class="p">)</span><span class="o">**</span><span class="mf">2.</span><span class="o">*</span><span class="n">out_centers</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">alpha</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;numerical sd is </span><span class="si">{</span><span class="n">numvar</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">, analytic sigma is </span><span class="si">{</span><span class="n">sigma</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>numerical sd is 4.023, analytic sigma is 2.000
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="the-lognormal-distribution">
+<h2>The lognormal distribution<a class="headerlink" href="#the-lognormal-distribution" title="Link to this heading">#</a></h2>
+<p>For a <strong>lognormal</strong> distribution, the variable that is normally distributed is <span class="math notranslate nohighlight">\(\alpha = \ln x\)</span>.  This distribution arises because processes that create the end value (like the mass of areosols) are <em>multiplicative</em> instead of <em>additive</em>.  That is, while a normal variable is generated by the sum of many random variables (the central limit theorem) a <em>lognomal variable</em> is generated by the product of many random variables</p>
+<p><span class="math notranslate nohighlight">\(\mathcal{N}(\ln(x);\mu,\sigma) = \frac{1}{\sigma\sqrt{2\pi}} \exp\left[-\frac {(\ln(x) - \mu)^{2}} {2\sigma^{2}}\right], \ \ x&gt;0.\)</span></p>
+<p>Note that it’s a little more complicated than just swapping <span class="math notranslate nohighlight">\(\alpha = \ln x\)</span>. Recall that a change of variables has to conserve area, i.e.:</p>
+<p><span class="math notranslate nohighlight">\(\mathcal{N}(\alpha, \mu, \sigma) d\alpha= \mathcal{N}(\ln x, \mu, \sigma) d\alpha  = f(x)dx\)</span></p>
+<p>and since:</p>
+<p><span class="math notranslate nohighlight">\(d\alpha = d \alpha = \frac{dx}{x}\)</span> this means:</p>
+<p><span class="math notranslate nohighlight">\(\mathcal{N}(\ln x, \mu, \sigma) d\alpha  = f(x)\; d\alpha \; x\)</span>  so that:</p>
+<p><span class="math notranslate nohighlight">\(f(x) = \frac{1}{x} N(\ln x, \mu, \sigma) = \frac{1}{x \sigma\sqrt{2\pi}} \exp\left[-\frac {(\ln(x) - \mu)^{2}} {2\sigma^{2}}\right]\)</span></p>
+<p>In python:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">lognormal</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">mu</span><span class="p">,</span><span class="n">sigma</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    x: vector (float)  </span>
+<span class="sd">      aerosol masses (kg)  (for example)</span>
+<span class="sd">      </span>
+<span class="sd">    mu: float</span>
+<span class="sd">       log(mean mass)</span>
+<span class="sd">       </span>
+<span class="sd">    sigma: float</span>
+<span class="sd">       log(standard deviation)</span>
+<span class="sd">       </span>
+<span class="sd">    returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    </span>
+<span class="sd">    out: vector (float)</span>
+<span class="sd">        lognormal pdf, normalized to 1</span>
+<span class="sd">        units</span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">out</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">sigma</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)))</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="n">mu</span><span class="p">)</span><span class="o">**</span><span class="mf">2.</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">sigma</span><span class="o">**</span><span class="mf">2.</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">out</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">10000</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="n">x</span>
+<span class="n">mu</span><span class="o">=</span><span class="mi">5</span>
+<span class="n">sigma</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">out</span> <span class="o">=</span> <span class="n">lognormal</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">mu</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">sigma</span><span class="p">))</span>
+<span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">out</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">25</span><span class="p">])</span>
+<span class="n">out_centers</span> <span class="o">=</span> <span class="p">(</span><span class="n">out</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">+</span> <span class="n">out</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="mf">2.</span>
+<span class="n">x_centers</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">+</span> <span class="n">x</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="mf">2.</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/42c4fc1a46117bd9fda9a44af035be4add1df52bc1a3b0cf2fc7c0608c69140b.png" src="../../_images/42c4fc1a46117bd9fda9a44af035be4add1df52bc1a3b0cf2fc7c0608c69140b.png" />
+</div>
+</div>
+<section id="total-probability-should-be-1">
+<h3>total probability should be 1<a class="headerlink" href="#total-probability-should-be-1" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">area</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">out_centers</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;lognormal normalizes to </span><span class="si">{</span><span class="n">area</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>lognormal normalizes to 1.000
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="mean-should-be-log-5">
+<h3>mean should be log(5)<a class="headerlink" href="#mean-should-be-log-5" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nummean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">x_centers</span><span class="p">)</span><span class="o">*</span><span class="n">out_centers</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;numerical mean is </span><span class="si">{</span><span class="n">nummean</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">, analytic mean is </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">mu</span><span class="p">)</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>numerical mean is 1.609, analytic mean is 1.609
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="sd-should-be-log-2">
+<h3>sd should be log(2)<a class="headerlink" href="#sd-should-be-log-2" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numvar</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">x_centers</span><span class="p">)</span> <span class="o">-</span> <span class="n">nummean</span><span class="p">)</span><span class="o">**</span><span class="mf">2.</span><span class="o">*</span><span class="n">out_centers</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;numerical sd is </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">numvar</span><span class="p">)</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">, analytic sigma is </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">sigma</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>numerical sd is 0.693, analytic sigma is 0.6931471805599453
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="lognormal-aerosol-mass-distribution">
+<h2>lognormal aerosol mass distribution<a class="headerlink" href="#lognormal-aerosol-mass-distribution" title="Link to this heading">#</a></h2>
+<p>It’s an observational fact that aerosol masses tend to follow a lognormal distribuiton.</p>
+<p>As a specific example take:</p>
+<p>1. Mean aerosol mass <span class="math notranslate nohighlight">\(\mu = 2 \times 10^{-17}\)</span> kg</p>
+<p>2. Log of the standard deviation = <span class="math notranslate nohighlight">\(\ln 1.7\)</span></p>
+<p>3. Total mass of aerosols = <span class="math notranslate nohighlight">\(10^{-9}\; kg\;m^{-3}\)</span> = 1 <span class="math notranslate nohighlight">\(\mu g\;m^{-3}\)</span></p>
+<p>4. Aerosol density 1775 <span class="math notranslate nohighlight">\(kg\,m^{-3}\)</span></p>
+<p>So what is the radius of a mean aerosol?  We want to find:</p>
+<p><span class="math notranslate nohighlight">\(4/3 \pi r^3 \times \rho_{aer}\)</span> = <span class="math notranslate nohighlight">\(2 \times 10^{-17}\)</span> kg</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rho_aer</span> <span class="o">=</span> <span class="mi">1775</span> <span class="c1">#kg/m^3</span>
+<span class="n">rad_cubed</span> <span class="o">=</span> <span class="mf">2.e-17</span><span class="o">/</span><span class="p">(</span><span class="mf">4.</span><span class="o">/</span><span class="mf">3.</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">rho_aer</span><span class="p">)</span>
+<span class="n">volume_mean_rad</span> <span class="o">=</span> <span class="n">rad_cubed</span><span class="o">**</span><span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="mf">3.</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;volume mean radius is </span><span class="si">{</span><span class="n">volume_mean_rad</span><span class="o">*</span><span class="mf">1.e6</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1"> microns&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>volume mean radius is 0.139 microns
+</pre></div>
+</div>
+</div>
+</div>
+<section id="plot-the-mass-distribution-as-a-function-of-aerosol-dry-radius">
+<h3>Plot the mass distribution as a function of aerosol dry radius.<a class="headerlink" href="#plot-the-mass-distribution-as-a-function-of-aerosol-dry-radius" title="Link to this heading">#</a></h3>
+<p>1. First get the mass distribution as a function of mass</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mass_vals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">19</span><span class="p">,</span><span class="o">-</span><span class="mi">15</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>  <span class="c1">#kg</span>
+<span class="n">mass_vals</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="n">mass_vals</span>
+<span class="n">tot_mass</span> <span class="o">=</span> <span class="mf">1.e-9</span> <span class="c1">#kg/m^3</span>
+<span class="n">mu</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mf">2.e-17</span><span class="p">)</span>
+<span class="n">sd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mf">1.7</span><span class="p">)</span>
+<span class="n">out</span> <span class="o">=</span> <span class="n">tot_mass</span><span class="o">*</span><span class="n">lognormal</span><span class="p">(</span><span class="n">mass_vals</span><span class="p">,</span><span class="n">mu</span><span class="p">,</span><span class="n">sd</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>2. Note the units:  out has units of <span class="math notranslate nohighlight">\(kg\;m^{-3}\;kg^{-1}\)</span> and
+mass_vals has units of <span class="math notranslate nohighlight">\(kg\)</span>.  For plotting, it would be
+better to have the x-axis in picograms (pg) where
+<span class="math notranslate nohighlight">\(1 pg = 1 kg \times 10^{15}\;pg\;kg^{-1}\)</span></p>
+<p>In addition the units for the y axis become:</p>
+<p><span class="math notranslate nohighlight">\(kg\;m^{-3}\;kg^{-1}\;10^{-15}\;kg\;pg^{-1}\)</span></p>
+<p>In the same way, we can convert the aerosol mass concentration from
+<span class="math notranslate nohighlight">\(kg\;m^{-1}\)</span> to micrograms: <span class="math notranslate nohighlight">\(kg \times 10^{9} \mu g\;kg^{-1}\)</span></p>
+<p>That makes the y axis units:</p>
+<p><span class="math notranslate nohighlight">\(kg\;m^{-3}\;kg^{-1}\)</span> = 1 <span class="math notranslate nohighlight">\(kg \times 10^{9} \mu g\;kg^{-1}\;kg^{-1}\;10^{-15}\;kg\;pg^{-1}\)</span>
+= <span class="math notranslate nohighlight">\(10^{-6}\ \mu g\;m^{-3}\;pg^{-1}\)</span></p>
+<p>So when we plot, we want to multiply the xaxis by <span class="math notranslate nohighlight">\(10^{15}\)</span> and the yaxis by <span class="math notranslate nohighlight">\(10^{-6}\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mass_vals</span><span class="o">*</span><span class="mf">1.e15</span><span class="p">,</span><span class="n">out</span><span class="o">*</span><span class="mf">1.e-6</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.1</span><span class="p">])</span>
+<span class="n">labels</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;particle mass (pg)&quot;</span><span class="p">,</span><span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;mass dist $(\mu g\;m^{-3}\;pg^{-1})$&quot;</span><span class="p">)</span>
+<span class="n">out_centers</span> <span class="o">=</span> <span class="p">(</span><span class="n">out</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">+</span> <span class="n">out</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="mf">2.</span>
+<span class="n">area</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">out_centers</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">mass_vals</span><span class="p">)</span><span class="o">*</span><span class="mf">1.e15</span><span class="o">*</span><span class="mf">1.e-6</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;area in micrograms/m^3 = </span><span class="si">{area:.1f}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>area in micrograms/m^3 = {area:.1f}
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;&gt;:4: SyntaxWarning: &quot;\m&quot; is an invalid escape sequence. Such sequences will not work in the future. Did you mean &quot;\\m&quot;? A raw string is also an option.
+&lt;&gt;:4: SyntaxWarning: &quot;\m&quot; is an invalid escape sequence. Such sequences will not work in the future. Did you mean &quot;\\m&quot;? A raw string is also an option.
+/var/folders/h3/5svt7fds58v0x7kkc54kl3640000gn/T/ipykernel_92768/1866162784.py:4: SyntaxWarning: &quot;\m&quot; is an invalid escape sequence. Such sequences will not work in the future. Did you mean &quot;\\m&quot;? A raw string is also an option.
+  labels=ax.set(xlabel=&quot;particle mass (pg)&quot;,ylabel=&quot;mass dist $(\mu g\;m^{-3}\;pg^{-1})$&quot;)
+</pre></div>
+</div>
+<img alt="../../_images/70c42f83c75ed6f91a0e55cbe7560987f2c86410bcb50d763812817fc472871d.png" src="../../_images/70c42f83c75ed6f91a0e55cbe7560987f2c86410bcb50d763812817fc472871d.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="number-distribution-n-r-m-3-m-1">
+<h2>Number distribution n(r)  (<span class="math notranslate nohighlight">\(\# \,m^{-3}\;m^{-1}\)</span>)<a class="headerlink" href="#number-distribution-n-r-m-3-m-1" title="Link to this heading">#</a></h2>
+<p>If we know the density of the spherical aerosols and the aerosol mass in a bin,
+then we can figure out the number of aerosols/<span class="math notranslate nohighlight">\(m^3\)</span> in the bin.</p>
+<p>Call the mass distribution <span class="math notranslate nohighlight">\(mass_{dist}\)</span> with units of <span class="math notranslate nohighlight">\((\mu g\;m^{-3}\;pg^{-1})\)</span>.  Then
+the aerosol concentration for aerosols with masses in the range <span class="math notranslate nohighlight">\(m \rightarrow m+dm\)</span> is</p>
+<p><span class="math notranslate nohighlight">\(m_{bin}(m) = mass_{dist}(m) dm\)</span>  units: <span class="math notranslate nohighlight">\(kg\;m^{-3}\)</span></p>
+<p>In the same way the numbers of aerosols in the bin is</p>
+<p><span class="math notranslate nohighlight">\(n_{bin}\)</span> = <span class="math notranslate nohighlight">\(n(r) dr\)</span>  units: <span class="math notranslate nohighlight">\(\#\;m^{-3}\)</span></p>
+<p>but the aerosols are spherical, so in each bin with center mass <span class="math notranslate nohighlight">\(m\)</span> and center
+radius <span class="math notranslate nohighlight">\(r\)</span>:</p>
+<p><span class="math notranslate nohighlight">\(m_{bin} = 4/3 \pi r^3 \rho_{aer} n_{bin}\)</span></p>
+<p><span class="math notranslate nohighlight">\(mass_{dist} dm = 4/3 \pi r^3 \rho_{aer} n(r) dr\)</span></p>
+<p><span class="math notranslate nohighlight">\(dm = d (4/3 \pi r^3 \rho_{aer}) = 4 \pi r^2 \rho_{aer} dr\)</span></p>
+<p>So combining these gives:</p>
+<p><span class="math notranslate nohighlight">\(n(r) = \frac{3}{r} mass_{dist}(m)\)</span></p>
+<p><strong>Units</strong></p>
+<p>We’re still in mks, so <span class="math notranslate nohighlight">\(n(r)\)</span> has units of <span class="math notranslate nohighlight">\(\#\;m^{-3}\;m^{-1}\)</span>.<br />
+Make this:</p>
+<p>1 <span class="math notranslate nohighlight">\(\#\;m^{-3}\;m^{-1}\)</span> = 1 <span class="math notranslate nohighlight">\(\#m^{-3} \times 10^{-6}\;m^{3}\;cm^{-3} \times 10^{-6} m\;\mu m^{-1}\)</span> = <span class="math notranslate nohighlight">\(1 \times 10^{-12}\ \#\;cm^{-3}\; \mu m^{-1}\)</span></p>
+<p>So again, when we plot we multiply the xaxis by <span class="math notranslate nohighlight">\(10^6\)</span> and the yaxis by <span class="math notranslate nohighlight">\(10^{-12}\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rad_vals</span> <span class="o">=</span> <span class="p">(</span><span class="n">mass_vals</span><span class="o">/</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">rho_aer</span><span class="o">*</span><span class="mf">4.</span><span class="o">/</span><span class="mf">3.</span><span class="p">))</span><span class="o">**</span><span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="mf">3.</span><span class="p">)</span> 
+<span class="n">ndist</span> <span class="o">=</span> <span class="mf">3.</span><span class="o">*</span><span class="n">out</span><span class="o">/</span><span class="n">rad_vals</span>  <span class="c1">#units of number/m^3 per m bin width</span>
+<span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ncenter</span> <span class="o">=</span> <span class="p">(</span><span class="n">ndist</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">+</span> <span class="n">ndist</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="mf">2.</span>
+<span class="c1">#</span>
+<span class="c1"># convert radii to microns and ndist to #/cc/um</span>
+<span class="c1">#</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">rad_vals</span><span class="o">*</span><span class="mf">1.e6</span><span class="p">,</span><span class="n">ndist</span><span class="o">*</span><span class="mf">1.e-12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.4</span><span class="p">],</span><span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;dry radius ($\mu m$)&quot;</span><span class="p">,</span>
+      <span class="n">ylabel</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;n(r) $\# cm^{-3}\;\mu m^{-1}$&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">total_num</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">ncenter</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">rad_vals</span><span class="p">)</span><span class="o">*</span><span class="mf">1.e-6</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;total number concentration is </span><span class="si">{</span><span class="n">total_num</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> #/cc&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>total number concentration is 57.57 #/cc
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;&gt;:9: SyntaxWarning: &quot;\m&quot; is an invalid escape sequence. Such sequences will not work in the future. Did you mean &quot;\\m&quot;? A raw string is also an option.
+&lt;&gt;:9: SyntaxWarning: &quot;\m&quot; is an invalid escape sequence. Such sequences will not work in the future. Did you mean &quot;\\m&quot;? A raw string is also an option.
+/var/folders/h3/5svt7fds58v0x7kkc54kl3640000gn/T/ipykernel_92768/1008016579.py:9: SyntaxWarning: &quot;\m&quot; is an invalid escape sequence. Such sequences will not work in the future. Did you mean &quot;\\m&quot;? A raw string is also an option.
+  ax.set(xlim=[0,0.4],xlabel=&quot;dry radius ($\mu m$)&quot;,
+</pre></div>
+</div>
+<img alt="../../_images/5464df020c5a5400fceeffec4f0e4d83b83696165d195ed8eac22cdc57607884.png" src="../../_images/5464df020c5a5400fceeffec4f0e4d83b83696165d195ed8eac22cdc57607884.png" />
+</div>
+</div>
+<section id="log-units">
+<h3>log units<a class="headerlink" href="#log-units" title="Link to this heading">#</a></h3>
+<p>To connect with <a class="reference internal" href="#lohmann-f55"><span class="std std-ref">Lohmann textbook figure 5.5</span></a>, we need to make a semilog plot for the radius, and <span class="math notranslate nohighlight">\(r \times n(r)\)</span> for the number concentration</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rad_vals</span> <span class="o">=</span> <span class="p">(</span><span class="n">mass_vals</span><span class="o">/</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">rho_aer</span><span class="o">*</span><span class="mf">4.</span><span class="o">/</span><span class="mf">3.</span><span class="p">))</span><span class="o">**</span><span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="mf">3.</span><span class="p">)</span> 
+<span class="n">ndist</span> <span class="o">=</span> <span class="mf">3.</span><span class="o">*</span><span class="n">out</span><span class="o">/</span><span class="n">rad_vals</span>  <span class="c1">#units of number/m^3 per m bin width</span>
+<span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ncenter</span> <span class="o">=</span> <span class="p">(</span><span class="n">ndist</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">+</span> <span class="n">ndist</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="mf">2.</span>
+<span class="c1">#</span>
+<span class="c1"># convert radii to microns and r*ndist to #/cc</span>
+<span class="c1">#</span>
+<span class="n">yvals</span> <span class="o">=</span> <span class="n">ndist</span><span class="o">*</span><span class="n">rad_vals</span> <span class="c1">#number/m^3</span>
+<span class="n">yvals</span> <span class="o">=</span> <span class="n">yvals</span><span class="o">*</span><span class="mf">1.e-6</span>  <span class="c1">#number/cm^3</span>
+<span class="n">xvals</span> <span class="o">=</span> <span class="n">rad_vals</span><span class="o">*</span><span class="mf">1.e6</span> <span class="c1">#microns</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">semilogx</span><span class="p">(</span><span class="n">xvals</span><span class="p">,</span><span class="n">yvals</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mf">0.01</span><span class="p">,</span><span class="mf">0.4</span><span class="p">],</span><span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;dry radius ($\mu m$)&quot;</span><span class="p">,</span>
+      <span class="n">ylabel</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;r x n(r) $\# cm^{-3}$&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1"># total_num=np.sum(ncenter*np.diff(rad_vals)*1.e-6)</span>
+<span class="c1"># print(f&quot;total number concentration is {total_num:.2f} #/cc&quot;)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;&gt;:12: SyntaxWarning: &quot;\m&quot; is an invalid escape sequence. Such sequences will not work in the future. Did you mean &quot;\\m&quot;? A raw string is also an option.
+&lt;&gt;:12: SyntaxWarning: &quot;\m&quot; is an invalid escape sequence. Such sequences will not work in the future. Did you mean &quot;\\m&quot;? A raw string is also an option.
+/var/folders/h3/5svt7fds58v0x7kkc54kl3640000gn/T/ipykernel_92768/851549262.py:12: SyntaxWarning: &quot;\m&quot; is an invalid escape sequence. Such sequences will not work in the future. Did you mean &quot;\\m&quot;? A raw string is also an option.
+  ax.set(xlim=[0.01,0.4],xlabel=&quot;dry radius ($\mu m$)&quot;,
+</pre></div>
+</div>
+<img alt="../../_images/2cbb31e63d8b51a18a6ce9a4f12df7a337a3bc091df43bbe49d3589c969133f0.png" src="../../_images/2cbb31e63d8b51a18a6ce9a4f12df7a337a3bc091df43bbe49d3589c969133f0.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="worksheet-question-1">
+<h2>Worksheet question 1<a class="headerlink" href="#worksheet-question-1" title="Link to this heading">#</a></h2>
+<p>Calculate the effective radius <span class="math notranslate nohighlight">\(r_{eff}\)</span> defined in equations 11 and 12 of my <a class="reference external" href="https://drive.google.com/file/d/1YYr2dFO4csFNsdOL7IEZJCPEh6LXMoof/view">size distribution notes</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="worksheet-question-2">
+<h2>Worksheet question 2<a class="headerlink" href="#worksheet-question-2" title="Link to this heading">#</a></h2>
+<p>Calculate the droplet growth time constant  <span class="math notranslate nohighlight">\(\tau_r\)</span>  given Thompkins eq. 4.25.  That is, find:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{1}{\tau_r} = \frac{1}{r}\frac{dr}{dt}
+\]</div>
+<p>given:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{1}{r}\frac{d r}{d t} \simeq \frac{D e_s^{\infty}}{\rho_L r^2 R_v T}(S-1)
+\]</div>
+<p>for reasonable values of <span class="math notranslate nohighlight">\(r\)</span>, <span class="math notranslate nohighlight">\(S\)</span> and <span class="math notranslate nohighlight">\(T\)</span> and show it is order 1 second.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="study-problem">
+<h2>Study Problem<a class="headerlink" href="#study-problem" title="Link to this heading">#</a></h2>
+<p>Add a cell to this notebook that makes a plot of <span class="math notranslate nohighlight">\(N(r)\)</span> vs. <span class="math notranslate nohighlight">\(S_{crit}\)</span> for the <span class="math notranslate nohighlight">\(n(r)\)</span> in the previous cell,  where:</p>
+<p><span class="math notranslate nohighlight">\(N(r) = \int_r^\infty n(r) dr\)</span> is the number of aerosols with dry radii larger than <span class="math notranslate nohighlight">\(r\)</span> and <span class="math notranslate nohighlight">\(S_{crit}\)</span> is the critical supersaturation at radius r for these ammonium sulphate aerosols.  Explain briefly why this is the output you would expect to see from an aerosol size counter based on a cloud chamber with a laser scattering sensor.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks/worksheets"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="worksheet9_koehler_solution.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Worksheet9: Koehler Equilibrium solution</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../../assignments/adiabatic_box_solution.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Adiabatic Box - Solution</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-normal-distribution">The normal distribution</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-and-standard-deviation-mu-sigma">mean and standard deviation, <span class="math notranslate nohighlight">\(\mu\)</span>, <span class="math notranslate nohighlight">\(\sigma\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-area-should-be-1-for-pdf">numerical area – should be 1 for pdf</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-mean-should-be-5">numerical mean should be 5</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-sd-should-be-2">numerical sd should be 2</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-lognormal-distribution">The lognormal distribution</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#total-probability-should-be-1">total probability should be 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-should-be-log-5">mean should be log(5)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sd-should-be-log-2">sd should be log(2)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lognormal-aerosol-mass-distribution">lognormal aerosol mass distribution</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-mass-distribution-as-a-function-of-aerosol-dry-radius">Plot the mass distribution as a function of aerosol dry radius.</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#number-distribution-n-r-m-3-m-1">Number distribution n(r)  (<span class="math notranslate nohighlight">\(\# \,m^{-3}\;m^{-1}\)</span>)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#log-units">log units</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#worksheet-question-1">Worksheet question 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#worksheet-question-2">Worksheet question 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#study-problem">Study Problem</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Philip Austin
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

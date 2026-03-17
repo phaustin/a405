@@ -266,7 +266,7 @@ Work on {ref}`tropical_profiles_solution` and {ref}`assign4_rootfind_solution`.
 and Thompkins pp. 56 to 61
 
 - Introduce {ref}`entrain_cloud`
-- Work on {ref}`worksheet8_interp1d`  which is the first part of Assignment 6
+- Work on {ref}`worksheet8_interp1d_solution`  which is the first part of Assignment 6
 
 #### Do for next Thursday
 
@@ -305,7 +305,7 @@ and my entrainment notes and work on Assignment 6
   - [Lohmann Chapter 6.1-6.5](https://drive.google.com/file/d/1vXbVXKs4E4-a-CiBQp-x6gmA_uxJH8I6/view?usp=sharing)
   - [Koehler notes](https://drive.google.com/file/d/1SU64h2sGfMsOygqHL1f6tK_K2HgLv1Nr/view?usp=sharing)
 
-- Work on {ref}`worksheet9_koehler_solution` and {ref}`assign6_koehler`
+- Work on {ref}`worksheet9_koehler_solution` and {ref}`assign6_koehler_solution`
 
 #### For Thursday
 
@@ -320,7 +320,7 @@ Read Thompkins pages 73-75 on condensation growth
 - Start on [Lohmann Aerosols Chapter 5](https://drive.google.com/file/d/1frWt9QyWx8RhSQ8FO3Q6IM4vH4NgrOsU/view) and my
   notes on [aerosol size distributions](https://drive.google.com/file/d/1YYr2dFO4csFNsdOL7IEZJCPEh6LXMoof/view?usp=sharing)
 
-#### For Tueday
+#### For Tuesday
 
 - Read
   - Lohmann Chapter 5 pp. 115-131 on aerosol size distributions
@@ -328,3 +328,26 @@ Read Thompkins pages 73-75 on condensation growth
   - My notes on droplet growth, timescales, and size distributions
   
 - Start on {ref}`assign7_aerosols`
+
+
+## Week 11
+
+### Lecture 23, week 11, Tuesday
+
+- [Final exam practice](https://drive.google.com/file/d/1o9HOkiaXsestzA7P0Njt9X1r5IlEj34D/view?usp=sharing)
+
+- Go over Assigment 6
+  - {ref}`worksheet8_interp1d_solution`
+  - {ref}`assign6_cape_solution`
+  - {ref}`assign6_koehler_solution`
+  
+- {ref}`worksheet10_aerosol_dists`
+
+#### For Thursday
+
+- Read Thompkins 76-81 on droplets forming precipitation
+
+  
+  
+  
+  
