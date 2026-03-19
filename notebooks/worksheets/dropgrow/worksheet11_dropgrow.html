@@ -1,0 +1,1121 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Worksheet 11: Parcel model &#8212; ATSC 405</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js?v=1ae7504c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/worksheets/dropgrow/worksheet11_dropgrow';</script>
+    <link rel="canonical" href="https://phaustin.github.io/a405/notebooks/worksheets/dropgrow/worksheet11_dropgrow.html" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Adiabatic Box - Solution" href="../../../assignments/adiabatic_box_solution.html" />
+    <link rel="prev" title="Worksheet 10: Aerosol distributions" href="../worksheet10_aero_dist_solution.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">ATSC 405</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../index.html">
+                    ATSC 405 syllabus
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Background information</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../integrity.html">UBC academic integrity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ai_policy.html">Course policy for generative AI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../learning_goals.html">Learning goals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../schedule.html">Course schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../python_install.html">Python links</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.dropbox.com/scl/fo/9grhb2cr0lpfc1d5jci4a/h?rlkey=shnjpq4kvndrcatbgrri44eyw&amp;dl=0">Thompkins text</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://gw2jh3xr2c.search.serialssolutions.com/?sid=sersol&amp;SS_jc=TC0001980404&amp;title=An%20introduction%20to%20clouds%20%3A%20from%20the%20microscale%20to%20climate">Lohmann et al. text</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.dropbox.com/scl/fi/r7zhctw6usest2rirpe2f/wallace_hobbs_chap6.pdf?rlkey=oxdanppj9wkocmwe4nn4cc4fi&amp;dl=0">Wallace and Hobbs chapter 6</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.eoas.ubc.ca/books/Practical_Meteorology">Stull, Practical Meteorolgy</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://phaustin.github.io/a405_lib/full_listing.html">A405 library documentation</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/phaustin/a405/tree/main/src/a405">A405 library source code</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.google.com/presentation/d/1tgA2Ia1sWPzZVlgspuW7MOUfokDDZmfvS2eDTtFr-Mw/edit?usp=sharing">Blank tephigram - 1000-800 hPa</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Weekly topics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../week_notes.html">Week notes</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Worksheets</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../worksheet1_solution.html">Week 1 worksheet solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../worksheet2_solution.html">Worksheet2 – Thermodynamics worksheet solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../week2/skew_coords.html">Week2: Demo – Theromodynamic diagrams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../worksheet3_derivs_and_ints_solution.html">worksheet 3 solution: working with numpy arrays</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../worksheet4_taylor_series_solution.html">Worksheet 4: Taylor series solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../week4/xarray-intro.html">Demo: Introduction to Xarray</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../worksheet5_latent_solution.html">Worksheet 5 solution: Latent heat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../worksheet6_gibbs_solution.html">Worksheet 6 solution: Gibbs free energy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mixing_line_example.html">Mixing line example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../convec_instability.html">Convective instability – lifting demo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../moist_adiabats.html">Moist adiabats and the LCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tropical_engine_solution.html">Tropical Heat Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cape_part1.html">Cape Part 1  – demo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../worksheet7_taylor_solution.html">Worksheet 7 – Taylor series problem solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mixing_line_calc.html">Mixing line workbook</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../entraining_plume.html">Modeling an entraining cloud updraft try</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../worksheet8_interp1d_solution.html">Worksheet 8: Interp1d Solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../worksheet9_koehler_solution.html">Worksheet9: Koehler Equilibrium solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../worksheet10_aero_dist_solution.html">Worksheet 10: Aerosol distributions</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Worksheet 11: Parcel model</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../assignments/adiabatic_box_solution.html">Adiabatic Box - Solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../assignments/hydrostatic_scaling_solution.html">Assign 2: Solution - Scale heights for typical atmospheric soundings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../assignments/tropical_clouds_profiles_solution.html">Assignment 3 solution: Analyzing a model cloud dataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../assignments/assign4_rootfind_solution.html">Assignment 4a rootfinding solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../assignments/assignment4_paper_solution.html">Assignment 4 part 2  – solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../assignments/thompkins_practice_answers.html">Tompkins practice questions – solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../assignments/assign6_koehler.html">Assignment 6 – Koehler equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../assignments/assign6_cape_solution.html">Assignment 6 CAPE solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../assignments/assignment6_koehler_solution.html">Assignment 6 paper/pencil problems</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../../../assignments/assignment7_aerosols.html">Assignment 7: aerosols</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../assignments/assignment8_precipitation.html">Assignment 8 – precipitation.</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">In-depth notes</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://www.dropbox.com/scl/fi/5scb458wnoymr4s8ta4vt/equation_sheet.pdf?rlkey=29ymawiljakqnv3wquqa4wm8e&amp;st=4mmzb2ii&amp;dl=0">final exam equation sheet</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1L8am0jnhBdlTNzQNR8lE-Iyw0V6lwqg2/view?usp=sharing">mid-term equation sheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../week1/hydrostat.html">Week1: Hydrostatic balance explainer</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1dBxcwxe0quNjYAihiFwMpF8kVmjmYh1p/view?usp=sharing">Week2 - Kinetic Temperature notes</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/12xontZRhRTKBjtG9y27RS6CH35eARcgp/view?usp=sharing">Week 2 - First law of thermodynamics</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1_ZpKjfR3OGHkmnk9-lKEmP8SSGNM8Is_/view?usp=sharing">Week 2 - Hydrostatic balance and scale heights</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1CjXm0AHYMJYmxf-Mm6CuWD7tIM_KBRI0/view?usp=sharing">Week 3 - Entropy and potential temperature</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1Id1EECa8qefSD6YhJoJzVp2neEarD9Wa/view?usp=sharing">Week 3 - Buoyancy and Taylor's series</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1GrzhzpvWbN0H4dP3Z77M4O88Cyey5k2K/view?usp=sharing">Schroeder Chapter 5 free energy</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1YrHBkCiFduYqjd_Dn8_3fZJocmqva1PG/view?usp=sharing">Lohmann Chapter 2 - Thermodynamics</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1rJO32NGhTW3TA6noQmSdNl2GNXyrZUgA/view?usp=sharing">Maxwell relations</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/144fXb0-of3lpwL0xGZYH16yxGJOmvDEh/view?usp=sharing">Clausius-Clapeyron equation</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1EQI86M4I76ARXDV54VOHKQP3J0-kyyDq/view?usp=sharing">Virtual temperature notes</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1BPTvFijtktG4135T1X8DXwI8l_C8xHEt/view?usp=sharing">Static energy and $\theta_e$ notes</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/131QoLZPjajoCtreV6muYOxDlF6jvRH4s/view?usp=sharing">Carnot cycle notes</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1wsfzaorhVKiMwDlrolf2gtTrSLT4p4iM/view?usp=sharing">wet bulb notes</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1j8vhmRtGaOlpe0JAAS-fvZmH9H8U2ay2/view?usp=sharing">Wet bulb vs. $\theta_e$</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../week7/gibbs_notes.html">Gibbs Free Energy notes</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1VgY5LWMSmavpoHFQYFE-wkPxGnD5x44O/view?usp=sharing">entrainment and mixing</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1SU64h2sGfMsOygqHL1f6tK_K2HgLv1Nr/view?usp=sharing">Koehler equation notes</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1mF4ES2IewpnLB-lQHOBuK5JwSnelqkYs/view?usp=sharing">Droplet growth notes</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1i_2_LTQ496FScNK8V-b3pb-rvh6Qzapa/view?usp=sharing">timescales for diffusion and droplet growth</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1YYr2dFO4csFNsdOL7IEZJCPEh6LXMoof/view?usp=sharing">aerosol size distributions</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1kGjCV3tVA4umfoU1KFlkCAbHtXqdOStt/view?usp=sharing">Accurate enthalpy and thetae</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">midterms</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../assignments/study_topics.html">Midterm study topics</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1Nj31FAXyWur9qffnSflhx6CcLBta4PCj/view?usp=sharing">2016 midterm</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1jFKalQ9MXAvNu824LKVyHtNEleZhgI0q/view?usp=sharing">2012 midterm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../assignments/a405_mid_2026_solution.html">A405 2026 midterm solutions</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">final exam</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1o9HOkiaXsestzA7P0Njt9X1r5IlEj34D/view?usp=sharing">Final Exam Practice Questions</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Animations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1Qwioo3qSyEzr4tTuC3Sx54oXLKg-3g3D/view?usp=sharing">ARM diurnal over land</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1lCb3G9EhiPzRGO2m0FQWMTTUv2fSTnbi/view?usp=sharing">BOMEX -- trade cumulus over water</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/14ZLSAHCrjv8U0IKD9sQMHdql33Ebxkp3/view?usp=sharing">CGILS trade cumulus over water</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/notebooks/worksheets/dropgrow/worksheet11_dropgrow.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Worksheet 11: Parcel model</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#library-functions-from-the-week-10-koehler-worksheet">Library functions from the week 10 koehler worksheet</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#new-functions-for-droplet-growth">new functions for droplet growth</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-the-aerosol-and-initial-conditions">Get the aerosol and initial conditions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#initialize-the-lognormal-mass-and-number-distributions-for-30-bins">initialize the lognormal mass and number distributions for 30 bins</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#find-the-equilibrium-radius-for-each-bin-at-saturation-sinit">find the equilibrium radius for each bin at saturation Sinit</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#now-add-the-intial-conditions-to-the-cloud-vars-dictionary-and-make-it-a-namedtuple">now add the intial conditions to the cloud_vars dictionary and make it a namedtuple</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-odeint-to-integrate-the-variable-in-var-vec-from-tinit-to-tfin-with-outputs-every-dt-seconds">use odeint to integrate the variable in var_vec from tinit to tfin with outputs every dt seconds</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-dataframe-with-33-columns-to-hold-the-data">create a dataframe with 33 columns to hold the data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-parcel-supersaturation">Plot the parcel supersaturation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#worksheet-problem-oscilating-updraft">Worksheet Problem: oscilating updraft</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="worksheet-11-parcel-model">
+<span id="worksheet11-dropgrow"></span><h1>Worksheet 11: Parcel model<a class="headerlink" href="#worksheet-11-parcel-model" title="Link to this heading">#</a></h1>
+<p>Download <a class="reference external" href="https://drive.google.com/file/d/11E3ZD7xIju63xO97rOFxji23Cu_wMakF/view?usp=sharing">worksheet11_dropgrow.ipynb</a></p>
+<p>This notebook takes the aerosols from</p>
+<p><a class="reference internal" href="../worksheet10_aero_dist_solution.html#worksheet10-aerosol-dists-solution"><span class="std std-ref">Worksheet 10: Aerosol distributions</span></a> and puts them into a constant velocity updraft
+The integrator calculates the growth of 30 aerosol bins, plus the three prognostic variables</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">a405.dropgrow.aerolib</span><span class="w"> </span><span class="kn">import</span> <span class="n">lognormal</span><span class="p">,</span><span class="n">create_koehler</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">a405.utils.helper_funs</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_tuple</span><span class="p">,</span> <span class="n">find_centers</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">a405.thermo.thermlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">find_esat</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">a405.thermo.rootfinder</span><span class="w"> </span><span class="kn">import</span> <span class="n">find_interval</span><span class="p">,</span> <span class="n">fzero</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">a405.dropgrow.drop_grow</span><span class="w"> </span><span class="kn">import</span> <span class="n">find_diff</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">a405.thermo.constants</span><span class="w"> </span><span class="kn">import</span> <span class="n">constants</span> <span class="k">as</span> <span class="n">c</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.integrate</span><span class="w"> </span><span class="kn">import</span> <span class="n">odeint</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="library-functions-from-the-week-10-koehler-worksheet">
+<h2>Library functions from the week 10 koehler worksheet<a class="headerlink" href="#library-functions-from-the-week-10-koehler-worksheet" title="Link to this heading">#</a></h2>
+<p>New functions from <a class="reference external" href="https://phaustin.github.io/a405_lib/full_listing.html">the a405 libraries</a></p>
+<ul class="simple">
+<li><p>a405.utils.helper_funs.make_tuple</p></li>
+<li><p>a405.utils.helper_funs.find_centers</p></li>
+<li><p>a405.dropgrow.aerolib.lognormal</p></li>
+<li><p>a405.dropgrow.aerolib.create_koehler</p></li>
+<li><p>a405.dropgrow.drop_grow.find_diff</p></li>
+</ul>
+</section>
+<section id="new-functions-for-droplet-growth">
+<h2>new functions for droplet growth<a class="headerlink" href="#new-functions-for-droplet-growth" title="Link to this heading">#</a></h2>
+<p>Calculate the liquid water content, supersaturation and the derivatives for the drop sizes</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">rlcalc</span><span class="p">(</span><span class="n">var_vec</span><span class="p">,</span><span class="n">cloud_tup</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    calculate the liquid water for the distribution</span>
+
+<span class="sd">    the last  3 variables in var_vec are temperature, pressure and height (mks)</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+
+<span class="sd">    var_vec: vector(float)</span>
+<span class="sd">           vector of values to be integrated</span>
+<span class="sd">    cloud_top: namedtuple</span>
+<span class="sd">           tuple of necessary coefficients</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">wl</span><span class="o">=</span><span class="n">cloud_tup</span><span class="o">.</span><span class="n">ndist</span><span class="o">*</span><span class="p">(</span><span class="n">var_vec</span><span class="p">[:</span><span class="o">-</span><span class="mi">3</span><span class="p">]</span><span class="o">**</span><span class="mf">3.</span><span class="p">)</span>
+    <span class="n">wl</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">wl</span><span class="p">)</span>
+    <span class="n">wl</span><span class="o">=</span><span class="n">wl</span><span class="o">*</span><span class="mf">4.</span><span class="o">/</span><span class="mf">3.</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">c</span><span class="o">.</span><span class="n">rhol</span>
+    <span class="k">return</span> <span class="n">wl</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">Scalc</span><span class="p">(</span><span class="n">var_vec</span><span class="p">,</span><span class="n">cloud_tup</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    calculate the environmental saturation using conservation</span>
+<span class="sd">    of total water mixing ratio cloud_top.rt and the current</span>
+<span class="sd">    value of the liquid water mixing ratio rl</span>
+
+<span class="sd">    That is diagnosing the vapor mixing ratio as the difference</span>
+<span class="sd">    between the total water in the parcel and the liquid water</span>
+<span class="sd">    in the droplets</span>
+
+<span class="sd">    the last  3 variables in var_vec are temperature, pressure and height (mks)</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+
+<span class="sd">    var_vec: vector(float)</span>
+<span class="sd">        vector of values to be integrated</span>
+
+<span class="sd">    cloud_top: namedtuple</span>
+<span class="sd">           tuple of necessary coefficients</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+
+<span class="sd">    Sout: float</span>
+<span class="sd">       environmental saturation</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">temp</span><span class="p">,</span><span class="n">press</span><span class="p">,</span><span class="n">height</span> <span class="o">=</span> <span class="n">var_vec</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">:]</span>
+    <span class="n">rl</span><span class="o">=</span><span class="n">rlcalc</span><span class="p">(</span><span class="n">var_vec</span><span class="p">,</span><span class="n">cloud_tup</span><span class="p">)</span>
+    <span class="n">rv</span><span class="o">=</span><span class="n">cloud_tup</span><span class="o">.</span><span class="n">rt</span> <span class="o">-</span> <span class="n">rl</span>
+    <span class="n">e</span><span class="o">=</span><span class="n">rv</span><span class="o">*</span><span class="n">press</span><span class="o">/</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">eps</span> <span class="o">+</span> <span class="n">rv</span><span class="p">)</span>
+    <span class="n">Sout</span><span class="o">=</span><span class="n">e</span><span class="o">/</span><span class="n">find_esat</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">Sout</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">rlderiv</span><span class="p">(</span><span class="n">var_vec</span><span class="p">,</span><span class="n">deriv_vec</span><span class="p">,</span><span class="n">cloud_tup</span><span class="p">,</span><span class="n">nvars</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    calculate the time derivative of the liquid water content</span>
+<span class="sd">    using drop_grow.pdf eqn 21b</span>
+
+<span class="sd">    the last  3 variables in var_vec are temperature, pressure and height (mks)</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+
+<span class="sd">    var_vec: vector(float)</span>
+<span class="sd">        vector of values to be integrated</span>
+
+<span class="sd">    deriv_vec: vector(float)</span>
+<span class="sd">         derivatives of each of var_vec members</span>
+
+<span class="sd">    cloud_tup: namedtuple</span>
+<span class="sd">           tuple of input coefficients</span>
+
+<span class="sd">    nvars:  int</span>
+<span class="sd">        number of bulk thermodynamic variables (i.e. number of variables</span>
+<span class="sd">        that are not droplet radii)</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+
+<span class="sd">    drldt: float</span>
+<span class="sd">         rate of change of rl</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1">#</span>
+    <span class="c1"># the slice [:-nvars] gives only the droplet radii</span>
+    <span class="c1">#</span>
+    <span class="n">rlderiv</span><span class="o">=</span><span class="p">(</span><span class="n">var_vec</span><span class="p">[:</span><span class="o">-</span><span class="n">nvars</span><span class="p">])</span><span class="o">**</span><span class="mf">2.</span>
+    <span class="n">rlderiv</span><span class="o">=</span><span class="n">cloud_tup</span><span class="o">.</span><span class="n">ndist</span><span class="o">*</span><span class="n">rlderiv</span>
+    <span class="n">rlderiv</span><span class="o">=</span><span class="n">rlderiv</span><span class="o">*</span><span class="n">deriv_vec</span><span class="p">[:</span><span class="o">-</span><span class="n">nvars</span><span class="p">]</span>
+    <span class="n">drldt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">rlderiv</span><span class="p">)</span><span class="o">*</span><span class="mf">4.</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">c</span><span class="o">.</span><span class="n">rhol</span>
+    <span class="k">return</span> <span class="n">drldt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">find_derivs</span><span class="p">(</span><span class="n">var_vec</span><span class="p">,</span><span class="n">the_time</span><span class="p">,</span><span class="n">cloud_tup</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    calcuate derivatives of var_vec -- the vector</span>
+<span class="sd">    containing the droplet radii followed by temperature, pressure, and height</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+
+<span class="sd">    var_vec: vector(float)</span>
+<span class="sd">        vector of values to be integrated</span>
+
+<span class="sd">    the_time: float</span>
+<span class="sd">       timestep </span>
+
+<span class="sd">    cloud_tup: namedtuple</span>
+<span class="sd">           tuple of necessary coefficients</span>
+<span class="sd">    </span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+
+<span class="sd">    deriv_vec: vector(float)</span>
+<span class="sd">         derivatives of each of var_vec</span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1">#print(&#39;inside: &#39;,var_vec)</span>
+    <span class="c1">#print(f&quot;{the_time=}&quot;)</span>
+    <span class="n">temp</span><span class="p">,</span><span class="n">press</span><span class="p">,</span><span class="n">height</span> <span class="o">=</span> <span class="n">var_vec</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">:]</span>
+    <span class="n">numrads</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">var_vec</span><span class="p">)</span> <span class="o">-</span> <span class="mi">3</span>
+    <span class="n">dry_radius</span> <span class="o">=</span> <span class="n">cloud_tup</span><span class="o">.</span><span class="n">dry_radius</span>
+    <span class="n">rho</span><span class="o">=</span><span class="n">press</span><span class="o">/</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">Rd</span><span class="o">*</span><span class="n">temp</span><span class="p">)</span>
+    <span class="c1">#</span>
+    <span class="c1"># find the evironmental S by water balance</span>
+    <span class="c1">#</span>
+    <span class="n">S</span><span class="o">=</span><span class="n">Scalc</span><span class="p">(</span><span class="n">var_vec</span><span class="p">,</span><span class="n">cloud_tup</span><span class="p">)</span>
+    <span class="n">deriv_vec</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">var_vec</span><span class="p">)</span>
+    <span class="c1">#dropgrow notes equation 18 </span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">numrads</span><span class="p">):</span>
+        <span class="n">m</span><span class="o">=</span><span class="n">cloud_tup</span><span class="o">.</span><span class="n">masses</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">var_vec</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">dry_radius</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+            <span class="n">var_vec</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">dry_radius</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">Seq</span><span class="o">=</span><span class="n">cloud_tup</span><span class="o">.</span><span class="n">koehler_fun</span><span class="p">(</span><span class="n">var_vec</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">m</span><span class="p">)</span>  
+        <span class="n">rhovr</span><span class="o">=</span><span class="p">(</span><span class="n">Seq</span><span class="o">*</span><span class="n">find_esat</span><span class="p">(</span><span class="n">temp</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">Rv</span><span class="o">*</span><span class="n">temp</span><span class="p">)</span>
+        <span class="n">rhovinf</span><span class="o">=</span><span class="n">S</span><span class="o">*</span><span class="n">find_esat</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">Rv</span><span class="o">*</span><span class="n">temp</span><span class="p">)</span>
+        <span class="c1">#day 25 drop_grow.pdf eqn. 18</span>
+        <span class="n">deriv_vec</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">D</span><span class="o">/</span><span class="p">(</span><span class="n">var_vec</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">c</span><span class="o">.</span><span class="n">rhol</span><span class="p">))</span><span class="o">*</span><span class="p">(</span><span class="n">rhovinf</span> <span class="o">-</span> <span class="n">rhovr</span><span class="p">)</span>
+    <span class="c1">#</span>
+    <span class="c1"># the derivative dT/dz of the moist adiabat</span>
+    <span class="c1">#</span>
+    <span class="n">deriv_vec</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">]</span><span class="o">=</span><span class="n">find_lv</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span><span class="o">/</span><span class="n">c</span><span class="o">.</span><span class="n">cpd</span><span class="o">*</span><span class="n">rlderiv</span><span class="p">(</span><span class="n">var_vec</span><span class="p">,</span><span class="n">deriv_vec</span><span class="p">,</span><span class="n">cloud_tup</span><span class="p">)</span> <span class="o">-</span> <span class="n">c</span><span class="o">.</span><span class="n">g0</span><span class="o">/</span><span class="n">c</span><span class="o">.</span><span class="n">cpd</span><span class="o">*</span><span class="n">cloud_tup</span><span class="o">.</span><span class="n">wvel</span>
+    <span class="c1">#</span>
+    <span class="c1"># hydrostatic balance  dp/dt = -rho g dz/dt</span>
+    <span class="c1">#</span>
+    <span class="n">deriv_vec</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span><span class="o">=</span> <span class="o">-</span><span class="mf">1.</span><span class="o">*</span><span class="n">rho</span><span class="o">*</span><span class="n">c</span><span class="o">.</span><span class="n">g0</span><span class="o">*</span><span class="n">cloud_tup</span><span class="o">.</span><span class="n">wvel</span>
+    <span class="c1">#</span>
+    <span class="c1"># how far up have we traveled?  dz/dt = wvel</span>
+    <span class="c1">#</span>
+    <span class="n">deriv_vec</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">cloud_tup</span><span class="o">.</span><span class="n">wvel</span>
+    <span class="k">return</span> <span class="n">deriv_vec</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="get-the-aerosol-and-initial-conditions">
+<h2>Get the aerosol and initial conditions<a class="headerlink" href="#get-the-aerosol-and-initial-conditions" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">aerosol_specs</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Ms&quot;</span><span class="p">:</span> <span class="mi">114</span><span class="p">,</span>  <span class="c1">#molecular weight of aerosol</span>
+    <span class="s2">&quot;Mw&quot;</span><span class="p">:</span> <span class="mf">18.0</span><span class="p">,</span>  <span class="c1">#molecular weight of water</span>
+    <span class="s2">&quot;Sigma&quot;</span><span class="p">:</span> <span class="mf">0.075</span><span class="p">,</span>  <span class="c1"># surface tension N/m^2</span>
+    <span class="s2">&quot;vanHoff&quot;</span><span class="p">:</span> <span class="mf">2.0</span><span class="p">,</span>  
+    <span class="s2">&quot;rhoaero&quot;</span><span class="p">:</span> <span class="mi">1778</span><span class="p">,</span> <span class="c1">#aerosol density, kg/m^3</span>
+    <span class="s2">&quot;themean&quot;</span><span class="p">:</span> <span class="mf">2e-17</span><span class="p">,</span>  <span class="c1">#mean mass kg</span>
+    <span class="s2">&quot;sd&quot;</span><span class="p">:</span> <span class="mf">1.7</span><span class="p">,</span>  <span class="c1">#standard deviation (kg)</span>
+    <span class="s2">&quot;totmass&quot;</span><span class="p">:</span> <span class="mf">1.5e-09</span>  <span class="c1">#kg/m^3 </span>
+<span class="p">}</span>
+
+<span class="n">initial_conditions</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;Tinit&quot;</span><span class="p">:</span> <span class="mf">280.0</span><span class="p">,</span> <span class="c1">#K</span>
+        <span class="s2">&quot;Zinit&quot;</span><span class="p">:</span> <span class="mf">1000.0</span><span class="p">,</span> <span class="c1">#m</span>
+        <span class="s2">&quot;Pinit&quot;</span><span class="p">:</span> <span class="mf">90000.0</span><span class="p">,</span> <span class="c1">#Pa</span>
+        <span class="s2">&quot;Sinit&quot;</span><span class="p">:</span> <span class="mf">0.995</span><span class="p">,</span>
+        <span class="s2">&quot;wvel&quot;</span><span class="p">:</span> <span class="mf">0.5</span>  <span class="c1">#m/s</span>
+<span class="p">}</span>
+
+<span class="n">integration</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;tstart&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">&quot;tend&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+    <span class="s2">&quot;dt&quot;</span><span class="p">:</span> <span class="mf">0.1</span>
+<span class="p">}</span>
+
+<span class="n">aero</span><span class="o">=</span><span class="n">make_tuple</span><span class="p">(</span><span class="n">aerosol_specs</span><span class="p">)</span>
+<span class="n">parcel</span><span class="o">=</span><span class="n">make_tuple</span><span class="p">(</span><span class="n">initial_conditions</span><span class="p">)</span>
+<span class="n">integration</span> <span class="o">=</span> <span class="n">make_tuple</span><span class="p">(</span><span class="n">integration</span><span class="p">)</span>
+<span class="n">koehler_fun</span> <span class="o">=</span> <span class="n">create_koehler</span><span class="p">(</span><span class="n">aero</span><span class="p">,</span><span class="n">parcel</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="initialize-the-lognormal-mass-and-number-distributions-for-30-bins">
+<h3>initialize the lognormal mass and number distributions for 30 bins<a class="headerlink" href="#initialize-the-lognormal-mass-and-number-distributions-for-30-bins" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+<span class="c1">#set the edges of the mass bins</span>
+<span class="c1">#31 edges means we have 30 droplet bins</span>
+<span class="c1">#</span>
+<span class="n">numrads</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="n">mass_vals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span><span class="o">-</span><span class="mi">16</span><span class="p">,</span><span class="n">numrads</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> 
+<span class="n">mass_vals</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="n">mass_vals</span>  <span class="c1">#aerosol mass in kg</span>
+<span class="n">mu</span><span class="o">=</span><span class="n">aero</span><span class="o">.</span><span class="n">themean</span>
+<span class="n">sigma</span> <span class="o">=</span> <span class="n">aero</span><span class="o">.</span><span class="n">sd</span>
+<span class="n">totmass</span> <span class="o">=</span> <span class="n">aero</span><span class="o">.</span><span class="n">totmass</span>
+<span class="n">mdist</span> <span class="o">=</span> <span class="n">totmass</span><span class="o">*</span><span class="n">lognormal</span><span class="p">(</span><span class="n">mass_vals</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">mu</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">sigma</span><span class="p">))</span>
+<span class="n">mdist</span> <span class="o">=</span> <span class="n">find_centers</span><span class="p">(</span><span class="n">mdist</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">mass_vals</span><span class="p">)</span>  <span class="c1">#kg/m^3 of aerosol in each bin</span>
+<span class="n">center_mass</span> <span class="o">=</span> <span class="n">find_centers</span><span class="p">(</span><span class="n">mass_vals</span><span class="p">)</span>
+<span class="n">ndist</span> <span class="o">=</span> <span class="n">mdist</span><span class="o">/</span><span class="n">center_mass</span>  <span class="c1">#number/m^3 of aerosol in each bin</span>
+<span class="c1">#save these in an ordered dictionary to pass to functions</span>
+<span class="n">cloud_vars</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="n">cloud_vars</span><span class="p">[</span><span class="s1">&#39;mdist&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mdist</span>
+<span class="n">cloud_vars</span><span class="p">[</span><span class="s1">&#39;ndist&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ndist</span>
+<span class="n">cloud_vars</span><span class="p">[</span><span class="s1">&#39;center_mass&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">center_mass</span>
+<span class="n">cloud_vars</span><span class="p">[</span><span class="s1">&#39;koehler_fun&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">koehler_fun</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">find_lv</span><span class="p">(</span><span class="n">temp</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculates the temperature dependent</span>
+<span class="sd">    enthalpy of evaporation</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+
+<span class="sd">    temp : float or array_like</span>
+<span class="sd">           Temperature of parcel (K).</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+
+<span class="sd">    lv : float or list</span>
+<span class="sd">         entalpy of evaporation</span>
+
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+
+<span class="sd">    &gt;&gt;&gt; find_lv(293.)</span>
+<span class="sd">    2547052.0</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+
+<span class="sd">    Day 13 moist static energy notes</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">lv</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">lv0</span> <span class="o">-</span> <span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">cpv</span> <span class="o">-</span> <span class="n">c</span><span class="o">.</span><span class="n">cl</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">temp</span> <span class="o">-</span> <span class="n">c</span><span class="o">.</span><span class="n">Tc</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">lv</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="find-the-equilibrium-radius-for-each-bin-at-saturation-sinit">
+<h3>find the equilibrium radius for each bin at saturation Sinit<a class="headerlink" href="#find-the-equilibrium-radius-for-each-bin-at-saturation-sinit" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">S_target</span> <span class="o">=</span> <span class="n">parcel</span><span class="o">.</span><span class="n">Sinit</span>
+<span class="n">logr_start</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mf">0.1e-6</span><span class="p">)</span>
+
+<span class="n">initial_radius</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">dry_radius</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">mass</span> <span class="ow">in</span> <span class="n">center_mass</span><span class="p">:</span>
+    <span class="n">brackets</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">find_interval</span><span class="p">(</span><span class="n">find_diff</span><span class="p">,</span><span class="n">logr_start</span><span class="p">,</span><span class="n">S_target</span><span class="p">,</span><span class="n">mass</span><span class="p">,</span><span class="n">koehler_fun</span><span class="p">))</span>
+    <span class="n">left_bracket</span><span class="p">,</span> <span class="n">right_bracket</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">brackets</span><span class="p">)</span><span class="o">*</span><span class="mf">1.e6</span>  <span class="c1">#get brackets in microns for printing</span>
+    <span class="n">equil_rad</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">fzero</span><span class="p">(</span><span class="n">find_diff</span><span class="p">,</span><span class="n">brackets</span><span class="p">,</span><span class="n">S_target</span><span class="p">,</span><span class="n">mass</span><span class="p">,</span><span class="n">koehler_fun</span><span class="p">))</span>
+
+    <span class="n">initial_radius</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">equil_rad</span><span class="p">)</span>
+    <span class="n">dry_rad</span> <span class="o">=</span> <span class="p">(</span><span class="n">mass</span><span class="o">/</span><span class="p">(</span><span class="mf">4.</span><span class="o">/</span><span class="mf">3.</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">aero</span><span class="o">.</span><span class="n">rhoaero</span><span class="p">))</span><span class="o">**</span><span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="mf">3.</span><span class="p">)</span>
+    <span class="n">dry_radius</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dry_rad</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;mass = </span><span class="si">{mass:6.3g}</span><span class="s1"> kg&#39;</span><span class="o">.</span><span class="n">format_map</span><span class="p">(</span><span class="nb">locals</span><span class="p">()))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;equlibrium radius at S=</span><span class="si">{}</span><span class="s1"> is </span><span class="si">{:5.3f}</span><span class="s1"> microns</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">S_target</span><span class="p">,</span><span class="n">equil_rad</span><span class="o">*</span><span class="mf">1.e6</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mass = 1.18e-20 kg
+equlibrium radius at S=0.995 is 0.026 microns
+
+mass = 1.6e-20 kg
+equlibrium radius at S=0.995 is 0.030 microns
+
+mass = 2.18e-20 kg
+equlibrium radius at S=0.995 is 0.035 microns
+
+mass = 2.96e-20 kg
+equlibrium radius at S=0.995 is 0.040 microns
+
+mass = 4.03e-20 kg
+equlibrium radius at S=0.995 is 0.046 microns
+
+mass = 5.48e-20 kg
+equlibrium radius at S=0.995 is 0.053 microns
+
+mass = 7.44e-20 kg
+equlibrium radius at S=0.995 is 0.061 microns
+
+mass = 1.01e-19 kg
+equlibrium radius at S=0.995 is 0.071 microns
+
+mass = 1.38e-19 kg
+equlibrium radius at S=0.995 is 0.081 microns
+
+mass = 1.87e-19 kg
+equlibrium radius at S=0.995 is 0.093 microns
+
+mass = 2.54e-19 kg
+equlibrium radius at S=0.995 is 0.106 microns
+
+mass = 3.45e-19 kg
+equlibrium radius at S=0.995 is 0.121 microns
+
+mass = 4.7e-19 kg
+equlibrium radius at S=0.995 is 0.138 microns
+
+mass = 6.38e-19 kg
+equlibrium radius at S=0.995 is 0.157 microns
+
+mass = 8.68e-19 kg
+equlibrium radius at S=0.995 is 0.178 microns
+
+mass = 1.18e-18 kg
+equlibrium radius at S=0.995 is 0.202 microns
+
+mass = 1.6e-18 kg
+equlibrium radius at S=0.995 is 0.228 microns
+
+mass = 2.18e-18 kg
+equlibrium radius at S=0.995 is 0.258 microns
+
+mass = 2.96e-18 kg
+equlibrium radius at S=0.995 is 0.291 microns
+
+mass = 4.03e-18 kg
+equlibrium radius at S=0.995 is 0.328 microns
+
+mass = 5.48e-18 kg
+equlibrium radius at S=0.995 is 0.369 microns
+
+mass = 7.44e-18 kg
+equlibrium radius at S=0.995 is 0.415 microns
+
+mass = 1.01e-17 kg
+equlibrium radius at S=0.995 is 0.466 microns
+
+mass = 1.38e-17 kg
+equlibrium radius at S=0.995 is 0.523 microns
+
+mass = 1.87e-17 kg
+equlibrium radius at S=0.995 is 0.586 microns
+
+mass = 2.54e-17 kg
+equlibrium radius at S=0.995 is 0.655 microns
+
+mass = 3.45e-17 kg
+equlibrium radius at S=0.995 is 0.733 microns
+
+mass = 4.7e-17 kg
+equlibrium radius at S=0.995 is 0.819 microns
+
+mass = 6.38e-17 kg
+equlibrium radius at S=0.995 is 0.914 microns
+
+mass = 8.68e-17 kg
+equlibrium radius at S=0.995 is 1.020 microns
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="now-add-the-intial-conditions-to-the-cloud-vars-dictionary-and-make-it-a-namedtuple">
+<h3>now add the intial conditions to the cloud_vars dictionary and make it a namedtuple<a class="headerlink" href="#now-add-the-intial-conditions-to-the-cloud-vars-dictionary-and-make-it-a-namedtuple" title="Link to this heading">#</a></h3>
+<p>the vector var_vec holds 30 droplet radii plus three extra variables at the
+end of the vector: the temperature, pressure and height.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cloud_vars</span><span class="p">[</span><span class="s1">&#39;initial_radiius&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">initial_radius</span>
+<span class="n">cloud_vars</span><span class="p">[</span><span class="s1">&#39;dry_radius&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dry_radius</span>
+<span class="n">cloud_vars</span><span class="p">[</span><span class="s1">&#39;masses&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">center_mass</span>
+<span class="n">numrads</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">initial_radius</span><span class="p">)</span>
+<span class="n">var_vec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">numrads</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">numrads</span><span class="p">):</span>
+    <span class="n">var_vec</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">initial_radius</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+
+<span class="c1">#</span>
+<span class="c1"># temp, press and height go at the end of the vector</span>
+<span class="c1">#</span>
+<span class="n">var_vec</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">parcel</span><span class="o">.</span><span class="n">Tinit</span>
+<span class="n">var_vec</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">parcel</span><span class="o">.</span><span class="n">Pinit</span>
+<span class="n">var_vec</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">parcel</span><span class="o">.</span><span class="n">Zinit</span>
+
+<span class="n">cloud_tup</span> <span class="o">=</span> <span class="n">make_tuple</span><span class="p">(</span><span class="n">cloud_vars</span><span class="p">)</span>
+<span class="c1">#calculate the total water (kg/kg)</span>
+<span class="n">wl</span><span class="o">=</span><span class="n">rlcalc</span><span class="p">(</span><span class="n">var_vec</span><span class="p">,</span><span class="n">cloud_tup</span><span class="p">);</span>
+<span class="n">e</span><span class="o">=</span><span class="n">parcel</span><span class="o">.</span><span class="n">Sinit</span><span class="o">*</span><span class="n">find_esat</span><span class="p">(</span><span class="n">parcel</span><span class="o">.</span><span class="n">Tinit</span><span class="p">);</span>
+<span class="n">wv</span><span class="o">=</span><span class="n">c</span><span class="o">.</span><span class="n">eps</span><span class="o">*</span><span class="n">e</span><span class="o">/</span><span class="p">(</span><span class="n">parcel</span><span class="o">.</span><span class="n">Pinit</span> <span class="o">-</span> <span class="n">e</span><span class="p">)</span>
+<span class="c1">#save total water</span>
+<span class="n">cloud_vars</span><span class="p">[</span><span class="s1">&#39;rt&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">wv</span> <span class="o">+</span> <span class="n">wl</span>
+<span class="n">cloud_vars</span><span class="p">[</span><span class="s1">&#39;wvel&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">parcel</span><span class="o">.</span><span class="n">wvel</span>
+<span class="c1">#</span>
+<span class="c1"># extend cloud tup with rt and wvel</span>
+<span class="c1">#</span>
+<span class="n">cloud_tup</span><span class="o">=</span> <span class="n">make_tuple</span><span class="p">(</span><span class="n">cloud_vars</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="use-odeint-to-integrate-the-variable-in-var-vec-from-tinit-to-tfin-with-outputs-every-dt-seconds">
+<h3>use odeint to integrate the variable in var_vec from tinit to tfin with outputs every dt seconds<a class="headerlink" href="#use-odeint-to-integrate-the-variable-in-var-vec-from-tinit-to-tfin-with-outputs-every-dt-seconds" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">var_out</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">time_out</span> <span class="o">=</span><span class="p">[]</span>
+
+<span class="n">tinit</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="n">integration</span><span class="o">.</span><span class="n">dt</span>
+<span class="n">tfin</span> <span class="o">=</span> <span class="n">integration</span><span class="o">.</span><span class="n">tend</span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">tinit</span><span class="p">,</span><span class="n">tfin</span><span class="p">,</span><span class="n">dt</span><span class="p">)</span>
+<span class="n">sol</span> <span class="o">=</span> <span class="n">odeint</span><span class="p">(</span><span class="n">find_derivs</span><span class="p">,</span><span class="n">var_vec</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">cloud_tup</span><span class="p">,))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="create-a-dataframe-with-33-columns-to-hold-the-data">
+<h3>create a dataframe with 33 columns to hold the data<a class="headerlink" href="#create-a-dataframe-with-33-columns-to-hold-the-data" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">colnames</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;r</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">item</span><span class="p">)</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">30</span><span class="p">)]</span>
+<span class="n">colnames</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="s1">&#39;temp&#39;</span><span class="p">,</span><span class="s1">&#39;press&#39;</span><span class="p">,</span><span class="s1">&#39;z&#39;</span><span class="p">])</span>
+<span class="n">df_output</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_records</span><span class="p">(</span><span class="n">sol</span><span class="p">,</span><span class="n">columns</span> <span class="o">=</span> <span class="n">colnames</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;ggplot&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="s1">&#39;all&#39;</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">8</span><span class="p">])</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">colnames</span><span class="p">[:</span><span class="o">-</span><span class="mi">3</span><span class="p">]:</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df_output</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="mf">1.e6</span><span class="p">,</span><span class="n">df_output</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">],</span><span class="n">label</span><span class="o">=</span><span class="n">i</span><span class="p">)</span>
+<span class="n">out</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="mi">1000</span><span class="p">,</span><span class="mi">1040</span><span class="p">],</span><span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">],</span>
+       <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;radii (microns)&#39;</span><span class="p">,</span><span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;height (m)&#39;</span><span class="p">,</span>
+              <span class="n">title</span><span class="o">=</span><span class="s1">&#39;radii vs. height in a </span><span class="si">{}</span><span class="s1"> m/s updraft&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cloud_tup</span><span class="o">.</span><span class="n">wvel</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/9787520583cd7c6bed3adc85fe84cb5ab6f84300a5d427416b5548250c6b535a.png" src="../../../_images/9787520583cd7c6bed3adc85fe84cb5ab6f84300a5d427416b5548250c6b535a.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="plot-the-parcel-supersaturation">
+<h2>Plot the parcel supersaturation<a class="headerlink" href="#plot-the-parcel-supersaturation" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Svals</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">index</span><span class="p">,</span><span class="n">row</span> <span class="ow">in</span> <span class="n">df_output</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="n">out_vec</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">values</span>
+    <span class="n">Svals</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Scalc</span><span class="p">(</span><span class="n">out_vec</span><span class="p">,</span><span class="n">cloud_tup</span><span class="p">))</span>
+<span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">8</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Svals</span><span class="p">,</span><span class="n">df_output</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">])</span>
+<span class="n">out</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="mi">1000</span><span class="p">,</span><span class="mi">1050</span><span class="p">],</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Saturation in a </span><span class="si">{}</span><span class="s1"> m/s updraft&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cloud_tup</span><span class="o">.</span><span class="n">wvel</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/9cabd1e3b8afb41d58d6fe968f7ffc491eab08d2dbc576749d90b2bf60b331c1.png" src="../../../_images/9cabd1e3b8afb41d58d6fe968f7ffc491eab08d2dbc576749d90b2bf60b331c1.png" />
+</div>
+</div>
+</section>
+<section id="worksheet-problem-oscilating-updraft">
+<h2>Worksheet Problem: oscilating updraft<a class="headerlink" href="#worksheet-problem-oscilating-updraft" title="Link to this heading">#</a></h2>
+<p>Replace the constant updraft with an oscillating updraft that cycles between -0.5 and 0.5 m/s over a period of 200 seconds. Is droplet grow/evaporation a reversible process?</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks/worksheets/dropgrow"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../worksheet10_aero_dist_solution.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Worksheet 10: Aerosol distributions</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../../../assignments/adiabatic_box_solution.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Adiabatic Box - Solution</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#library-functions-from-the-week-10-koehler-worksheet">Library functions from the week 10 koehler worksheet</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#new-functions-for-droplet-growth">new functions for droplet growth</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-the-aerosol-and-initial-conditions">Get the aerosol and initial conditions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#initialize-the-lognormal-mass-and-number-distributions-for-30-bins">initialize the lognormal mass and number distributions for 30 bins</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#find-the-equilibrium-radius-for-each-bin-at-saturation-sinit">find the equilibrium radius for each bin at saturation Sinit</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#now-add-the-intial-conditions-to-the-cloud-vars-dictionary-and-make-it-a-namedtuple">now add the intial conditions to the cloud_vars dictionary and make it a namedtuple</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-odeint-to-integrate-the-variable-in-var-vec-from-tinit-to-tfin-with-outputs-every-dt-seconds">use odeint to integrate the variable in var_vec from tinit to tfin with outputs every dt seconds</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-dataframe-with-33-columns-to-hold-the-data">create a dataframe with 33 columns to hold the data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-parcel-supersaturation">Plot the parcel supersaturation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#worksheet-problem-oscilating-updraft">Worksheet Problem: oscilating updraft</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Philip Austin
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

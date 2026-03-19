@@ -12,10 +12,10 @@ kernelspec:
   name: python3
 ---
 
-(worksheet10_aerosol_dists)=
+(worksheet10_aerosol_dists_solution)=
 # Worksheet 10: Aerosol distributions
 
-Download [worksheet10_aero_dist.ipynb](https://drive.google.com/file/d/1T5WBvo9MPTjpeKrgZY-fXAn6jwDFct9d/view?usp=sharing)
+Download [worksheet10_aero_dist.ipynb](https://drive.google.com/file/d/1Ky0ohMyWmQdDiOnJDYV9a0nMl3HV0Z3Y/view?usp=sharing)
 
 +++
 
@@ -224,13 +224,13 @@ In addition the units for the y axis become:
 $kg\;m^{-3}\;kg^{-1}\;10^{-15}\;kg\;pg^{-1}$
 
 In the same way, we can convert the aerosol mass concentration from
-$kg\;m^{-1}$ to micrograms: $kg \times 10^{9} \mu g\;kg^{-1}$
+$kg\;m^{-3}$ to  $\mu g\;m^{-3}$ by using $kg \times 10^{9} \mu g\;kg^{-1}$
 
 That makes the y axis units:
 
 
-$kg\;m^{-3}\;kg^{-1}$ = 1 $kg \times 10^{9} \mu g\;kg^{-1}\;kg^{-1}\;10^{-15}\;kg\;pg^{-1}$
-= $10^{-6}\ \mu g\;m^{-3}\;pg^{-1}$
+$kg\;m^{-3}\;kg^{-1}$ = 1 $kg \times 10^{9} \mu g\;kg^{-1}$ and $kg^{-1}\;10^{-15}\;kg\;pg^{-1}$
+so the full conversion factor = $10^{-6}\ \mu g\;m^{-3}\;pg^{-1}$
 
 So when we plot, we want to multiply the xaxis by $10^{15}$ and the yaxis by $10^{-6}$
 
@@ -321,12 +321,23 @@ ax.grid(True)
 # print(f"total number concentration is {total_num:.2f} #/cc")
 ```
 
+```{code-cell} ipython3
+len(rad_vals)
+```
+
 ## Worksheet question 1
 
 Calculate the effective radius $r_{eff}$ defined in equations 11 and 12 of my [size distribution notes](https://drive.google.com/file/d/1YYr2dFO4csFNsdOL7IEZJCPEh6LXMoof/view)
 
 ```{code-cell} ipython3
 # your code here
+ndist_mid = (ndist[1:] + ndist[:-1])/2.
+rmid = (rad_vals[1:] + rad_vals[:-1])/2.
+dr = np.diff(rad_vals)
+reff = np.sum(ndist_mid*rmid**3.*dr)/np.sum(ndist_mid*rmid**2.*dr)
+print(f"{reff=:.2e} m")
+rvol3 = np.sum(ndist_mid*rmid**3.*dr)/np.sum(ndist_mid*dr)
+print(f"rvol = {rvol3**0.3333:.2e} m")
 ```
 
 ## Worksheet question 2
@@ -346,10 +357,22 @@ $$
 for reasonable values of $r$, $S$ and $T$ and show it is order 1 second.
 
 ```{code-cell} ipython3
-# your code here
+# try this for a 1 micron drop
+#
+#
+from a405.thermo.constants import constants as c
+from a405.thermo.thermlib import find_esat
+temp = 280 #K
+r = 1.e-6 # m
+S = 1.01
+esat = find_esat(temp)
+one_over_tau = (c.D*esat/(c.rhol*r**2.*c.Rv*temp))*(S-1)
+tau = 1/one_over_tau
+print(f"time constant tau = {tau:.2f} seconds")
 ```
 
-## Study Problem
+(worksheet10_problem)=
+## Worksheet 10 CCNC Problem
 
 Add a cell to this notebook that makes a plot of $N(r)$ vs. $S_{crit}$ for the $n(r)$ in the previous cell,  where:
 

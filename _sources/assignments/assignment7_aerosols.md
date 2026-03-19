@@ -5,7 +5,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.16.1
+    jupytext_version: 1.19.1
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -22,8 +22,6 @@ kernelspec:
 ## Problem 1: cloud chamber
 
 +++
-
-
 
 1. Given the critical supersaturation from the kohler notes:
 
@@ -44,13 +42,11 @@ Note that this is why a cloud chamber can get the aerosol mass distribution from
 saturation and light scattering measurements as smaller and smaller aerosols are pushed over
 their critical supersaturation and activated.
 
-
 +++
 
 ## Problem 2: Koehler stability
 
 +++
-
 
 2. Show that the expression for second derivative of the thermodynamic potential derived in the  kohler stability notes:
 

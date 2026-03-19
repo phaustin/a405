@@ -59,11 +59,11 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/worksheets/worksheet10_aero_dist';</script>
-    <link rel="canonical" href="https://phaustin.github.io/a405/notebooks/worksheets/worksheet10_aero_dist.html" />
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/worksheets/worksheet10_aero_dist_solution';</script>
+    <link rel="canonical" href="https://phaustin.github.io/a405/notebooks/worksheets/worksheet10_aero_dist_solution.html" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Adiabatic Box - Solution" href="../../assignments/adiabatic_box_solution.html" />
+    <link rel="next" title="Worksheet 11: Parcel model" href="dropgrow/worksheet11_dropgrow.html" />
     <link rel="prev" title="Worksheet9: Koehler Equilibrium solution" href="worksheet9_koehler_solution.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -217,6 +217,7 @@
 <li class="toctree-l1"><a class="reference internal" href="worksheet8_interp1d_solution.html">Worksheet 8: Interp1d Solution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="worksheet9_koehler_solution.html">Worksheet9: Koehler Equilibrium solution</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Worksheet 10: Aerosol distributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dropgrow/worksheet11_dropgrow.html">Worksheet 11: Parcel model</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="nav bd-sidenav">
@@ -231,6 +232,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../assignments/assignment6_koehler_solution.html">Assignment 6 paper/pencil problems</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../../assignments/assignment7_aerosols.html">Assignment 7: aerosols</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../assignments/assignment8_precipitation.html">Assignment 8 – precipitation.</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">In-depth notes</span></p>
 <ul class="nav bd-sidenav">
@@ -257,6 +259,7 @@
 <li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1mF4ES2IewpnLB-lQHOBuK5JwSnelqkYs/view?usp=sharing">Droplet growth notes</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1i_2_LTQ496FScNK8V-b3pb-rvh6Qzapa/view?usp=sharing">timescales for diffusion and droplet growth</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1YYr2dFO4csFNsdOL7IEZJCPEh6LXMoof/view?usp=sharing">aerosol size distributions</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1kGjCV3tVA4umfoU1KFlkCAbHtXqdOStt/view?usp=sharing">Accurate enthalpy and thetae</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">midterms</span></p>
 <ul class="nav bd-sidenav">
@@ -328,7 +331,7 @@
       
       
       
-      <li><a href="../../_sources/notebooks/worksheets/worksheet10_aero_dist.md" target="_blank"
+      <li><a href="../../_sources/notebooks/worksheets/worksheet10_aero_dist_solution.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -445,7 +448,7 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#worksheet-question-1">Worksheet question 1</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#worksheet-question-2">Worksheet question 2</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#study-problem">Study Problem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#worksheet-10-ccnc-problem">Worksheet 10 CCNC Problem</a></li>
 </ul>
             </nav>
         </div>
@@ -458,8 +461,8 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="worksheet-10-aerosol-distributions">
-<span id="worksheet10-aerosol-dists"></span><h1>Worksheet 10: Aerosol distributions<a class="headerlink" href="#worksheet-10-aerosol-distributions" title="Link to this heading">#</a></h1>
-<p>Download <a class="reference external" href="https://drive.google.com/file/d/1T5WBvo9MPTjpeKrgZY-fXAn6jwDFct9d/view?usp=sharing">worksheet10_aero_dist.ipynb</a></p>
+<span id="worksheet10-aerosol-dists-solution"></span><h1>Worksheet 10: Aerosol distributions<a class="headerlink" href="#worksheet-10-aerosol-distributions" title="Link to this heading">#</a></h1>
+<p>Download <a class="reference external" href="https://drive.google.com/file/d/1Ky0ohMyWmQdDiOnJDYV9a0nMl3HV0Z3Y/view?usp=sharing">worksheet10_aero_dist.ipynb</a></p>
 <p>Below we look at some mass and number distribution functions for atmospheric aerosols.</p>
 <p>How do we describe the observations given by measurements such as those in Lohmann Fig. 5.5?</p>
 <figure class="align-default" id="lohmann-f55">
@@ -716,10 +719,10 @@ better to have the x-axis in picograms (pg) where
 <p>In addition the units for the y axis become:</p>
 <p><span class="math notranslate nohighlight">\(kg\;m^{-3}\;kg^{-1}\;10^{-15}\;kg\;pg^{-1}\)</span></p>
 <p>In the same way, we can convert the aerosol mass concentration from
-<span class="math notranslate nohighlight">\(kg\;m^{-1}\)</span> to micrograms: <span class="math notranslate nohighlight">\(kg \times 10^{9} \mu g\;kg^{-1}\)</span></p>
+<span class="math notranslate nohighlight">\(kg\;m^{-3}\)</span> to  <span class="math notranslate nohighlight">\(\mu g\;m^{-3}\)</span> by using <span class="math notranslate nohighlight">\(kg \times 10^{9} \mu g\;kg^{-1}\)</span></p>
 <p>That makes the y axis units:</p>
-<p><span class="math notranslate nohighlight">\(kg\;m^{-3}\;kg^{-1}\)</span> = 1 <span class="math notranslate nohighlight">\(kg \times 10^{9} \mu g\;kg^{-1}\;kg^{-1}\;10^{-15}\;kg\;pg^{-1}\)</span>
-= <span class="math notranslate nohighlight">\(10^{-6}\ \mu g\;m^{-3}\;pg^{-1}\)</span></p>
+<p><span class="math notranslate nohighlight">\(kg\;m^{-3}\;kg^{-1}\)</span> = 1 <span class="math notranslate nohighlight">\(kg \times 10^{9} \mu g\;kg^{-1}\)</span> and <span class="math notranslate nohighlight">\(kg^{-1}\;10^{-15}\;kg\;pg^{-1}\)</span>
+so the full conversion factor = <span class="math notranslate nohighlight">\(10^{-6}\ \mu g\;m^{-3}\;pg^{-1}\)</span></p>
 <p>So when we plot, we want to multiply the xaxis by <span class="math notranslate nohighlight">\(10^{15}\)</span> and the yaxis by <span class="math notranslate nohighlight">\(10^{-6}\)</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -739,7 +742,7 @@ better to have the x-axis in picograms (pg) where
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;&gt;:4: SyntaxWarning: &quot;\m&quot; is an invalid escape sequence. Such sequences will not work in the future. Did you mean &quot;\\m&quot;? A raw string is also an option.
 &lt;&gt;:4: SyntaxWarning: &quot;\m&quot; is an invalid escape sequence. Such sequences will not work in the future. Did you mean &quot;\\m&quot;? A raw string is also an option.
-/var/folders/h3/5svt7fds58v0x7kkc54kl3640000gn/T/ipykernel_92768/1866162784.py:4: SyntaxWarning: &quot;\m&quot; is an invalid escape sequence. Such sequences will not work in the future. Did you mean &quot;\\m&quot;? A raw string is also an option.
+/var/folders/h3/5svt7fds58v0x7kkc54kl3640000gn/T/ipykernel_28697/1866162784.py:4: SyntaxWarning: &quot;\m&quot; is an invalid escape sequence. Such sequences will not work in the future. Did you mean &quot;\\m&quot;? A raw string is also an option.
   labels=ax.set(xlabel=&quot;particle mass (pg)&quot;,ylabel=&quot;mass dist $(\mu g\;m^{-3}\;pg^{-1})$&quot;)
 </pre></div>
 </div>
@@ -793,7 +796,7 @@ Make this:</p>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;&gt;:9: SyntaxWarning: &quot;\m&quot; is an invalid escape sequence. Such sequences will not work in the future. Did you mean &quot;\\m&quot;? A raw string is also an option.
 &lt;&gt;:9: SyntaxWarning: &quot;\m&quot; is an invalid escape sequence. Such sequences will not work in the future. Did you mean &quot;\\m&quot;? A raw string is also an option.
-/var/folders/h3/5svt7fds58v0x7kkc54kl3640000gn/T/ipykernel_92768/1008016579.py:9: SyntaxWarning: &quot;\m&quot; is an invalid escape sequence. Such sequences will not work in the future. Did you mean &quot;\\m&quot;? A raw string is also an option.
+/var/folders/h3/5svt7fds58v0x7kkc54kl3640000gn/T/ipykernel_28697/1008016579.py:9: SyntaxWarning: &quot;\m&quot; is an invalid escape sequence. Such sequences will not work in the future. Did you mean &quot;\\m&quot;? A raw string is also an option.
   ax.set(xlim=[0,0.4],xlabel=&quot;dry radius ($\mu m$)&quot;,
 </pre></div>
 </div>
@@ -827,11 +830,23 @@ Make this:</p>
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;&gt;:12: SyntaxWarning: &quot;\m&quot; is an invalid escape sequence. Such sequences will not work in the future. Did you mean &quot;\\m&quot;? A raw string is also an option.
 &lt;&gt;:12: SyntaxWarning: &quot;\m&quot; is an invalid escape sequence. Such sequences will not work in the future. Did you mean &quot;\\m&quot;? A raw string is also an option.
-/var/folders/h3/5svt7fds58v0x7kkc54kl3640000gn/T/ipykernel_92768/851549262.py:12: SyntaxWarning: &quot;\m&quot; is an invalid escape sequence. Such sequences will not work in the future. Did you mean &quot;\\m&quot;? A raw string is also an option.
+/var/folders/h3/5svt7fds58v0x7kkc54kl3640000gn/T/ipykernel_28697/851549262.py:12: SyntaxWarning: &quot;\m&quot; is an invalid escape sequence. Such sequences will not work in the future. Did you mean &quot;\\m&quot;? A raw string is also an option.
   ax.set(xlim=[0.01,0.4],xlabel=&quot;dry radius ($\mu m$)&quot;,
 </pre></div>
 </div>
 <img alt="../../_images/2cbb31e63d8b51a18a6ce9a4f12df7a337a3bc091df43bbe49d3589c969133f0.png" src="../../_images/2cbb31e63d8b51a18a6ce9a4f12df7a337a3bc091df43bbe49d3589c969133f0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">rad_vals</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100
+</pre></div>
+</div>
 </div>
 </div>
 </section>
@@ -842,6 +857,19 @@ Make this:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here</span>
+<span class="n">ndist_mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">ndist</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">+</span> <span class="n">ndist</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="mf">2.</span>
+<span class="n">rmid</span> <span class="o">=</span> <span class="p">(</span><span class="n">rad_vals</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">+</span> <span class="n">rad_vals</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="mf">2.</span>
+<span class="n">dr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">rad_vals</span><span class="p">)</span>
+<span class="n">reff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">ndist_mid</span><span class="o">*</span><span class="n">rmid</span><span class="o">**</span><span class="mf">3.</span><span class="o">*</span><span class="n">dr</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">ndist_mid</span><span class="o">*</span><span class="n">rmid</span><span class="o">**</span><span class="mf">2.</span><span class="o">*</span><span class="n">dr</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">reff</span><span class="si">=:</span><span class="s2">.2e</span><span class="si">}</span><span class="s2"> m&quot;</span><span class="p">)</span>
+<span class="n">rvol3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">ndist_mid</span><span class="o">*</span><span class="n">rmid</span><span class="o">**</span><span class="mf">3.</span><span class="o">*</span><span class="n">dr</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">ndist_mid</span><span class="o">*</span><span class="n">dr</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;rvol = </span><span class="si">{</span><span class="n">rvol3</span><span class="o">**</span><span class="mf">0.3333</span><span class="si">:</span><span class="s2">.2e</span><span class="si">}</span><span class="s2"> m&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>reff=1.37e-07 m
+rvol = 1.33e-07 m
 </pre></div>
 </div>
 </div>
@@ -862,14 +890,30 @@ Make this:</p>
 <p>for reasonable values of <span class="math notranslate nohighlight">\(r\)</span>, <span class="math notranslate nohighlight">\(S\)</span> and <span class="math notranslate nohighlight">\(T\)</span> and show it is order 1 second.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># try this for a 1 micron drop</span>
+<span class="c1">#</span>
+<span class="c1">#</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">a405.thermo.constants</span><span class="w"> </span><span class="kn">import</span> <span class="n">constants</span> <span class="k">as</span> <span class="n">c</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">a405.thermo.thermlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">find_esat</span>
+<span class="n">temp</span> <span class="o">=</span> <span class="mi">280</span> <span class="c1">#K</span>
+<span class="n">r</span> <span class="o">=</span> <span class="mf">1.e-6</span> <span class="c1"># m</span>
+<span class="n">S</span> <span class="o">=</span> <span class="mf">1.01</span>
+<span class="n">esat</span> <span class="o">=</span> <span class="n">find_esat</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
+<span class="n">one_over_tau</span> <span class="o">=</span> <span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">D</span><span class="o">*</span><span class="n">esat</span><span class="o">/</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">rhol</span><span class="o">*</span><span class="n">r</span><span class="o">**</span><span class="mf">2.</span><span class="o">*</span><span class="n">c</span><span class="o">.</span><span class="n">Rv</span><span class="o">*</span><span class="n">temp</span><span class="p">))</span><span class="o">*</span><span class="p">(</span><span class="n">S</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">tau</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">one_over_tau</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;time constant tau = </span><span class="si">{</span><span class="n">tau</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> seconds&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>time constant tau = 0.55 seconds
 </pre></div>
 </div>
 </div>
 </div>
 </section>
-<section id="study-problem">
-<h2>Study Problem<a class="headerlink" href="#study-problem" title="Link to this heading">#</a></h2>
+<section id="worksheet-10-ccnc-problem">
+<span id="worksheet10-problem"></span><h2>Worksheet 10 CCNC Problem<a class="headerlink" href="#worksheet-10-ccnc-problem" title="Link to this heading">#</a></h2>
 <p>Add a cell to this notebook that makes a plot of <span class="math notranslate nohighlight">\(N(r)\)</span> vs. <span class="math notranslate nohighlight">\(S_{crit}\)</span> for the <span class="math notranslate nohighlight">\(n(r)\)</span> in the previous cell,  where:</p>
 <p><span class="math notranslate nohighlight">\(N(r) = \int_r^\infty n(r) dr\)</span> is the number of aerosols with dry radii larger than <span class="math notranslate nohighlight">\(r\)</span> and <span class="math notranslate nohighlight">\(S_{crit}\)</span> is the critical supersaturation at radius r for these ammonium sulphate aerosols.  Explain briefly why this is the output you would expect to see from an aerosol size counter based on a cloud chamber with a laser scattering sensor.</p>
 </section>
@@ -915,11 +959,11 @@ Make this:</p>
       </div>
     </a>
     <a class="right-next"
-       href="../../assignments/adiabatic_box_solution.html"
+       href="dropgrow/worksheet11_dropgrow.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Adiabatic Box - Solution</p>
+        <p class="prev-next-title">Worksheet 11: Parcel model</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -962,7 +1006,7 @@ Make this:</p>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#worksheet-question-1">Worksheet question 1</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#worksheet-question-2">Worksheet question 2</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#study-problem">Study Problem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#worksheet-10-ccnc-problem">Worksheet 10 CCNC Problem</a></li>
 </ul>
   </nav></div>
 
