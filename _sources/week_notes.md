@@ -352,7 +352,7 @@ Read Thompkins pages 73-75 on condensation growth
 - Review {ref}`worksheet10_aerosol_dists_solution`
 - Flashback: [Accurate enthalpy and $\theta_e$](https://drive.google.com/file/d/1kGjCV3tVA4umfoU1KFlkCAbHtXqdOStt/view?usp=sharing)
 - Introduce {ref}`assignment_precip` which is based on 
-  [Wallace and Hobbs Section 6.4](https://www.dropbox.com/scl/fi/r7zhctw6usest2rirpe2f/wallace_hobbs_chap6.pdf?rlkey=oxdanppj9wkocmwe4nn4cc4fi&dl=0)
+  [Wallace and Hobbs Section 6.4](https://drive.google.com/file/d/1wcG9cKgb6MT7XklFuEZJtcAIQ1uH9mAP/view?usp=sharing)
 - {ref}`worksheet11_dropgrow`
 
 
