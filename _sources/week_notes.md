@@ -341,7 +341,7 @@ Read Thompkins pages 73-75 on condensation growth
   - {ref}`assign6_cape_solution`
   - {ref}`assign6_koehler_solution`
   
-- {ref}`worksheet10_aerosol_dists_solution`
+- o{ref}`worksheet10_aerosol_dists_solution`
 
 #### For Thursday
 
@@ -356,3 +356,6 @@ Read Thompkins pages 73-75 on condensation growth
 - {ref}`worksheet11_dropgrow`
 
 
+#### For Tuesday
+
+Read [Wallace and Hobbs Section 6.4](https://www.dropbox.com/scl/fi/r7zhctw6usest2rirpe2f/wallace_hobbs_chap6.pdf?rlkey=oxdanppj9wkocmwe4nn4cc4fi&dl=0) and work on Assignment 8

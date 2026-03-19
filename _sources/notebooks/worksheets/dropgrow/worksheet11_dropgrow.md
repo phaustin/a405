@@ -20,7 +20,8 @@ Download [worksheet11_dropgrow.ipynb](https://drive.google.com/file/d/11E3ZD7xIj
 This notebook takes the aerosols from 
 
 {ref}`worksheet10_aerosol_dists_solution` and puts them into a constant velocity updraft
-The integrator calculates the growth of 30 aerosol bins, plus the three prognostic variables
+The integrator calculates the growth of 30 aerosol bins, plus the three prognostic variables.  The equations used
+are given in the Day 22 [droplet growth notes](https://drive.google.com/file/d/1mF4ES2IewpnLB-lQHOBuK5JwSnelqkYs/view?usp=sharing)
 
 ```{code-cell} ipython3
 from pathlib import Path
