@@ -12,12 +12,10 @@ kernelspec:
   name: python3
 ---
 
-(adiabatic_water_solution)=
-# Solution: Parcel model: add adiabatic liquid water
+(oscillating_solution)=
+# Solution: Parcel model: add oscillating updraft
 
-- In the cell at the bottom of this worksheet, write a function that will calculate the adiabatic liquid water content
-of the parcel given the parcel pressure level and the $\theta_e$ value at cloud base.  Use panda apply to add this as a new column
-to the dataframe.
+- Replace the constant updraft with an oscillating updraft that cycles between -0.5 and 0.5 m/s over a period of 200 seconds. Is droplet grow/evaporation a reversible process?
 
 - Hints:
   - you first need to find $\theta_e$ and $r_v$ at cloudbase (these will be the same as the surface values)
@@ -38,6 +36,10 @@ from scipy.integrate import odeint
 import pandas as pd
 from matplotlib import pyplot as plt
 ```
+
+### Answer
+
+#### Write the updraft function
 
 ```{code-cell} ipython3
 def find_wvel(the_time):
@@ -164,6 +166,10 @@ def rlderiv(var_vec,deriv_vec,cloud_tup,nvars=3):
     return drldt
 ```
 
+### Answer: add find_wvel to find_derivs
+
+#### Replace the constant updraft
+
 ```{code-cell} ipython3
 def find_derivs(var_vec,the_time,cloud_tup):
     """
@@ -191,12 +197,16 @@ def find_derivs(var_vec,the_time,cloud_tup):
          derivatives of each of var_vec
     
     """
+    #
+    # change the updraft to use find_wvel
+    #
     def find_wvel(the_time):
         period = 2*np.pi/200.
         wvel = 0.5*np.sin(the_time*period)
         return wvel
 
     the_wvel = find_wvel(the_time)
+    
     #print('inside: ',var_vec)
     #print(f"{the_time=}")
     temp,press,height = var_vec[-3:]
@@ -443,150 +453,8 @@ ax.plot(Svals,df_output['z'])
 out=ax.set(ylim=[1000,1050],title='Saturation in a {} m/s updraft'.format(cloud_tup.wvel))
 ```
 
++++ {"jp-MarkdownHeadingCollapsed": true}
+
 ## Worksheet Problem 1: oscilating updraft
 
 Replace the constant updraft with an oscillating updraft that cycles between -0.5 and 0.5 m/s over a period of 200 seconds. Is droplet grow/evaporation a reversible process?
-
-+++
-
-## Worksheet problem 2 -- calculating $r_l$ and $h_l$
-
-+++
-
-Use [pandas.DataFrame.apply](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.apply.html)  and the function rlcalc above to get the time history of the liquid water path
-
-+++
-
-### simple example
-
-1. we want to apply a function along columns (axis=1) rather than rows (axis=0)
-2. we want to return the result as a new column in the dataframe, rather than a separate vector
-
-```{code-cell} ipython3
-def test_fun(row):
-    #print(f"{row.name=}, {row=}")
-    full_vec = row.to_numpy()
-    drops = full_vec[:-3]
-    rad_sum = np.sum(drops)
-    row["testcol"] = rad_sum
-    return row
-```
-
-```{code-cell} ipython3
-def rlcalc(var_vec,ndist):
-    """
-    calculate the liquid water for the distribution
-
-    the last  3 variables in var_vec are temperature, pressure and height (mks)
-
-    Parameters
-    ----------
-
-    var_vec: vector(float)
-           vector of values to be integrated
-    cloud_top: namedtuple
-           tuple of necessary coefficients
-    """
-    wl=ndist*(var_vec[:-3]**3.)
-    wl=np.sum(wl)
-    wl=wl*4./3.*np.pi*c.rhol
-    #print(f"{wl=}")
-    return wl
-```
-
-### now add the rl column 
-
-Note that you need the number distribution, which you can pass to the rlcalc function using the args parameter in apply
-
-```{code-cell} ipython3
-def find_rl(row,ndist):
-    var_vec = row.to_numpy()
-    rl = rlcalc(var_vec,ndist)
-    row['rl'] = rl
-    return row
-```
-
-```{code-cell} ipython3
-new_df =df_output.apply(find_rl,axis=1,args = (ndist,) )
-fig,ax = plt.subplots(1,1)
-ax.plot('rl','z',data = new_df);
-```
-
-### repeat for liquid water static energy
-
-How much $h_l = c_p T  - l_v r_l + gz$ change during the integration?
-
-```{code-cell} ipython3
-def hlcalc(var_vec,hlout0):
-    num_vec = var_vec.to_numpy()
-    temp,press,z,rl = num_vec[-4:]
-    lv=find_lv(temp)
-    hlout = c.cpd*temp - lv*rl + c.g0*z
-    hl_diff = hlout - hlout0
-    #print(f"{(rl,temp,z,hlout)=}")
-    var_vec['hl'] = hlout
-    var_vec['hl_diff'] = hl_diff
-    return var_vec
-```
-
-```{code-cell} ipython3
-z0 = new_df['z'][0]
-temp = new_df['temp'][0]
-lv = find_lv(temp)
-hlout0 = c.cpd*temp + c.g0*z0
-new_df2 = new_df.apply(hlcalc,args=(hlout0,),axis=1)
-fig,ax = plt.subplots(1,1)
-out=ax.set(title = "hl - hl0",xlabel="time (s)", 
-           ylabel = "hl difference (J/kg)")
-ax.plot('hl_diff',data = new_df2);
-```
-
-```{code-cell} ipython3
-find_thetaet
-```
-
-## Worksheet problem 3: adiabatic liquid water content
-
-### first calculate thetae and rv below cloud at z=1000
-
-```{code-cell} ipython3
-temp0 = new_df2['temp'][0]
-press0 = new_df2['press'][0]
-rt0 = initial_conditions["Sinit"]*find_rsat(temp0,press0)
-Td0 = find_Td(rt0,press0)
-thetae0 = find_thetaet(Td0,rt0,temp0,press0)
-```
-
-### now write a function like hlcalc uses thetae0, rv0 with tinvert_thetae to find the adiabatic liquid water
-
-```{code-cell} ipython3
-def adia_calc(var_vec,thetae0, rt0):
-    num_vec = var_vec.to_numpy()
-    temp,press,z,rl = num_vec[-4:]
-    adiatemp,adiarv, adiarl = tinvert_thetae(thetae0, rt0, press)
-    var_vec['adia_rl'] = adiarl
-    var_vec['rldiff'] = rl - adiarl
-    return var_vec
-   
-```
-
-### apply this function to the new_df dataframe
-
-- add a new column called 'adia_rl' and plot the diffence with rl
-
-```{code-cell} ipython3
-new_df3 = new_df.apply(adia_calc,args=(thetae0, rt0),axis=1)
-```
-
-```{code-cell} ipython3
-fig, ax =  plt.subplots(1,1)
-rl_diff = new_df3['rldiff'].to_numpy()*1.e3
-ax.set_title("rl - adiabatic liquid water")
-ax.set_xlabel("time (s)")
-ax.set_ylabel("rl difference (g/kg)")
-ax.plot(rl_diff);
-```
-
-```{code-cell} ipython3
-
-```

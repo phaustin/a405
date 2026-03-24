@@ -12,8 +12,8 @@ kernelspec:
   name: python3
 ---
 
-(assign7_aerosols)=
-# Assignment 7: aerosols
+(assign7_aerosols_solution)=
+# Assignment 7: aerosols: solution
 
 -  Due Friday March 20 midnight
 
@@ -44,11 +44,66 @@ their critical supersaturation and activated.
 
 +++
 
+### Problem 1 answer
+
++++
+
+Given a and b:
+
+$$
+a=\frac{2 \sigma}{\rho_l R_v T}
+$$
+$$
+b=\frac{i m M_w}{4 / 3 \pi \rho_s M_s}
+$$
+
++++
+
+Insert the definition of b into {eq}`scrit`:
+
+$$
+(S^* - 1 ) = \left (\frac{4a^3 \,4/3 \pi \rho_s M_s }{27 i M_w} \right )^{1/2}  m_{aer}^{-1/2}
+$$
+
+```{code-cell} ipython3
+from a405.thermo.constants import constants as c
+import numpy as np
+sigma = 0.075 #N/m
+temp = 280 # K
+rhos = 1775 #kg/m^3
+i = 3
+Ms = 132  #kg/kmol
+Mw = 18 #kg/kmol
+
+a = 2*sigma/(c.rhol*c.Rv*temp)
+numerator = 4*a**3.*4./3.*np.pi*rhos*Ms
+denom = 27*i*Mw
+coeff = (numerator/denom)**0.5
+coeff
+```
+
+```{code-cell} ipython3
+import numpy as np
+
+Ms=132.  #kg/kmole
+Mw=18.  #kg/kmole
+Rhol=1.e3  #1000
+Sigma=0.075  #N/m
+rhoaero=1775.  #kg/m^3
+Rv=461.   #J/kg/K
+vanhoff=3
+Tinit=280.  #K
+a=(2.*Sigma)/(Rv*Tinit*Rhol) # units m
+bnomass=(vanhoff*Mw)/((4./3.)*np.pi*Rhol*Ms)  #units m^3/kg
+Scoeff=((4*a**3)/(27*bnomass))**0.5  #units  kg^{-0.5}
+print(f'Scrit coeff without aerosol mass: {Scoeff:6.3e} kg**0.5')
+```
+
 ## Problem 2: Koehler stability
 
 +++
 
-2. Show that the expression for second derivative of the thermodynamic potential derived in the  kohler stability notes:
+2. Show that the expression for second derivative of the thermodynamic potential derived in the  Koehler stability notes:
 
      $$
      \frac{\delta ^2G}{\delta r^2} = - 4 \pi R_v T \rho_l \left [ 2 a - r^2 \left ( 1 +
@@ -62,6 +117,40 @@ their critical supersaturation and activated.
      there has to be a sign change from + to -.
 
 +++
+
+### Problem 2 answer
+
++++
+
+ First confirm that $\frac{\delta^2 G}{\delta r^2}=0$ at the critical radius:
+Inserting $r_{crit}=\left(\frac{3 b}{a}\right)^{1 / 2}$ into (8):
+$$
+\begin{aligned}
+\frac{\delta^2 G}{\partial r^2}= & -4 \pi R_v T \rho_l\left(2 a-\frac{3 b a}{3 b}\right)+8 \pi \sigma \\
+& =-4 \pi R_v T \rho_l a+8 \pi \sigma
+\end{aligned}
+$$
+but $a=\frac{2\sigma}{R_v T \rho_l}$ so
+$$
+\frac{\delta^2 G}{\delta r^2}=-4 \pi R_v T \rho_l \frac{2 \sigma}{R_v T \rho_l}+8 \pi \sigma=-8 \pi \sigma+8 \pi \sigma=0
+$$
+
++++
+
+We walt to confirm that $\frac{\delta^2 G}{\delta r^2}<0$ (unstable) for $r>r_{crit}$ and $\frac{\delta^2 G}{\delta r^2}>0$ (stable)
+for $r<r_{crit}$.
+That is equivalent to showing that $\frac{\delta}{\delta r}\left(\frac{\delta^2 G}{\delta r^2}\right)<0$ at $r=r_{crit}$
+
++++
+
+Sure enough:
+$$
+\begin{aligned}
+& \frac{\delta}{\delta r}\left(\frac{\delta^2 G}{\delta r^2}\right)=\frac{\delta}{\delta r}\left(-4 \pi R_V T \rho_l\left(-\frac{3 b}{r^2}\right)\right) \\
+& =-4 \pi R_V T \rho_l \frac{3 b}{r^3}<0 \text { at } r=r_{crit}.
+\end{aligned}
+$$
+
 
 ## Problem 3: CCN lifetime
 

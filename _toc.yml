@@ -45,7 +45,8 @@ parts:
     - file: notebooks/worksheets/entraining_plume.md
     - file: notebooks/worksheets/worksheet8_interp1d_solution.md
     - file: notebooks/worksheets/worksheet9_koehler_solution.md
-    - file: notebooks/worksheets/worksheet10_aero_dist.md
+    - file: notebooks/worksheets/worksheet10_aero_dist_solution.md
+    - file: notebooks/worksheets/dropgrow/worksheet11_dropgrow.md
   - caption: Assignments
     chapters:
     - file: assignments/adiabatic_box_solution.md
@@ -59,6 +60,7 @@ parts:
     - file: assignments/assign6_cape_solution.md
     - file: assignments/assignment6_koehler_solution.md
     - file: assignments/assignment7_aerosols.md
+    - file: assignments/assignment8_precipitation.md
   - caption: In-depth notes
     chapters:
     - url: https://www.dropbox.com/scl/fi/5scb458wnoymr4s8ta4vt/equation_sheet.pdf?rlkey=29ymawiljakqnv3wquqa4wm8e&st=4mmzb2ii&dl=0
@@ -105,6 +107,10 @@ parts:
       title: timescales for diffusion and droplet growth
     - url: https://drive.google.com/file/d/1YYr2dFO4csFNsdOL7IEZJCPEh6LXMoof/view?usp=sharing
       title: aerosol size distributions
+    - url: https://drive.google.com/file/d/1kGjCV3tVA4umfoU1KFlkCAbHtXqdOStt/view?usp=sharing
+      title: Accurate enthalpy and thetae
+
+      
 
 
   - caption: midterms

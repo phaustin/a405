@@ -1,0 +1,266 @@
+\documentclass[12pt]{article}
+\usepackage{xr,geometry,fancyhdr,hyperref,ifpdf,amsmath,rcs}
+\usepackage{color,lastpage,longtable,Ventry,url,paunits,shortcuts,smallsec,float}
+\geometry{letterpaper,top=50pt,hmargin={20mm,20mm},headheight=15pt} 
+
+\pagestyle{fancy} 
+
+
+\RCS $Revision: 1.1 $
+\RCS $Date: 2002/01/11 03:49:21 $
+
+\fancypagestyle{first}{
+\lhead{\textbf{A405}}
+\chead{\textbf{K\"ohler equation notes}} 
+\rhead{p.~\thepage/\pageref{LastPage}}
+\lfoot{} 
+\cfoot{} 
+\rfoot{}
+}
+
+\ifpdf
+    \usepackage[pdftex]{graphicx} 
+    \usepackage{hyperref}
+    \pdfcompresslevel=0
+    \DeclareGraphicsExtensions{.pdf,.jpg,.mps,.png}
+\else
+    \usepackage{hyperref}
+    \usepackage[dvips]{graphicx}
+    \DeclareGraphicsRule{.eps.gz}{eps}{.eps.bb}{`gzip -d #1}
+    \DeclareGraphicsExtensions{.eps,.eps.gz}
+\fi
+\externaldocument[lec1,]{lec1}
+\externaldocument[lec2,]{lec2}
+\externaldocument[lec3,]{lec3}
+\hyperbaseurl{http://www.eos.ubc.ca/courses/atsc405/}
+\begin{document}
+\pagestyle{first}
+
+\begin{center}
+Atsc405: K\"ohler equation\\
+\end{center}
+
+
+\textit{My own take on the K\"ohler equation  -- covering Thompkins section 4.2 and Lohmann Chapter 6 sections 6.1 - 6.4}
+
+For a reversible process in a system with only liquid
+water and water vapor, the Gibbs free energy/kg is given by:
+
+\begin{equation}
+  \label{eq:dg}
+  dg= -\phi dT + v de
+\end{equation}
+where $v = 1/\rho$ is the volume per unit mass (specific volume)
+
+It follows from (\ref{eq:dg}) and the equation of state (\textit{show
+  this}) that for a pure sheet of flat water at constant temperature
+we can integrate (\ref{eq:dg}) from an equilibrium state, where $e=e_s$,
+and $g_v = g_l$,
+to a point off the equilibrium curve, with $e=e_s + \delta e$,
+and $g_v > g_l$
+the energy difference between vapor and water is:
+
+\begin{equation}
+  \label{eq:gdiff}
+  \delta g_l - \delta g_v = \delta (g_l - g_v) = 
+( v_l - v_v ) \delta e \approx - \frac{R_v T}{e^\prime} \delta e^\prime
+\end{equation}
+
+We can integrate (\ref{eq:gdiff}) to get the tota energy difference
+between vapor and liquid:
+
+\begin{equation}
+  \label{eq:totdiff}
+  g_l - g_v \approx - \int_{e_s}^e \frac{R_v T}{e} de
+= -R_v \ln \left ( \frac{ e}{e_s}  \right ) = -R_v T \ln (S)
+\end{equation}
+where S is the saturation ratio $e/e_s$.  Note that  if this is a
+negative number (S $<$ 1) the system will lower its total G by moving
+molecules from liquid to vapor, while if (S $>$ 1) the system will
+move vapor to liquid.  If $S=1$ the system is in equilibrium and $g_l=
+g_v$.  If there are $m_v$ kg of vapor and $m_l$ kg of liquid, then the
+total Gibbs free energy G (J) is given by:
+
+\begin{equation}
+  \label{eq:total}
+  G= m_v g_v + m_l g_l
+\end{equation}
+See if you can show that  this system will
+maximize its entropy by minimizing G.
+
+Here's a subtle question: How can we use equilibrium thermodynamics
+when we're moving around off of the equilibrium curve?  I've acknowledged
+this problem by writing the perturbation from equilibrium with
+a $\delta$ instead of a $d$.  This $\delta$ is called a 
+\textit{virtual perturbation} and it is meant to represent the fact
+that we're imposing a new constraint (in the case of a cloud droplet,
+we're putting it in an effectively infinite environment with a 
+vapor pressure that is fixed to $e=e_s + \delta e$.  The environment
+does whatever it takes to hold the vapor pressure away from the
+drop at $e$, and this gives the system time to settle down
+so that equilibrium statistics like $\left < v^2 \right >$, pressure,
+temperature, etc. can be assumed to exist.
+
+
+But what happens if the flat water is actually composed of $n_w$
+molecules of pure water and $n_s$ ions of some solute (probably
+$NH_4$ and $SO_4$)?  This lowers the equilibrium supersaturation through
+Raoult's law (what I call the ``lilly pad effect''):
+
+\begin{equation}
+  \label{eq:raoult}
+e_\chi = e_s \left ( \frac{n_w}{n_w + n_s} \right ) = a_w e_s  
+\end{equation}
+
+\noindent
+Where the subscript $\chi$ (Chi) stands for ``chemistry''.  The more
+solute ions ($n_s$) you have, the harder it is for the vapor to
+escape, and the lower the equilibrium vapor pressure: the ``activity''
+($a_w$) will be less than or equal to 1.
+
+Here are some numbers to make (\ref{eq:raoult}) more concrete.  Consider
+amonium sulphate $(NH_4)_2 SO_4$, with a molecular weight of
+132 kg/Kmole.  This aerosol has a ``van't Hoff'' factor of $i=3$
+(Lohmann, chapter 6, page 176) which means that it breaks up into 3 ions.  For
+an aersol with a mass of $10^{-19}$ kg I get:
+
+\begin{equation}
+  \label{eq:aero}
+  n_s = \frac{10^{-19}\ \un{kg} \cdot 3\ \mbox{ions/molecule}}%
+     {0.132\ \un{kg/mole}} = 2.3 \times 10^{-18}\ \mbox{moles}
+\end{equation}
+
+Compare this with $n_w$ for a 1 \mum drop:
+
+\begin{equation}
+  \label{eq:water}
+  n_w = \frac{\rho_l \cdot (4/3) \pi (10^{-6})^3}{0.018\ \mbox{kg/mole}}
+  = 2.3 \times 10^{-13}\ \mbox{moles}
+\end{equation}
+
+So $n_s/n_w \approx 10^{-5}$.  Note however that as $r$ decreases
+$n_s/n_w$ will increase as $1/r^3$.
+
+Now suppose the liquid is composed of droplets of radius r,
+with surface energy $4 \pi r^2  \sigma $ and therefore $G$ becomes:
+
+\begin{equation}
+  \label{eq:curved}
+  G= m_v g_v + m_l g_l + 4\pi r^2 \sigma
+\end{equation}
+(Thompkings 4.5).  This new $G$ including the surface energy is called the
+``thermodynamic potential''.
+As before, it is
+possible to show that the second law requires that our droplet/vapor
+system minimize $G$.
+
+
+Also suppose that $T$ and
+$e$ are determined by the local environment (i.e. the temperature and
+water vapor of the surrounding air) so that the system changes its
+total thermodynamic potential only by changing the size of the droplets.
+Then the differential of  (\ref{eq:curved}) can be written as:
+
+\begin{equation}
+  \label{eq:dgdr}
+  \delta G = g_v \delta m_v + g_l \delta m_l + 8 \pi r \sigma \delta r
+\end{equation}
+
+\noindent
+Note that $g_v$ and $g_l$ don't change because $e$ and $T$ are being
+held constant.
+
+Considering a solution instead of pure water gives a new lower limit
+for the integration of~~(\ref{eq:totdiff}):  $a_w e_s$, so that:
+
+\begin{equation}
+  \label{eq:totdiffsol}
+  g_l - g_v \approx -R_v T \ln \left (\frac{S}{a_w} \right )
+\end{equation}
+
+
+
+  We also
+know that water is conserved so that 
+
+\begin{equation}
+  \label{eq:conserv}
+dm_v = - dm_l =    - 4 \pi \rho_l r^2 dr
+\end{equation}
+Substituting (\ref{eq:conserv}) into (\ref{eq:dgdr}) and using (\ref{eq:totdiffsol})
+yields:
+
+
+\begin{equation}
+  \label{eq:dEdr}
+  \frac{\delta G}{\delta r} = \left [ -R_v T \rho_l 4 \pi r^2 \ln \left ( \frac{S}{a_w}
+    \right ) + 8 \pi r \sigma \right ]
+\end{equation}
+
+\noindent
+The K\"ohler curve consists of those values of droplet radius $r$ and
+saturation $S$ such that $G$ is at an extremum.  Setting $\delta G/\delta r$=0 in (\ref{eq:dEdr})
+and rearranging gives (you should show this):
+
+\begin{equation}
+  \label{eq:kohler}
+  S= a_w \exp \left [ \frac{2\sigma}{\rho_l R_v T r} \right ]
+\end{equation}
+and from assignment 5 or Thompkins eq. 4.15:
+
+\begin{equation}
+  \label{eq:taylor}
+S= a_w \exp \left [ \frac{2\sigma}{\rho_l R_v T r} \right ] \approx \left ( 1 + \frac{a}{r} - \frac{b}{r^3} \right )
+\end{equation}
+where
+$a=\frac{2 \sigma}{\rho_l R_v T}$.
+and  $b= \frac{i m M_w}{ 4/3\pi \rho_s M_s}$
+
+The equilibrium supersaturation will be a minimum for droplet radius $r_{crit}$ that satisfies:
+
+\begin{equation}
+\label{eq:minS}
+\frac{\partial S}{\partial r} = 0
+\end{equation}
+Take the derivative of (\ref{eq:taylor}) and show that this critical radius is given by
+
+\begin{equation}
+  \label{eq:rcrit}
+  r_{crit}  = \left ( \frac{3b}{a} \right )^\frac{1}{2}
+\end{equation}
+Next week we'll work out $\frac{\delta ^2 G}{\delta r^2}$ 
+and show that
+it changes sign (switches from a stable to unstable
+equilibrium when $r > r_{crit}$.
+Figure \ref{fig:kohler} shows both the equilibrium K\"ohler curve (where $G$
+is miniumum and contours of $G$
+
+\begin{figure}
+  \centering
+\includegraphics[width=0.8\textwidth]{kohler_fig}
+  \caption{K\"ohler equilibrium curves}
+  \label{fig:kohler}
+\end{figure}
+
+The critical radius $r_{crit}$ 
+distinguishes \textit{haze particles} from \textit{cloud droplets}.
+Haze particles have $r < r_{crit}$ and are in stable equilibrium at
+saturation $S$. Cloud droplets are \textit{activated} from haze
+particles when they grow enough so that $r > r_{crit}$.  This is how
+a thermal diffusion cloud chamber works (notes coming later this week)
+
+This means that the equilibrium vapor curve given by (\ref{eq:kohler}) cannot
+be used by itself to predict the vapor pressure for a population of
+activated droplets with $r > r_{crit}$, because the unstable system will
+continue to grow larger and larger droplets, lowering its total
+E.  To track the growth of these droplets requires a more sophisticated
+model which we will develop next.
+
+
+\end{document}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
