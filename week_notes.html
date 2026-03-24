@@ -217,7 +217,8 @@
 <li class="toctree-l1"><a class="reference internal" href="notebooks/worksheets/worksheet8_interp1d_solution.html">Worksheet 8: Interp1d Solution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="notebooks/worksheets/worksheet9_koehler_solution.html">Worksheet9: Koehler Equilibrium solution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="notebooks/worksheets/worksheet10_aero_dist_solution.html">Worksheet 10: Aerosol distributions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks/worksheets/dropgrow/worksheet11_dropgrow.html">Worksheet 11: Parcel model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/worksheets/dropgrow/worksheet11_dropgrow_solution.html">Worksheet11 Solution: Parcel model with oscillating updraft</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/worksheets/worksheet12_marshall_palmer.html">Worksheet 12: Marshall-Palmer Distribution</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="nav bd-sidenav">
@@ -231,7 +232,7 @@
 <li class="toctree-l1"><a class="reference internal" href="assignments/assign6_cape_solution.html">Assignment 6 CAPE solution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="assignments/assignment6_koehler_solution.html">Assignment 6 paper/pencil problems</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="assignments/assignment7_aerosols.html">Assignment 7: aerosols</a></li>
+<li class="toctree-l1"><a class="reference internal" href="assignments/assignment7_aerosols_solution.html">Assignment 7: aerosols: solution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="assignments/assignment8_precipitation.html">Assignment 8 – precipitation.</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">In-depth notes</span></p>
@@ -260,6 +261,7 @@
 <li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1i_2_LTQ496FScNK8V-b3pb-rvh6Qzapa/view?usp=sharing">timescales for diffusion and droplet growth</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1YYr2dFO4csFNsdOL7IEZJCPEh6LXMoof/view?usp=sharing">aerosol size distributions</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1kGjCV3tVA4umfoU1KFlkCAbHtXqdOStt/view?usp=sharing">Accurate enthalpy and thetae</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1mfwKsVais1YiTC6JbMxIM5xTXgUMYd7g/view?usp=sharing">Droplet fragmentation</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">midterms</span></p>
 <ul class="nav bd-sidenav">
@@ -524,6 +526,14 @@ document.write(`
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-24-week-11-thursday">Lecture 24, week 11, Thursday</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">For Tuesday</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-12">Week 12</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-24-week-12-tuesday">Lecture 24, week 12, Tuesday</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#wallace-and-hobbs-section-6-4">Wallace and Hobbs section 6.4</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">For Thursday</a></li>
 </ul>
 </li>
 </ul>
@@ -925,7 +935,7 @@ notes on <a class="reference external" href="https://drive.google.com/file/d/1YY
 <li><p>My notes on droplet growth, timescales, and size distributions</p></li>
 </ul>
 </li>
-<li><p>Start on <a class="reference internal" href="assignments/assignment7_aerosols.html#assign7-aerosols"><span class="std std-ref">Assignment 7: aerosols</span></a></p></li>
+<li><p>Start on <a class="reference internal" href="assignments/assignment7_aerosols_solution.html#assign7-aerosols-solution"><span class="std std-ref">Assignment 7: aerosols: solution</span></a></p></li>
 </ul>
 </section>
 </section>
@@ -943,7 +953,7 @@ notes on <a class="reference external" href="https://drive.google.com/file/d/1YY
 <li><p><a class="reference internal" href="assignments/assignment6_koehler_solution.html#assign6-koehler-solution"><span class="std std-ref">Assignment 6 paper/pencil problems</span></a></p></li>
 </ul>
 </li>
-<li><p>o<a class="reference internal" href="notebooks/worksheets/worksheet10_aero_dist_solution.html#worksheet10-aerosol-dists-solution"><span class="std std-ref">Worksheet 10: Aerosol distributions</span></a></p></li>
+<li><p><a class="reference internal" href="notebooks/worksheets/worksheet10_aero_dist_solution.html#worksheet10-aerosol-dists-solution"><span class="std std-ref">Worksheet 10: Aerosol distributions</span></a></p></li>
 </ul>
 <section id="id8">
 <h4>For Thursday<a class="headerlink" href="#id8" title="Link to this heading">#</a></h4>
@@ -959,11 +969,34 @@ notes on <a class="reference external" href="https://drive.google.com/file/d/1YY
 <li><p>Flashback: <a class="reference external" href="https://drive.google.com/file/d/1kGjCV3tVA4umfoU1KFlkCAbHtXqdOStt/view?usp=sharing">Accurate enthalpy and <span class="math notranslate nohighlight">\(\theta_e\)</span></a></p></li>
 <li><p>Introduce <a class="reference internal" href="assignments/assignment8_precipitation.html#assignment-precip"><span class="std std-ref">Assignment 8 – precipitation.</span></a> which is based on
 <a class="reference external" href="https://drive.google.com/file/d/1wcG9cKgb6MT7XklFuEZJtcAIQ1uH9mAP/view?usp=sharing">Wallace and Hobbs Section 6.4</a></p></li>
-<li><p><a class="reference internal" href="notebooks/worksheets/dropgrow/worksheet11_dropgrow.html#worksheet11-dropgrow"><span class="std std-ref">Worksheet 11: Parcel model</span></a></p></li>
+<li><p><a class="reference internal" href="notebooks/worksheets/dropgrow/worksheet11_dropgrow_solution.html#worksheet11-dropgrow-solution"><span class="std std-ref">Worksheet11 Solution: Parcel model with oscillating updraft</span></a></p></li>
 </ul>
 <section id="id9">
 <h4>For Tuesday<a class="headerlink" href="#id9" title="Link to this heading">#</a></h4>
 <p>Read <a class="reference external" href="https://www.dropbox.com/scl/fi/r7zhctw6usest2rirpe2f/wallace_hobbs_chap6.pdf?rlkey=oxdanppj9wkocmwe4nn4cc4fi&amp;amp;dl=0">Wallace and Hobbs Section 6.4</a> and work on Assignment 8</p>
+</section>
+</section>
+</section>
+<section id="week-12">
+<h2>Week 12<a class="headerlink" href="#week-12" title="Link to this heading">#</a></h2>
+<section id="lecture-24-week-12-tuesday">
+<h3>Lecture 24, week 12, Tuesday<a class="headerlink" href="#lecture-24-week-12-tuesday" title="Link to this heading">#</a></h3>
+<section id="wallace-and-hobbs-section-6-4">
+<h4>Wallace and Hobbs section 6.4<a class="headerlink" href="#wallace-and-hobbs-section-6-4" title="Link to this heading">#</a></h4>
+<p>and Thompkins Section 4.5</p>
+<ul class="simple">
+<li><p>Review <a class="reference internal" href="notebooks/worksheets/dropgrow/worksheet11_dropgrow_solution.html#worksheet11-dropgrow-solution"><span class="std std-ref">Worksheet11 Solution: Parcel model with oscillating updraft</span></a></p></li>
+<li><p>Review <a class="reference internal" href="assignments/assignment7_aerosols_solution.html#assign7-aerosols-solution"><span class="std std-ref">Assignment 7: aerosols: solution</span></a></p></li>
+<li><p><a class="reference external" href="https://drive.google.com/file/d/1mfwKsVais1YiTC6JbMxIM5xTXgUMYd7g/view?usp=sharing">Droplet fragmentation article</a></p></li>
+<li><p>Introduce <a class="reference internal" href="notebooks/worksheets/worksheet12_marshall_palmer.html#worksheet12-marshall-palmer"><span class="std std-ref">Worksheet 12: Marshall-Palmer Distribution</span></a></p></li>
+</ul>
+</section>
+<section id="id10">
+<h4>For Thursday<a class="headerlink" href="#id10" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Read Thompkins pp. 82-87 on cold clouds</p></li>
+<li><p>Work on <a class="reference internal" href="assignments/assignment8_precipitation.html#assignment-precip"><span class="std std-ref">Assignment 8 – precipitation.</span></a></p></li>
+</ul>
 </section>
 </section>
 </section>
@@ -1132,6 +1165,14 @@ notes on <a class="reference external" href="https://drive.google.com/file/d/1YY
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-24-week-11-thursday">Lecture 24, week 11, Thursday</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">For Tuesday</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-12">Week 12</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-24-week-12-tuesday">Lecture 24, week 12, Tuesday</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#wallace-and-hobbs-section-6-4">Wallace and Hobbs section 6.4</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">For Thursday</a></li>
 </ul>
 </li>
 </ul>

@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -217,7 +217,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../worksheets/worksheet8_interp1d_solution.html">Worksheet 8: Interp1d Solution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../worksheets/worksheet9_koehler_solution.html">Worksheet9: Koehler Equilibrium solution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../worksheets/worksheet10_aero_dist_solution.html">Worksheet 10: Aerosol distributions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../worksheets/dropgrow/worksheet11_dropgrow.html">Worksheet 11: Parcel model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../worksheets/dropgrow/worksheet11_dropgrow_solution.html">Worksheet11 Solution: Parcel model with oscillating updraft</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../worksheets/worksheet12_marshall_palmer.html">Worksheet 12: Marshall-Palmer Distribution</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="nav bd-sidenav">
@@ -231,7 +232,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../assignments/assign6_cape_solution.html">Assignment 6 CAPE solution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../assignments/assignment6_koehler_solution.html">Assignment 6 paper/pencil problems</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="../../assignments/assignment7_aerosols.html">Assignment 7: aerosols</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../assignments/assignment7_aerosols_solution.html">Assignment 7: aerosols: solution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../assignments/assignment8_precipitation.html">Assignment 8 – precipitation.</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">In-depth notes</span></p>
@@ -260,6 +261,7 @@
 <li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1i_2_LTQ496FScNK8V-b3pb-rvh6Qzapa/view?usp=sharing">timescales for diffusion and droplet growth</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1YYr2dFO4csFNsdOL7IEZJCPEh6LXMoof/view?usp=sharing">aerosol size distributions</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1kGjCV3tVA4umfoU1KFlkCAbHtXqdOStt/view?usp=sharing">Accurate enthalpy and thetae</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1mfwKsVais1YiTC6JbMxIM5xTXgUMYd7g/view?usp=sharing">Droplet fragmentation</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">midterms</span></p>
 <ul class="nav bd-sidenav">
@@ -455,7 +457,7 @@ force necessary to balance gravity, so the atmosphere is not rising or sinking:<
 </figure>
 <p>In symbols, the balance shown by <a class="reference internal" href="#hydrofig"><span class="std std-numref">Fig. 6</span></a> implies that:</p>
 <div class="math notranslate nohighlight" id="equation-hydro-eq">
-<span class="eqno">(14)<a class="headerlink" href="#equation-hydro-eq" title="Link to this equation">#</a></span>\[
+<span class="eqno">(15)<a class="headerlink" href="#equation-hydro-eq" title="Link to this equation">#</a></span>\[
 dp = - \rho g dz
 \]</div>
 <p><strong>Question: is this the same pressure p as the local pressure given by
@@ -472,9 +474,9 @@ p = p_0 \exp \left ( \frac{-z}{H_p} \right )
 \]</div>
 <p>In words – <span class="math notranslate nohighlight">\(H_p\)</span> gives the height at which gravity wins out over the kinetic energy of the air molecules – warmer atmospheres take longer to decrease their pressure by a factor of <span class="math notranslate nohighlight">\(\exp(-H_p/H_p) = \exp(-1)\)</span> (the e-folding height) because the air molecules have more energy to travel higher.</p>
 <ol class="arabic">
-<li><p>Do pressure first: Rewrite <a class="reference internal" href="#equation-hydro-eq">(14)</a> using the ideal gas law:</p>
+<li><p>Do pressure first: Rewrite <a class="reference internal" href="#equation-hydro-eq">(15)</a> using the ideal gas law:</p>
 <div class="math notranslate nohighlight" id="equation-hydro1">
-<span class="eqno">(15)<a class="headerlink" href="#equation-hydro1" title="Link to this equation">#</a></span>\[
+<span class="eqno">(16)<a class="headerlink" href="#equation-hydro1" title="Link to this equation">#</a></span>\[
    dp = - \rho g dz = - \frac{p}{R_d T}  g dz = \frac{p}{H_p}
    \]</div>
 <p>where <span class="math notranslate nohighlight">\(H_p=R_d T/g\)</span> is the pressure scale height.</p>
@@ -490,7 +492,7 @@ p = p_0 \exp \left ( \frac{-z}{H_p} \right )
 to go any further. If we don’t have those profiles, then a useful approximation is to define a vertically averaged <span class="math notranslate nohighlight">\(H_p\)</span>, since
 the average involves a large mass of air (about 10 metric tons/cubic meter), it will vary more slowly than the temperature at any one level on any given day, and we can still get a useful profile of pressure vs. height without having a specific sounding:</p>
 <div class="math notranslate nohighlight" id="equation-pressavg">
-<span class="eqno">(16)<a class="headerlink" href="#equation-pressavg" title="Link to this equation">#</a></span>\[
+<span class="eqno">(17)<a class="headerlink" href="#equation-pressavg" title="Link to this equation">#</a></span>\[
    \frac{ 1}{\overline{H_p}} = \overline{ \left ( \frac{1 }{H_p} \right )} = \frac{\int_{0 }^{z}\!\frac{1}{H_p} dz^\prime  }{z-0}
    \]</div>
 <p>Now we can replace the z integral by the average:</p>
@@ -519,15 +521,15 @@ the average involves a large mass of air (about 10 metric tons/cubic meter), it 
 \[
    \frac{d\rho }{dz}  = -\frac{\rho }{T}  \left ( \frac{g }{R_d} + \frac{ dT}{dz} \right ) = - \rho \left ( \frac{1 }{H} +  \frac{1 }{T} \frac{dT }{dz} \right ) = - \frac{\rho}{H_\rho}
    \]</div>
-<p>Bottom line – with this definition of the density scale height we’ve got an equation that looks like <a class="reference internal" href="#equation-hydro1">(15)</a>:</p>
+<p>Bottom line – with this definition of the density scale height we’ve got an equation that looks like <a class="reference internal" href="#equation-hydro1">(16)</a>:</p>
 <div class="math notranslate nohighlight" id="equation-densavg">
-<span class="eqno">(17)<a class="headerlink" href="#equation-densavg" title="Link to this equation">#</a></span>\[
+<span class="eqno">(18)<a class="headerlink" href="#equation-densavg" title="Link to this equation">#</a></span>\[
    \frac{d\rho }{\rho} = - \left ( \frac{1 }{H} +
                       \frac{1 }{T} \frac{dT }{dz} \right ) dz = - \frac{dz }{H_\rho}
    \]</div>
 <p>Pull the same trick for the vertical average:</p>
 <div class="math notranslate nohighlight" id="equation-denstrick">
-<span class="eqno">(18)<a class="headerlink" href="#equation-denstrick" title="Link to this equation">#</a></span>\[
+<span class="eqno">(19)<a class="headerlink" href="#equation-denstrick" title="Link to this equation">#</a></span>\[
    \frac{ 1}{\overline{H_\rho}} = \overline{ \left ( \frac{1 }{H_\rho} \right )} = \frac{\int_{0 }^{z}\!\frac{1}{H_\rho} dz^\prime  }{z-0}
    \]</div>
 <p>We use this vertical average in exactly the same way as before to
