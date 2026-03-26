@@ -63,7 +63,7 @@
     <link rel="canonical" href="https://phaustin.github.io/a405/notebooks/worksheets/worksheet12_marshall_palmer.html" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Adiabatic Box - Solution" href="../../assignments/adiabatic_box_solution.html" />
+    <link rel="next" title="Worksheet 13 odeint practice" href="worksheet13_odeint.html" />
     <link rel="prev" title="Worksheet11 Solution: Parcel model with oscillating updraft" href="dropgrow/worksheet11_dropgrow_solution.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -219,6 +219,7 @@
 <li class="toctree-l1"><a class="reference internal" href="worksheet10_aero_dist_solution.html">Worksheet 10: Aerosol distributions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dropgrow/worksheet11_dropgrow_solution.html">Worksheet11 Solution: Parcel model with oscillating updraft</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Worksheet 12: Marshall-Palmer Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="worksheet13_odeint.html">Worksheet 13 odeint practice</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="nav bd-sidenav">
@@ -234,6 +235,7 @@
 
 <li class="toctree-l1"><a class="reference internal" href="../../assignments/assignment7_aerosols_solution.html">Assignment 7: aerosols: solution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../assignments/assignment8_precipitation.html">Assignment 8 – precipitation.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../assignments/assignment9_cold_clouds.html">Assignment 9 – cold clouds</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">In-depth notes</span></p>
 <ul class="nav bd-sidenav">
@@ -262,6 +264,8 @@
 <li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1YYr2dFO4csFNsdOL7IEZJCPEh6LXMoof/view?usp=sharing">aerosol size distributions</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1kGjCV3tVA4umfoU1KFlkCAbHtXqdOStt/view?usp=sharing">Accurate enthalpy and thetae</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1mfwKsVais1YiTC6JbMxIM5xTXgUMYd7g/view?usp=sharing">Droplet fragmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ice_saturation.html">saturation vapor pressure over ice</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1g42323LOcQbxWn4Ey1B58ExgVPwjMADz/view?usp=sharing">Notes of crystal growth</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">midterms</span></p>
 <ul class="nav bd-sidenav">
@@ -428,7 +432,11 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-and-questions-about-the-marshall-palmer-distribution">Code and questions about the Marshall-Palmer distribution</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-1-mean-diameter">Question 1: Mean diameter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-1-mean-diameter">Question 1: Mean diameter</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#answer-1-calculus">Answer 1: calculus</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#answer-2-python">Answer 2: Python</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-2-rain-rate-part-of-assignment-9">Question 2: Rain rate (part of assignment 9)</a></li>
 </ul>
             </nav>
@@ -475,7 +483,7 @@ document.write(`
 <span class="sd">     the number distribution n(d) #m^{-3} mm^{-1}</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">D</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mf">0.01</span><span class="p">)</span>
+    <span class="n">D</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mf">0.001</span><span class="p">)</span>
     <span class="n">Dmm</span><span class="o">=</span><span class="n">D</span>
     <span class="n">Dcm</span><span class="o">=</span><span class="n">D</span><span class="o">*</span><span class="mf">0.1</span>
     <span class="n">N0</span><span class="o">=</span><span class="mf">0.08</span><span class="o">*</span><span class="mf">1.e6</span><span class="o">*</span><span class="mf">1.e-1</span> <span class="c1">#m**{-3} mm^{-1}</span>
@@ -499,7 +507,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/0ad0715a35c384b096452f3aea5f630b40d6cc59977b9555ac479f23d5abccc5.png" src="../../_images/0ad0715a35c384b096452f3aea5f630b40d6cc59977b9555ac479f23d5abccc5.png" />
+<img alt="../../_images/e89f115bf50d1bfa15609b515c33bedb46bac85448310bc0f6e3226a9c3f382a.png" src="../../_images/e89f115bf50d1bfa15609b515c33bedb46bac85448310bc0f6e3226a9c3f382a.png" />
 </div>
 </div>
 </section>
@@ -508,9 +516,67 @@ document.write(`
 <ul class="simple">
 <li><p>Confirm that the mean diameter of the Marshall Palmer distribution is <span class="math notranslate nohighlight">\(1/\Lambda\)</span></p></li>
 </ul>
+<section id="answer-1-calculus">
+<h3>Answer 1: calculus<a class="headerlink" href="#answer-1-calculus" title="Link to this heading">#</a></h3>
+<p>Given a probability density <span class="math notranslate nohighlight">\(p(x)\)</span> the definition of the mean is just the weighted average (“first moment”) of the distribution:</p>
+<div class="math notranslate nohighlight">
+\[
+\left &lt; x \right &gt; = \frac{\int_0^\infty x\,p(x) dx}{\int_0^\infty p(x) dx}
+\]</div>
+<p>So for the Marshall Palmer distribution that becomes:</p>
+<div class="math notranslate nohighlight">
+\[
+\left &lt; D \right &gt; = \frac{\int_0^\infty D\,N_0 \exp(-\Lambda D) dD}{\int_0^\infty N_0 \exp(-\Lambda D) dD}
+\]</div>
+<p>The denominator is easy:</p>
+<div class="math notranslate nohighlight" id="equation-denominator">
+<span class="eqno">(14)<a class="headerlink" href="#equation-denominator" title="Link to this equation">#</a></span>\[
+\int_0^\infty N_0 \exp(-\Lambda D) dD = -\frac{N_0}{\Lambda} \exp(-\Lambda D) \bigg \rvert_0^\infty = \frac{N_0}{\Lambda}
+\]</div>
+<p>For the numerator, the secret is the first line in <a class="reference external" href="https://en.wikipedia.org/wiki/List_of_integrals_of_exponential_functions">this list of integrals</a>:</p>
+<div class="math notranslate nohighlight">
+\[
+\int x e^{c x} d x=e^{c x}\left(\frac{c x-1}{c^2}\right)
+\]</div>
+<p>In our case <span class="math notranslate nohighlight">\(c = -\Lambda\)</span> and <span class="math notranslate nohighlight">\(x=D\)</span> so:</p>
+<div class="math notranslate nohighlight" id="equation-numerator">
+<span class="eqno">(15)<a class="headerlink" href="#equation-numerator" title="Link to this equation">#</a></span>\[
+N_0 \int_0^\infty D e^{-\Lambda D} d D= N_0 e^{-\Lambda D}\left(\frac{-\Lambda D -1}{\Lambda^2}\right) \bigg \rvert_0^\infty = \frac{N_0}{\Lambda^2}
+\]</div>
+<p>Divide <a class="reference internal" href="#equation-numerator">(15)</a> by <a class="reference internal" href="#equation-denominator">(14)</a> and get:</p>
+<div class="math notranslate nohighlight">
+\[
+\left &lt; D \right &gt; = \frac{1}{\Lambda}
+\]</div>
+</section>
+<section id="answer-2-python">
+<h3>Answer 2: Python<a class="headerlink" href="#answer-2-python" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">R</span> <span class="o">=</span> <span class="mi">15</span> <span class="c1">#mm/hr</span>
+<span class="n">theLambda</span><span class="o">=</span><span class="mi">41</span><span class="o">*</span><span class="n">R</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="mf">0.21</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;mean diameter = </span><span class="si">{</span><span class="mf">1.</span><span class="o">/</span><span class="n">theLambda</span><span class="si">:</span><span class="s1">6.3g</span><span class="si">}</span><span class="s1"> cm&#39;</span><span class="p">)</span>
+<span class="n">diam</span><span class="p">,</span><span class="n">ndist</span> <span class="o">=</span> <span class="n">marshallpalmer</span><span class="p">(</span><span class="n">R</span><span class="p">)</span>  <span class="c1">#cm, m^{-3} mm^{-1}</span>
+<span class="n">binwidth</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">diam</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">10</span>  <span class="c1">#bin width in mm</span>
+<span class="c1">#</span>
+<span class="c1"># the python version of equation 2</span>
+<span class="c1">#</span>
+<span class="n">approx_diam</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">diam</span><span class="o">*</span><span class="n">ndist</span><span class="o">*</span><span class="n">binwidth</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">ndist</span><span class="o">*</span><span class="n">binwidth</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;approx diameter = </span><span class="si">{</span><span class="n">approx_diam</span><span class="si">:</span><span class="s1">6.3g</span><span class="si">}</span><span class="s1"> cm&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mean diameter = 0.0431 cm
+approx diameter =  0.043 cm
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 <section id="question-2-rain-rate-part-of-assignment-9">
-<h2>Question 2: Rain rate (part of assignment 9)<a class="headerlink" href="#question-2-rain-rate-part-of-assignment-9" title="Link to this heading">#</a></h2>
+<span id="mp-ques2"></span><h2>Question 2: Rain rate (part of assignment 9)<a class="headerlink" href="#question-2-rain-rate-part-of-assignment-9" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Calculate the precipitation flux (mm/hr) by integrating the total volumen in the Marshall Palmer size distribution and with the fall speed of Villermaux and Bossa (2009): <span class="math notranslate nohighlight">\(w = - \sqrt{\rho_l/\rho_{air} * g *D}\)</span> where
 D is the drop diameter and <span class="math notranslate nohighlight">\(\rho_l,\rho_{air}\)</span> are the liquid and air densities.  Show
@@ -566,11 +632,11 @@ that you get about R=15 mm/hour back from this calculation if you use the <span 
       </div>
     </a>
     <a class="right-next"
-       href="../../assignments/adiabatic_box_solution.html"
+       href="worksheet13_odeint.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Adiabatic Box - Solution</p>
+        <p class="prev-next-title">Worksheet 13 odeint practice</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -591,7 +657,11 @@ that you get about R=15 mm/hour back from this calculation if you use the <span 
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-and-questions-about-the-marshall-palmer-distribution">Code and questions about the Marshall-Palmer distribution</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-1-mean-diameter">Question 1: Mean diameter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-1-mean-diameter">Question 1: Mean diameter</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#answer-1-calculus">Answer 1: calculus</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#answer-2-python">Answer 2: Python</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-2-rain-rate-part-of-assignment-9">Question 2: Rain rate (part of assignment 9)</a></li>
 </ul>
   </nav></div>

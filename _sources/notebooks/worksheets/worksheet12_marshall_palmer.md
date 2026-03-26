@@ -50,7 +50,7 @@ def marshallpalmer(R):
      the number distribution n(d) #m^{-3} mm^{-1}
 
     """
-    D=np.arange(0,8,0.01)
+    D=np.arange(0,8,0.001)
     Dmm=D
     Dcm=D*0.1
     N0=0.08*1.e6*1.e-1 #m**{-3} mm^{-1}
@@ -78,6 +78,61 @@ out=ax.legend(loc='best')
 
 +++
 
+### Answer 1: calculus
+
+Given a probability density $p(x)$ the definition of the mean is just the weighted average ("first moment") of the distribution:
+
+$$
+\left < x \right > = \frac{\int_0^\infty x\,p(x) dx}{\int_0^\infty p(x) dx}
+$$
+
+So for the Marshall Palmer distribution that becomes:
+
+$$
+\left < D \right > = \frac{\int_0^\infty D\,N_0 \exp(-\Lambda D) dD}{\int_0^\infty N_0 \exp(-\Lambda D) dD}
+$$
+
+The denominator is easy:
+
+$$
+\int_0^\infty N_0 \exp(-\Lambda D) dD = -\frac{N_0}{\Lambda} \exp(-\Lambda D) \bigg \rvert_0^\infty = \frac{N_0}{\Lambda}
+$$(denominator)
+
+For the numerator, the secret is the first line in [this list of integrals](https://en.wikipedia.org/wiki/List_of_integrals_of_exponential_functions):
+
+$$
+\int x e^{c x} d x=e^{c x}\left(\frac{c x-1}{c^2}\right)
+$$
+In our case $c = -\Lambda$ and $x=D$ so:
+
+$$
+N_0 \int_0^\infty D e^{-\Lambda D} d D= N_0 e^{-\Lambda D}\left(\frac{-\Lambda D -1}{\Lambda^2}\right) \bigg \rvert_0^\infty = \frac{N_0}{\Lambda^2}
+$$(numerator)
+
+Divide {eq}`numerator` by {eq}`denominator` and get:
+
+$$
+\left < D \right > = \frac{1}{\Lambda}
+$$
+
++++
+
+### Answer 2: Python
+
+```{code-cell} ipython3
+R = 15 #mm/hr
+theLambda=41*R**(-0.21)
+print(f'mean diameter = {1./theLambda:6.3g} cm')
+diam,ndist = marshallpalmer(R)  #cm, m^{-3} mm^{-1}
+binwidth = np.diff(diam)[0]*10  #bin width in mm
+#
+# the python version of equation 2
+#
+approx_diam = np.sum(diam*ndist*binwidth)/np.sum(ndist*binwidth)
+print(f'approx diameter = {approx_diam:6.3g} cm')
+```
+
+(mp_ques2)=
 ## Question 2: Rain rate (part of assignment 9)
 
 

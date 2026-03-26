@@ -218,6 +218,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/worksheets/worksheet10_aero_dist_solution.html">Worksheet 10: Aerosol distributions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/worksheets/dropgrow/worksheet11_dropgrow_solution.html">Worksheet11 Solution: Parcel model with oscillating updraft</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/worksheets/worksheet12_marshall_palmer.html">Worksheet 12: Marshall-Palmer Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/worksheets/worksheet13_odeint.html">Worksheet 13 odeint practice</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="nav bd-sidenav">
@@ -233,6 +234,7 @@
 
 <li class="toctree-l1"><a class="reference internal" href="assignment7_aerosols_solution.html">Assignment 7: aerosols: solution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="assignment8_precipitation.html">Assignment 8 – precipitation.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="assignment9_cold_clouds.html">Assignment 9 – cold clouds</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">In-depth notes</span></p>
 <ul class="nav bd-sidenav">
@@ -261,6 +263,8 @@
 <li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1YYr2dFO4csFNsdOL7IEZJCPEh6LXMoof/view?usp=sharing">aerosol size distributions</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1kGjCV3tVA4umfoU1KFlkCAbHtXqdOStt/view?usp=sharing">Accurate enthalpy and thetae</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1mfwKsVais1YiTC6JbMxIM5xTXgUMYd7g/view?usp=sharing">Droplet fragmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/ice_saturation.html">saturation vapor pressure over ice</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1g42323LOcQbxWn4Ey1B58ExgVPwjMADz/view?usp=sharing">Notes of crystal growth</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">midterms</span></p>
 <ul class="current nav bd-sidenav">
@@ -826,7 +830,7 @@ state any assumptions/approximations.</p>
 <section id="q2a-answer">
 <h3>Q2a answer<a class="headerlink" href="#q2a-answer" title="Link to this heading">#</a></h3>
 <div class="math notranslate nohighlight" id="equation-eq-h">
-<span class="eqno">(24)<a class="headerlink" href="#equation-eq-h" title="Link to this equation">#</a></span>\[\begin{split}
+<span class="eqno">(29)<a class="headerlink" href="#equation-eq-h" title="Link to this equation">#</a></span>\[\begin{split}
 H&amp;=m_d h_l+m_v h_v+m_l h_l \\
 H&amp;=m_d c_{pd} T+m_v h_v+m_l h_l
 \end{split}\]</div>
@@ -834,11 +838,11 @@ H&amp;=m_d c_{pd} T+m_v h_v+m_l h_l
 <p>Also, total water is conserved,
 so</p>
 <div class="math notranslate nohighlight" id="equation-eq-water">
-<span class="eqno">(25)<a class="headerlink" href="#equation-eq-water" title="Link to this equation">#</a></span>\[\begin{split}
+<span class="eqno">(30)<a class="headerlink" href="#equation-eq-water" title="Link to this equation">#</a></span>\[\begin{split}
 m_v+m_l=m_T\\
 dm_v = -dm_l
 \end{split}\]</div>
-<p>Take the differential of <a class="reference internal" href="#equation-eq-h">(24)</a> and use <a class="reference internal" href="#equation-eq-water">(25)</a></p>
+<p>Take the differential of <a class="reference internal" href="#equation-eq-h">(29)</a> and use <a class="reference internal" href="#equation-eq-water">(30)</a></p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 d H=m_d c_{p d} d T+\left(h_v-h_e\right) d m_v \\
@@ -851,7 +855,7 @@ dh=c_{pd} d T+ l_v d r_v
 \end{split}\]</div>
 <p>To connect this with <span class="math notranslate nohighlight">\(s_v\)</span>, use the first law together with the assumption of hydrostatic balance:</p>
 <div class="math notranslate nohighlight" id="equation-first-law-answer">
-<span class="eqno">(26)<a class="headerlink" href="#equation-first-law-answer" title="Link to this equation">#</a></span>\[\begin{split}
+<span class="eqno">(31)<a class="headerlink" href="#equation-first-law-answer" title="Link to this equation">#</a></span>\[\begin{split}
 q\,dt &amp;= dh - \alpha dp \\
 q\,dt &amp;= c_p dT + l_v dr_v - \alpha dp \\
 dp &amp;= -\rho g dz \\
@@ -861,7 +865,7 @@ q\,dt &amp; = c_p dT + l_v dr_v + g dz = ds_v
 </section>
 <section id="q2b-answer">
 <h3>Q2b answer<a class="headerlink" href="#q2b-answer" title="Link to this heading">#</a></h3>
-<p>Divide the first law form from <a class="reference internal" href="#equation-first-law-answer">(26)</a> by temperature to get the entropy:</p>
+<p>Divide the first law form from <a class="reference internal" href="#equation-first-law-answer">(31)</a> by temperature to get the entropy:</p>
 <div class="math notranslate nohighlight">
 \[
 \frac{q\,dt}{T} = d\phi = c_p \frac{dT}{T} + l_v \frac{dr_v}{T} - \alpha \frac{dp}{T}

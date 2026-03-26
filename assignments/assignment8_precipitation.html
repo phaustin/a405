@@ -63,7 +63,7 @@
     <link rel="canonical" href="https://phaustin.github.io/a405/assignments/assignment8_precipitation.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Week1: Hydrostatic balance explainer" href="../notebooks/week1/hydrostat.html" />
+    <link rel="next" title="Assignment 9 – cold clouds" href="assignment9_cold_clouds.html" />
     <link rel="prev" title="Assignment 7: aerosols: solution" href="assignment7_aerosols_solution.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -219,6 +219,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/worksheets/worksheet10_aero_dist_solution.html">Worksheet 10: Aerosol distributions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/worksheets/dropgrow/worksheet11_dropgrow_solution.html">Worksheet11 Solution: Parcel model with oscillating updraft</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/worksheets/worksheet12_marshall_palmer.html">Worksheet 12: Marshall-Palmer Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/worksheets/worksheet13_odeint.html">Worksheet 13 odeint practice</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="current nav bd-sidenav">
@@ -234,6 +235,7 @@
 
 <li class="toctree-l1"><a class="reference internal" href="assignment7_aerosols_solution.html">Assignment 7: aerosols: solution</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Assignment 8 – precipitation.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="assignment9_cold_clouds.html">Assignment 9 – cold clouds</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">In-depth notes</span></p>
 <ul class="nav bd-sidenav">
@@ -262,6 +264,8 @@
 <li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1YYr2dFO4csFNsdOL7IEZJCPEh6LXMoof/view?usp=sharing">aerosol size distributions</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1kGjCV3tVA4umfoU1KFlkCAbHtXqdOStt/view?usp=sharing">Accurate enthalpy and thetae</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1mfwKsVais1YiTC6JbMxIM5xTXgUMYd7g/view?usp=sharing">Droplet fragmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/ice_saturation.html">saturation vapor pressure over ice</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1g42323LOcQbxWn4Ey1B58ExgVPwjMADz/view?usp=sharing">Notes of crystal growth</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">midterms</span></p>
 <ul class="nav bd-sidenav">
@@ -429,8 +433,8 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1-cloud-condensation-nuclei-counter">Problem 1 – Cloud Condensation Nuclei Counter</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#precipitation-problems">Precipitation problems</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2-thompkins">Problem 2 - Thompkins</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3-wallace-and-hobbs-problem-6-21-updraft">Problem 3  – Wallace and Hobbs problem 6.21  – updraft</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2-thompkins-and-walace-and-hobbs-6-23">Problem 2 - Thompkins and Walace and Hobbs 6.23</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3-wallace-and-hobbs-problem-6-21-analytic-derivation-constant-updraft">Problem 3  – Wallace and Hobbs problem 6.21 – analytic derivation – constant updraft</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-4-wallace-and-hobbs-problem-6-24-falling-precip">Problem 4 – Wallace and Hobbs problem 6.24 – falling precip</a></li>
 </ul>
 </li>
@@ -454,25 +458,27 @@ document.write(`
 </section>
 <section id="precipitation-problems">
 <h2>Precipitation problems<a class="headerlink" href="#precipitation-problems" title="Link to this heading">#</a></h2>
-<p>For each of the 3 problems below:  First solve them analytically by hand
-then check that solution with python using odeint.  In your notebook compare your analytic equation with the numerical solution.</p>
-<section id="problem-2-thompkins">
-<h3>Problem 2 - Thompkins<a class="headerlink" href="#problem-2-thompkins" title="Link to this heading">#</a></h3>
+<p>For problem 2:  First solve analytically then
+then check that solution with python using odeint.  In your notebook compare your analytic equation with the numerical solution.  Do the same for problem 4, using the analytic equation from problem 3.</p>
+<section id="problem-2-thompkins-and-walace-and-hobbs-6-23">
+<h3>Problem 2 - Thompkins and Walace and Hobbs 6.23<a class="headerlink" href="#problem-2-thompkins-and-walace-and-hobbs-6-23" title="Link to this heading">#</a></h3>
 <p>A drop with an initial radius of 100 µm falls through a cloud containing 100 droplets per cubic centimeter that it collects in a continuous manner with a collection efficiency of 0.800. If all the cloud droplets have a radius of 10 µm, how long will it take for the drop to reach a radius of 1 mm? You may assume that for the drops of the size considered in this problem the terminal fall speed v (in <span class="math notranslate nohighlight">\(m s^{-1}\)</span>) of a drop of radius r (in meters) is given by <span class="math notranslate nohighlight">\(v= 8 x 10^3\;r\)</span>. Assume that the cloud droplets are stationary and that the updraft velocity in the cloud is negligible.  Hint:  Integrate Thompkins equation 4.28 analytically – you can also check numerically with python</p>
 </section>
-<section id="problem-3-wallace-and-hobbs-problem-6-21-updraft">
-<h3>Problem 3  – Wallace and Hobbs problem 6.21  – updraft<a class="headerlink" href="#problem-3-wallace-and-hobbs-problem-6-21-updraft" title="Link to this heading">#</a></h3>
+<section id="problem-3-wallace-and-hobbs-problem-6-21-analytic-derivation-constant-updraft">
+<h3>Problem 3  – Wallace and Hobbs problem 6.21 – analytic derivation – constant updraft<a class="headerlink" href="#problem-3-wallace-and-hobbs-problem-6-21-analytic-derivation-constant-updraft" title="Link to this heading">#</a></h3>
 <p>Derive an expression for the height h above cloud base of a droplet at time t that is growing by condensation only in a cloud with a steady updraft velocity w and supersaturation S.</p>
 <p>That is – integrate</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="math notranslate nohighlight" id="equation-eq-height">
+<span class="eqno">(18)<a class="headerlink" href="#equation-eq-height" title="Link to this equation">#</a></span>\[
 \frac{dh}{dt} = w - \nu
 \]</div>
-<p>where h is the height, w is the updraft speed and \nu is the terminal droplet fall speed
-Use WH equation 6.24 for the terminal fall speed of a droplet together with WH eq 6.21 for the approximate droplet growth ratge</p>
+<p>where h is the height, w is the updraft speed and <span class="math notranslate nohighlight">\(\nu\)</span> is the terminal droplet fall speed
+Use WH equation 6.24 for the terminal fall speed of a droplet together with WH eq 6.21 for the approximate droplet growth rate</p>
 </section>
 <section id="problem-4-wallace-and-hobbs-problem-6-24-falling-precip">
 <h3>Problem 4 – Wallace and Hobbs problem 6.24 – falling precip<a class="headerlink" href="#problem-4-wallace-and-hobbs-problem-6-24-falling-precip" title="Link to this heading">#</a></h3>
+<p>Frist use <span class="xref std std-ref">eq:height</span> to solve the following problem, then compare it to the odeint solution the itegrates the differential equations for <code class="docutils literal notranslate"><span class="pre">[h,</span> <span class="pre">R]</span></code>, stopping when <span class="math notranslate nohighlight">\(h=0\)</span>  (either by trial and error, or using the approach from
+<a class="reference internal" href="../notebooks/worksheets/entraining_plume.html#sec-rkintegrator"><span class="std std-ref">Define the integrator  function</span></a></p>
 <p>If a raindrop has a radius of 1 mm at cloud base, which is located 5 km above the ground, what will be its radius at the ground and how long will it take to reach the ground if the relative humidity between cloud base and ground is constant at 60%? [Hint: Use (6.21) and the relationship between v and r given in Exercise 6.23. If r is in micrometers, the value of Gl in (6.21) is 100 for cloud droplets, but for the large drop sizes considered in this problem the value of Gl should be taken as 700 to allow for ventilation effects.]</p>
 </section>
 </section>
@@ -518,11 +524,11 @@ Use WH equation 6.24 for the terminal fall speed of a droplet together with WH e
       </div>
     </a>
     <a class="right-next"
-       href="../notebooks/week1/hydrostat.html"
+       href="assignment9_cold_clouds.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Week1: Hydrostatic balance explainer</p>
+        <p class="prev-next-title">Assignment 9 – cold clouds</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -544,8 +550,8 @@ Use WH equation 6.24 for the terminal fall speed of a droplet together with WH e
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1-cloud-condensation-nuclei-counter">Problem 1 – Cloud Condensation Nuclei Counter</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#precipitation-problems">Precipitation problems</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2-thompkins">Problem 2 - Thompkins</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3-wallace-and-hobbs-problem-6-21-updraft">Problem 3  – Wallace and Hobbs problem 6.21  – updraft</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2-thompkins-and-walace-and-hobbs-6-23">Problem 2 - Thompkins and Walace and Hobbs 6.23</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3-wallace-and-hobbs-problem-6-21-analytic-derivation-constant-updraft">Problem 3  – Wallace and Hobbs problem 6.21 – analytic derivation – constant updraft</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-4-wallace-and-hobbs-problem-6-24-falling-precip">Problem 4 – Wallace and Hobbs problem 6.24 – falling precip</a></li>
 </ul>
 </li>

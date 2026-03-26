@@ -219,6 +219,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/worksheets/worksheet10_aero_dist_solution.html">Worksheet 10: Aerosol distributions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/worksheets/dropgrow/worksheet11_dropgrow_solution.html">Worksheet11 Solution: Parcel model with oscillating updraft</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/worksheets/worksheet12_marshall_palmer.html">Worksheet 12: Marshall-Palmer Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/worksheets/worksheet13_odeint.html">Worksheet 13 odeint practice</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="current nav bd-sidenav">
@@ -234,6 +235,7 @@
 
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Assignment 7: aerosols: solution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="assignment8_precipitation.html">Assignment 8 – precipitation.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="assignment9_cold_clouds.html">Assignment 9 – cold clouds</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">In-depth notes</span></p>
 <ul class="nav bd-sidenav">
@@ -262,6 +264,8 @@
 <li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1YYr2dFO4csFNsdOL7IEZJCPEh6LXMoof/view?usp=sharing">aerosol size distributions</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1kGjCV3tVA4umfoU1KFlkCAbHtXqdOStt/view?usp=sharing">Accurate enthalpy and thetae</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1mfwKsVais1YiTC6JbMxIM5xTXgUMYd7g/view?usp=sharing">Droplet fragmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/ice_saturation.html">saturation vapor pressure over ice</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1g42323LOcQbxWn4Ey1B58ExgVPwjMADz/view?usp=sharing">Notes of crystal growth</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">midterms</span></p>
 <ul class="nav bd-sidenav">
@@ -472,7 +476,7 @@ document.write(`
 <p>show that this implies, for <span class="math notranslate nohighlight">\((NH_4)_2 SO_4\)</span>, density <span class="math notranslate nohighlight">\(\rho_{aer}\)</span> = 1775
 <span class="math notranslate nohighlight">\({kg}\,{m^{-3}}\)</span> , van hoft i=3, that:</p>
 <div class="math notranslate nohighlight" id="equation-eq-scrit">
-<span class="eqno">(14)<a class="headerlink" href="#equation-eq-scrit" title="Link to this equation">#</a></span>\[
+<span class="eqno">(16)<a class="headerlink" href="#equation-eq-scrit" title="Link to this equation">#</a></span>\[
 S^* -1 \approx 1.54 \times 10^{-12}~ m_{aer}^{-0.5}
  \]</div>
 <p>where <span class="math notranslate nohighlight">\(m_{aer}\)</span> is the ammonium sulphate aerosol mass in kg.</p>
@@ -490,7 +494,7 @@ a=\frac{2 \sigma}{\rho_l R_v T}
 \[
 b=\frac{i m M_w}{4 / 3 \pi \rho_s M_s}
 \]</div>
-<p>Insert the definition of b into <a class="reference internal" href="#equation-eq-scrit">(14)</a>:</p>
+<p>Insert the definition of b into <a class="reference internal" href="#equation-eq-scrit">(16)</a>:</p>
 <div class="math notranslate nohighlight">
 \[
 (S^* - 1 ) = \left (\frac{4a^3 \,4/3 \pi \rho_s M_s }{27 i M_w} \right )^{1/2}  m_{aer}^{-1/2}
@@ -572,8 +576,8 @@ m_aer=1e-17, SS*100=0.05 %
 <h2>Problem 2: Koehler stability<a class="headerlink" href="#problem-2-koehler-stability" title="Link to this heading">#</a></h2>
 <ol class="arabic" start="2">
 <li><p>Show that the expression for second derivative of the thermodynamic potential derived in the  Koehler stability notes:</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="math notranslate nohighlight" id="equation-eq-gfull">
+<span class="eqno">(17)<a class="headerlink" href="#equation-eq-gfull" title="Link to this equation">#</a></span>\[
      \frac{\delta ^2G}{\delta r^2} = - 4 \pi R_v T \rho_l \left [ 2 a - r^2 \left ( 1 +
            \frac{b}{r^3} \right ) \frac{3b}{r^4}  \right ] + 8 \pi \sigma
      \]</div>
@@ -585,14 +589,19 @@ there has to be a sign change from + to -.</p>
 </ol>
 <section id="problem-2-answer">
 <h3>Problem 2 answer<a class="headerlink" href="#problem-2-answer" title="Link to this heading">#</a></h3>
-<p>First confirm that <span class="math notranslate nohighlight">\(\frac{\delta^2 G}{\delta r^2}=0\)</span> at the critical radius:
-Inserting <span class="math notranslate nohighlight">\(r_{crit}=\left(\frac{3 b}{a}\right)^{1 / 2}\)</span> into (8):
-$<span class="math notranslate nohighlight">\(
+<p>First confirm that
+<span class="math notranslate nohighlight">\(\frac{\delta^2 G}{\delta r^2}=0\)</span>
+at the critical radius:</p>
+<p>Inserting
+<span class="math notranslate nohighlight">\(r_{crit}=\left(\frac{3 b}{a}\right)^{1 / 2}\)</span>
+into <a class="reference internal" href="#equation-eq-gfull">(17)</a>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
 \begin{aligned}
 \frac{\delta^2 G}{\partial r^2}= &amp; -4 \pi R_v T \rho_l\left(2 a-\frac{3 b a}{3 b}\right)+8 \pi \sigma \\
 &amp; =-4 \pi R_v T \rho_l a+8 \pi \sigma
 \end{aligned}
-\)</span>$</p>
+\end{split}\]</div>
 <p>but</p>
 <div class="math notranslate nohighlight">
 \[a=\frac{2\sigma}{R_v T \rho_l}\]</div>
@@ -601,16 +610,24 @@ $<span class="math notranslate nohighlight">\(
 \[
 \frac{\delta^2 G}{\delta r^2}=-4 \pi R_v T \rho_l \frac{2 \sigma}{R_v T \rho_l}+8 \pi \sigma=-8 \pi \sigma+8 \pi \sigma=0
 \]</div>
-<p>We walt to confirm that <span class="math notranslate nohighlight">\(\frac{\delta^2 G}{\delta r^2}&lt;0\)</span> (unstable) for <span class="math notranslate nohighlight">\(r&gt;r_{crit}\)</span> and <span class="math notranslate nohighlight">\(\frac{\delta^2 G}{\delta r^2}&gt;0\)</span> (stable)
-for <span class="math notranslate nohighlight">\(r&lt;r_{crit}\)</span>.
-That is equivalent to showing that <span class="math notranslate nohighlight">\(\frac{\delta}{\delta r}\left(\frac{\delta^2 G}{\delta r^2}\right)&lt;0\)</span> at <span class="math notranslate nohighlight">\(r=r_{crit}\)</span></p>
-<p>Sure enough:
-$<span class="math notranslate nohighlight">\(
+<p>We walt to confirm that</p>
+<p><span class="math notranslate nohighlight">\(\frac{\delta^2 G}{\delta r^2}&lt;0\)</span> (unstable) for
+<span class="math notranslate nohighlight">\(r&gt;r_{crit}\)</span> and
+<span class="math notranslate nohighlight">\(\frac{\delta^2 G}{\delta r^2}&gt;0\)</span> (stable)
+for <span class="math notranslate nohighlight">\(r&lt;r_{crit}\)</span>.</p>
+<p>That is equivalent to showing that</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\delta}{\delta r}\left(\frac{\delta^2 G}{\delta r^2}\right)&lt;0 \text{ at } r=r_{crit}
+\]</div>
+<p>Sure enough:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
 \begin{aligned}
 &amp; \frac{\delta}{\delta r}\left(\frac{\delta^2 G}{\delta r^2}\right)=\frac{\delta}{\delta r}\left(-4 \pi R_V T \rho_l\left(-\frac{3 b}{r^2}\right)\right) \\
 &amp; =-4 \pi R_V T \rho_l \frac{3 b}{r^3}&lt;0 \text { at } r=r_{crit}.
 \end{aligned}
-\)</span>$</p>
+\end{split}\]</div>
 </section>
 </section>
 <section id="problem-3-ccn-lifetime">
@@ -628,7 +645,8 @@ that there is one aerosol in each droplet.</p>
 \[
   w_l = 0.3\ \ g\,m^{-3} = \frac{4}{3}\pi \rho_l N\overline{ r}^3  
 \]</div>
-<p>which gives <span class="math notranslate nohighlight">\(n=72\ \ cm^{-3} = 72\ \times 10^6\ \ {kg^{-1}}\)</span> if <span class="math notranslate nohighlight">\(\rho_{air} \approx 1\ \ kg\,m^{-3} \)</span></p>
+<p>which gives
+<span class="math notranslate nohighlight">\(n=72\ \ cm^{-3} = 72\ \times 10^6\ \ {kg^{-1}}\)</span> if <span class="math notranslate nohighlight">\(\rho_{air} \approx 1\ \ kg\,m^{-3}\)</span></p>
 <p>If the column is well mixed, then <span class="math notranslate nohighlight">\(n=constant\)</span> between the surface
 and 5 km <span class="math notranslate nohighlight">\(\approx\)</span> 500 hPa.   Integrate
 the hydrostatic equation between those levels to find the mass of dry air:</p>
@@ -654,7 +672,7 @@ then the mass of an average drop is</p>
 <p>So put these together:</p>
 <div class="math notranslate nohighlight">
 \[
-  \tau = \frac{N}{dN/dt} = \frac{ 3.6 \times 10 11}{ 2.39 \times 10^{14}} 
+  \tau = \frac{N}{dN/dt} = \frac{ 3.6 \times 10^{11}}{ 2.39 \times 10^{14}} 
 = 0.0015\ years = 0.55\ days
 \]</div>
 </section>

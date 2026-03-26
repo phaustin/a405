@@ -121,7 +121,7 @@ print(f"{m_aer=}, {SS*100=:.2f} %")
      $$
      \frac{\delta ^2G}{\delta r^2} = - 4 \pi R_v T \rho_l \left [ 2 a - r^2 \left ( 1 +
            \frac{b}{r^3} \right ) \frac{3b}{r^4}  \right ] + 8 \pi \sigma
-     $$
+     $$(eq:gfull)
 
      Changes sign from stable (positive) to unstable (negative) at $r_{crit}$.
 
@@ -135,8 +135,14 @@ print(f"{m_aer=}, {SS*100=:.2f} %")
 
 +++
 
- First confirm that $\frac{\delta^2 G}{\delta r^2}=0$ at the critical radius:
-Inserting $r_{crit}=\left(\frac{3 b}{a}\right)^{1 / 2}$ into (8):
+First confirm that 
+$\frac{\delta^2 G}{\delta r^2}=0$ 
+at the critical radius:
+
+Inserting 
+$r_{crit}=\left(\frac{3 b}{a}\right)^{1 / 2}$
+into {eq}`eq:gfull`:
+
 $$
 \begin{aligned}
 \frac{\delta^2 G}{\partial r^2}= & -4 \pi R_v T \rho_l\left(2 a-\frac{3 b a}{3 b}\right)+8 \pi \sigma \\
@@ -156,13 +162,23 @@ $$
 
 +++
 
-We walt to confirm that $\frac{\delta^2 G}{\delta r^2}<0$ (unstable) for $r>r_{crit}$ and $\frac{\delta^2 G}{\delta r^2}>0$ (stable)
+We walt to confirm that 
+
+$\frac{\delta^2 G}{\delta r^2}<0$ (unstable) for 
+$r>r_{crit}$ and 
+$\frac{\delta^2 G}{\delta r^2}>0$ (stable)
 for $r<r_{crit}$.
-That is equivalent to showing that $\frac{\delta}{\delta r}\left(\frac{\delta^2 G}{\delta r^2}\right)<0$ at $r=r_{crit}$
+
+That is equivalent to showing that 
+
+$$
+\frac{\delta}{\delta r}\left(\frac{\delta^2 G}{\delta r^2}\right)<0 \text{ at } r=r_{crit}
+$$
 
 +++
 
 Sure enough:
+
 $$
 \begin{aligned}
 & \frac{\delta}{\delta r}\left(\frac{\delta^2 G}{\delta r^2}\right)=\frac{\delta}{\delta r}\left(-4 \pi R_V T \rho_l\left(-\frac{3 b}{r^2}\right)\right) \\
@@ -189,7 +205,9 @@ that there is one aerosol in each droplet.
 $$
   w_l = 0.3\ \ g\,m^{-3} = \frac{4}{3}\pi \rho_l N\overline{ r}^3  
 $$
-which gives $n=72\ \ cm^{-3} = 72\ \times 10^6\ \ {kg^{-1}}$ if $\rho_{air} \approx 1\ \ kg\,m^{-3} $
+
+which gives 
+$n=72\ \ cm^{-3} = 72\ \times 10^6\ \ {kg^{-1}}$ if $\rho_{air} \approx 1\ \ kg\,m^{-3}$
 
 +++
 
@@ -222,6 +240,6 @@ $$
 So put these together:
 
 $$
-  \tau = \frac{N}{dN/dt} = \frac{ 3.6 \times 10 11}{ 2.39 \times 10^{14}} 
+  \tau = \frac{N}{dN/dt} = \frac{ 3.6 \times 10^{11}}{ 2.39 \times 10^{14}} 
 = 0.0015\ years = 0.55\ days
 $$

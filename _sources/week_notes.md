@@ -380,4 +380,19 @@ and Thompkins Section 4.5
 - Read Thompkins pp. 82-87 on cold clouds
 - Work on {ref}`assignment_precip`
 
+### Lecture 25, week 12, Thursday
 
+- Review on mass flux:
+  - show with the help of a figure why $w\rho_N$ is represents the mass of droplets falling with fallspeed w through 1 $m^2$ in $kg\,m^{-2}\,s^{-1}$
+  - show why we can decompose the flux into parallel and perpendicular components
+- Discuss solution to question 1 for {ref}`worksheet12_marshall_palmer`
+- Preview {ref}`assignment9_cold`
+- Preview my reading on ice {ref}`ice_saturation`
+- Preview my [notes on crystal growth](https://drive.google.com/file/d/1g42323LOcQbxWn4Ey1B58ExgVPwjMADz/view?usp=sharing)
+- Work through {ref}`worksheet13_odeint`
+
+#### For Tuesday:
+
+- Read [Wallace and Hobbs 232-234](https://drive.google.com/drive/u/0/folders/1kryee5blP4yY_GWjQRTsfKa0yrQ9NY3T) on cold cclouds
+- Work on Assignments 8/9
+- Work on final review questions

@@ -1,0 +1,804 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>saturation vapor pressure over ice &#8212; ATSC 405</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=1ae7504c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/ice_saturation';</script>
+    <link rel="canonical" href="https://phaustin.github.io/a405/notebooks/ice_saturation.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Midterm study topics" href="../assignments/study_topics.html" />
+    <link rel="prev" title="Gibbs Free Energy notes" href="week7/gibbs_notes.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">ATSC 405</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    ATSC 405 syllabus
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Background information</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../integrity.html">UBC academic integrity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ai_policy.html">Course policy for generative AI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../learning_goals.html">Learning goals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../schedule.html">Course schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_install.html">Python links</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.dropbox.com/scl/fo/9grhb2cr0lpfc1d5jci4a/h?rlkey=shnjpq4kvndrcatbgrri44eyw&amp;dl=0">Thompkins text</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://gw2jh3xr2c.search.serialssolutions.com/?sid=sersol&amp;SS_jc=TC0001980404&amp;title=An%20introduction%20to%20clouds%20%3A%20from%20the%20microscale%20to%20climate">Lohmann et al. text</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.dropbox.com/scl/fi/r7zhctw6usest2rirpe2f/wallace_hobbs_chap6.pdf?rlkey=oxdanppj9wkocmwe4nn4cc4fi&amp;dl=0">Wallace and Hobbs chapter 6</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.eoas.ubc.ca/books/Practical_Meteorology">Stull, Practical Meteorolgy</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://phaustin.github.io/a405_lib/full_listing.html">A405 library documentation</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/phaustin/a405/tree/main/src/a405">A405 library source code</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.google.com/presentation/d/1tgA2Ia1sWPzZVlgspuW7MOUfokDDZmfvS2eDTtFr-Mw/edit?usp=sharing">Blank tephigram - 1000-800 hPa</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Weekly topics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week_notes.html">Week notes</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Worksheets</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="worksheets/worksheet1_solution.html">Week 1 worksheet solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="worksheets/worksheet2_solution.html">Worksheet2 – Thermodynamics worksheet solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week2/skew_coords.html">Week2: Demo – Theromodynamic diagrams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="worksheets/worksheet3_derivs_and_ints_solution.html">worksheet 3 solution: working with numpy arrays</a></li>
+<li class="toctree-l1"><a class="reference internal" href="worksheets/worksheet4_taylor_series_solution.html">Worksheet 4: Taylor series solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week4/xarray-intro.html">Demo: Introduction to Xarray</a></li>
+<li class="toctree-l1"><a class="reference internal" href="worksheets/worksheet5_latent_solution.html">Worksheet 5 solution: Latent heat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="worksheets/worksheet6_gibbs_solution.html">Worksheet 6 solution: Gibbs free energy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="worksheets/mixing_line_example.html">Mixing line example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="worksheets/convec_instability.html">Convective instability – lifting demo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="worksheets/moist_adiabats.html">Moist adiabats and the LCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="worksheets/tropical_engine_solution.html">Tropical Heat Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="worksheets/cape_part1.html">Cape Part 1  – demo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="worksheets/worksheet7_taylor_solution.html">Worksheet 7 – Taylor series problem solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="worksheets/mixing_line_calc.html">Mixing line workbook</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="worksheets/entraining_plume.html">Modeling an entraining cloud updraft try</a></li>
+<li class="toctree-l1"><a class="reference internal" href="worksheets/worksheet8_interp1d_solution.html">Worksheet 8: Interp1d Solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="worksheets/worksheet9_koehler_solution.html">Worksheet9: Koehler Equilibrium solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="worksheets/worksheet10_aero_dist_solution.html">Worksheet 10: Aerosol distributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="worksheets/dropgrow/worksheet11_dropgrow_solution.html">Worksheet11 Solution: Parcel model with oscillating updraft</a></li>
+<li class="toctree-l1"><a class="reference internal" href="worksheets/worksheet12_marshall_palmer.html">Worksheet 12: Marshall-Palmer Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="worksheets/worksheet13_odeint.html">Worksheet 13 odeint practice</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../assignments/adiabatic_box_solution.html">Adiabatic Box - Solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/hydrostatic_scaling_solution.html">Assign 2: Solution - Scale heights for typical atmospheric soundings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/tropical_clouds_profiles_solution.html">Assignment 3 solution: Analyzing a model cloud dataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/assign4_rootfind_solution.html">Assignment 4a rootfinding solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/assignment4_paper_solution.html">Assignment 4 part 2  – solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/thompkins_practice_answers.html">Tompkins practice questions – solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/assign6_koehler.html">Assignment 6 – Koehler equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/assign6_cape_solution.html">Assignment 6 CAPE solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/assignment6_koehler_solution.html">Assignment 6 paper/pencil problems</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../assignments/assignment7_aerosols_solution.html">Assignment 7: aerosols: solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/assignment8_precipitation.html">Assignment 8 – precipitation.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/assignment9_cold_clouds.html">Assignment 9 – cold clouds</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">In-depth notes</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://www.dropbox.com/scl/fi/5scb458wnoymr4s8ta4vt/equation_sheet.pdf?rlkey=29ymawiljakqnv3wquqa4wm8e&amp;st=4mmzb2ii&amp;dl=0">final exam equation sheet</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1L8am0jnhBdlTNzQNR8lE-Iyw0V6lwqg2/view?usp=sharing">mid-term equation sheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week1/hydrostat.html">Week1: Hydrostatic balance explainer</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1dBxcwxe0quNjYAihiFwMpF8kVmjmYh1p/view?usp=sharing">Week2 - Kinetic Temperature notes</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/12xontZRhRTKBjtG9y27RS6CH35eARcgp/view?usp=sharing">Week 2 - First law of thermodynamics</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1_ZpKjfR3OGHkmnk9-lKEmP8SSGNM8Is_/view?usp=sharing">Week 2 - Hydrostatic balance and scale heights</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1CjXm0AHYMJYmxf-Mm6CuWD7tIM_KBRI0/view?usp=sharing">Week 3 - Entropy and potential temperature</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1Id1EECa8qefSD6YhJoJzVp2neEarD9Wa/view?usp=sharing">Week 3 - Buoyancy and Taylor's series</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1GrzhzpvWbN0H4dP3Z77M4O88Cyey5k2K/view?usp=sharing">Schroeder Chapter 5 free energy</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1YrHBkCiFduYqjd_Dn8_3fZJocmqva1PG/view?usp=sharing">Lohmann Chapter 2 - Thermodynamics</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1rJO32NGhTW3TA6noQmSdNl2GNXyrZUgA/view?usp=sharing">Maxwell relations</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/144fXb0-of3lpwL0xGZYH16yxGJOmvDEh/view?usp=sharing">Clausius-Clapeyron equation</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1EQI86M4I76ARXDV54VOHKQP3J0-kyyDq/view?usp=sharing">Virtual temperature notes</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1BPTvFijtktG4135T1X8DXwI8l_C8xHEt/view?usp=sharing">Static energy and $\theta_e$ notes</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/131QoLZPjajoCtreV6muYOxDlF6jvRH4s/view?usp=sharing">Carnot cycle notes</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1wsfzaorhVKiMwDlrolf2gtTrSLT4p4iM/view?usp=sharing">wet bulb notes</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1j8vhmRtGaOlpe0JAAS-fvZmH9H8U2ay2/view?usp=sharing">Wet bulb vs. $\theta_e$</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week7/gibbs_notes.html">Gibbs Free Energy notes</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1VgY5LWMSmavpoHFQYFE-wkPxGnD5x44O/view?usp=sharing">entrainment and mixing</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1SU64h2sGfMsOygqHL1f6tK_K2HgLv1Nr/view?usp=sharing">Koehler equation notes</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1mF4ES2IewpnLB-lQHOBuK5JwSnelqkYs/view?usp=sharing">Droplet growth notes</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1i_2_LTQ496FScNK8V-b3pb-rvh6Qzapa/view?usp=sharing">timescales for diffusion and droplet growth</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1YYr2dFO4csFNsdOL7IEZJCPEh6LXMoof/view?usp=sharing">aerosol size distributions</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1kGjCV3tVA4umfoU1KFlkCAbHtXqdOStt/view?usp=sharing">Accurate enthalpy and thetae</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1mfwKsVais1YiTC6JbMxIM5xTXgUMYd7g/view?usp=sharing">Droplet fragmentation</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">saturation vapor pressure over ice</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1g42323LOcQbxWn4Ey1B58ExgVPwjMADz/view?usp=sharing">Notes of crystal growth</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">midterms</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../assignments/study_topics.html">Midterm study topics</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1Nj31FAXyWur9qffnSflhx6CcLBta4PCj/view?usp=sharing">2016 midterm</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1jFKalQ9MXAvNu824LKVyHtNEleZhgI0q/view?usp=sharing">2012 midterm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/a405_mid_2026_solution.html">A405 2026 midterm solutions</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">final exam</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1o9HOkiaXsestzA7P0Njt9X1r5IlEj34D/view?usp=sharing">Final Exam Practice Questions</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Animations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1Qwioo3qSyEzr4tTuC3Sx54oXLKg-3g3D/view?usp=sharing">ARM diurnal over land</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1lCb3G9EhiPzRGO2m0FQWMTTUv2fSTnbi/view?usp=sharing">BOMEX -- trade cumulus over water</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/14ZLSAHCrjv8U0IKD9sQMHdql33Ebxkp3/view?usp=sharing">CGILS trade cumulus over water</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/notebooks/ice_saturation.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>saturation vapor pressure over ice</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clausius-clapyron-review">Clausius-Clapyron review</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-new-esat-function-vs-old-version">Plot the new esat function vs. old version</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#repeat-this-over-ice">Repeat this over ice</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluate-the-ratio-of-saturation-vapor-with-respect-to-liquid-over-ice">Evaluate the ratio of saturation vapor with respect to liquid over ice</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recreate-thompkins-figure-2-8-p-28">Recreate Thompkins figure 2.8 p. 28</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="saturation-vapor-pressure-over-ice">
+<span id="ice-saturation"></span><h1>saturation vapor pressure over ice<a class="headerlink" href="#saturation-vapor-pressure-over-ice" title="Link to this heading">#</a></h1>
+<p>This notebook shows how the difference in the Gibbs free energy for ice and water result in very different saturation vapor pressures.  The difference explains why cold clouds with supercooled
+liquid water drops and ice crystals rapidly develop precipitation.  It is also the
+reason cloud seeding works (when it does work, which is rarely).</p>
+<section id="clausius-clapyron-review">
+<h2>Clausius-Clapyron review<a class="headerlink" href="#clausius-clapyron-review" title="Link to this heading">#</a></h2>
+<p>Recall the Week 4 notes on the <a class="reference external" href="https://drive.google.com/file/d/144fXb0-of3lpwL0xGZYH16yxGJOmvDEh/view">Clausius-Clapyron equation</a> (abbreviated CC below).  In those notes we started from <span class="math notranslate nohighlight">\(g_l = g_v\)</span> in equilibrium and derived the relation
+between the liquid water temperature and the saturation vapor pressure over liquid water.  Below we repeat this using a result from <a class="reference external" href="https://rmets.onlinelibrary.wiley.com/doi/full/10.1002/qj.3899">Ambaum 2020</a> that shows how to get
+a more accurate values for the saturation vapor pressure over water.  We then use the same approach with <span class="math notranslate nohighlight">\(g_{ice} = g_v\)</span> to get the saturation vapor
+pressure over ice.</p>
+<p>CC Equation 8:</p>
+<div class="math notranslate nohighlight">
+\[
+l_v  =  (\phi_v^* - \phi_l) T
+\]</div>
+<p>where the asterisk indicate saturation.</p>
+<p>and inserting the definition for the two entropies gives CC equation 18:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{l_v }{T}  = c_{pv} \log \frac{T }{T_p} - R_v \log \frac{ e_{sat} }{e_{s0}} + \frac{l_{v0}}{T_p} - c_l \log \frac{T }{T_p} 
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(T_p\)</span> = 273.16 K, <span class="math notranslate nohighlight">\(l_{v0}=2.501\)</span> J/kg and <span class="math notranslate nohighlight">\(e_{s0}\)</span> = 611.655 Pa at the triple point.</p>
+<p>Also from the CC-notes, we have CC equation 13:</p>
+<div class="math notranslate nohighlight">
+\[
+  l_v = h_v - h_l = (c_{pv} - c_l) (T - T_p) + l_{v0}
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(c_l\)</span> = 4219.9 J/kg/K and <span class="math notranslate nohighlight">\(c_{pv}\)</span> = 1884 J/kg/K at the triple point (Lohmann chapter 2)</p>
+<p>Rewriting the constant of integration <span class="math notranslate nohighlight">\(\phi_0 = \frac{l_{v0}}{T_p}\)</span> rearranging:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{l_v }{T} - \frac{l_{v0}}{T_p}  =( c_{pv} - c_{l} ) \log \frac{T }{T_p} - R_v \log \frac{ e_{sat} }{e_{s0}}
+\]</div>
+<p>Exponentiate to get the saturation vapor pressure with respect to liquid</p>
+<div class="math notranslate nohighlight" id="equation-eq-liquid">
+<span class="eqno">(28)<a class="headerlink" href="#equation-eq-liquid" title="Link to this equation">#</a></span>\[
+e_{sat}=e_{\mathrm{s} 0}\left(\frac{T_p}{T}\right)^{\left(c_{\mathrm{pl}}-c_{\mathrm{pv}}\right) / R_{\mathrm{v}}} \exp \left(\frac{l_{v0}}{R_{\mathrm{v}} T_p}-\frac{l_v}{R_{\mathrm{v}} T}\right)
+\]</div>
+<p>We need a value for the difference <span class="math notranslate nohighlight">\(c_{pv} - c_l\)</span>, which depends on temperature over large temperature ranges between 0 to 100 deg C.
+<a class="reference external" href="https://rmets.onlinelibrary.wiley.com/doi/full/10.1002/qj.3899">Ambaum 2020</a> shows that a good average value is:</p>
+<div class="math notranslate nohighlight">
+\[
+c_l - c_{pv} = 2180\ J/kg/K
+\]</div>
+</section>
+<section id="plot-the-new-esat-function-vs-old-version">
+<h2>Plot the new esat function vs. old version<a class="headerlink" href="#plot-the-new-esat-function-vs-old-version" title="Link to this heading">#</a></h2>
+<p>Compare this with the empircal verions given by Thompkins eq. 2.13 (with T in deg C):</p>
+<div class="math notranslate nohighlight">
+\[
+e_s(T)=611.2 \exp \left(\frac{17.67 T}{T+243.5}\right)
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">a405.thermo.constants</span><span class="w"> </span><span class="kn">import</span> <span class="n">constants</span> <span class="k">as</span> <span class="n">c</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">esat_new</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    saturation vapor pressure with respect to liquid</span>
+<span class="sd">     </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    </span>
+<span class="sd">    T: temperature (K)</span>
+<span class="sd">    </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    </span>
+<span class="sd">    ear_out: vapor pressure (Pa)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">cl_cpv</span> <span class="o">=</span> <span class="mi">2180</span>  <span class="c1">#J/kg/K</span>
+    <span class="n">term1</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">es0</span><span class="o">*</span><span class="mf">100.</span><span class="o">*</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">Tp</span><span class="o">/</span><span class="n">T</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="n">cl_cpv</span><span class="o">/</span><span class="n">c</span><span class="o">.</span><span class="n">Rv</span><span class="p">)</span>
+    <span class="n">term2</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">lv0</span><span class="o">/</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">Rv</span><span class="o">*</span><span class="n">c</span><span class="o">.</span><span class="n">Tp</span><span class="p">)</span>
+    <span class="n">lv</span> <span class="o">=</span> <span class="o">-</span><span class="n">cl_cpv</span><span class="o">*</span><span class="p">(</span><span class="n">T</span> <span class="o">-</span> <span class="n">c</span><span class="o">.</span><span class="n">Tp</span><span class="p">)</span> <span class="o">+</span> <span class="n">c</span><span class="o">.</span><span class="n">lv0</span>
+    <span class="n">term3</span> <span class="o">=</span> <span class="n">lv</span><span class="o">/</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">Rv</span><span class="o">*</span><span class="n">T</span><span class="p">)</span>
+    <span class="n">esat_out</span><span class="o">=</span><span class="n">term1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">((</span><span class="n">term2</span> <span class="o">-</span> <span class="n">term3</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">esat_out</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">esat_old</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    empirical fit from Thompkins 2.13</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">tempC</span> <span class="o">=</span> <span class="n">T</span> <span class="o">-</span> <span class="n">c</span><span class="o">.</span><span class="n">Tc</span>
+    <span class="n">term1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mf">17.67</span><span class="o">*</span><span class="n">tempC</span><span class="o">/</span><span class="p">(</span><span class="n">tempC</span> <span class="o">+</span> <span class="mf">243.5</span><span class="p">))</span>
+    <span class="n">esat_out</span> <span class="o">=</span> <span class="mf">611.2</span><span class="o">*</span><span class="n">term1</span>
+    <span class="k">return</span> <span class="n">esat_out</span>
+            
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="n">the_temps</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span> <span class="o">+</span> <span class="n">c</span><span class="o">.</span><span class="n">Tc</span>
+<span class="n">new_esat</span> <span class="o">=</span> <span class="n">esat_new</span><span class="p">(</span><span class="n">the_temps</span><span class="p">)</span>
+<span class="n">old_esat</span> <span class="o">=</span> <span class="n">esat_old</span><span class="p">(</span><span class="n">the_temps</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">pa2hPa</span>  <span class="o">=</span> <span class="mf">0.01</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">the_temps</span><span class="p">,</span><span class="n">new_esat</span><span class="o">*</span><span class="n">pa2hPa</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;new_esat&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">the_temps</span><span class="p">,</span><span class="n">old_esat</span><span class="o">*</span><span class="n">pa2hPa</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;old_esat&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;temperature (K)&quot;</span><span class="p">,</span>
+       <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;saturation pressure over liquid water (hpa)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/17d1c7eafc8b71d9ccd532ebdd46ad3ea086ee70c79371c89ad219cb23859933.png" src="../_images/17d1c7eafc8b71d9ccd532ebdd46ad3ea086ee70c79371c89ad219cb23859933.png" />
+</div>
+</div>
+</section>
+<section id="repeat-this-over-ice">
+<h2>Repeat this over ice<a class="headerlink" href="#repeat-this-over-ice" title="Link to this heading">#</a></h2>
+<p>The only things we need to change when we shift from liquid to ice is to change the heat capacity of liquid <span class="math notranslate nohighlight">\(c_l\)</span> to the
+heat capcity of ice <span class="math notranslate nohighlight">\(c_i\)</span>.  The new latent heat, which is the enthalpy change from ice to vapor is called the <em>latent
+heat of sublimation <span class="math notranslate nohighlight">\(l_s\)</span></em> and is given by:</p>
+<div class="math notranslate nohighlight">
+\[
+  l_s = h_v - h_i = (c_{pv} - c_i) (T - T_p) + l_{s0}
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(l_{s0}\)</span> = <span class="math notranslate nohighlight">\(2.834 \times 10^6\)</span> J/kg, <span class="math notranslate nohighlight">\(c_{i}\)</span> = 2114 J/kg/K  and <span class="math notranslate nohighlight">\(c_{pv}\)</span> = 1884 J/kg/K at the triple point. (Lohmann Table 2.1).</p>
+<p>So the version of <a class="reference internal" href="#equation-eq-liquid">(28)</a> for ice is:</p>
+<div class="math notranslate nohighlight">
+\[
+e_{\mathrm{i}}=e_{\mathrm{i} 0}\left(\frac{T_p}{T}\right)^{\left(c_{\mathrm{pi}}-c_{\mathrm{pv}}\right) / R_{\mathrm{v}}} \exp \left(\frac{l_{\mathrm{s} 0}}{R_{\mathrm{v}} T_p}-\frac{l_{\mathrm{s}}}{R_{\mathrm{v}} T}\right)
+\]</div>
+<p>where we use the <a class="reference external" href="https://rmets.onlinelibrary.wiley.com/doi/full/10.1002/qj.3899">Ambaum 2020</a> approximation for the value for <span class="math notranslate nohighlight">\(( c_i - c_{pv} )\)</span> = 212 J/kg/K that averages over the temperature range 0 to -40 deg C.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">eice_new</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    saturation vapor pressure with respect to ice</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+
+<span class="sd">    T: temperature (K)</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+
+<span class="sd">    eice_out: vapor pressure (Pa)</span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">ci_cpv</span> <span class="o">=</span> <span class="mi">212</span>  <span class="c1">#J/kg/K</span>
+    <span class="n">ls0</span> <span class="o">=</span> <span class="mf">2.834e6</span>
+    <span class="n">term1</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">es0</span><span class="o">*</span><span class="mf">100.</span><span class="o">*</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">Tp</span><span class="o">/</span><span class="n">T</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="n">ci_cpv</span><span class="o">/</span><span class="n">c</span><span class="o">.</span><span class="n">Rv</span><span class="p">)</span>
+    <span class="n">term2</span> <span class="o">=</span> <span class="n">ls0</span><span class="o">/</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">Rv</span><span class="o">*</span><span class="n">c</span><span class="o">.</span><span class="n">Tp</span><span class="p">)</span>
+    <span class="n">ls</span> <span class="o">=</span> <span class="o">-</span><span class="n">ci_cpv</span><span class="o">*</span><span class="p">(</span><span class="n">T</span> <span class="o">-</span> <span class="n">c</span><span class="o">.</span><span class="n">Tp</span><span class="p">)</span> <span class="o">+</span> <span class="n">ls0</span>
+    <span class="n">term3</span> <span class="o">=</span> <span class="n">ls</span><span class="o">/</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">Rv</span><span class="o">*</span><span class="n">T</span><span class="p">)</span>
+    <span class="n">eice_out</span><span class="o">=</span><span class="n">term1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">((</span><span class="n">term2</span> <span class="o">-</span> <span class="n">term3</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">eice_out</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="evaluate-the-ratio-of-saturation-vapor-with-respect-to-liquid-over-ice">
+<h2>Evaluate the ratio of saturation vapor with respect to liquid over ice<a class="headerlink" href="#evaluate-the-ratio-of-saturation-vapor-with-respect-to-liquid-over-ice" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">the_temps</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">40</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span> <span class="o">+</span> <span class="n">c</span><span class="o">.</span><span class="n">Tc</span>
+<span class="n">eice</span> <span class="o">=</span> <span class="n">eice_new</span><span class="p">(</span><span class="n">the_temps</span><span class="p">)</span>
+<span class="n">esat</span> <span class="o">=</span> <span class="n">esat_new</span><span class="p">(</span><span class="n">the_temps</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">pa2hPa</span>  <span class="o">=</span> <span class="mf">0.01</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">the_temps</span><span class="p">,</span><span class="n">eice</span><span class="o">*</span><span class="n">pa2hPa</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;eice&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;temperature (K)&quot;</span><span class="p">,</span>
+       <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;saturation pressure over ice (hpa)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/c87d982be0d0a17061131c224f688c3ce112c77f21f7ac3a81016d90cf22ca29.png" src="../_images/c87d982be0d0a17061131c224f688c3ce112c77f21f7ac3a81016d90cf22ca29.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">pa2hPa</span>  <span class="o">=</span> <span class="mf">0.01</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">the_temps</span><span class="p">,</span><span class="n">esat</span><span class="o">/</span><span class="n">eice</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;esat/eice&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;temperature (K)&quot;</span><span class="p">,</span>
+       <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;saturation ratio&quot;</span><span class="p">,</span>
+       <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;vapor saturation ratio ice/liquid&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/485edee7c6f50d71a8b8121ea43af3af4924897ca8786a0664c29e52d60a8451.png" src="../_images/485edee7c6f50d71a8b8121ea43af3af4924897ca8786a0664c29e52d60a8451.png" />
+</div>
+</div>
+</section>
+<section id="recreate-thompkins-figure-2-8-p-28">
+<h2>Recreate Thompkins figure 2.8 p. 28<a class="headerlink" href="#recreate-thompkins-figure-2-8-p-28" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">pa2hPa</span>  <span class="o">=</span> <span class="mf">0.01</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">the_temps</span><span class="p">,(</span><span class="n">esat</span> <span class="o">-</span> <span class="n">eice</span><span class="p">)</span><span class="o">*</span><span class="n">pa2hPa</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;esat - eice&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;temperature (K)&quot;</span><span class="p">,</span>
+       <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;liquid - ice (hPa)&quot;</span><span class="p">,</span>
+       <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;vapor saturation difference liquid - ice&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/975332bbc125bb9cbcf9cd778e36bc72d0e00dd86f8a5be592ac698b054fbda8.png" src="../_images/975332bbc125bb9cbcf9cd778e36bc72d0e00dd86f8a5be592ac698b054fbda8.png" />
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="week7/gibbs_notes.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Gibbs Free Energy notes</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../assignments/study_topics.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Midterm study topics</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clausius-clapyron-review">Clausius-Clapyron review</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-new-esat-function-vs-old-version">Plot the new esat function vs. old version</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#repeat-this-over-ice">Repeat this over ice</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluate-the-ratio-of-saturation-vapor-with-respect-to-liquid-over-ice">Evaluate the ratio of saturation vapor with respect to liquid over ice</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recreate-thompkins-figure-2-8-p-28">Recreate Thompkins figure 2.8 p. 28</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Philip Austin
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

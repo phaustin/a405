@@ -219,6 +219,7 @@
 <li class="toctree-l1"><a class="reference internal" href="notebooks/worksheets/worksheet10_aero_dist_solution.html">Worksheet 10: Aerosol distributions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="notebooks/worksheets/dropgrow/worksheet11_dropgrow_solution.html">Worksheet11 Solution: Parcel model with oscillating updraft</a></li>
 <li class="toctree-l1"><a class="reference internal" href="notebooks/worksheets/worksheet12_marshall_palmer.html">Worksheet 12: Marshall-Palmer Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/worksheets/worksheet13_odeint.html">Worksheet 13 odeint practice</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="nav bd-sidenav">
@@ -234,6 +235,7 @@
 
 <li class="toctree-l1"><a class="reference internal" href="assignments/assignment7_aerosols_solution.html">Assignment 7: aerosols: solution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="assignments/assignment8_precipitation.html">Assignment 8 – precipitation.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="assignments/assignment9_cold_clouds.html">Assignment 9 – cold clouds</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">In-depth notes</span></p>
 <ul class="nav bd-sidenav">
@@ -262,6 +264,8 @@
 <li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1YYr2dFO4csFNsdOL7IEZJCPEh6LXMoof/view?usp=sharing">aerosol size distributions</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1kGjCV3tVA4umfoU1KFlkCAbHtXqdOStt/view?usp=sharing">Accurate enthalpy and thetae</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1mfwKsVais1YiTC6JbMxIM5xTXgUMYd7g/view?usp=sharing">Droplet fragmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/ice_saturation.html">saturation vapor pressure over ice</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1g42323LOcQbxWn4Ey1B58ExgVPwjMADz/view?usp=sharing">Notes of crystal growth</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">midterms</span></p>
 <ul class="nav bd-sidenav">
@@ -534,6 +538,10 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-24-week-12-tuesday">Lecture 24, week 12, Tuesday</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#wallace-and-hobbs-section-6-4">Wallace and Hobbs section 6.4</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">For Thursday</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-25-week-12-thursday">Lecture 25, week 12, Thursday</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">For Tuesday:</a></li>
 </ul>
 </li>
 </ul>
@@ -999,6 +1007,30 @@ notes on <a class="reference external" href="https://drive.google.com/file/d/1YY
 </ul>
 </section>
 </section>
+<section id="lecture-25-week-12-thursday">
+<h3>Lecture 25, week 12, Thursday<a class="headerlink" href="#lecture-25-week-12-thursday" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Review on mass flux:</p>
+<ul>
+<li><p>show with the help of a figure why <span class="math notranslate nohighlight">\(w\rho_N\)</span> is represents the mass of droplets falling with fallspeed w through 1 <span class="math notranslate nohighlight">\(m^2\)</span> in <span class="math notranslate nohighlight">\(kg\,m^{-2}\,s^{-1}\)</span></p></li>
+<li><p>show why we can decompose the flux into parallel and perpendicular components</p></li>
+</ul>
+</li>
+<li><p>Discuss solution to question 1 for <a class="reference internal" href="notebooks/worksheets/worksheet12_marshall_palmer.html#worksheet12-marshall-palmer"><span class="std std-ref">Worksheet 12: Marshall-Palmer Distribution</span></a></p></li>
+<li><p>Preview <a class="reference internal" href="assignments/assignment9_cold_clouds.html#assignment9-cold"><span class="std std-ref">Assignment 9 – cold clouds</span></a></p></li>
+<li><p>Preview my reading on ice <a class="reference internal" href="notebooks/ice_saturation.html#ice-saturation"><span class="std std-ref">saturation vapor pressure over ice</span></a></p></li>
+<li><p>Preview my <a class="reference external" href="https://drive.google.com/file/d/1g42323LOcQbxWn4Ey1B58ExgVPwjMADz/view?usp=sharing">notes on crystal growth</a></p></li>
+<li><p>Work through <a class="reference internal" href="notebooks/worksheets/worksheet13_odeint.html#worksheet13-odeint"><span class="std std-ref">Worksheet 13 odeint practice</span></a></p></li>
+</ul>
+<section id="id11">
+<h4>For Tuesday:<a class="headerlink" href="#id11" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Read <a class="reference external" href="https://drive.google.com/drive/u/0/folders/1kryee5blP4yY_GWjQRTsfKa0yrQ9NY3T">Wallace and Hobbs 232-234</a> on cold cclouds</p></li>
+<li><p>Work on Assignments 8/9</p></li>
+<li><p>Work on final review questions</p></li>
+</ul>
+</section>
+</section>
 </section>
 </section>
 
@@ -1173,6 +1205,10 @@ notes on <a class="reference external" href="https://drive.google.com/file/d/1YY
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-24-week-12-tuesday">Lecture 24, week 12, Tuesday</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#wallace-and-hobbs-section-6-4">Wallace and Hobbs section 6.4</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">For Thursday</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-25-week-12-thursday">Lecture 25, week 12, Thursday</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">For Tuesday:</a></li>
 </ul>
 </li>
 </ul>
