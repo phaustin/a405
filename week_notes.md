@@ -327,7 +327,7 @@ Read Thompkins pages 73-75 on condensation growth
   - Lohmann Chapter 6 pp. 177-182 on Cloud condensation nuclei counters
   - My notes on droplet growth, timescales, and size distributions
   
-- Start on {ref}`assign7_aerosols`
+- Start on {ref}`assign7_aerosols_solution`
 
 
 ## Week 11
@@ -353,7 +353,7 @@ Read Thompkins pages 73-75 on condensation growth
 - Flashback: [Accurate enthalpy and $\theta_e$](https://drive.google.com/file/d/1kGjCV3tVA4umfoU1KFlkCAbHtXqdOStt/view?usp=sharing)
 - Introduce {ref}`assignment_precip` which is based on 
   [Wallace and Hobbs Section 6.4](https://drive.google.com/file/d/1wcG9cKgb6MT7XklFuEZJtcAIQ1uH9mAP/view?usp=sharing)
-- {ref}`worksheet11_dropgrow`
+- {ref}`worksheet11_dropgrow_solution`
 
 
 #### For Tuesday
@@ -365,4 +365,22 @@ Read [Wallace and Hobbs Section 6.4](https://www.dropbox.com/scl/fi/r7zhctw6uses
 
 ### Lecture 24, week 12, Tuesday
 
+#### Wallace and Hobbs section 6.4
+
+and Thompkins Section 4.5
+
+- Review {ref}`worksheet11_dropgrow_solution`
+- Review {ref}`assign7_aerosols_solution`
+- [Droplet fragmentation article](https://drive.google.com/file/d/1mfwKsVais1YiTC6JbMxIM5xTXgUMYd7g/view?usp=sharing)
+- Introduce {ref}`worksheet12_marshall_palmer`
+
+
+#### For Thursday
+
+- Read Thompkins pp. 82-87 on cold clouds
+- Work on {ref}`assignment_precip`
+
+### Lecture 25, week 12, Thursday
+
+- {ref}`assignment9_cold`
 

@@ -46,7 +46,8 @@ parts:
     - file: notebooks/worksheets/worksheet8_interp1d_solution.md
     - file: notebooks/worksheets/worksheet9_koehler_solution.md
     - file: notebooks/worksheets/worksheet10_aero_dist_solution.md
-    - file: notebooks/worksheets/dropgrow/worksheet11_dropgrow.md
+    - file: notebooks/worksheets/dropgrow/worksheet11_dropgrow_solution.md
+    - file: notebooks/worksheets/worksheet12_marshall_palmer.md
   - caption: Assignments
     chapters:
     - file: assignments/adiabatic_box_solution.md
@@ -59,8 +60,9 @@ parts:
     - file: assignments/worksheet8_interp1d_solution.md
     - file: assignments/assign6_cape_solution.md
     - file: assignments/assignment6_koehler_solution.md
-    - file: assignments/assignment7_aerosols.md
+    - file: assignments/assignment7_aerosols_solution.md
     - file: assignments/assignment8_precipitation.md
+    - file: assignments/assignment9_cold_clouds.md
   - caption: In-depth notes
     chapters:
     - url: https://www.dropbox.com/scl/fi/5scb458wnoymr4s8ta4vt/equation_sheet.pdf?rlkey=29ymawiljakqnv3wquqa4wm8e&st=4mmzb2ii&dl=0
@@ -109,6 +111,9 @@ parts:
       title: aerosol size distributions
     - url: https://drive.google.com/file/d/1kGjCV3tVA4umfoU1KFlkCAbHtXqdOStt/view?usp=sharing
       title: Accurate enthalpy and thetae
+    - url: https://drive.google.com/file/d/1mfwKsVais1YiTC6JbMxIM5xTXgUMYd7g/view?usp=sharing
+      title: Droplet fragmentation
+      
 
       
 

@@ -12,8 +12,10 @@ kernelspec:
   name: python3
 ---
 
-(oscillating_solution)=
-# Solution: Parcel model: add oscillating updraft
+(worksheet11_dropgrow_solution)=
+# Worksheet11 Solution: Parcel model with oscillating updraft
+
+Download link:  [worksheet11_dropgrow_solution.ipynb](https://drive.google.com/file/d/1TpXPXV_vJ0gs7TGo_Fi1Bn3OCjrroqV7/view?usp=sharing)
 
 - Replace the constant updraft with an oscillating updraft that cycles between -0.5 and 0.5 m/s over a period of 200 seconds. Is droplet grow/evaporation a reversible process?
 
@@ -54,7 +56,7 @@ plt.plot(times,wvel_out);
 
 ## Library functions from the week 10 koehler worksheet
 
-Move functions from {ref}`koehler2` into the a405 libraries
+Move functions from - {ref}`assign6_koehler_solution` into the a405 libraries
 
 - a405.utils.helper_funs.make_tuple
 - a405.utils.helper_funs.find_centers

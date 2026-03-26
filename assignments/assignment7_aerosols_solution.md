@@ -15,6 +15,8 @@ kernelspec:
 (assign7_aerosols_solution)=
 # Assignment 7: aerosols: solution
 
+- Download link: [assign7_aerosols_solution](https://drive.google.com/file/d/1a2NHWaATsAaY-U5m78yWG9kCJySwBI2w/view?usp=sharing)
+
 -  Due Friday March 20 midnight
 
 +++
@@ -34,7 +36,7 @@ ${kg}\,{m^{-3}}$ , van hoft i=3, that:
 
  $$
 S^* -1 \approx 1.54 \times 10^{-12}~ m_{aer}^{-0.5}
- $$
+ $$(eq:scrit)
 
 where $m_{aer}$ is the ammonium sulphate aerosol mass in kg.
 
@@ -59,7 +61,7 @@ $$
 
 +++
 
-Insert the definition of b into {eq}`scrit`:
+Insert the definition of b into {eq}`eq:scrit`:
 
 $$
 (S^* - 1 ) = \left (\frac{4a^3 \,4/3 \pi \rho_s M_s }{27 i M_w} \right )^{1/2}  m_{aer}^{-1/2}
@@ -99,6 +101,17 @@ Scoeff=((4*a**3)/(27*bnomass))**0.5  #units  kg^{-0.5}
 print(f'Scrit coeff without aerosol mass: {Scoeff:6.3e} kg**0.5')
 ```
 
+#### some trial values
+
+```{code-cell} ipython3
+m_aer = 1.e-19
+SS = Scoeff*m_aer**(-0.5)
+print(f"{m_aer=}, {SS*100=:.2f} %")
+m_aer = 1.e-17
+SS = Scoeff*m_aer**(-0.5)
+print(f"{m_aer=}, {SS*100=:.2f} %")
+```
+
 ## Problem 2: Koehler stability
 
 +++
@@ -108,7 +121,7 @@ print(f'Scrit coeff without aerosol mass: {Scoeff:6.3e} kg**0.5')
      $$
      \frac{\delta ^2G}{\delta r^2} = - 4 \pi R_v T \rho_l \left [ 2 a - r^2 \left ( 1 +
            \frac{b}{r^3} \right ) \frac{3b}{r^4}  \right ] + 8 \pi \sigma
-     $$
+     $$(eq:gfull)
 
      Changes sign from stable (positive) to unstable (negative) at $r_{crit}$.
 
@@ -122,28 +135,50 @@ print(f'Scrit coeff without aerosol mass: {Scoeff:6.3e} kg**0.5')
 
 +++
 
- First confirm that $\frac{\delta^2 G}{\delta r^2}=0$ at the critical radius:
-Inserting $r_{crit}=\left(\frac{3 b}{a}\right)^{1 / 2}$ into (8):
+First confirm that 
+$\frac{\delta^2 G}{\delta r^2}=0$ 
+at the critical radius:
+
+Inserting 
+$r_{crit}=\left(\frac{3 b}{a}\right)^{1 / 2}$
+into {eq}`eq:gfull`:
+
 $$
 \begin{aligned}
 \frac{\delta^2 G}{\partial r^2}= & -4 \pi R_v T \rho_l\left(2 a-\frac{3 b a}{3 b}\right)+8 \pi \sigma \\
 & =-4 \pi R_v T \rho_l a+8 \pi \sigma
 \end{aligned}
 $$
-but $a=\frac{2\sigma}{R_v T \rho_l}$ so
+
+but 
+
+$$a=\frac{2\sigma}{R_v T \rho_l}$$
+
+so
+
 $$
 \frac{\delta^2 G}{\delta r^2}=-4 \pi R_v T \rho_l \frac{2 \sigma}{R_v T \rho_l}+8 \pi \sigma=-8 \pi \sigma+8 \pi \sigma=0
 $$
 
 +++
 
-We walt to confirm that $\frac{\delta^2 G}{\delta r^2}<0$ (unstable) for $r>r_{crit}$ and $\frac{\delta^2 G}{\delta r^2}>0$ (stable)
+We walt to confirm that 
+
+$\frac{\delta^2 G}{\delta r^2}<0$ (unstable) for 
+$r>r_{crit}$ and 
+$\frac{\delta^2 G}{\delta r^2}>0$ (stable)
 for $r<r_{crit}$.
-That is equivalent to showing that $\frac{\delta}{\delta r}\left(\frac{\delta^2 G}{\delta r^2}\right)<0$ at $r=r_{crit}$
+
+That is equivalent to showing that 
+
+$$
+\frac{\delta}{\delta r}\left(\frac{\delta^2 G}{\delta r^2}\right)<0 \text{ at } r=r_{crit}
+$$
 
 +++
 
 Sure enough:
+
 $$
 \begin{aligned}
 & \frac{\delta}{\delta r}\left(\frac{\delta^2 G}{\delta r^2}\right)=\frac{\delta}{\delta r}\left(-4 \pi R_V T \rho_l\left(-\frac{3 b}{r^2}\right)\right) \\
@@ -157,3 +192,54 @@ $$
 +++
 
 3. Assuming that cloud condensation nuclei (CCN) are removed from the atmosphere by first serving as the centers on which cloud droplets form, and the droplets subsequently grow to form precipitation particles, estimate the residence time of a CCN in a column extending from the surface of the Earth to an altitude of 5 km. Assume that the annual rainfall is 100 cm/year and the cloud liquid water content is 0.30 $g/kg$ .  *Hint:  Assume that all drops in the cloud droplets have  a radii of 10 microns and that every droplet contains exactly 1 CCN.   How many CCN are in 1 kg of air?  About how many kg of air are there in a 5 km column?  About how many CCN are taken out by a rain rate of 1 m/year?  Find the time constant for removal of the form  1/N dN/dt = 1/tau*
+
+### Problem 3 answer
+
++++
+
+First find $n$, the number of aersols/volume 
+by assuming that the mean droplet size is 
+$\overline{r}=10\ \mu m$  and
+that there is one aerosol in each droplet.
+
+$$
+  w_l = 0.3\ \ g\,m^{-3} = \frac{4}{3}\pi \rho_l N\overline{ r}^3  
+$$
+
+which gives 
+$n=72\ \ cm^{-3} = 72\ \times 10^6\ \ {kg^{-1}}$ if $\rho_{air} \approx 1\ \ kg\,m^{-3}$
+
++++
+
+If the column is well mixed, then $n=constant$ between the surface
+and 5 km $\approx$ 500 hPa.   Integrate
+the hydrostatic equation between those levels to find the mass of dry air:
+
+$$
+M=  \int_0^{5000} \rho dz = \frac{1 }{g} \int_{50000}^{100000} dp \nonumber \\
+= \frac{ 1}{10} 5 \times 10^4 = 5000\ kg\,m^{-2}
+$$
+So to get the total CCN in a column multiply $M \times n$ =
+$N=3.6 \times 10^{11}$ CCN in a $1 \ m^{2}$ column.
+
++++
+
+Now what about $dN/dt$?  If the rainfall is 1 m/year
+= 1000 $kg\,m^{-2}\,yr^{-1}$ and $\overline{ r}=10\ \mu m$
+then the mass of an average drop is 
+
+$$
+\frac{ 4}{3}\pi \rho_l N\overline{ r}^3
+$$
+and the drops removed in a year is:
+
+$$
+  \frac{1000 \ kg\,m^{-2}\,yr^{-1} }{\frac{ 4}{3}\pi \rho_l N (10^{-5})^3} = 2.39 \times 10^{14}\ drops/year
+$$
+
+So put these together:
+
+$$
+  \tau = \frac{N}{dN/dt} = \frac{ 3.6 \times 10^{11}}{ 2.39 \times 10^{14}} 
+= 0.0015\ years = 0.55\ days
+$$
