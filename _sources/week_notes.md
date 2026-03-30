@@ -389,10 +389,10 @@ and Thompkins Section 4.5
 - Preview {ref}`assignment9_cold`
 - Preview my reading on ice {ref}`ice_saturation`
 - Preview my [notes on crystal growth](https://drive.google.com/file/d/1g42323LOcQbxWn4Ey1B58ExgVPwjMADz/view?usp=sharing)
-- Work through {ref}`worksheet13_odeint`
+- Work through {ref}`worksheet13_odeint_solution`
 
 #### For Tuesday:
 
-- Read [Wallace and Hobbs 232-234](https://drive.google.com/drive/u/0/folders/1kryee5blP4yY_GWjQRTsfKa0yrQ9NY3T) on cold cclouds
+- Read [Wallace and Hobbs 232-244](https://drive.google.com/drive/u/0/folders/1kryee5blP4yY_GWjQRTsfKa0yrQ9NY3T) on cold cclouds
 - Work on Assignments 8/9
 - Work on final review questions

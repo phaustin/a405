@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Worksheet 13 odeint practice &#8212; ATSC 405</title>
+    <title>Worksheet 13 odeint practice solution &#8212; ATSC 405</title>
   
   
   
@@ -59,8 +59,8 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/worksheets/worksheet13_odeint';</script>
-    <link rel="canonical" href="https://phaustin.github.io/a405/notebooks/worksheets/worksheet13_odeint.html" />
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/worksheets/worksheet13_odeint_solution';</script>
+    <link rel="canonical" href="https://phaustin.github.io/a405/notebooks/worksheets/worksheet13_odeint_solution.html" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Adiabatic Box - Solution" href="../../assignments/adiabatic_box_solution.html" />
@@ -219,7 +219,7 @@
 <li class="toctree-l1"><a class="reference internal" href="worksheet10_aero_dist_solution.html">Worksheet 10: Aerosol distributions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dropgrow/worksheet11_dropgrow_solution.html">Worksheet11 Solution: Parcel model with oscillating updraft</a></li>
 <li class="toctree-l1"><a class="reference internal" href="worksheet12_marshall_palmer.html">Worksheet 12: Marshall-Palmer Distribution</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Worksheet 13 odeint practice</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Worksheet 13 odeint practice solution</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="nav bd-sidenav">
@@ -337,7 +337,7 @@
       
       
       
-      <li><a href="../../_sources/notebooks/worksheets/worksheet13_odeint.md" target="_blank"
+      <li><a href="../../_sources/notebooks/worksheets/worksheet13_odeint_solution.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -421,7 +421,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Worksheet 13 odeint practice</h1>
+    <h1>Worksheet 13 odeint practice solution</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -431,10 +431,6 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-odeint">Using odeint</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-result">Plot the result</a></li>
-</ul>
-</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#repeat-using-solve-ivp">Repeat using solve_ivp</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpolate-to-uniform-grid">Interpolate to uniform grid</a></li>
 </ul>
@@ -448,22 +444,18 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="worksheet-13-odeint-practice">
-<span id="worksheet13-odeint"></span><h1>Worksheet 13 odeint practice<a class="headerlink" href="#worksheet-13-odeint-practice" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="worksheet-13-odeint-practice-solution">
+<span id="worksheet13-odeint-solution"></span><h1>Worksheet 13 odeint practice solution<a class="headerlink" href="#worksheet-13-odeint-practice-solution" title="Link to this heading">#</a></h1>
 <p>Simple integration practice for assignment 8, using odeint as in
 <a class="reference internal" href="dropgrow/worksheet11_dropgrow_solution.html#worksheet11-dropgrow-solution"><span class="std std-ref">Worksheet11 Solution: Parcel model with oscillating updraft</span></a></p>
-<p>Download <a class="reference external" href="https://drive.google.com/file/d/14Aw1Pr-rP-W4N5S0QsK4xx5tgnZI1jVL/view?usp=sharing">worksheet13_odeint.md</a></p>
+<p>Download <a class="reference external" href="https://drive.google.com/file/d/117_2UQkpuicJNWLmGASIiuHT2TGXTRd9/view?usp=sharing">worksheet13_odeint_solution.ipynb</a></p>
 <p>Problem: integrate the following system of odes:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \frac{dx}{dt} &amp;= y \\
 \frac{dy}{dt} &amp;= -x
 \end{split}\]</div>
-<p>with intial conditions [x, y] = [0, 1] using first <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.odeint.html">odeint</a> and then
-<a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.solve_ivp.html">solve_ivp</a></p>
-<section id="using-odeint">
-<h2>Using odeint<a class="headerlink" href="#using-odeint" title="Link to this heading">#</a></h2>
-<p>Step 1 supply the derivatives, initial condition, and time vector</p>
+<p>with intial conditions [x, y] = [0, 1]</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.integrate</span><span class="w"> </span><span class="kn">import</span> <span class="n">odeint</span>
@@ -471,45 +463,21 @@ document.write(`
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 
-<span class="c1"># your code here</span>
-<span class="c1">#  define find_derivs, int_0 and the_time</span>
-<span class="c1">#</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">find_derivs</span><span class="p">(</span><span class="n">the_vars</span><span class="p">,</span><span class="n">the_time</span><span class="p">):</span>
+    <span class="n">dx_dt</span> <span class="o">=</span> <span class="n">the_vars</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">dy_dt</span> <span class="o">=</span> <span class="o">-</span><span class="n">the_vars</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">dx_dt</span><span class="p">,</span><span class="n">dy_dt</span><span class="p">]</span>
 
-<span class="c1">#</span>
-<span class="c1"># run the integrator</span>
-<span class="c1">#</span>
+<span class="n">init_0</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">the_time</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mf">0.01</span><span class="p">)</span>
+    
 <span class="n">sol</span> <span class="o">=</span> <span class="n">odeint</span><span class="p">(</span><span class="n">find_derivs</span><span class="p">,</span><span class="n">init_0</span><span class="p">,</span> <span class="n">the_time</span><span class="p">)</span>
-<span class="c1">#</span>
-<span class="c1"># turn the solution object into a dataframe</span>
-<span class="c1">#</span>
 <span class="n">df_output</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_records</span><span class="p">(</span><span class="n">sol</span><span class="p">,</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;xvar&#39;</span><span class="p">,</span><span class="s1">&#39;yvar&#39;</span><span class="p">])</span>
 <span class="n">df_output</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">the_time</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">13</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="c1"># your code here</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="c1">#  define find_derivs, int_0 and the_time</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="c1">#</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>     <span class="mi">11</span> <span class="c1"># run the integrator</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="c1">#</span>
-<span class="ne">---&gt; </span><span class="mi">13</span> <span class="n">sol</span> <span class="o">=</span> <span class="n">odeint</span><span class="p">(</span><span class="n">find_derivs</span><span class="p">,</span><span class="n">init_0</span><span class="p">,</span> <span class="n">the_time</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="c1">#</span>
-<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="c1"># turn the solution object into a dataframe</span>
-<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="c1">#</span>
-<span class="g g-Whitespace">     </span><span class="mi">17</span> <span class="n">df_output</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_records</span><span class="p">(</span><span class="n">sol</span><span class="p">,</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;xvar&#39;</span><span class="p">,</span><span class="s1">&#39;yvar&#39;</span><span class="p">])</span>
-
-<span class="ne">NameError</span>: name &#39;find_derivs&#39; is not defined
-</pre></div>
 </div>
-</div>
-</div>
-<section id="plot-the-result">
-<h3>Plot the result<a class="headerlink" href="#plot-the-result" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
@@ -520,22 +488,9 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">,</span><span class="s1">&#39;xvar&#39;</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="n">df_output</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">,</span><span class="s1">&#39;yvar&#39;</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="n">df_output</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
-
-<span class="ne">NameError</span>: name &#39;df_output&#39; is not defined
-</pre></div>
-</div>
-<img alt="../../_images/f61f5e1894116d0d4bdde7dcdc31d687adf144526ad5ab32c36137e3afca57fd.png" src="../../_images/f61f5e1894116d0d4bdde7dcdc31d687adf144526ad5ab32c36137e3afca57fd.png" />
+<img alt="../../_images/d1623d47433a4981e50800a392175362f35abdafc7e9d5fa150e5b7be2276300.png" src="../../_images/d1623d47433a4981e50800a392175362f35abdafc7e9d5fa150e5b7be2276300.png" />
 </div>
 </div>
-</section>
-</section>
 <section id="repeat-using-solve-ivp">
 <h2>Repeat using <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.solve_ivp.html">solve_ivp</a><a class="headerlink" href="#repeat-using-solve-ivp" title="Link to this heading">#</a></h2>
 <p>set up an event to stop when <span class="math notranslate nohighlight">\(x&lt; 0\)</span></p>
@@ -543,20 +498,21 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.integrate</span><span class="w"> </span><span class="kn">import</span> <span class="n">solve_ivp</span>
 
-<span class="c1">#</span>
-<span class="c1"># define an event called &quot;hit_ground&quot; that will return 0 when variable x =0</span>
-<span class="c1">#</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">hit_ground</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">the_vars</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Event: when height (the_vars[0]) is zero.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">the_vars</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
-
-<span class="c1">#</span>
-<span class="c1"># your code here</span>
-<span class="c1"># </span>
+<span class="k">def</span><span class="w"> </span><span class="nf">find_derivs</span><span class="p">(</span><span class="n">the_time</span><span class="p">,</span><span class="n">the_vars</span><span class="p">):</span>
+    <span class="n">dx_dt</span> <span class="o">=</span> <span class="n">the_vars</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">dy_dt</span> <span class="o">=</span> <span class="o">-</span><span class="n">the_vars</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">dx_dt</span><span class="p">,</span><span class="n">dy_dt</span><span class="p">]</span>
 
 <span class="c1"># Set hit_ground to be a terminal event (stops integration)</span>
 <span class="c1"># and only trigger when the value is going from positive to negative (direction=-1)</span>
 <span class="c1"># to avoid triggering at the start (t=0).</span>
 <span class="n">hit_ground</span><span class="o">.</span><span class="n">terminal</span> <span class="o">=</span> <span class="kc">True</span>
 <span class="n">hit_ground</span><span class="o">.</span><span class="n">direction</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+<span class="n">tspan</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span>
 
 <span class="n">sol</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span>
     <span class="n">find_derivs</span><span class="p">,</span>
@@ -568,28 +524,6 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">15</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">from</span><span class="w"> </span><span class="nn">scipy.integrate</span><span class="w"> </span><span class="kn">import</span> <span class="n">solve_ivp</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1">#</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1"># define an event called &quot;hit_ground&quot; that will return 0 when variable x =0</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1">#</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>     <span class="mi">13</span> <span class="c1"># and only trigger when the value is going from positive to negative (direction=-1)</span>
-<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="c1"># to avoid triggering at the start (t=0).</span>
-<span class="ne">---&gt; </span><span class="mi">15</span> <span class="n">hit_ground</span><span class="o">.</span><span class="n">terminal</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="n">hit_ground</span><span class="o">.</span><span class="n">direction</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
-<span class="g g-Whitespace">     </span><span class="mi">18</span> <span class="n">sol</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span>
-<span class="g g-Whitespace">     </span><span class="mi">19</span>     <span class="n">find_derivs</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">20</span>     <span class="n">tspan</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>     <span class="mi">23</span>     <span class="n">dense_output</span><span class="o">=</span><span class="kc">True</span> <span class="c1"># Enable interpolation for plotting smooth curve</span>
-<span class="g g-Whitespace">     </span><span class="mi">24</span> <span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;hit_ground&#39; is not defined
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -598,12 +532,17 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">dir</span><span class="p">(</span><span class="n">sol</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;sol&#39; is not defined
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;message&#39;,
+ &#39;nfev&#39;,
+ &#39;njev&#39;,
+ &#39;nlu&#39;,
+ &#39;sol&#39;,
+ &#39;status&#39;,
+ &#39;success&#39;,
+ &#39;t&#39;,
+ &#39;t_events&#39;,
+ &#39;y&#39;,
+ &#39;y_events&#39;]
 </pre></div>
 </div>
 </div>
@@ -615,12 +554,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">sol</span><span class="o">.</span><span class="n">y_events</span>
-
-<span class="ne">NameError</span>: name &#39;sol&#39; is not defined
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[array([[-1.11022302e-16, -1.00037933e+00]])]
 </pre></div>
 </div>
 </div>
@@ -628,27 +562,12 @@ document.write(`
 </section>
 <section id="interpolate-to-uniform-grid">
 <h2>Interpolate to uniform grid<a class="headerlink" href="#interpolate-to-uniform-grid" title="Link to this heading">#</a></h2>
-<p>Use the sol object to interpolate onto a uniform set of times</p>
-<p>Note that the shape is now [2,numrows], where above sol was [numrows, 2], you you need to
-transpose yplot to create the dataframe</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">the_times</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">sol</span><span class="o">.</span><span class="n">t</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="mf">0.01</span><span class="p">)</span>
 <span class="n">yplot</span> <span class="o">=</span> <span class="n">sol</span><span class="o">.</span><span class="n">sol</span><span class="p">(</span><span class="n">the_times</span><span class="p">)</span>
 <span class="n">df_output</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_records</span><span class="p">(</span><span class="n">yplot</span><span class="o">.</span><span class="n">T</span><span class="p">,</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;xvar&#39;</span><span class="p">,</span><span class="s1">&#39;yvar&#39;</span><span class="p">])</span>
 <span class="n">df_output</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">the_times</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">the_times</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">sol</span><span class="o">.</span><span class="n">t</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="mf">0.01</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">yplot</span> <span class="o">=</span> <span class="n">sol</span><span class="o">.</span><span class="n">sol</span><span class="p">(</span><span class="n">the_times</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">df_output</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_records</span><span class="p">(</span><span class="n">yplot</span><span class="o">.</span><span class="n">T</span><span class="p">,</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;xvar&#39;</span><span class="p">,</span><span class="s1">&#39;yvar&#39;</span><span class="p">])</span>
-
-<span class="ne">NameError</span>: name &#39;sol&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -663,18 +582,7 @@ transpose yplot to create the dataframe</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">ig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">,</span><span class="s1">&#39;xvar&#39;</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="n">df_output</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">,</span><span class="s1">&#39;yvar&#39;</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="n">df_output</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
-
-<span class="ne">NameError</span>: name &#39;df_output&#39; is not defined
-</pre></div>
-</div>
-<img alt="../../_images/f61f5e1894116d0d4bdde7dcdc31d687adf144526ad5ab32c36137e3afca57fd.png" src="../../_images/f61f5e1894116d0d4bdde7dcdc31d687adf144526ad5ab32c36137e3afca57fd.png" />
+<img alt="../../_images/49c9f03fae22a34359332a8c196191fd729439d5308a0b7948cc43da3d778e11.png" src="../../_images/49c9f03fae22a34359332a8c196191fd729439d5308a0b7948cc43da3d778e11.png" />
 </div>
 </div>
 </section>
@@ -744,10 +652,6 @@ transpose yplot to create the dataframe</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-odeint">Using odeint</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-result">Plot the result</a></li>
-</ul>
-</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#repeat-using-solve-ivp">Repeat using solve_ivp</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpolate-to-uniform-grid">Interpolate to uniform grid</a></li>
 </ul>
