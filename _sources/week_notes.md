@@ -396,3 +396,12 @@ and Thompkins Section 4.5
 - Read [Wallace and Hobbs 232-244](https://drive.google.com/drive/u/0/folders/1kryee5blP4yY_GWjQRTsfKa0yrQ9NY3T) on cold cclouds
 - Work on Assignments 8/9
 - Work on final review questions
+
+## Week 13
+
+### Lecture 26, week 13, Tuesday
+
+- {ref}`worksheet14_reff`
+- [2016 final exam](https://drive.google.com/file/d/1o9HOkiaXsestzA7P0Njt9X1r5IlEj34D/view?usp=sharing)
+- [2024 equation sheet](https://drive.google.com/file/d/1Wss3sLtmCZAAE15n9Sa1KB1n-UF_Klis/view?usp=drive_lin)
+- [2024 final exam](https://drive.google.com/file/d/17xeEWvdocJbAWpLCxcITgkjHG6pX4Qf7/view?usp=drive_link)
