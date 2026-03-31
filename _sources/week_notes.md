@@ -401,7 +401,25 @@ and Thompkins Section 4.5
 
 ### Lecture 26, week 13, Tuesday
 
+- Important figures from Wallace and Hobbs 6.5
+  - Figure 6.29: homogeneous and heterogenous nucleation
+  - Figures 6.33, 6.34, 6.35: ice nuclei concentration paradox: why are there so many more  ice crystals in clouds than are predicted by condensation nuclei concentrations
+  - Figure 6.38: Bergeron effect
+  - Figure 6.45: Bright band
+
+  
+
 - {ref}`worksheet14_reff`
-- [2016 final exam](https://drive.google.com/file/d/1o9HOkiaXsestzA7P0Njt9X1r5IlEj34D/view?usp=sharing)
-- [2024 equation sheet](https://drive.google.com/file/d/1Wss3sLtmCZAAE15n9Sa1KB1n-UF_Klis/view?usp=drive_lin)
-- [2024 final exam](https://drive.google.com/file/d/17xeEWvdocJbAWpLCxcITgkjHG6pX4Qf7/view?usp=drive_link)
+
+- new final review material
+  - [2016 final exam](https://drive.google.com/file/d/1o9HOkiaXsestzA7P0Njt9X1r5IlEj34D/view?usp=sharing)
+  - [2024 equation sheet](https://drive.google.com/file/d/1Wss3sLtmCZAAE15n9Sa1KB1n-UF_Klis/view?usp=drive_lin)
+  - [2024 final exam](https://drive.google.com/file/d/17xeEWvdocJbAWpLCxcITgkjHG6pX4Qf7/view?usp=drive_link)
+
+
+#### For Thursday
+
+- Read Lohmann Chapter 12 on [clouds and climate](https://drive.google.com/file/d/1UQNGqEWjdGBFsJ5dvG895rhoAkuZRFu9/view?usp=sharing)
+- Work on Assignment 9 and final review questions
+
+
