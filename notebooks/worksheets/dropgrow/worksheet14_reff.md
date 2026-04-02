@@ -73,7 +73,7 @@ plt.plot(times,wvel_out);
 #### liquid water mixing ratio $r_l$
 
 ```{code-cell} ipython3
-def rlcalc(var_vec,cloud_tup):
+def rlcalc(var_vec,cloud_tup,numrads):
     """
     calculate the liquid water for the distribution
 
@@ -86,8 +86,10 @@ def rlcalc(var_vec,cloud_tup):
            vector of values to be integrated
     cloud_top: namedtuple
            tuple of necessary coefficients
+    numrads: int
+           number of radii in var_vec
     """
-    wl=cloud_tup.ndist*(var_vec[:-3]**3.)
+    wl=cloud_tup.ndist*(var_vec[:numrads]**3.)
     wl=np.sum(wl)
     wl=wl*4./3.*np.pi*c.rhol
     return wl
@@ -96,7 +98,7 @@ def rlcalc(var_vec,cloud_tup):
 #### Parcel supersaturation
 
 ```{code-cell} ipython3
-def Scalc(var_vec,cloud_tup):
+def Scalc(var_vec,cloud_tup, numrads):
     """
     calculate the environmental saturation using conservation
     of total water mixing ratio cloud_top.rt and the current
@@ -116,6 +118,8 @@ def Scalc(var_vec,cloud_tup):
 
     cloud_top: namedtuple
            tuple of necessary coefficients
+    numrads: int
+           number of radii in var_vec
 
     Returns
     -------
@@ -124,8 +128,8 @@ def Scalc(var_vec,cloud_tup):
        environmental saturation
 
     """
-    temp,press,height = var_vec[-3:]
-    rl=rlcalc(var_vec,cloud_tup)
+    temp,press,height = var_vec[numrads:]
+    rl=rlcalc(var_vec,cloud_tup,numrads)
     rv=cloud_tup.rt - rl
     e=rv*press/(c.eps + rv)
     Sout=e/find_esat(temp)
@@ -135,7 +139,7 @@ def Scalc(var_vec,cloud_tup):
 #### derivative of $r_l$
 
 ```{code-cell} ipython3
-def rlderiv(var_vec,deriv_vec,cloud_tup,nvars=3):
+def rlderiv(var_vec,deriv_vec,cloud_tup,numrads):
     """
     calculate the time derivative of the liquid water content
     using drop_grow.pdf eqn 21b
@@ -153,10 +157,9 @@ def rlderiv(var_vec,deriv_vec,cloud_tup,nvars=3):
     cloud_tup: namedtuple
            tuple of input coefficients
 
-    nvars:  int
-        number of bulk thermodynamic variables (i.e. number of variables
-        that are not droplet radii)
-
+    nrads:  int
+        number of droplet radii variables
+        
     Returns
     -------
 
@@ -164,11 +167,11 @@ def rlderiv(var_vec,deriv_vec,cloud_tup,nvars=3):
          rate of change of rl
     """
     #
-    # the slice [:-nvars] gives only the droplet radii
+    # the slice [:numrads] gives only the droplet radii
     #
-    rlderiv=(var_vec[:-nvars])**2.
+    rlderiv=(var_vec[:numrads])**2.
     rlderiv=cloud_tup.ndist*rlderiv
-    rlderiv=rlderiv*deriv_vec[:-nvars]
+    rlderiv=rlderiv*deriv_vec[:numrads]
     drldt = np.sum(rlderiv)*4.*np.pi*c.rhol
     return drldt
 ```
@@ -176,7 +179,7 @@ def rlderiv(var_vec,deriv_vec,cloud_tup,nvars=3):
 ### Calculate the other derivatives
 
 ```{code-cell} ipython3
-def find_derivs(var_vec,the_time,cloud_tup):
+def find_derivs(var_vec,the_time,cloud_tup,numrads):
     """
     calcuate derivatives of var_vec 
 
@@ -193,6 +196,9 @@ def find_derivs(var_vec,the_time,cloud_tup):
 
     cloud_tup: namedtuple
            tuple of necessary coefficients
+           
+    nrads:  int
+        number of droplet radii variables
     
 
     Returns
@@ -210,14 +216,13 @@ def find_derivs(var_vec,the_time,cloud_tup):
     the_wvel = find_wvel(the_time,period)
     #print('inside: ',var_vec)
     #print(f"{the_time=}")
-    temp,press,height = var_vec[-3:]
-    numrads = len(var_vec) - 3
+    temp,press,height = var_vec[numrads:]
     dry_radius = cloud_tup.dry_radius
     rho=press/(c.Rd*temp)
     #
     # find the evironmental S by water balance
     #
-    S=Scalc(var_vec,cloud_tup)
+    S=Scalc(var_vec,cloud_tup,numrads)
     deriv_vec=np.zeros_like(var_vec)
     #dropgrow notes equation 18 
     for i in range(numrads):
@@ -232,7 +237,7 @@ def find_derivs(var_vec,the_time,cloud_tup):
     #
     # moist adiabat
     #
-    deriv_vec[-3]=find_lv(temp)/c.cpd*rlderiv(var_vec,deriv_vec,cloud_tup) - c.g0/c.cpd*the_wvel
+    deriv_vec[-3]=find_lv(temp)/c.cpd*rlderiv(var_vec,deriv_vec,cloud_tup,numrads) - c.g0/c.cpd*the_wvel
     #
     # hydrostatic balance  dp/dt = -rho g dz/dt
     #
@@ -273,7 +278,8 @@ initial_conditions = {
 integration = {
     "tstart": 0,
     "tend": 200,
-    "dt": 1
+    "nsteps": 200,
+    "numrads":30
 }
 
 aero=make_tuple(aerosol_specs)
@@ -289,8 +295,7 @@ koehler_fun = create_koehler(aero,parcel)
 #set the edges of the mass bins
 #31 edges means we have 30 droplet bins
 #
-numrads = 30
-mass_vals = np.linspace(-20,-16,numrads+1) 
+mass_vals = np.linspace(-20,-16,integration.numrads+1) 
 mass_vals = 10**mass_vals  #aerosol mass in kg
 mu=aero.themean
 sigma = aero.sd
@@ -372,17 +377,23 @@ the vector var_vec holds 30 droplet radii plus three extra variables at the
 end of the vector: the temperature, pressure and height.
 
 ```{code-cell} ipython3
-nsteps = 200
+
+
+the_times = np.linspace(integration.tstart,
+                        integration.tend,
+                        integration.nsteps)
+
+
 cloud_vars['initial_radiius'] = initial_radius
 cloud_vars['dry_radius'] = dry_radius
 cloud_vars['masses'] = center_mass
 #
 # period for up/down oscillation
 #
-cloud_vars['period'] = 2*np.pi/nsteps
-numrads = len(initial_radius)
-var_vec = np.empty(numrads + 3)
-for i in range(numrads):
+cloud_vars['period'] = 2*np.pi/integration.nsteps
+
+var_vec = np.empty(integration.numrads + 3)
+for i in range(integration.numrads):
     var_vec[i] = initial_radius[i]
 
 #
@@ -394,7 +405,7 @@ var_vec[-1] = parcel.Zinit
 
 cloud_tup = make_tuple(cloud_vars)
 #calculate the total water (kg/kg)
-wl=rlcalc(var_vec,cloud_tup);
+wl=rlcalc(var_vec,cloud_tup,integration.numrads);
 e=parcel.Sinit*find_esat(parcel.Tinit);
 wv=c.eps*e/(parcel.Pinit - e)
 #save total water
@@ -413,12 +424,8 @@ cloud_tup.period
 var_out = []
 time_out =[]
 
-tinit=0
-dt = integration.dt
-tfin = integration.tend
 
-the_times = np.linspace(tinit,tfin,nsteps)
-sol = odeint(find_derivs,var_vec, the_times, args=(cloud_tup,))
+sol = odeint(find_derivs,var_vec, the_times, args=(cloud_tup,integration.numrads))
 ```
 
 ### create a dataframe with 33 columns to hold the data
@@ -454,7 +461,7 @@ jupyter:
 Svals = []
 for index,row in df_output.iterrows():
     out_vec = row.values
-    Svals.append(Scalc(out_vec,cloud_tup))
+    Svals.append(Scalc(out_vec,cloud_tup,integration.numrads))
 fig,ax = plt.subplots(1,1,figsize=[10,8])
 ax.plot(Svals,df_output['z'])
 out=ax.set(ylim=[1000,1050],title='Saturation in a {} m/s updraft'.format(cloud_tup.wvel))
@@ -484,7 +491,7 @@ Here's an example that returns the number of droplets with radii $>$ 1 $\mu m$ i
 
 ```{code-cell} ipython3
 df_output['time'] = the_times
-df_output['wvel'] = find_wvel(the_times,period)
+df_output['wvel'] = find_wvel(the_times,cloud_tup.period)
 ```
 
 ```{code-cell} ipython3
@@ -492,7 +499,7 @@ plt.plot(df_output['wvel']);
 ```
 
 ```{code-cell} ipython3
-def test_fun(row,ndist):
+def test_fun(row,ndist,numrads):
     """
     sum those members of ndist corresponding to droplet sizes
     larger than 1 micron
@@ -505,11 +512,13 @@ def test_fun(row,ndist):
     row: pd.Series
          Dataframe passed by pandas.DataFrame.apply
     ndist: ndarray -- number of aerosols in each row position
+    numrads: int
+           number of radii in row
     """
     #print(f"{row.name=}, {row=}")
     #print(f"{row=}")
     full_vec = row.to_numpy()
-    drop_radii = full_vec[:-5]
+    drop_radii = full_vec[:numrads]
     hit = drop_radii > 1.e-6
     big_drops = ndist[hit]
     num_sum = np.sum(big_drops)
@@ -520,7 +529,7 @@ def test_fun(row,ndist):
 ### apply test_fun to df_output
 
 ```{code-cell} ipython3
-new_df =df_output.apply(test_fun,axis=1,args = (ndist,) )
+new_df =df_output.apply(test_fun,axis=1,args = (ndist,integration.numrads) )
 new_df.columns
 ```
 
@@ -546,6 +555,14 @@ fig.legend();
 
 1) use pandas apply with the {ref}`rlcalc` function above to add a new dataframe column for total liquid water.  Plot this for the updraft and downdraft
 2) write a new function that caculates $r_{eff}$, add the column to the dataframe using apply, and plot for updraft and downdraft
+
+```{code-cell} ipython3
+def rl_fun(row,ndist,numrads):
+    rl=cloud_tup.ndist*(var_vec[:numrads]**3.)
+    rl=np.sum(wl)
+    rl=wl*4./3.*np.pi*c.rhol
+    return rl
+```
 
 ```{code-cell} ipython3
 
