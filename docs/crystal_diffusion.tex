@@ -43,20 +43,27 @@ Atsc405: Crystal growth via diffusion\\
 \section{Introduction}
 \label{sec:introduction}
 
-The crystal growth equation (Lohmann equation 8.11 and problem 4) uses the crystal capacitance C.
+The crystal growth equation (Wallace and Hobbs eq. 6.36 on p. 240, or
+Lohmann eq. 8.11 on Chapter 8, p. 240)
+
+$$
+\frac{d M}{d t}=\frac{D C}{\varepsilon_0}\left[\rho_\nu(\infty)-\rho_{\nu c}\right]
+$$
+uses the crystal capacitance C.
 Below we look at where that comes from.
 
-Recall from the droplet growth notes that we used
-spherical symmetry to derive this  equation
+Recall from Tnompkins p. 74 that assuming spherical symmetry the droplet growth rate is given
+by Thompkins 4.18
 
 \begin{equation}
   \label{eq:diff}
-  \frac{ dm}{dt} = 4 \pi x^2 D \frac{ d\rho_v}{dx} 
+  \frac{ dm}{dt} = 4 \pi n^2 D \frac{ d\rho_v}{dn} 
 \end{equation}
-where $m$ is the droplet mass, $x$ is the radial coordinate
+where $m$ is the droplet mass, $n$ is the radial coordinate
 in a spherical coordinate system and $D \frac{ d\rho_v}{dx} $ is the
 diffusive flux of water vapor through radius x in the direction
-of the drop center.  When we integrate this twice we get:
+of the drop center.  When we integrate this  and use the fact that $m=4/3 \rho_l \pi r^3$
+we get Thompkins 4.19:
 
 \begin{gather}
   \label{final}
@@ -64,8 +71,15 @@ of the drop center.  When we integrate this twice we get:
 \end{gather}
 
 
+\section{crystal growth}
 
-This is the equivalent  equation for crystals:
+What happens when our surface isn't a sphere, but is instead some extremely complicated
+crystal dendrite?   There's an amazing hack that works for arbitrary shaped crystals, as long
+as you can find the electric capacitance of a metal form with the same three dimensional
+shape.   In the old days, these copper forms world be build by hand to get the capacitance for
+ice crystal growth calculations.
+
+This is the equivalent  growth equation for crystals if you can find the capacitance C:
 
 
 \begin{gather}
@@ -79,6 +93,10 @@ What are these electrostatic constants doing in an equation about vapor growth?
 
 \section{Derivation}
 \label{sec:mass-continuity}
+
+What dose capacitance have to do with vapor condensation? It turns out that the relationship
+between charge and voltage in electrostatics is  mathematically identical to the relationship
+between the vapor density and mass flux in crystal growth:
 
 Remember Fick's law:
 
@@ -94,30 +112,31 @@ rate $dm/dt$.
 
 Compare (\ref{eq:vaporflux}) to Gauss' law for the relationship
 between the charge on a capacitor Q (Coulombs) and
-the voltage $\phi$.
+the voltage $\chi$.
 
 \begin{equation}
   \label{eq:coloumb}
-\frac{ Q}{\epsilon_0}  = - \oint  \nabla   \phi ds
+\frac{ Q}{\epsilon_0}  = - \oint  \nabla   \chi ds
 \end{equation}
 
 If we make a ice crystal out of copper and place it inside
 a conducting enclosure we have a capacitor.  We can relate
 the charge stored in the capacitor to the voltage on the
-conductor ($\phi_\infty$) and the copper crystal $\phi_c$
+conductor ($\chi_\infty$) and the copper crystal $\chi_c$
 through the capcitance, $C$:
 
 \begin{equation}
   \label{eq:cap}
-  Q = C ( \phi_\infty - \phi_c )
+  Q = C ( \chi_\infty - \chi_c )
 \end{equation}
 
-To use this, let's relate $\phi$ and $\rho$ through
-an arbitrary constant $\beta$ (which will divide out):
+To use this, let's relate the voltage $\chi$ and vapor density $\rho$ through
+an arbitrary constant $\beta$ (which will divide out).  The math is the exactly the same
+for these two very different fluxes:
 
 \begin{equation}
   \label{eq:beta}
-  \rho_v = \beta \phi
+  \rho_v = \beta \chi
 \end{equation}
 
 then

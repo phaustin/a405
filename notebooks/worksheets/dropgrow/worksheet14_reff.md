@@ -37,7 +37,7 @@ from matplotlib import pyplot as plt
 
 ## Library functions from the week 10 koehler worksheet
 
-Move functions from {ref}`koehler2` into the a405 libraries
+New functions from [the a405 libraries](https://phaustin.github.io/a405_lib/full_listing.html)
 
 - a405.utils.helper_funs.make_tuple
 - a405.utils.helper_funs.find_centers
@@ -173,7 +173,7 @@ def rlderiv(var_vec,deriv_vec,cloud_tup,nvars=3):
     return drldt
 ```
 
-### Calculate the other derivatives 
+### Calculate the other derivatives
 
 ```{code-cell} ipython3
 def find_derivs(var_vec,the_time,cloud_tup):
@@ -507,6 +507,7 @@ def test_fun(row,ndist):
     ndist: ndarray -- number of aerosols in each row position
     """
     #print(f"{row.name=}, {row=}")
+    #print(f"{row=}")
     full_vec = row.to_numpy()
     drop_radii = full_vec[:-5]
     hit = drop_radii > 1.e-6
@@ -526,8 +527,8 @@ new_df.columns
 #### Plot updraft and downdraft separately
 
 ```{code-cell} ipython3
-df_updraft = new_df.loc[new_df['wvel'] >= 0]
-df_downdraft = new_df.loc[new_df['wvel'] < 0]
+df_updraft = new_df.loc[new_df['wvel'] >= 0.01]
+df_downdraft = new_df.loc[new_df['wvel'] < -0.01]
 ```
 
 ```{code-cell} ipython3
@@ -541,12 +542,10 @@ ax.plot('num_bigdrops','z','c-',data=df_downdraft,label='downdraft')
 fig.legend();
 ```
 
-```{raw-cell}
 ### now add the $r_l$ and $r_{eff}$ column 
 
 1) use pandas apply with the {ref}`rlcalc` function above to add a new dataframe column for total liquid water.  Plot this for the updraft and downdraft
 2) write a new function that caculates $r_{eff}$, add the column to the dataframe using apply, and plot for updraft and downdraft
-```
 
 ```{code-cell} ipython3
 

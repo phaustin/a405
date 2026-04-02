@@ -382,5 +382,44 @@ and Thompkins Section 4.5
 
 ### Lecture 25, week 12, Thursday
 
-- {ref}`assignment9_cold`
+- Review on mass flux:
+  - show with the help of a figure why $w\rho_N$ is represents the mass of droplets falling with fallspeed w through 1 $m^2$ in $kg\,m^{-2}\,s^{-1}$
+  - show why we can decompose the flux into parallel and perpendicular components
+- Discuss solution to question 1 for {ref}`worksheet12_marshall_palmer`
+- Preview {ref}`assignment9_cold`
+- Preview my reading on ice {ref}`ice_saturation`
+- Preview my [notes on crystal growth](https://drive.google.com/file/d/1g42323LOcQbxWn4Ey1B58ExgVPwjMADz/view?usp=sharing)
+- Work through {ref}`worksheet13_odeint_solution`
+
+#### For Tuesday:
+
+- Read [Wallace and Hobbs 232-244](https://drive.google.com/drive/u/0/folders/1kryee5blP4yY_GWjQRTsfKa0yrQ9NY3T) on cold cclouds
+- Work on Assignments 8/9
+- Work on final review questions
+
+## Week 13
+
+### Lecture 26, week 13, Tuesday
+
+- Important figures from Wallace and Hobbs 6.5
+  - Figure 6.29: homogeneous and heterogenous nucleation
+  - Figures 6.33, 6.34, 6.35: ice nuclei concentration paradox: why are there so many more  ice crystals in clouds than are predicted by condensation nuclei concentrations
+  - Figure 6.38: Bergeron effect
+  - Figure 6.45: Bright band
+
+  
+
+- {ref}`worksheet14_reff`
+
+- new final review material
+  - [2016 final exam](https://drive.google.com/file/d/1GhPMdeK2_S1zcsu8hyMjTGzcLD1nNOtW/view?usp=drive_link)
+  - [2024 equation sheet](https://drive.google.com/file/d/1Wss3sLtmCZAAE15n9Sa1KB1n-UF_Klis/view?usp=drive_lin)
+  - [2024 final exam](https://drive.google.com/file/d/17xeEWvdocJbAWpLCxcITgkjHG6pX4Qf7/view?usp=drive_link)
+
+
+#### For Thursday
+
+- Read Lohmann Chapter 12 on [clouds and climate](https://drive.google.com/file/d/1UQNGqEWjdGBFsJ5dvG895rhoAkuZRFu9/view?usp=sharing)
+- Work on Assignment 9 and final review questions
+
 

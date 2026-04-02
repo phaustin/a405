@@ -48,6 +48,8 @@ parts:
     - file: notebooks/worksheets/worksheet10_aero_dist_solution.md
     - file: notebooks/worksheets/dropgrow/worksheet11_dropgrow_solution.md
     - file: notebooks/worksheets/worksheet12_marshall_palmer.md
+    - file: notebooks/worksheets/worksheet13_odeint_solution.md
+    - file: notebooks/worksheets/dropgrow/worksheet14_reff.md
   - caption: Assignments
     chapters:
     - file: assignments/adiabatic_box_solution.md
@@ -113,10 +115,9 @@ parts:
       title: Accurate enthalpy and thetae
     - url: https://drive.google.com/file/d/1mfwKsVais1YiTC6JbMxIM5xTXgUMYd7g/view?usp=sharing
       title: Droplet fragmentation
-      
-
-      
-
+    - file: notebooks/ice_saturation.md
+    - url: https://drive.google.com/file/d/1g42323LOcQbxWn4Ey1B58ExgVPwjMADz/view?usp=sharing
+      title: Notes of crystal growth
 
   - caption: midterms
     chapters:
@@ -131,6 +132,13 @@ parts:
     chapters:
     - url: https://drive.google.com/file/d/1o9HOkiaXsestzA7P0Njt9X1r5IlEj34D/view?usp=sharing
       title: Final Exam Practice Questions
+    - url: https://drive.google.com/file/d/1GhPMdeK2_S1zcsu8hyMjTGzcLD1nNOtW/view?usp=drive_link
+      title: 2016 midterm
+    - url: https://drive.google.com/file/d/1Wss3sLtmCZAAE15n9Sa1KB1n-UF_Klis/view?usp=drive_link
+      title: 2024 final equations
+    - url: https://drive.google.com/file/d/17xeEWvdocJbAWpLCxcITgkjHG6pX4Qf7/view?usp=drive_link
+      title: 2024 final exam
+      
 
       
   - caption: Animations

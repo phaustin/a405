@@ -172,6 +172,7 @@ def calcBuoy(height, thetae0, tinterp, tdinterp, pinterp):
     return buoy
 ```
 
+(sec:rkintegrator)=
 ## Define the integrator  function
 
 
