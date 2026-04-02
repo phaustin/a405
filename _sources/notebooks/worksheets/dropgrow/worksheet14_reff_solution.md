@@ -12,10 +12,10 @@ kernelspec:
   name: python3
 ---
 
-(worksheet14_reff)=
-# Worksheet 14: liquid water and effective radius
+(worksheet14_reff_solution)=
+# Worksheet 14 solution: liquid water and effective radius
 
-- notebook download link:  [worksheet14_reff.ipynb](https://drive.google.com/file/d/1yZ5JPgDTnd1tNj18Dt_9sSe8-FknoOkK/view?usp=sharing)
+- notebook download link:  [worksheet14_reff_solution.ipynb](https://drive.google.com/file/d/1g6XlMvoMBx4fVjBsZFb4NtYtw4RbmBZe/view?usp=sharing)
 
 This notebook demonstates how to use [pandas.DataFrame.apply](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.apply.html) to add new
 columns to a dataframe by iterating over dataframe rows.  It asks you to add columns for the liquid water content and the effective radius, segregated
@@ -89,10 +89,10 @@ def rlcalc(var_vec,cloud_tup,numrads):
     numrads: int
            number of radii in var_vec
     """
-    wl=cloud_tup.ndist*(var_vec[:numrads]**3.)
-    wl=np.sum(wl)
-    wl=wl*4./3.*np.pi*c.rhol
-    return wl
+    rl=cloud_tup.ndist*(var_vec[:numrads]**3.)
+    rl=np.sum(rl)
+    rl=rl*4./3.*np.pi*c.rhol
+    return rl
 ```
 
 #### Parcel supersaturation
@@ -378,7 +378,6 @@ end of the vector: the temperature, pressure and height.
 
 ```{code-cell} ipython3
 
-
 the_times = np.linspace(integration.tstart,
                         integration.tend,
                         integration.nsteps)
@@ -551,17 +550,64 @@ ax.plot('num_bigdrops','z','c-',data=df_downdraft,label='downdraft')
 fig.legend();
 ```
 
-### now add the $r_l$ and $r_{eff}$ column 
+## Worksheet problem 2: solution
+
+now add the $r_l$ and $r_{eff}$ column 
 
 1) use pandas apply with the {ref}`rlcalc` function above to add a new dataframe column for total liquid water.  Plot this for the updraft and downdraft
 2) write a new function that caculates $r_{eff}$, add the column to the dataframe using apply, and plot for updraft and downdraft
 
++++
+
+### two new functions
+
 ```{code-cell} ipython3
 def rl_fun(row,ndist,numrads):
-    rl=cloud_tup.ndist*(var_vec[:numrads]**3.)
-    rl=np.sum(wl)
-    rl=wl*4./3.*np.pi*c.rhol
-    return rl
+    rl=ndist*row[:numrads]**3.
+    rl=np.sum(rl)
+    rl=rl*4./3.*np.pi*c.rhol
+    row['rl'] = rl
+    return row
+
+def reff_fun(row,ndist,numrads):
+    numerator = np.sum(ndist*row[:numrads]**3.)
+    denominator = np.sum(ndist*row[:numrads]**2.)
+    reff = numerator/denominator
+    row['reff'] = reff
+    return row
+```
+
+```{code-cell} ipython3
+ws_df = new_df.apply(rl_fun,axis=1,args = (ndist,integration.numrads) )
+ws_df = ws_df.apply(reff_fun, axis=1,args = (ndist,integration.numrads) )
+ws_df.columns
+```
+
+```{code-cell} ipython3
+ws_updraft = ws_df.loc[new_df['wvel'] >= 0.01]
+ws_downdraft = ws_df.loc[new_df['wvel'] < -0.01]
+```
+
+### plots
+
+```{code-cell} ipython3
+fig, ax = plt.subplots(1,1)
+ax.plot('rl','z','b-',data=ws_updraft,label='updraft')
+ax.plot('rl','z','c-',data=ws_downdraft,label='downdraft')
+ax.set_ylabel('height (m)')
+ax.set_xlabel('$r_l$ (kg/kg)')
+ax.set_title('liquid water mixing ratio vs. height (kg/kg)')
+ax.legend(loc='best');
+```
+
+```{code-cell} ipython3
+fig, ax = plt.subplots(1,1)
+ax.plot('reff','z','b-',data=ws_updraft,label='updraft')
+ax.plot('reff','z','c-',data=ws_downdraft,label='downdraft')
+ax.set_ylabel('height (m)')
+ax.set_xlabel('$r_{eff}$ (m)')
+ax.set_title('effective ratius (m)')
+ax.legend(loc='best');
 ```
 
 ```{code-cell} ipython3
