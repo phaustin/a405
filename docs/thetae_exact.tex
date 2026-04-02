@@ -1,0 +1,241 @@
+\documentclass[12pt]{article}
+\usepackage{xr,geometry,fancyhdr,hyperref,ifpdf,amsmath,rcs}
+\usepackage{color,lastpage,longtable,Ventry,url,paunits,shortcuts,smallsec,float}
+\geometry{letterpaper,top=50pt,hmargin={20mm,20mm},headheight=15pt} 
+
+\pagestyle{fancy} 
+
+
+\fancypagestyle{first}{
+\lhead{A405}
+\chead{Accurate expressions for $h$ and $\theta_e$ }}
+\rhead{page~\thepage/\pageref{LastPage}}
+\lfoot{} 
+\cfoot{} 
+\rfoot{}
+
+
+\ifpdf
+    \usepackage[pdftex]{graphicx} 
+    \usepackage{hyperref}
+    \pdfcompresslevel=0
+    \DeclareGraphicsExtensions{.pdf,.jpg,.mps,.png}
+\else
+    \usepackage{hyperref}
+    \usepackage[dvips]{graphicx}
+    \DeclareGraphicsRule{.eps.gz}{eps}{.eps.bb}{`gzip -d #1}
+    \DeclareGraphicsExtensions{.eps,.eps.gz}
+\fi
+\externaldocument[lec6,]{lec6}
+
+\begin{document}
+
+\pagestyle{first}
+
+
+\section{Review:  static energy, entropy and $\theta_e$}
+
+In this section I repeat the derivation in the 
+Week 5 \href{https://drive.google.com/file/d/1BPTvFijtktG4135T1X8DXwI8l_C8xHEt/view?usp=sharing}{static energy and $\theta_e$ notes} to to remove two approximations we made then.
+
+1) We approximated the heat capacity for cloudy air with $c_{pd}$, the heat capacity of dry air $c_{pd}$. This introduces an error of a few percent.
+2) As noted on p.7 equation 47, and in the
+\href{https://phaustin.github.io/a405/notebooks/worksheets/worksheet7_taylor_solution.html}{Worksheet 7 on Taylor Series} we made the approximation:
+
+\begin{equation}
+d  \left ( \frac{l_v(T) r_s(T)}{c_p T} \right ) \approx  \left ( \frac{l_v(T) }{c_p T} \right ) dr_s
+\end{equation}
+which makes and error as large as 30\%.  These errors are tolerable for qualitative arguments, but if you need to integrate a forecast or climate model over thousands of timesteps you need to do much better than that.
+
+Below I'm going to follow the text ``Atmospheric Convection'' by Kerry Emanuel (1994) and derive a new
+version of the equivalent potential temperature that works in
+subsaturated air and is fully reversible, without making either approximation.
+
+
+\subsection{Enthalpy}
+\label{sec:enthalpy}
+
+
+First, review what we know about the enthalpy of a parcel with both water vapor and liquid water,
+with total water given by $r_t = r_v + r_l$
+
+\begin{equation}
+  \label{eq:h1}
+  h = h_d + r_v h_v + r_l h_l = c_{pd} T + r_v c_{pv} T + r_l c_l T
+\end{equation}
+add and subtract $r_v c_l T$:
+\begin{equation}
+  \label{eq:h1b}
+  h = c_{pd} T + r_v c_{pv} T + r_l c_l T + r_v c_l T - r_v c_l T
+\end{equation}
+Rearrange:
+
+\begin{equation}
+  \label{eq:h2}
+  h = c_{pd} T + r_v c_l T + r_l c_l T + r_v c_{pv} T -  r_v c_l T 
+\end{equation}
+Remember that $l_v= (h_v - h_l) = c_{pv} T -   c_l T$, so that 
+\begin{equation}
+  \label{eq:h3}
+  h = c_{pd} T + (r_v   + r_l )c_l\, T  + r_v(h_v - h_l)
+\end{equation}
+or in other words
+\begin{equation}
+  \label{eq:h4}
+  h   = (c_{pd}  + r_T c_l) T + r_v l_v
+\end{equation}
+
+
+Note that, even though the latent heat $l_v$ appears in \eqref{eq:h4}, I haven't
+made any assumptions about conservation of water, and I have not had to
+assume saturation.  
+
+It would not be a waste of time to take the
+differential of \eqref{eq:h4} and convince yourself that it gives:
+
+
+\begin{equation}
+  \label{eq:h4diff}
+  dh = \underbrace{(c_{pd} + r_v c_{pv} + r_l c_l ) dT}_a + 
+  \underbrace{c_l T d r_T}_b + \underbrace{l_v d r_v}_c
+\end{equation}
+We've always assumed $dr_T = 0$ and discarded term $b$, but it's not a
+necessary approximation, just convenient.  For example we could have added it
+back in when we increased $r_T$ by 
+ocean evaporation when we solved the  tropical heat engine problem.
+
+\subsection{First and second law}
+\label{sec:first-second-law}
+
+No matter whether it's a pure substance or a mixture, the atmospheric version of the first
+and (reversible) second laws will hold:  
+\begin{equation}
+  \label{eq:first}
+ q\,dt = T d\phi = c_p dT - v dp = dh - v dp
+\end{equation}
+
+
+And if the process is irreversible, then
+\begin{equation}
+  \label{eq:firstirr}
+ q\,dt < T d\phi = c_p dT - v dp = dh - v dp
+\end{equation}
+
+
+
+Thus for the entropy of dry air, vapor and liquid, I can integrate
+\eqref{eq:firstirr} from some agreed-upon base state to get:
+
+
+\begin{subequations}
+    \label{eq:entropy}
+  \begin{eqnarray}
+\phi_d& =& c_{pd} \log T - R_d \log p_d\\
+\phi_v &=&c_{pv} \log T - R_v \log e \\
+\phi_l &=&c_l \log T
+  \end{eqnarray}
+\end{subequations}
+and just as for the enthalpy equation \eqref{eq:h1}, the entropy of the mixture is:
+
+\begin{equation}
+  \label{eq:entmix}
+  \phi = \phi_d + r_v \phi_v + r_l \phi_l
+\end{equation}
+
+In equation \eqref{eq:h1b} above, I added and subtracted $r_v c_l T$
+so that I could get the latent heat out where I could see it.  I want
+to do the same thing here, but it's more complicated for the entropy
+because I also need to work with the vapor pressure $e$.  From
+\href{https://drive.google.com/file/d/1rJO32NGhTW3TA6noQmSdNl2GNXyrZUgA/view}%
+{the Maxwell relation notes} we know that in equilibrium $g_l = g_v$, where $g_l= h_l - T\phi_l$
+and $g_v= h_v - T \phi_{vs}$.  I'll use the the subscript $_s$ to indicate that we're
+talking about the entropy of saturated vapor in equilibrium (given by
+the Clausius-Clapeyron equation) as opposed to the actual entropy
+$\phi_v$.  So since $g_l=g_v$ in equilibrium I have:
+
+\begin{equation}
+  \label{eq:cc}
+  h_l  - T\phi_l = h_v  - T \phi_{vs}
+\end{equation}
+or in other words:
+
+\begin{equation}
+  \label{eq:cc2}
+ l_v = h_v - h_l = T ( \phi_{vs} - \phi_l)
+\end{equation}
+which is just a form of the Clausius-Clapeyron equation.
+
+Given this, I use  \eqref{eq:cc2} to add and subtract
+$r_v l_v/T$ from \eqref{eq:entmix}
+so that the effect of phase change  on the entropy is clearly visible:
+
+\begin{equation}
+  \label{eq:entmix2}
+  \phi = \phi_d + r_t  \phi_l + \frac{l_v r_v}{T} + r_v( \phi_v - \phi_{vs}) 
+\end{equation}
+Note that the last term is zero if we're at saturation.
+
+
+So now put in the definitions from \eqref{eq:entropy} into
+\eqref{eq:entmix2} and rearrange.  Convince yourself that the exact
+form for the entropy of air/vapor/liquid is then:
+
+
+\begin{equation}
+  \label{eq:sexact}
+  \phi = (c_{pd} + r_T c_l) \log T - R_d \log p_d + \frac{l_v r_v}{T} - r_v R_v \log (e/e_s)
+\end{equation}
+
+
+Now add $R_d \log p_0$ to both sides of \eqref{eq:sexact} and write the
+heat capacity as $\widehat{c_p} = c_{pd} + r_T c_l$.
+
+\begin{equation}
+  \label{eq:sexact2}
+  \phi + R_d \log{p_0}= 
+\widehat{c_p} \log T - R_d \log \left ( \frac{p_0}{p_d} \right )  
++ \frac{l_v r_v}{T} - r_v R_v \log (e/e_s)
+\end{equation}
+
+
+Finally, divide by $\widehat{c_p}$  and take $\exp$ of both sides and call the result $\theta_e$:
+
+\begin{equation}
+  \label{eq:truetheta}
+ \theta_e = \exp \left ( \left ( \phi + R_d \log{p_0} \right )/ \widehat{c_p} \right  ) =
+T \left ( \frac{p_0}{p_d} \right )^{R_d/\widehat{c_p}}
+\left ( \frac{e}{e_s} \right )^{-r_v R_v/\widehat{c_p}}
+\exp \left ( \frac{l_v\,r_v}{\widehat{c_p} T} \right )
+\end{equation}
+When $e=e_s$ \eqref{eq:truetheta} reduces to the $\theta_e$ we know and love, but
+when the air is subsaturated, we can use \eqref{eq:truetheta} to calculate $\theta_e$
+without having to bring the parcel up to LCL to ensure saturation.  Also note that,
+unlike the pseudoadiabatic $\theta_e$ which discards liquid water, this version
+is fully reversible and can be used anywhere we need to calculate an entropy.
+
+Finally, you can take the differential of \eqref{eq:truetheta} and show that
+
+\begin{equation}
+  \label{eq:difftrue}
+d\phi = \widehat{c_p} \frac{d \theta_e}{\theta_e}  = (c_{pd} + r_v c_{pv} +r_l c_l)
+\frac{dT}{T} +c_l \log T d r_T + \frac{l_v d r_v}{T} - R_d \frac{dp}{p} 
+\end{equation}
+The form of $\theta_e$ given in \eqref{eq:truetheta} or \eqref{eq:difftrue}
+is what you would need to the wet bulb problem exactly, but obviously
+it's easier to go with $h_m$ for this, since all of the vapor information
+is contained in $r_v$ in that equation, instead of being split
+between $r_v= \epsilon e/(p-e)$ and $e$) as it is in \eqref{eq:truetheta}.
+
+Question:  So why not use $h_m$ all the time?
+
+
+
+
+
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

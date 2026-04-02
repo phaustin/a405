@@ -1,0 +1,117 @@
+\documentclass[12pt]{article}
+\usepackage{geometry,fancyhdr,xr,hyperref,ifpdf,amsmath,rcs,indentfirst}
+\usepackage{lastpage,longtable,Ventry,url,paunits,shortcuts,smallsec,color,tightlist,float}
+\geometry{letterpaper,top=50pt,hmargin={20mm,20mm},headheight=15pt} 
+\usepackage[stable]{footmisc}
+
+\pagestyle{fancy} 
+
+\RCS $Revision: 1.5 $
+\RCS $Date: 2002/01/09 03:50:54 $
+
+\fancypagestyle{first}{
+\lhead{Comparing timescales for droplet growth and vapor diffusion}
+\chead{}
+\rhead{page~\thepage/\pageref{LastPage}}
+\lfoot{} 
+\cfoot{} 
+\rfoot{}
+}
+
+\ifpdf
+    \usepackage[pdftex]{graphicx} 
+    \usepackage{hyperref}
+    \pdfcompresslevel=0
+    \DeclareGraphicsExtensions{.pdf,.jpg,.mps,.png}
+\else
+    \usepackage{hyperref}
+    \usepackage[dvips]{graphicx}
+    \DeclareGraphicsRule{.eps.gz}{eps}{.eps.bb}{`gzip -d #1}
+    \DeclareGraphicsExtensions{.eps,.eps.gz}
+\fi
+
+
+\begin{document}
+\newcommand{\vect}[1]{\boldsymbol{\vec{#1}}}
+\pagestyle{first}
+
+
+\section{Question}
+\label{sec:question}
+
+
+
+In the droplet growth notes we derived the growth rate
+by making the assumption of
+``steady droplet growth'', i.e.~
+
+\begin{gather}
+  \frac{ dm}{dt} = constant \\
+\text{because: }\nonumber \\
+\frac{ \partial \rho_v}{\partial t} = D \nabla^2 \rho_v = 0
+\label{eq:steady}
+\end{gather}
+
+But how good is this assumption?  How does the time constant for
+vapor changes compare to the time constant for droplet radius
+changes? In symbols:
+
+\begin{gather}
+  \frac{1 }{\rho_v} \frac{ d \rho_v}{dt} = \frac{ 1}{\tau_\rho} \\
+\text{compare to the time constant: }\nonumber \\
+\frac{1}{r} \frac{ dr}{dt} = \frac{ 1}{\tau_r} 
+\end{gather}
+
+
+We showed in class that the droplet time scale $\tau^{-1}_r = \frac{ 1}{r}\frac{ dr}{dt}   \sim 1\ second$.  
+To find $\tau_\rho$ the timescale for change in  vapor density $\rho_v$, you need
+the diffusion coefficient $D$, which according to constants.m is $D \approx 2.35 \times 10^{-5}
+\ \un{m^2\,s^{-1}}$.  Do a scale analysis for the neighborhood within  10 radii of  a 10 \mum drop and
+show that 
+
+
+\begin{gather}
+  \frac{1 }{\rho_v} \frac{ d \rho_v}{dt} =  D \frac{1 }{\rho_v} \nabla^2 \rho_v = D  \frac{1 }{\rho_v} \frac{ d^2 \rho_v}{dr^2} 
+\end{gather}
+does in fact give a timescale much less than 1 second.
+
+\section{Solution}
+\label{sec:solution}
+
+
+We need to make a guess at the size of $\nabla^2 \rho_v \sim \frac{ d}{dx} \left ( \frac{ d \rho_v}{dx} \right )$.  If we were
+going to evaluate this with matlab, it would look something like
+
+\begin{gather}
+  \nabla^2 \rho_v \sim \frac{ d}{dx} \left( \frac{ d \rho_v}{dx} \right ) = \\
+\frac{\frac{\rho_{v2} - \rho_{v1}}{\Delta x} - \frac{\rho_{v1} - \rho_{v0}}{\Delta x}}{\Delta x}
+= \frac{(\rho_{v2} + \rho_{v0}) - 2 \rho_{v1}}{\Delta x^2} = \frac{2 \overline{\rho_{v}} - 2 \rho_{v1}}{\Delta x^2}   \sim \frac{2\Delta \rho_v }{(\Delta x)^2}  \\
+\text{Make a rough guess: }\nonumber \\
+2\Delta \rho_v \sim \rho_v\ \text{(upper limit)}\\
+\Delta x \sim 100\ \mum \ \text{(10 radii away from surface)}\nonumber 
+\end{gather}
+
+
+
+
+Which means that:
+
+\begin{gather}
+ \frac{ 1}{\tau_\rho} = \frac{1 }{\rho_v} \frac{ d \rho_v}{dt} =  \frac{D }{\rho_v}  \nabla^2 \rho_v 
+\sim \frac{ D \rho_v}{\rho_v (\Delta x)^2} \sim \frac{10^{-5}}{(10^{-4})^2} \sim 1000\ \un{s^{-1}}\\
+\text{or in other words} \nonumber \\
+\tau_\rho \sim 0.001\ \un{s^{-1}} \ll 1\ \text{second}
+\end{gather}
+This means that the vapor field adjusts very quickly to changes compared to a 5 \mum cloud droplet,
+So ``steady growth'' is a good assumption for atmospheric water vapor.
+
+
+
+
+\end{document}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
