@@ -1,0 +1,211 @@
+\documentclass[12pt]{article}
+\usepackage{geometry,fancyhdr,xr,hyperref,ifpdf,amsmath,rcs,shortcuts}
+\usepackage{lastpage,longtable,color,paunits,amsmath,smallsec}
+\geometry{letterpaper,headsep=5mm,head=10mm,hmargin={20mm,30mm},bottom=10mm,top=5mm}
+
+
+\pagestyle{fancy} 
+\lhead{Atsc. 405} 
+\chead{Notes entrainment (2006/3/15)} 
+\rhead{page~\thepage/\pageref{LastPage}} 
+\lfoot{} 
+\cfoot{} 
+\rfoot{}
+
+
+\ifpdf
+    \usepackage[pdftex]{graphicx} 
+    \usepackage{hyperref}
+    \pdfcompresslevel=0
+    \DeclareGraphicsExtensions{.pdf,.jpg,.mps,.png}
+\else
+    \usepackage{hyperref}
+    \usepackage[dvips]{graphicx}
+    \DeclareGraphicsRule{.eps.gz}{eps}{.eps.bb}{`gzip -d #1}
+    \DeclareGraphicsExtensions{.eps,.eps.gz}
+\fi
+
+
+\begin{document}
+
+\begin{center}
+{\bf
+Atsc. 405\\
+Notes on entrainment: W\&H Section 6.3\\
+ }
+\end{center}
+
+
+\section{A repeat of the Section 6.3 derivation}
+\label{sec:repeat-derivation}
+
+In section 6.3 W\&H discuss in some detail the effect of the entrainment/mixing
+of environmental air on cloud temperature.  Here's my version of the
+derivation of (6.18) on p.~221, which I think is simpler.
+
+In W\&H notation, a cloud parcel with mass $m - dm$, temperature $T^\prime$ and
+saturation mixing ratio $r_s(T^\prime, p)$ ascends through an unsaturated environment 
+of temperature $T$ and total mixing ratio $w$.  We want to find equations that
+will predict the potential temperature $\theta^\prime$  and the liquid and vapor
+mixing ratios $r_v^\prime$ and $r_l^\prime$ of the cloud parcel as a function of
+height or time (assuming that we know the vertical velocity at all times).
+
+From our earlier work in week 9 we know that the entropy $\phi$ and moist static energy
+$h_m$ are both conserved for adiabatic processes and \textit{mix linearly}.  By 
+\textit{linear mixing} we mean that if we have two blobs of air with
+energies $h_m^\prime$, total mass $m-dm$ and  $h_m$ and total mass $dm$, then the
+total energy of the mixture is just the sum of the two individual energies.
+\textit{Question:  what kinds of systems violate this assumption and are non-linearly mixing?}.
+Mathematically, that means that:
+
+\begin{equation}
+  \label{eq:mixture}
+  m\,h_{m\,mix} = (m - dm) h_m^\prime + dm\,h_m
+\end{equation}
+Where the unprimed variables are for the environment, and the primed variables are for the cloud parcel.
+
+Defining the change in specific parcel energy $dh_m^\prime$ as 
+(energy after - energy before)/(final mass m):
+
+\begin{equation}
+  \label{eq:change}
+  dh^\prime_{m} = (h_{m\,mix} - h_m^\prime)
+\end{equation}
+We can rearrange (\ref{eq:mixture}) to get a version of the first law for the
+change in parcel energy due to the mixing process:
+
+\begin{equation}
+  \label{eq:change2}
+\Delta h_m^\prime = q dt = \frac{dm}{m} (h_m - h_m^\prime) = \frac{dm}{m} \Delta h_m
+\end{equation}
+where $dm/m$ is the fraction of environmental air entrained into the cloud,
+$\Delta h_m$ is the energy difference between cloud and environment and we've extended
+our definition of heating to include energy changes caused by the physical transport
+of mass (\textit{Question: what was our former definition of heating?}).
+
+We know that the cloud parcel has to obey the second law:
+
+\begin{equation}
+  \label{eq:2nd}
+  d\phi^\prime \geq \frac{q dt}{T^\prime}
+\end{equation}
+
+If we neglect the irreversible effects of mixing on entropy (\textit{why?}), and use the definition of
+the equivalent potential temperature we've got:
+
+\begin{equation}
+  \label{eq:2ndb}
+  d\phi^\prime = c_p \frac{d\theta_e^\prime}{\theta_e^\prime} = \frac{q dt}{T^\prime} = 
+          \frac{dm}{m} \frac{\Delta h_m}{T^\prime}
+\end{equation}
+Where we've replaced the integrated heating $q dt$ by the entrainment using (\ref{eq:change2}).
+
+We can use the definiton of $h_m$ to write:
+
+\begin{equation}
+  \label{eq:definition}
+  \Delta h_m = (h_m - h_m^\prime) = (c_p T + l_v\, r + g z) - (c_p T^\prime + l_v\, r_s(T^\prime,p) + g z)
+\end{equation}
+Putting (\ref{eq:definition}) into (\ref{eq:2ndb}) and expanding $\theta_e$ gives
+W\&H (6.18):
+
+\begin{equation}
+  \label{eq:whcorr}
+\frac{d\theta_e^\prime}{\theta_e} =   \frac{d\theta^\prime}{\theta} + \frac{l_v\,dr_s(T^\prime,p)}{T^\prime} = 
+   \left [ \frac{T^\prime - T}{T^\prime} + \frac{l_v}{c_p T^\prime} (r_s(T^\prime,p) - r) \right ]
+   \frac{dm}{m}
+\end{equation}
+
+Why do I like this derivation better than W\&H? 
+
+\begin{itemize}
+\item It's shorter (7 equations vs. 12)
+\item It's easier to interpret.  W\&H make a mistake when they say on the top of p.~221
+that the change in saturation mixing ratio $dr_s$ comes from cooling due to ascent.  
+We know this because we
+got the same term in (\ref{eq:whcorr}) for a mixture that occured at constant pressure.
+The reason that $r_s$ is decreasing is because the mixture temperature is colder than
+the original parcel temperature due to evaporation, i.e.:
+
+\begin{eqnarray}
+  \label{eq:mix}
+  dr_s &\approx& \frac{\partial r_s}{\partial T} (T_{mix} - T^\prime)\nonumber\\
+  \frac{d\theta^\prime}{\theta^\prime} &=& \frac{dT^\prime}{T^\prime} - 
+       \frac{R_d}{c_p}\frac{dp^\prime}{p^\prime} \approx \frac{T_{mix} - T^\prime}{T^\prime}
+\end{eqnarray}
+\textit{Question: What is the difference between $dT^\prime$ and $\Delta T^\prime$?}
+
+
+\end{itemize}
+
+
+\section{Vertical evolution of cloud properties}
+\label{sec:vert-evol-cloud}
+
+To actually solve (\ref{eq:whcorr}) we need to say something about
+$dm/m$.  The simplest assumption is to assume that the cloud is mixing
+like an \textit{entraining plume} with \textit{entrainment rate}
+$\lambda$:
+
+\begin{equation}
+  \label{eq:plume}
+  \frac{1}{m} \frac{dm}{dt} = \lambda
+\end{equation}
+Equation (\ref{eq:plume}) says that the bigger the parcel gets, the
+more it mixes, possibly because the larger surface area provides more
+of an interface to mix across.  You should convince yourself that
+the solution to (\ref{eq:plume}) for constant $\lambda$ is:
+
+\begin{equation}
+  \label{eq:sol}
+  m(t) = m_0 \exp ( \lambda  t)
+\end{equation}
+
+Given the vertical velocity $u=dz/dt$ we
+can use the chain rule to write (\ref{eq:plume}) as:
+
+
+\begin{equation}
+  \label{eq:plume2}
+  \frac{1}{m} \frac{dm}{dz} \frac{dz}{dt} = \frac{1}{m} \frac{dm}{dz} u = \lambda
+\end{equation}
+I can then use (\ref{eq:2ndb}) to get an equation I could integrate to
+find the $\theta_e$ of the cloud as a function of height:
+
+
+\begin{equation}
+  \label{eq:2ndc}
+ \frac{c_p}{\theta_e^\prime} \frac{d\theta_e^\prime}{dz} = 
+         \frac{\Delta h_m}{T^\prime} \frac{1}{m}\frac{dm}{dz} = 
+   \frac{\Delta h_m}{T^\prime} \frac{\lambda}{u} =
+  \frac{\Delta h_m}{T^\prime} \hat{\lambda}
+\end{equation}
+Where $\hat{\lambda} = \lambda/u$ is the entrainment rate
+in units of $m^{-1}$.
+
+You should do the following:
+
+\begin{itemize}
+\item Show that an entrainment rate of $\hat{\lambda}= 7 \times
+  10^{-4}\ \un{m^{-1}}$ implies that a cloud parcel would double its
+  mass during an ascent of 1 km.  (But as noted in class, this
+is a pretyy poor approximation of what happens in a real cloud with
+saturated updrafts and downdrafts).
+
+\item Show that by the same reasoning as above the total mixing ratio $r_T^\prime$
+for the cloud parcel obeys an equation of the form:
+
+\begin{equation}
+  \label{eq:water}
+  \frac{dr_T^\prime}{dz} = (r_{env} - r_T^\prime) \hat{\lambda}
+\end{equation}
+
+Using matlab we can integrate (\ref{eq:2ndc}) and (\ref{eq:water})
+given an initial parcel $T^\prime,\, r_T^\prime,\, p^\prime$ and 
+knowledge of the environmental ($T,\,w$) and $\hat{\lambda}$ as a
+function of height to find the vertical profile of the cloud
+equivalent potential temperature and total water.
+
+\end{itemize}
+
+\end{document}

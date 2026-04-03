@@ -409,7 +409,7 @@ and Thompkins Section 4.5
 
   
 
-- {ref}`worksheet14_reff`
+- {ref}`worksheet14_reff_solution`
 
 - new final review material
   - [2016 final exam](https://drive.google.com/file/d/1GhPMdeK2_S1zcsu8hyMjTGzcLD1nNOtW/view?usp=drive_link)
@@ -423,3 +423,25 @@ and Thompkins Section 4.5
 - Work on Assignment 9 and final review questions
 
 
+### Lecture 27, week 13, Thursday
+
+- {ref}`worksheet14_reff_solution`
+  - [Code reorganization](https://github.com/phaustin/a405/commit/368cfa3ba818e1f7255a56ae1d35237d7c804690)
+
+- Review Lohmann chapter 12 on optical depth, cloud regimes
+
+- Go over the [E340 feedback lecture](https://drive.google.com/file/d/1S0uzNEqJCBW4HtCXwFbcuTvU1HAZwmQt/view?usp=sharing)
+  - More detail if interested in this [lecture pdf](https://drive.google.com/file/d/1e9AJni4yrAQb10K17hNh4xhxlRDAN9uN/view?usp=sharing)
+
+- new cloud feedback mecnanisms
+  - [decreasing midlatitude cloud cover](https://science.nasa.gov/earth/earth-observatory/earths-clouds-on-the-move-154443/)
+  - [ice to liquid brightening](https://agupubs.onlinelibrary.wiley.com/doi/10.1002/2016GL069917#:~:text=All%20models%20exhibit%20increasing%20low%20cloud%20optical,over%20the%20Southern%20Ocean%2C%20likely%20due%20to)
+  - but is there a strong correlation? [maybe not](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1002/2016GL070770#:~:text=Climate%20models%20show%20a%20robust,one%20predicted%20by%20current%20models)
+ - and newer models have a [weaker negative feedback](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2019GL085782) in the southern ocean
+
+### For Tuesday
+
+- Work on practice finals/questions
+- Read [Wallace and Hobbs Section 6.3](https://drive.google.com/file/d/1wcG9cKgb6MT7XklFuEZJtcAIQ1uH9mAP/view?usp=sharing) on entrainment
+  - Contrast with my [WH entrainment remarks](https://drive.google.com/file/d/1nL6vIfzhlSLllo8MslixYUp5ahJ4wGkJ/view?usp=sharing)
+    

@@ -15,7 +15,7 @@ kernelspec:
 (worksheet14_reff_solution)=
 # Worksheet 14 solution: liquid water and effective radius
 
-- notebook download link:  [worksheet14_reff_solution.ipynb](https://drive.google.com/file/d/1yZ5JPgDTnd1tNj18Dt_9sSe8-FknoOkK/view?usp=sharing)
+- notebook download link:  [worksheet14_reff_solution.ipynb](https://drive.google.com/file/d/1g6XlMvoMBx4fVjBsZFb4NtYtw4RbmBZe/view?usp=sharing)
 
 This notebook demonstates how to use [pandas.DataFrame.apply](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.apply.html) to add new
 columns to a dataframe by iterating over dataframe rows.  It asks you to add columns for the liquid water content and the effective radius, segregated

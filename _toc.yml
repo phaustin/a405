@@ -49,7 +49,7 @@ parts:
     - file: notebooks/worksheets/dropgrow/worksheet11_dropgrow_solution.md
     - file: notebooks/worksheets/worksheet12_marshall_palmer.md
     - file: notebooks/worksheets/worksheet13_odeint_solution.md
-    - file: notebooks/worksheets/dropgrow/worksheet14_reff.md
+    - file: notebooks/worksheets/dropgrow/worksheet14_reff_solution.md
   - caption: Assignments
     chapters:
     - file: assignments/adiabatic_box_solution.md
@@ -118,6 +118,8 @@ parts:
     - file: notebooks/ice_saturation.md
     - url: https://drive.google.com/file/d/1g42323LOcQbxWn4Ey1B58ExgVPwjMADz/view?usp=sharing
       title: Notes of crystal growth
+    - url: https://drive.google.com/file/d/1nL6vIfzhlSLllo8MslixYUp5ahJ4wGkJ/view?usp=sharing
+      title: entrainment discussion WH sec 6.3
 
   - caption: midterms
     chapters:
