@@ -235,7 +235,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../assignments/assignment6_koehler_solution.html">Assignment 6 paper/pencil problems</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../../assignments/assignment7_aerosols_solution.html">Assignment 7: aerosols: solution</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../assignments/assignment8_precipitation.html">Assignment 8 – precipitation.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../assignments/assignment8_precipitation_solution.html">Assignment 8 – precipitation solution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../assignments/assignment9_cold_clouds.html">Assignment 9 – cold clouds</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">In-depth notes</span></p>
@@ -455,28 +455,28 @@ document.write(`
 <h2>1. Show that for phase change at constant temperature and pressure, the Gibbs free energy can only decrease or stay the same.<a class="headerlink" href="#show-that-for-phase-change-at-constant-temperature-and-pressure-the-gibbs-free-energy-can-only-decrease-or-stay-the-same" title="Link to this heading">#</a></h2>
 <p>Start with the definition of the specific Gibbs free energy:</p>
 <div class="math notranslate nohighlight" id="equation-eq-g">
-<span class="eqno">(24)<a class="headerlink" href="#equation-eq-g" title="Link to this equation">#</a></span>\[
+<span class="eqno">(30)<a class="headerlink" href="#equation-eq-g" title="Link to this equation">#</a></span>\[
 g=h-T \phi
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(h\)</span> is the enthalpy, <span class="math notranslate nohighlight">\(T\)</span> the temperature and <span class="math notranslate nohighlight">\(\phi\)</span> the entropy.</p>
 <p>We also have the second law:</p>
 <div class="math notranslate nohighlight" id="equation-eq-second">
-<span class="eqno">(25)<a class="headerlink" href="#equation-eq-second" title="Link to this equation">#</a></span>\[
+<span class="eqno">(31)<a class="headerlink" href="#equation-eq-second" title="Link to this equation">#</a></span>\[
 d \phi \geq  \frac{qdt}{T}
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(q\)</span> is the heating rate applied for time <span class="math notranslate nohighlight">\(dt\)</span>.</p>
-<p>Take the differential of <a class="reference internal" href="#equation-eq-g">(24)</a></p>
+<p>Take the differential of <a class="reference internal" href="#equation-eq-g">(30)</a></p>
 <div class="math notranslate nohighlight" id="equation-eq-dg">
-<span class="eqno">(26)<a class="headerlink" href="#equation-eq-dg" title="Link to this equation">#</a></span>\[\begin{split}
+<span class="eqno">(32)<a class="headerlink" href="#equation-eq-dg" title="Link to this equation">#</a></span>\[\begin{split}
 d g= -T d \phi \\
 \end{split}\]</div>
 <p>where we have used the fact that <span class="math notranslate nohighlight">\(dh = 0\)</span> at constant T.</p>
-<p>Finally, note that the approach to equilibrium is occuring without any heating, so <a class="reference internal" href="#equation-eq-second">(25)</a> becomes:</p>
+<p>Finally, note that the approach to equilibrium is occuring without any heating, so <a class="reference internal" href="#equation-eq-second">(31)</a> becomes:</p>
 <div class="math notranslate nohighlight">
 \[
 T d\phi \geq 0
 \]</div>
-<p>which means from  <a class="reference internal" href="#equation-eq-dg">(26)</a> that</p>
+<p>which means from  <a class="reference internal" href="#equation-eq-dg">(32)</a> that</p>
 <div class="math notranslate nohighlight">
 \[
 dg \leq 0
@@ -492,7 +492,7 @@ dg \leq 0
 \]</div>
 <p>Since the system is closed the total mass of water is constant:</p>
 <div class="math notranslate nohighlight" id="equation-eq-constant">
-<span class="eqno">(27)<a class="headerlink" href="#equation-eq-constant" title="Link to this equation">#</a></span>\[\begin{split}
+<span class="eqno">(33)<a class="headerlink" href="#equation-eq-constant" title="Link to this equation">#</a></span>\[\begin{split}
 m_v &amp;+ m_l = C \\
 dm_v &amp;+ dm_l = 0\\
 dm_v &amp;= -dm_l
@@ -502,7 +502,7 @@ dm_v &amp;= -dm_l
 \[
 dG =  g_v dm_v + g_l dm_l
 \]</div>
-<p>And using <a class="reference internal" href="#equation-eq-constant">(27)</a></p>
+<p>And using <a class="reference internal" href="#equation-eq-constant">(33)</a></p>
 <div class="math notranslate nohighlight">
 \[
 dG =  g_v dm_v + g_l (-dm_v) = (g_v - g_l) dm_v

@@ -351,7 +351,7 @@ Read Thompkins pages 73-75 on condensation growth
 
 - Review {ref}`worksheet10_aerosol_dists_solution`
 - Flashback: [Accurate enthalpy and $\theta_e$](https://drive.google.com/file/d/1kGjCV3tVA4umfoU1KFlkCAbHtXqdOStt/view?usp=sharing)
-- Introduce {ref}`assignment_precip` which is based on 
+- Introduce {ref}`assignment_precip_solution` which is based on 
   [Wallace and Hobbs Section 6.4](https://drive.google.com/file/d/1wcG9cKgb6MT7XklFuEZJtcAIQ1uH9mAP/view?usp=sharing)
 - {ref}`worksheet11_dropgrow_solution`
 
@@ -378,7 +378,7 @@ and Thompkins Section 4.5
 #### For Thursday
 
 - Read Thompkins pp. 82-87 on cold clouds
-- Work on {ref}`assignment_precip`
+- Work on {ref}`assignment_precip_solution`
 
 ### Lecture 25, week 12, Thursday
 
@@ -445,3 +445,36 @@ and Thompkins Section 4.5
 - Read [Wallace and Hobbs Section 6.3](https://drive.google.com/file/d/1wcG9cKgb6MT7XklFuEZJtcAIQ1uH9mAP/view?usp=sharing) on entrainment
   - Contrast with my [WH entrainment remarks](https://drive.google.com/file/d/1nL6vIfzhlSLllo8MslixYUp5ahJ4wGkJ/view?usp=sharing)
     
+
+## Week 13
+
+### Lecture 28, week 14, Tuesday
+
+- {ref}`assignment_precip_solution`
+
+- For review:
+
+- Interesting Figures
+
+  - Thompkins 3.33
+  - Thompkins 4.2
+  - Thompkins 4.8
+  - Thompkins 4.16
+  - Thompkins 4.22
+  - Thompkins 4.23
+  - Thompkins 4.24
+  - Thompkins 4.30
+  
+  - WH 6.15
+  - WH 6.16
+  - WH 6.17
+  - WH 6.27
+  - WH 6.35
+  - WH 6.39
+  - WH 6.52
+  - WH 6.53
+  - WH 6.55
+  
+  - Lohmann 7.4
+  - Lohmann 7.8
+

@@ -1,0 +1,976 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>🔺 HDF5 Changelog &#8212; ATSC 405</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../../_static/togglebutton.js?v=1ae7504c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '.pixi/envs/default/share/CHANGELOG';</script>
+    <link rel="canonical" href="https://phaustin.github.io/a405/.pixi/envs/default/share/CHANGELOG.html" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">ATSC 405</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../../index.html">
+                    ATSC 405 syllabus
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Background information</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../integrity.html">UBC academic integrity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ai_policy.html">Course policy for generative AI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../learning_goals.html">Learning goals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../schedule.html">Course schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../python_install.html">Python links</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.dropbox.com/scl/fo/9grhb2cr0lpfc1d5jci4a/h?rlkey=shnjpq4kvndrcatbgrri44eyw&amp;dl=0">Thompkins text</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://gw2jh3xr2c.search.serialssolutions.com/?sid=sersol&amp;SS_jc=TC0001980404&amp;title=An%20introduction%20to%20clouds%20%3A%20from%20the%20microscale%20to%20climate">Lohmann et al. text</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.dropbox.com/scl/fi/r7zhctw6usest2rirpe2f/wallace_hobbs_chap6.pdf?rlkey=oxdanppj9wkocmwe4nn4cc4fi&amp;dl=0">Wallace and Hobbs chapter 6</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.eoas.ubc.ca/books/Practical_Meteorology">Stull, Practical Meteorolgy</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://phaustin.github.io/a405_lib/full_listing.html">A405 library documentation</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/phaustin/a405/tree/main/src/a405">A405 library source code</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.google.com/presentation/d/1tgA2Ia1sWPzZVlgspuW7MOUfokDDZmfvS2eDTtFr-Mw/edit?usp=sharing">Blank tephigram - 1000-800 hPa</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Weekly topics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../week_notes.html">Week notes</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Worksheets</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/worksheets/worksheet1_solution.html">Week 1 worksheet solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/worksheets/worksheet2_solution.html">Worksheet2 – Thermodynamics worksheet solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/week2/skew_coords.html">Week2: Demo – Theromodynamic diagrams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/worksheets/worksheet3_derivs_and_ints_solution.html">worksheet 3 solution: working with numpy arrays</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/worksheets/worksheet4_taylor_series_solution.html">Worksheet 4: Taylor series solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/week4/xarray-intro.html">Demo: Introduction to Xarray</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/worksheets/worksheet5_latent_solution.html">Worksheet 5 solution: Latent heat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/worksheets/worksheet6_gibbs_solution.html">Worksheet 6 solution: Gibbs free energy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/worksheets/mixing_line_example.html">Mixing line example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/worksheets/convec_instability.html">Convective instability – lifting demo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/worksheets/moist_adiabats.html">Moist adiabats and the LCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/worksheets/tropical_engine_solution.html">Tropical Heat Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/worksheets/cape_part1.html">Cape Part 1  – demo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/worksheets/worksheet7_taylor_solution.html">Worksheet 7 – Taylor series problem solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/worksheets/mixing_line_calc.html">Mixing line workbook</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/worksheets/entraining_plume.html">Modeling an entraining cloud updraft try</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/worksheets/worksheet8_interp1d_solution.html">Worksheet 8: Interp1d Solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/worksheets/worksheet9_koehler_solution.html">Worksheet9: Koehler Equilibrium solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/worksheets/worksheet10_aero_dist_solution.html">Worksheet 10: Aerosol distributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/worksheets/dropgrow/worksheet11_dropgrow_solution.html">Worksheet11 Solution: Parcel model with oscillating updraft</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/worksheets/worksheet12_marshall_palmer.html">Worksheet 12: Marshall-Palmer Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/worksheets/worksheet13_odeint_solution.html">Worksheet 13 odeint practice solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/worksheets/dropgrow/worksheet14_reff_solution.html">Worksheet 14 solution: liquid water and effective radius</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../assignments/adiabatic_box_solution.html">Adiabatic Box - Solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../assignments/hydrostatic_scaling_solution.html">Assign 2: Solution - Scale heights for typical atmospheric soundings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../assignments/tropical_clouds_profiles_solution.html">Assignment 3 solution: Analyzing a model cloud dataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../assignments/assign4_rootfind_solution.html">Assignment 4a rootfinding solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../assignments/assignment4_paper_solution.html">Assignment 4 part 2  – solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../assignments/thompkins_practice_answers.html">Tompkins practice questions – solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../assignments/assign6_koehler.html">Assignment 6 – Koehler equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../assignments/assign6_cape_solution.html">Assignment 6 CAPE solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../assignments/assignment6_koehler_solution.html">Assignment 6 paper/pencil problems</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../../../../assignments/assignment7_aerosols_solution.html">Assignment 7: aerosols: solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../assignments/assignment8_precipitation_solution.html">Assignment 8 – precipitation solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../assignments/assignment9_cold_clouds.html">Assignment 9 – cold clouds</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">In-depth notes</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://www.dropbox.com/scl/fi/5scb458wnoymr4s8ta4vt/equation_sheet.pdf?rlkey=29ymawiljakqnv3wquqa4wm8e&amp;st=4mmzb2ii&amp;dl=0">final exam equation sheet</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1L8am0jnhBdlTNzQNR8lE-Iyw0V6lwqg2/view?usp=sharing">mid-term equation sheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/week1/hydrostat.html">Week1: Hydrostatic balance explainer</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1dBxcwxe0quNjYAihiFwMpF8kVmjmYh1p/view?usp=sharing">Week2 - Kinetic Temperature notes</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/12xontZRhRTKBjtG9y27RS6CH35eARcgp/view?usp=sharing">Week 2 - First law of thermodynamics</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1_ZpKjfR3OGHkmnk9-lKEmP8SSGNM8Is_/view?usp=sharing">Week 2 - Hydrostatic balance and scale heights</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1CjXm0AHYMJYmxf-Mm6CuWD7tIM_KBRI0/view?usp=sharing">Week 3 - Entropy and potential temperature</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1Id1EECa8qefSD6YhJoJzVp2neEarD9Wa/view?usp=sharing">Week 3 - Buoyancy and Taylor's series</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1GrzhzpvWbN0H4dP3Z77M4O88Cyey5k2K/view?usp=sharing">Schroeder Chapter 5 free energy</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1YrHBkCiFduYqjd_Dn8_3fZJocmqva1PG/view?usp=sharing">Lohmann Chapter 2 - Thermodynamics</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1rJO32NGhTW3TA6noQmSdNl2GNXyrZUgA/view?usp=sharing">Maxwell relations</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/144fXb0-of3lpwL0xGZYH16yxGJOmvDEh/view?usp=sharing">Clausius-Clapeyron equation</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1EQI86M4I76ARXDV54VOHKQP3J0-kyyDq/view?usp=sharing">Virtual temperature notes</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1BPTvFijtktG4135T1X8DXwI8l_C8xHEt/view?usp=sharing">Static energy and $\theta_e$ notes</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/131QoLZPjajoCtreV6muYOxDlF6jvRH4s/view?usp=sharing">Carnot cycle notes</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1wsfzaorhVKiMwDlrolf2gtTrSLT4p4iM/view?usp=sharing">wet bulb notes</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1j8vhmRtGaOlpe0JAAS-fvZmH9H8U2ay2/view?usp=sharing">Wet bulb vs. $\theta_e$</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/week7/gibbs_notes.html">Gibbs Free Energy notes</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1VgY5LWMSmavpoHFQYFE-wkPxGnD5x44O/view?usp=sharing">entrainment and mixing</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1SU64h2sGfMsOygqHL1f6tK_K2HgLv1Nr/view?usp=sharing">Koehler equation notes</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1mF4ES2IewpnLB-lQHOBuK5JwSnelqkYs/view?usp=sharing">Droplet growth notes</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1i_2_LTQ496FScNK8V-b3pb-rvh6Qzapa/view?usp=sharing">timescales for diffusion and droplet growth</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1YYr2dFO4csFNsdOL7IEZJCPEh6LXMoof/view?usp=sharing">aerosol size distributions</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1kGjCV3tVA4umfoU1KFlkCAbHtXqdOStt/view?usp=sharing">Accurate enthalpy and thetae</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1mfwKsVais1YiTC6JbMxIM5xTXgUMYd7g/view?usp=sharing">Droplet fragmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/ice_saturation.html">saturation vapor pressure over ice</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1g42323LOcQbxWn4Ey1B58ExgVPwjMADz/view?usp=sharing">Notes of crystal growth</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1nL6vIfzhlSLllo8MslixYUp5ahJ4wGkJ/view?usp=sharing">entrainment discussion WH sec 6.3</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">midterms</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../assignments/study_topics.html">Midterm study topics</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1Nj31FAXyWur9qffnSflhx6CcLBta4PCj/view?usp=sharing">2016 midterm</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1jFKalQ9MXAvNu824LKVyHtNEleZhgI0q/view?usp=sharing">2012 midterm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../assignments/a405_mid_2026_solution.html">A405 2026 midterm solutions</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">final exam</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1o9HOkiaXsestzA7P0Njt9X1r5IlEj34D/view?usp=sharing">Final Exam Practice Questions</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1GhPMdeK2_S1zcsu8hyMjTGzcLD1nNOtW/view?usp=drive_link">2016 midterm</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1Wss3sLtmCZAAE15n9Sa1KB1n-UF_Klis/view?usp=drive_link">2024 final equations</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/17xeEWvdocJbAWpLCxcITgkjHG6pX4Qf7/view?usp=drive_link">2024 final exam</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Animations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1Qwioo3qSyEzr4tTuC3Sx54oXLKg-3g3D/view?usp=sharing">ARM diurnal over land</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1lCb3G9EhiPzRGO2m0FQWMTTUv2fSTnbi/view?usp=sharing">BOMEX -- trade cumulus over water</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/14ZLSAHCrjv8U0IKD9sQMHdql33Ebxkp3/view?usp=sharing">CGILS trade cumulus over water</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../../_sources/.pixi/envs/default/share/CHANGELOG.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>🔺 HDF5 Changelog</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">🔺 HDF5 Changelog</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-links">🔗 Quick Links</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contents">📖 Contents</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#executive-summary-hdf5-version-2-1-0">🔆 Executive Summary: HDF5 Version 2.1.0</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#performance-enhancements">Performance Enhancements:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#significant-advancements">Significant Advancements:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enhanced-features">Enhanced Features:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#java-enhancements">Java Enhancements:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgements">Acknowledgements:</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#breaking-changes">⚠️ Breaking Changes</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#new-features-improvements">🚀 New Features &amp; Improvements</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration">Configuration</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#added-a-cmake-module-to-locate-libaec-for-szip-support">Added a CMake module to locate libaec for SZIP support</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#refactored-cmake-library-export-mechanism">Refactored CMake library export mechanism</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#library">Library</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#added-predefined-datatypes-for-fp6-data">Added predefined datatypes for FP6 data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#added-predefined-datatype-for-fp4-data">Added predefined datatype for FP4 data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parallel-library">Parallel Library</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fortran-library">Fortran Library</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c-library">C++ Library</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fixed-checking-of-data-alignment-requirements-in-direct-i-o-vfd">Fixed checking of data alignment requirements in direct I/O VFD</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#java-library">Java Library</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tools">Tools</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#high-level-apis">High-Level APIs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c-packet-table-api">C Packet Table API</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#internal-header-file">Internal header file</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#documentation">Documentation</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#bug-fixes">🪲 Bug Fixes</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Library</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fixed-a-problem-with-using-filters-with-variable-length-datatypes">Fixed a problem with using filters with variable length datatypes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fixed-a-potential-out-of-bound-read">Fixed a potential out of bound read</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fixed-security-issue-cve-2025-44904">Fixed security issue CVE-2025-44904</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fixed-security-issue-cve-2025-2309">Fixed security issue CVE-2025-2309</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fixed-security-issue-cve-2025-2308">Fixed security issue CVE-2025-2308</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fixed-a-double-free-bug-in-h5d-chunk-copy">Fixed a double-free bug in <code class="docutils literal notranslate"><span class="pre">H5D__chunk_copy</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fixes-potential-security-issues">Fixes potential security issues</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fixed-a-performance-issue-with-chunked-dataset-i-o">Fixed a performance issue with chunked dataset I/O</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Java Library</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Configuration</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#removed-force-setting-of-zlib-use-external-and-szip-use-external-cmake-variables-to-on">Removed force-setting of <code class="docutils literal notranslate"><span class="pre">ZLIB_USE_EXTERNAL</span></code> and <code class="docutils literal notranslate"><span class="pre">SZIP_USE_EXTERNAL</span></code> CMake variables to <code class="docutils literal notranslate"><span class="pre">ON</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Tools</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#performance">Performance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fortran-api">Fortran API</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#added-fortran-wrappers-for-swmr-functionality">Added Fortran wrappers for SWMR functionality</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#high-level-library">High-Level Library</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fortran-high-level-apis">Fortran High-Level APIs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Documentation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#f90-apis">F90 APIs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c-apis">C++ APIs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#testing">Testing</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#support-for-new-platforms-and-languages">✨ Support for new platforms and languages</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#platforms-tested">☑️ Platforms Tested</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#known-problems">⛔ Known Problems</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <p>HDF5 version 2.1.0 released on 2026-03-02</p>
+<section class="tex2jax_ignore mathjax_ignore" id="hdf5-changelog">
+<h1>🔺 HDF5 Changelog<a class="headerlink" href="#hdf5-changelog" title="Link to this heading">#</a></h1>
+<p>All notable changes to this project will be documented in this file. This document describes the differences between this release and the previous
+HDF5 release, platforms tested, and known problems in this release.</p>
+<p>For releases prior to version 2.0.0, please see the release.txt file and for more details check the HISTORY*.txt files in the HDF5 source.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="quick-links">
+<h1>🔗 Quick Links<a class="headerlink" href="#quick-links" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://support.hdfgroup.org/documentation/hdf5/latest/">HDF5 documentation</a></p></li>
+<li><p><a class="reference external" href="https://support.hdfgroup.org/downloads/index.html">Official HDF5 releases</a></p></li>
+<li><p><a class="reference external" href="https://support.hdfgroup.org/releases/hdf5/documentation/release_specific_info.md">Changes from Release to Release and New Features in the HDF5-2.x.y</a></p></li>
+<li><p><a class="reference external" href="https://github.com/HDFGroup/hdf5#help-and-support">Getting help, questions, or comments</a></p></li>
+</ul>
+<section id="contents">
+<h2>📖 Contents<a class="headerlink" href="#contents" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#execsummary"><span class="std std-ref">Executive Summary</span></a></p></li>
+<li><p><a class="reference internal" href="#️-breaking-changes"><span class="std std-ref">Breaking Changes</span></a></p></li>
+<li><p><a class="reference internal" href="#-new-features--improvements"><span class="std std-ref">New Features &amp; Improvements</span></a></p></li>
+<li><p><a class="reference internal" href="#-bug-fixes"><span class="std std-ref">Bug Fixes</span></a></p></li>
+<li><p><a class="reference internal" href="#-support-for-new-platforms-and-languages"><span class="std std-ref">Support for new platforms and languages</span></a></p></li>
+<li><p><a class="reference internal" href="#️-platforms-tested"><span class="std std-ref">Platforms Tested</span></a></p></li>
+<li><p><a class="reference internal" href="#-known-problems"><span class="std std-ref">Known Problems</span></a></p></li>
+</ul>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="executive-summary-hdf5-version-2-1-0">
+<h1>🔆 Executive Summary: HDF5 Version 2.1.0<a class="headerlink" href="#executive-summary-hdf5-version-2-1-0" title="Link to this heading">#</a></h1>
+<blockquote>
+<div><p>[!IMPORTANT]</p>
+<ul class="simple">
+<li><p>The format of the GitHub tag for HDF5 releases has been changed to Major.Minor.Patch, consistent with the versioning policy change to follow the Semantic Versioning Specification described in this <a class="reference external" href="https://github.com/HDFGroup/hdf5/wiki/HDF5-Version-Numbers-and-Branch-Strategy">Wiki page</a>.  The previous tag format hdf5_Major_Minor_Patch that was created in addition for HDF5 2.0.0 and this release will not be continued.</p></li>
+</ul>
+</div></blockquote>
+<section id="performance-enhancements">
+<h2>Performance Enhancements:<a class="headerlink" href="#performance-enhancements" title="Link to this heading">#</a></h2>
+</section>
+<section id="significant-advancements">
+<h2>Significant Advancements:<a class="headerlink" href="#significant-advancements" title="Link to this heading">#</a></h2>
+</section>
+<section id="enhanced-features">
+<h2>Enhanced Features:<a class="headerlink" href="#enhanced-features" title="Link to this heading">#</a></h2>
+</section>
+<section id="java-enhancements">
+<h2>Java Enhancements:<a class="headerlink" href="#java-enhancements" title="Link to this heading">#</a></h2>
+</section>
+<section id="acknowledgements">
+<h2>Acknowledgements:<a class="headerlink" href="#acknowledgements" title="Link to this heading">#</a></h2>
+<p>We would like to thank the many HDF5 community members who contributed to this release of HDF5.</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="breaking-changes">
+<h1>⚠️ Breaking Changes<a class="headerlink" href="#breaking-changes" title="Link to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="new-features-improvements">
+<h1>🚀 New Features &amp; Improvements<a class="headerlink" href="#new-features-improvements" title="Link to this heading">#</a></h1>
+<section id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Link to this heading">#</a></h2>
+<section id="added-a-cmake-module-to-locate-libaec-for-szip-support">
+<h3>Added a CMake module to locate libaec for SZIP support<a class="headerlink" href="#added-a-cmake-module-to-locate-libaec-for-szip-support" title="Link to this heading">#</a></h3>
+<p>A new <code class="docutils literal notranslate"><span class="pre">Findlibaec.cmake</span></code> CMake module has been added. This module is intended to locate libaec on the system for SZIP support in HDF5 when libaec was built with Autotools instead of CMake. When SZIP support is enabled in HDF5 with the <code class="docutils literal notranslate"><span class="pre">HDF5_ENABLE_SZIP_SUPPORT</span></code> option, this module will first check for an existing CMake-built libaec and use that if it’s available. Otherwise, the module will heuristically search for libaec on the system. If necessary, the module can be hinted toward a particular libaec installation by setting the CMake variable <code class="docutils literal notranslate"><span class="pre">libaec_ROOT</span></code> to point to a directory. If it is known that a CMake-built libaec installation exists on the system in a non-standard location, the CMake variable <code class="docutils literal notranslate"><span class="pre">libaec_DIR</span></code> can instead be set to a directory containing a <code class="docutils literal notranslate"><span class="pre">libaec-config.cmake</span></code> file to cause the module to prefer that libaec installation.</p>
+</section>
+<section id="refactored-cmake-library-export-mechanism">
+<h3>Refactored CMake library export mechanism<a class="headerlink" href="#refactored-cmake-library-export-mechanism" title="Link to this heading">#</a></h3>
+<p>The CMake build system now uses separate export targets for different library types: static libraries use <code class="docutils literal notranslate"><span class="pre">${HDF5_EXPORTED_TARGETS}_static</span></code>, Java libraries use <code class="docutils literal notranslate"><span class="pre">${HDF5_EXPORTED_TARGETS}_java</span></code>, and shared libraries continue using the main <code class="docutils literal notranslate"><span class="pre">${HDF5_EXPORTED_TARGETS}</span></code>. The generated <code class="docutils literal notranslate"><span class="pre">hdf5-config.cmake</span></code> file conditionally includes the appropriate target files (<code class="docutils literal notranslate"><span class="pre">hdf5-targets_static.cmake</span></code> and <code class="docutils literal notranslate"><span class="pre">hdf5-targets_java.cmake</span></code>), allowing downstream projects to selectively link against specific library variants. This refactoring improves build system maintainability and applies consistently across all HDF5 components (core, C++, Fortran, high-level APIs, tools, and Java JNI).</p>
+</section>
+</section>
+<section id="library">
+<h2>Library<a class="headerlink" href="#library" title="Link to this heading">#</a></h2>
+<section id="added-predefined-datatypes-for-fp6-data">
+<h3>Added predefined datatypes for FP6 data<a class="headerlink" href="#added-predefined-datatypes-for-fp6-data" title="Link to this heading">#</a></h3>
+<p>Predefined datatypes have been added for FP6 data in <a class="reference external" href="https://www.opencompute.org/documents/ocp-microscaling-formats-mx-v1-0-spec-final-pdf">E2M3 and E3M2 formats</a>.</p>
+<p>The following new macros have been added:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">H5T_FLOAT_F6E2M3</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">H5T_FLOAT_F6E3M2</span></code></p></li>
+</ul>
+<p>These macros map to IDs of HDF5 datatypes representing a 6-bit floating-point datatype with 1 sign bit and either 2 exponent bits and 3 mantissa bits (E2M3 format) or 3 exponent bits and 2 mantissa bits (E3M2 format).</p>
+<p>Note that support for a native FP6 datatype has not been added yet. This means that any datatype conversions to/from the new FP6 datatypes will be emulated in software rather than potentially using specialized hardware instructions. Until support for a native FP6 type is added, an application can avoid datatype conversion performance issues if it is sure that the datatype used for in-memory data buffers matches one of the above floating-point formats. In this case, the application can specify one of the above macros for both the file datatype when creating a dataset or attribute and the memory datatype when performing I/O on the dataset or attribute.</p>
+<p>Also note that HDF5 currently has incomplete support for datatype conversions involving non-IEEE floating-point format datatypes. Refer to the ‘Known Problems’ section for information about datatype conversions with these new datatypes.</p>
+</section>
+<section id="added-predefined-datatype-for-fp4-data">
+<h3>Added predefined datatype for FP4 data<a class="headerlink" href="#added-predefined-datatype-for-fp4-data" title="Link to this heading">#</a></h3>
+<p>A predefined datatype has been added for FP4 data in <a class="reference external" href="https://www.opencompute.org/documents/ocp-microscaling-formats-mx-v1-0-spec-final-pdf">E2M1 format</a>.</p>
+<p>The following new macro has been added:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">H5T_FLOAT_F4E2M1</span></code></p></li>
+</ul>
+<p>This macro maps to the ID of an HDF5 datatype representing a 4-bit floating-point datatype with 1 sign bit, 2 exponent bits and 1 mantissa bit.</p>
+<p>Note that support for a native FP4 datatype has not been added yet. This means that any datatype conversions to/from the new FP4 datatype will be emulated in software rather than potentially using specialized hardware instructions. Until support for a native FP4 type is added, an application can avoid datatype conversion performance issues if it is sure that the datatype used for in-memory data buffers matches the above floating-point format. In this case, the application can specify the above macro for both the file datatype when creating a dataset or attribute and the memory datatype when performing I/O on the dataset or attribute.</p>
+<p>Also note that HDF5 currently has incomplete support for datatype conversions involving non-IEEE floating-point format datatypes. Refer to the ‘Known Problems’ section for information about datatype conversions with these new datatypes.</p>
+</section>
+</section>
+<section id="parallel-library">
+<h2>Parallel Library<a class="headerlink" href="#parallel-library" title="Link to this heading">#</a></h2>
+</section>
+<section id="fortran-library">
+<h2>Fortran Library<a class="headerlink" href="#fortran-library" title="Link to this heading">#</a></h2>
+</section>
+<section id="c-library">
+<h2>C++ Library<a class="headerlink" href="#c-library" title="Link to this heading">#</a></h2>
+<section id="fixed-checking-of-data-alignment-requirements-in-direct-i-o-vfd">
+<h3>Fixed checking of data alignment requirements in direct I/O VFD<a class="headerlink" href="#fixed-checking-of-data-alignment-requirements-in-direct-i-o-vfd" title="Link to this heading">#</a></h3>
+<p>The direct I/O VFD attempts to determine data alignment requirements for a file on file open to try and avoid extra work when data alignment isn’t required. Depending on the file access flags used when opening a file, the VFD could incorrectly determine these requirements for either writes or reads, eventually leading to a possible EINVAL return value on write or read. This has been fixed by separately determining the requirements for writes and reads and being more conservative about trying to avoid data alignment requirements.</p>
+</section>
+</section>
+<section id="java-library">
+<h2>Java Library<a class="headerlink" href="#java-library" title="Link to this heading">#</a></h2>
+</section>
+<section id="tools">
+<h2>Tools<a class="headerlink" href="#tools" title="Link to this heading">#</a></h2>
+</section>
+<section id="high-level-apis">
+<h2>High-Level APIs<a class="headerlink" href="#high-level-apis" title="Link to this heading">#</a></h2>
+</section>
+<section id="c-packet-table-api">
+<h2>C Packet Table API<a class="headerlink" href="#c-packet-table-api" title="Link to this heading">#</a></h2>
+</section>
+<section id="internal-header-file">
+<h2>Internal header file<a class="headerlink" href="#internal-header-file" title="Link to this heading">#</a></h2>
+</section>
+<section id="documentation">
+<h2>Documentation<a class="headerlink" href="#documentation" title="Link to this heading">#</a></h2>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="bug-fixes">
+<h1>🪲 Bug Fixes<a class="headerlink" href="#bug-fixes" title="Link to this heading">#</a></h1>
+<section id="id1">
+<h2>Library<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<section id="fixed-a-problem-with-using-filters-with-variable-length-datatypes">
+<h3>Fixed a problem with using filters with variable length datatypes<a class="headerlink" href="#fixed-a-problem-with-using-filters-with-variable-length-datatypes" title="Link to this heading">#</a></h3>
+<p>When using data filters with a dataset with a variable length datatype, the library would not invoke the filters’ can_apply and set_local callbacks. This has been addressed and the library will now make those callbacks no matter what the datatype is.</p>
+</section>
+<section id="fixed-a-potential-out-of-bound-read">
+<h3>Fixed a potential out of bound read<a class="headerlink" href="#fixed-a-potential-out-of-bound-read" title="Link to this heading">#</a></h3>
+<p>When a file is corrupted such that an array datatype’s size, the number of elements, and the element size are not in agreement, it can trigger an out of bounds read.  A check has been added to detect such situation.</p>
+</section>
+<section id="fixed-security-issue-cve-2025-44904">
+<h3>Fixed security issue <a class="reference external" href="https://www.cve.org/CVERecord?id=CVE-2025-44904">CVE-2025-44904</a><a class="headerlink" href="#fixed-security-issue-cve-2025-44904" title="Link to this heading">#</a></h3>
+<p>For unfiltered dataset chunks, the size on disk should be constant for all chunks in a dataset. In some cases the size of each chunk is stored even in this case where it can be inferred from the chunk dimensions and datatype. The code previously assumed this stored size was equal to the inferred size, leading to a mismatch in the expected and actual buffer size. Modified the library to throw an error if the size does not match the expected size.</p>
+</section>
+<section id="fixed-security-issue-cve-2025-2309">
+<h3>Fixed security issue <a class="reference external" href="https://www.cve.org/CVERecord?id=CVE-2025-2309">CVE-2025-2309</a><a class="headerlink" href="#fixed-security-issue-cve-2025-2309" title="Link to this heading">#</a></h3>
+<p>Fixed a critical vulnerability in <code class="docutils literal notranslate"><span class="pre">H5T__bit_copy</span></code> of the component Type Conversion Logic which could lead to heap-based buffer overflow.</p>
+</section>
+<section id="fixed-security-issue-cve-2025-2308">
+<h3>Fixed security issue <a class="reference external" href="https://www.cve.org/CVERecord?id=CVE-2025-2308">CVE-2025-2308</a><a class="headerlink" href="#fixed-security-issue-cve-2025-2308" title="Link to this heading">#</a></h3>
+<p>Fixed a critical vulnerability in the function <code class="docutils literal notranslate"><span class="pre">H5Z__scaleoffset_decompress_one_byte</span></code> of the component Scale-Offset Filter which could lead to heap-based buffer overflow.</p>
+</section>
+<section id="fixed-a-double-free-bug-in-h5d-chunk-copy">
+<h3>Fixed a double-free bug in <code class="docutils literal notranslate"><span class="pre">H5D__chunk_copy</span></code><a class="headerlink" href="#fixed-a-double-free-bug-in-h5d-chunk-copy" title="Link to this heading">#</a></h3>
+<p>Fixed a double-free bug in the internal <code class="docutils literal notranslate"><span class="pre">H5D__chunk_copy()</span></code> function which occurred when a buffer was re-allocated without updating the original pointer freed later on.</p>
+<p>Fixes GitHub issues <a class="reference external" href="https://github.com/HDFGroup/hdf5/issues/6123">#6123</a>
+<a class="reference external" href="https://github.com/HDFGroup/hdf5/issues/6124">#6124</a>
+<a class="reference external" href="https://github.com/HDFGroup/hdf5/issues/6125">#6125</a>
+<a class="reference external" href="https://github.com/HDFGroup/hdf5/issues/6126">#6126</a>
+<a class="reference external" href="https://github.com/HDFGroup/hdf5/issues/6133">#6133</a></p>
+</section>
+<section id="fixes-potential-security-issues">
+<h3>Fixes potential security issues<a class="headerlink" href="#fixes-potential-security-issues" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">get_name</span></code> API functions allow passing NULL when querying the object name length. However, passing a non-NULL buffer with size == 0 will result in security vulnerability of invalid write. That was because the library wrote a null terminator to the buffer regardless of what the size of the buffer was as long as the buffer was non-NULL.
+These functions are now fixed to treat (buffer != NULL, size == 0) as a length-only query to eliminate Valgrind error of invalid write.</p>
+</section>
+<section id="fixed-a-performance-issue-with-chunked-dataset-i-o">
+<h3>Fixed a performance issue with chunked dataset I/O<a class="headerlink" href="#fixed-a-performance-issue-with-chunked-dataset-i-o" title="Link to this heading">#</a></h3>
+<p>When dataset chunks are unable to be placed in the dataset chunk cache (for example, if a chunk is too large), the library falls back to an alternative approach for I/O on dataset chunks. An issue with the logic in this approach prevented chunked dataset I/O from making use of the library’s data sieve buffer I/O optimization functionality. For chunk shapes that are non-contiguous with the memory layout of a buffer, this could result in severely degraded I/O performance, with the worst-case behavior causing I/O to be performed on a single data element at a time.</p>
+<p>The data sieve buffer functionality has been extended to cover the case of uncached chunks and will be used as long as the underlying Virtual File Driver supports data sieving.</p>
+</section>
+</section>
+<section id="id2">
+<h2>Java Library<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+</section>
+<section id="id3">
+<h2>Configuration<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<section id="removed-force-setting-of-zlib-use-external-and-szip-use-external-cmake-variables-to-on">
+<h3>Removed force-setting of <code class="docutils literal notranslate"><span class="pre">ZLIB_USE_EXTERNAL</span></code> and <code class="docutils literal notranslate"><span class="pre">SZIP_USE_EXTERNAL</span></code> CMake variables to <code class="docutils literal notranslate"><span class="pre">ON</span></code><a class="headerlink" href="#removed-force-setting-of-zlib-use-external-and-szip-use-external-cmake-variables-to-on" title="Link to this heading">#</a></h3>
+<p>When the CMake variable <code class="docutils literal notranslate"><span class="pre">HDF5_ALLOW_EXTERNAL_SUPPORT</span></code> is set to <code class="docutils literal notranslate"><span class="pre">GIT</span></code> or <code class="docutils literal notranslate"><span class="pre">TGZ</span></code>, the library’s build process previously force-set the <code class="docutils literal notranslate"><span class="pre">ZLIB_USE_EXTERNAL</span></code> and <code class="docutils literal notranslate"><span class="pre">SZIP_USE_EXTERNAL</span></code> variables to <code class="docutils literal notranslate"><span class="pre">ON</span></code>. This prevented the ability to independently choose whether zlib and szip are built from system libraries or from external sources. These variables are no longer forced to <code class="docutils literal notranslate"><span class="pre">ON</span></code> in this case and can be set individually.</p>
+</section>
+</section>
+<section id="id4">
+<h2>Tools<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
+</section>
+<section id="performance">
+<h2>Performance<a class="headerlink" href="#performance" title="Link to this heading">#</a></h2>
+</section>
+<section id="fortran-api">
+<h2>Fortran API<a class="headerlink" href="#fortran-api" title="Link to this heading">#</a></h2>
+<section id="added-fortran-wrappers-for-swmr-functionality">
+<h3>Added Fortran wrappers for SWMR functionality<a class="headerlink" href="#added-fortran-wrappers-for-swmr-functionality" title="Link to this heading">#</a></h3>
+<p>Added four new Fortran wrappers that provide direct access to SWMR (Single Writer Multiple Reader) C APIs:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">h5fstart_swmr_write_f</span></code> - Enables SWMR writing mode for a file</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">h5dflush_f</span></code>            - Flushes dataset buffers to disk</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">h5pset_append_flush_f</span></code> - Sets append flush property values including optional callback function</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">h5pget_append_flush_f</span></code> - Retrieves append flush property values including callback function</p></li>
+</ul>
+</section>
+</section>
+<section id="high-level-library">
+<h2>High-Level Library<a class="headerlink" href="#high-level-library" title="Link to this heading">#</a></h2>
+</section>
+<section id="fortran-high-level-apis">
+<h2>Fortran High-Level APIs<a class="headerlink" href="#fortran-high-level-apis" title="Link to this heading">#</a></h2>
+</section>
+<section id="id5">
+<h2>Documentation<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
+</section>
+<section id="f90-apis">
+<h2>F90 APIs<a class="headerlink" href="#f90-apis" title="Link to this heading">#</a></h2>
+</section>
+<section id="c-apis">
+<h2>C++ APIs<a class="headerlink" href="#c-apis" title="Link to this heading">#</a></h2>
+</section>
+<section id="testing">
+<h2>Testing<a class="headerlink" href="#testing" title="Link to this heading">#</a></h2>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="support-for-new-platforms-and-languages">
+<h1>✨ Support for new platforms and languages<a class="headerlink" href="#support-for-new-platforms-and-languages" title="Link to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="platforms-tested">
+<h1>☑️ Platforms Tested<a class="headerlink" href="#platforms-tested" title="Link to this heading">#</a></h1>
+<p>A table of platforms tested can be seen on the <a class="reference external" href="https://github.com/HDFGroup/hdf5/wiki/Platforms-Tested">wiki</a>.
+Current test results are available <a class="reference external" href="https://my.cdash.org/index.php?project=HDF5">here</a>.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="known-problems">
+<h1>⛔ Known Problems<a class="headerlink" href="#known-problems" title="Link to this heading">#</a></h1>
+<ul>
+<li><p>When performing implicit datatype conversion on specific non-IEEE floating-point format data, HDF5 may improperly convert some data values:</p>
+<p>When performing I/O operations using a non-IEEE floating-point format datatype, HDF5 may improperly convert some data values due to incomplete handling of non-IEEE types. Such types include the following pre-defined datatypes:</p>
+<p><code class="docutils literal notranslate"><span class="pre">H5T_FLOAT_F8E4M3</span></code><br>
+<code class="docutils literal notranslate"><span class="pre">H5T_FLOAT_F8E5M2</span></code><br>
+<code class="docutils literal notranslate"><span class="pre">H5T_FLOAT_F6E2M3</span></code><br>
+<code class="docutils literal notranslate"><span class="pre">H5T_FLOAT_F6E3M2</span></code><br>
+<code class="docutils literal notranslate"><span class="pre">H5T_FLOAT_F4E2M1</span></code></p>
+<p>If possible, an application should perform I/O with these datatypes using an in-memory type that matches the specific floating-point format and perform explicit data conversion outside of HDF5, if necessary. Otherwise, read/written values should be verified to be correct.</p>
+</li>
+<li><p>When the library detects and builds in support for the _Float16 datatype, an issue has been observed on at least one MacOS 14 system where the library fails to initialize due to not being able to detect the byte order of the _Float16 type <a class="reference external" href="https://github.com/HDFGroup/hdf5/issues/4310">#4310</a>:</p>
+<p>#5: H5Tinit_float.c line 308 in <code class="docutils literal notranslate"><span class="pre">H5T__fix_order()</span></code>: failed to detect byte order
+major: Datatype
+minor: Unable to initialize object</p>
+<p>If this issue is encountered, support for the _Float16 type can be disabled with a configuration option:</p>
+<p><code class="docutils literal notranslate"><span class="pre">CMake:</span> <span class="pre">HDF5_ENABLE_NONSTANDARD_FEATURE_FLOAT16=OFF</span></code></p>
+</li>
+<li><p>When HDF5 is compiled with NVHPC versions 23.5 - 23.9 (additional versions may also be applicable) and with -O2 (or higher) and -DNDEBUG, test failures occur in the following tests:</p>
+<ul class="simple">
+<li><p>H5PLUGIN-filter_plugin</p></li>
+<li><p>H5TEST-flush2</p></li>
+<li><p>H5TEST-testhdf5-base</p></li>
+<li><p>MPI_TEST_t_filters_parallel</p></li>
+</ul>
+<p>Sporadic failures (even with lower -O levels):</p>
+<ul class="simple">
+<li><p>Java JUnit-TestH5Pfapl</p></li>
+<li><p>Java JUnit-TestH5D</p></li>
+</ul>
+<p>Also, NVHPC will fail to compile the test/tselect.c test file with a compiler error of <code class="docutils literal notranslate"><span class="pre">use</span> <span class="pre">of</span> <span class="pre">undefined</span> <span class="pre">value</span></code> when the optimization level is -O2 or higher.</p>
+<p>This is confirmed to be a <a class="reference external" href="https://forums.developer.nvidia.com/t/hdf5-no-longer-compiles-with-nv-23-9/269045">bug in the nvc compiler</a> that has been fixed as of 23.11. If you are using an affected version of the NVidia compiler, the work-around is to set the optimization level to -O1.</p>
+</li>
+<li><p>CMake files do not behave correctly with paths containing spaces</p>
+<p>Do not use spaces in paths because the required escaping for handling spaces results in very complex and fragile build files.</p>
+</li>
+<li><p>At present, metadata cache images may not be generated by parallel applications. Parallel applications can read files with metadata cache images, but since this is a collective operation, a deadlock is possible if one or more processes do not participate.</p></li>
+<li><p>The subsetting option in <code class="docutils literal notranslate"><span class="pre">ph5diff</span></code> currently will fail and should be avoided</p>
+<p>The subsetting option works correctly in serial <code class="docutils literal notranslate"><span class="pre">h5diff</span></code>.</p>
+</li>
+<li><p>Flang Fortran compilation will fail (last check version 17) due to not yet implemented: (1) derived type argument passed by value (H5VLff.F90), and (2) support for REAL with KIND = 2 in intrinsic SPACING used in testing.</p></li>
+<li><p>Fortran tests HDF5_1_8.F90 and HDF5_F03.F90 will fail with Cray compilers greater than version 16.0 due to a compiler bug. The latest version verified as failing was version 17.0.</p></li>
+<li><p>Several tests currently fail on certain platforms:
+MPI_TEST-t_bigio fails with spectrum-mpi on ppc64le platforms.</p>
+<p>MPI_TEST-t_subfiling_vfd and MPI_TEST_EXAMPLES-ph5_subfiling fail with
+cray-mpich on theta and with XL compilers on ppc64le platforms.</p>
+</li>
+<li><p>File space may not be released when overwriting or deleting certain nested variable length or reference types.</p></li>
+</ul>
+<p>Known problems in previous releases can be found in the HISTORY*.txt files in the HDF5 source. Please report any new problems found to <a href="mailto:help@hdfgroup.org">help&#64;hdfgroup.org</a>.</p>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./.pixi/envs/default/share"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">🔺 HDF5 Changelog</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-links">🔗 Quick Links</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contents">📖 Contents</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#executive-summary-hdf5-version-2-1-0">🔆 Executive Summary: HDF5 Version 2.1.0</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#performance-enhancements">Performance Enhancements:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#significant-advancements">Significant Advancements:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enhanced-features">Enhanced Features:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#java-enhancements">Java Enhancements:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgements">Acknowledgements:</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#breaking-changes">⚠️ Breaking Changes</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#new-features-improvements">🚀 New Features &amp; Improvements</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration">Configuration</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#added-a-cmake-module-to-locate-libaec-for-szip-support">Added a CMake module to locate libaec for SZIP support</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#refactored-cmake-library-export-mechanism">Refactored CMake library export mechanism</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#library">Library</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#added-predefined-datatypes-for-fp6-data">Added predefined datatypes for FP6 data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#added-predefined-datatype-for-fp4-data">Added predefined datatype for FP4 data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parallel-library">Parallel Library</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fortran-library">Fortran Library</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c-library">C++ Library</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fixed-checking-of-data-alignment-requirements-in-direct-i-o-vfd">Fixed checking of data alignment requirements in direct I/O VFD</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#java-library">Java Library</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tools">Tools</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#high-level-apis">High-Level APIs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c-packet-table-api">C Packet Table API</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#internal-header-file">Internal header file</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#documentation">Documentation</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#bug-fixes">🪲 Bug Fixes</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Library</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fixed-a-problem-with-using-filters-with-variable-length-datatypes">Fixed a problem with using filters with variable length datatypes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fixed-a-potential-out-of-bound-read">Fixed a potential out of bound read</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fixed-security-issue-cve-2025-44904">Fixed security issue CVE-2025-44904</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fixed-security-issue-cve-2025-2309">Fixed security issue CVE-2025-2309</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fixed-security-issue-cve-2025-2308">Fixed security issue CVE-2025-2308</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fixed-a-double-free-bug-in-h5d-chunk-copy">Fixed a double-free bug in <code class="docutils literal notranslate"><span class="pre">H5D__chunk_copy</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fixes-potential-security-issues">Fixes potential security issues</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fixed-a-performance-issue-with-chunked-dataset-i-o">Fixed a performance issue with chunked dataset I/O</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Java Library</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Configuration</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#removed-force-setting-of-zlib-use-external-and-szip-use-external-cmake-variables-to-on">Removed force-setting of <code class="docutils literal notranslate"><span class="pre">ZLIB_USE_EXTERNAL</span></code> and <code class="docutils literal notranslate"><span class="pre">SZIP_USE_EXTERNAL</span></code> CMake variables to <code class="docutils literal notranslate"><span class="pre">ON</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Tools</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#performance">Performance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fortran-api">Fortran API</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#added-fortran-wrappers-for-swmr-functionality">Added Fortran wrappers for SWMR functionality</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#high-level-library">High-Level Library</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fortran-high-level-apis">Fortran High-Level APIs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Documentation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#f90-apis">F90 APIs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c-apis">C++ APIs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#testing">Testing</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#support-for-new-platforms-and-languages">✨ Support for new platforms and languages</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#platforms-tested">☑️ Platforms Tested</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#known-problems">⛔ Known Problems</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Philip Austin
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
