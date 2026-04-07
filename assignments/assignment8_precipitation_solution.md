@@ -99,7 +99,7 @@ print(f"growth time is {the_minutes:.1f} minutes")
 ```{code-cell} ipython3
 from scipy.integrate import odeint
 import pandas as pd
-
+from matplotlib import pyplot as plt
 def find_deriv(the_var,the_time):
     dr_dt = 6.7e-4*the_var
     return dr_dt
@@ -142,30 +142,132 @@ r \frac{ dr}{dt}  = G_l S \\
 \Rightarrow \frac{ 1}{2}\frac{dr^2 }{dt}   = G_l S 
 $$(three)
 
-Integrate {eq}`three` from $(t^\prime=0,r^\prime=0)$ to $(t^\prime=t,r^\prime = r)$
+Integrate {eq}`three` from $(t^\prime=0,r^\prime=r_0)$ to $(t^\prime=t,r^\prime = r)$
 
 $$
-r^2 = 2 G_l S t
+r^2 = r_0^2 + 2 G_l S t
 $$(four)
 
-Insert {eq}`four` into {eq}`one`
+Insert {eq}`four` into {eq}`two` and then use {eq}`one`
 
 $$
-\frac{ dh}{dt}  = w - \frac{ 2 g \rho_l 2 G_l S t}{9 \eta}
+\frac{ dh}{dt}  = w - \frac{ 2 g \rho_l  G_l S t}{9 \eta}
 $$
+
++++
+
+#### Integrate this for constant updraft w
 
 +++ {"jp-MarkdownHeadingCollapsed": true}
 
-
 $$
-    \frac{ dh}{dt}  = w - \frac{ 2 g \rho_l 2 G_l S t}{9 \eta} \label{three} \\
+    \frac{ dh}{dt}  = w - \frac{ 2 g \rho_l 2 G_l S t}{9 \eta} \\
 \int_0^h  dh^\prime = \int_0^t \left [ w - \frac{ 2 g \rho_l 2 G_l S t^\prime}{9 \eta} \right ] dt^\prime \\
 h= wt - \frac{ 2 g \rho_l  G_l S t^2}{9 \eta}
+$$(eq:three)
+
++++
+
+#### Compare values of $G_l$
+
+- Thompkins 4.25
+
+$$
+r\frac{d r}{d t} \simeq \frac{D e_s^{\infty}}{\rho_L  R_v T}(S-1)
+$$(eq:dropgrow)
+where
+- $D$ = $2.2 \times 10^{-5}$ $m^2\,s^{-1}$ at 0 deg C
+- $R_v$ = 461.5 $J\,kg^{-1}\,K^{-1}$
+- $\rho_l$ = 1000 $kg\,m^{-3}$
+- $e_s^\infty$ = 611 $Pa$ at 0 deg C
+- $T$ = 273.15 K
+
++++
+
+#### Numerical value for $G_l$ at 0 deg C
+
+```{code-cell} ipython3
+D=2.2e-5  #m^2/s
+es0 = 611 #Pa
+Temp = 273.15 #K
+G_l = D*es0/(c.rhol*c.Rv*Temp)
+print(f"{G_l:.3g} m^s/s or {G_l*1.e12:.3g} μm^2/s at 0 deg C")
+```
+
+Which agrees with Wallace and Hobbs for smail drops
+
++++
+
+#### Now put in some numbers for problem 4:
+
+To get the dynamic velocity $\eta$, use [this website](https://www.engineeringtoolbox.com/dynamic-absolute-kinematic-viscosity-d_412.html)
+
+With $w=0$, {eq}`three` becomes
+$$
+h= \frac{ 2 g \rho_l  G_l S t^2}{9 \eta} = k S t^2
+$$
+where 
+$$
+k = \frac{2 g \rho_l G_l}{9 \eta}\ m\,s^{-2}
 $$
 
++++
 
-+++ {"jp-MarkdownHeadingCollapsed": true}
+And to fall a distance $-h$ takes time:
+
+$$
+t = \sqrt{\frac{h}{k(-S)}}
+$$
+
++++
 
 ### Problem 4 -- Wallace and Hobbs problem 6.24 -- falling precip
 
 If a raindrop has a radius of 1 mm at cloud base, which is located 5 km above the ground, what will be its radius at the ground and how long will it take to reach the ground if the relative humidity between cloud base and ground is constant at 60%? [Hint: Use (6.21) and the relationship between v and r given in Exercise 6.23. If r is in micrometers, the value of Gl in (6.21) is 100 for cloud droplets, but for the large drop sizes considered in this problem the value of Gl should be taken as 700 to allow for ventilation effects.]
+
+```{code-cell} ipython3
+G_l = 700e-12 #m^2/s
+w = 0
+eta = 19.8e-6 #Pa s at 0 deg C
+S = -0.4
+k = (2*c.g0*c.rhol*G_l)/(9*eta)
+k
+```
+
+```{code-cell} ipython3
+h = 5000
+time =(h/(k*(-S)))**0.5
+print(f"fall time = {time:.1f} seconds")
+```
+
+#### Use {eq}`four` to find $r$
+
+
+```{code-cell} ipython3
+r0=1.e-3  #m
+r2 = r0**2. + 2*G_l*S*time
+rfinal = r2**0.5
+print(f"drop radius at surface = {rfinal*1.e6:.1f} microns")
+```
+
+#### Repeat this using solve_ivp
+
+```{code-cell} ipython3
+from scipy.integrate import odeint
+import pandas as pd
+import numpy as np
+from matplotlib import pyplot as plt
+
+
+def find_derivs(the_vars,the_time):
+    dh_dt = 
+    dr_dt = -the_vars[0]
+    return [dx_dt,dy_dt]
+
+init_0 = [0,1]
+the_time = np.arange(0,7,0.01)
+    
+sol = odeint(find_derivs,init_0, the_time)
+df_output = pd.DataFrame.from_records(sol,columns = ['xvar','yvar'])
+df_output['time'] = the_time
+```
