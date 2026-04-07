@@ -455,7 +455,7 @@ document.write(`
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-4-wallace-and-hobbs-problem-6-24-falling-precip">Problem 4 – Wallace and Hobbs problem 6.24 – falling precip</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#use-four-to-find-r">Use <code class="xref eq docutils literal notranslate"><span class="pre">four</span></code> to find <span class="math notranslate nohighlight">\(r\)</span></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#repeat-this-using-solve-ivp">Repeat this using solve_ivp</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-solution">Numerical solution</a></li>
 </ul>
 </li>
 </ul>
@@ -473,7 +473,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="assignment-8-precipitation-solution">
 <span id="assignment-precip-solution"></span><h1>Assignment 8 – precipitation solution<a class="headerlink" href="#assignment-8-precipitation-solution" title="Link to this heading">#</a></h1>
-<p>Downlad link for <a class="reference external" href="https://drive.google.com/file/d/1grmUECBF4ePSNUO_264ibG546GiYKk9y/view?usp=sharing">assignment8_precipitation.ipynb</a></p>
+<p>Downlad link for <a class="reference external" href="https://drive.google.com/file/d/1grmUECBF4ePSNUO_264ibG546GiYKk9y/view?usp=sharing">assignment8_precipitation_solution.ipynb</a></p>
 <section id="problem-1-cloud-condensation-nuclei-counter">
 <h2>Problem 1 – Cloud Condensation Nuclei Counter<a class="headerlink" href="#problem-1-cloud-condensation-nuclei-counter" title="Link to this heading">#</a></h2>
 <p>Hand in the <a class="reference internal" href="../notebooks/worksheets/worksheet10_aero_dist_solution.html#worksheet10-problem"><span class="std std-ref">Worksheet 10 CCNC Problem</span></a></p>
@@ -632,8 +632,8 @@ r^2 = r_0^2 + 2 G_l S t
 <h4>Integrate this for constant updraft w<a class="headerlink" href="#integrate-this-for-constant-updraft-w" title="Link to this heading">#</a></h4>
 <div class="math notranslate nohighlight" id="equation-eq-three">
 <span class="eqno">(23)<a class="headerlink" href="#equation-eq-three" title="Link to this equation">#</a></span>\[\begin{split}
-    \frac{ dh}{dt}  = w - \frac{ 2 g \rho_l 2 G_l S t}{9 \eta} \\
-\int_0^h  dh^\prime = \int_0^t \left [ w - \frac{ 2 g \rho_l 2 G_l S t^\prime}{9 \eta} \right ] dt^\prime \\
+    \frac{ dh}{dt}  = w - \frac{ 2 g \rho_l  G_l S t}{9 \eta} \\
+\int_0^h  dh^\prime = \int_0^t \left [ w - \frac{ 2 g \rho_l  G_l S t^\prime}{9 \eta} \right ] dt^\prime \\
 h= wt - \frac{ 2 g \rho_l  G_l S t^2}{9 \eta}
 \end{split}\]</div>
 </section>
@@ -745,8 +745,14 @@ t = \sqrt{\frac{h}{k(-S)}}
 </div>
 </div>
 </section>
-<section id="repeat-this-using-solve-ivp">
-<h4>Repeat this using solve_ivp<a class="headerlink" href="#repeat-this-using-solve-ivp" title="Link to this heading">#</a></h4>
+<section id="numerical-solution">
+<h4>Numerical solution<a class="headerlink" href="#numerical-solution" title="Link to this heading">#</a></h4>
+<p>For extra credit:</p>
+<ol class="arabic simple">
+<li><p>Make this work with v = -6000r</p></li>
+<li><p>change fall speed to that used in analytic solution and compare</p></li>
+<li><p>Repeat this using solve_ivp, stopping at h=0</p></li>
+</ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.integrate</span><span class="w"> </span><span class="kn">import</span> <span class="n">odeint</span>
@@ -755,25 +761,51 @@ t = \sqrt{\frac{h}{k(-S)}}
 <span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 
 
-<span class="k">def</span><span class="w"> </span><span class="nf">find_derivs</span><span class="p">(</span><span class="n">the_vars</span><span class="p">,</span><span class="n">the_time</span><span class="p">):</span>
-    <span class="n">dh_dt</span> <span class="o">=</span> 
-    <span class="n">dr_dt</span> <span class="o">=</span> <span class="o">-</span><span class="n">the_vars</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="k">return</span> <span class="p">[</span><span class="n">dx_dt</span><span class="p">,</span><span class="n">dy_dt</span><span class="p">]</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">find_derivs</span><span class="p">(</span><span class="n">the_vars</span><span class="p">,</span><span class="n">G_l</span><span class="p">,</span><span class="n">S</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    the_vars[0] = h  (height, m)</span>
+<span class="sd">    the_vars[1] = r (radius, m)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">dh_dt</span> <span class="o">=</span> <span class="o">-</span><span class="mi">6000</span><span class="o">*</span><span class="n">the_vars</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="c1">#WH prob 6.23, m</span>
+    <span class="n">dr_dt</span> <span class="o">=</span>  <span class="n">the_vars</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">G_l</span><span class="o">*</span><span class="p">(</span><span class="n">S</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="c1">#WH eq. 6.21</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">dh_dt</span><span class="p">,</span><span class="n">dr_dt</span><span class="p">]</span>
 
-<span class="n">init_0</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
-<span class="n">the_time</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mf">0.01</span><span class="p">)</span>
+<span class="n">init_0</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5000</span><span class="p">,</span><span class="mf">0.001</span><span class="p">]</span>  <span class="c1">#h, r</span>
+<span class="n">the_time</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1000</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="c1">#seconds</span>
+<span class="n">G_l</span> <span class="o">=</span> <span class="mi">700</span>
+<span class="n">S</span> <span class="o">=</span> <span class="mf">0.6</span>
+<span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="n">G_l</span><span class="p">,</span> <span class="n">S</span><span class="p">)</span>
     
-<span class="n">sol</span> <span class="o">=</span> <span class="n">odeint</span><span class="p">(</span><span class="n">find_derivs</span><span class="p">,</span><span class="n">init_0</span><span class="p">,</span> <span class="n">the_time</span><span class="p">)</span>
-<span class="n">df_output</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_records</span><span class="p">(</span><span class="n">sol</span><span class="p">,</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;xvar&#39;</span><span class="p">,</span><span class="s1">&#39;yvar&#39;</span><span class="p">])</span>
+<span class="n">sol</span> <span class="o">=</span> <span class="n">odeint</span><span class="p">(</span><span class="n">find_derivs</span><span class="p">,</span><span class="n">init_0</span><span class="p">,</span> <span class="n">the_time</span><span class="p">,</span><span class="n">args</span><span class="p">)</span>
+<span class="n">df_output</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_records</span><span class="p">(</span><span class="n">sol</span><span class="p">,</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;height&#39;</span><span class="p">,</span><span class="s1">&#39;radius&#39;</span><span class="p">])</span>
 <span class="n">df_output</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">the_time</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">8</span>
-    <span class="n">dh_dt</span> <span class="o">=</span>
-            <span class="o">^</span>
-<span class="ne">SyntaxError</span>: invalid syntax
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">22</span>
+<span class="g g-Whitespace">     </span><span class="mi">18</span> <span class="n">G_l</span> <span class="o">=</span> <span class="mi">700</span>
+<span class="g g-Whitespace">     </span><span class="mi">19</span> <span class="n">S</span> <span class="o">=</span> <span class="mf">0.6</span>
+<span class="g g-Whitespace">     </span><span class="mi">20</span> <span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="n">G_l</span><span class="p">,</span> <span class="n">S</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">21</span> 
+<span class="ne">---&gt; </span><span class="mi">22</span> <span class="n">sol</span> <span class="o">=</span> <span class="n">odeint</span><span class="p">(</span><span class="n">find_derivs</span><span class="p">,</span><span class="n">init_0</span><span class="p">,</span> <span class="n">the_time</span><span class="p">,</span><span class="n">args</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">23</span> <span class="n">df_output</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_records</span><span class="p">(</span><span class="n">sol</span><span class="p">,</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;height&#39;</span><span class="p">,</span><span class="s1">&#39;radius&#39;</span><span class="p">])</span>
+<span class="g g-Whitespace">     </span><span class="mi">24</span> <span class="n">df_output</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">the_time</span>
+
+<span class="nn">File ~/repos/a405/.pixi/envs/default/lib/python3.14/site-packages/scipy/integrate/_odepack_py.py:252,</span> in <span class="ni">odeint</span><span class="nt">(func, y0, t, args, Dfun, col_deriv, full_output, ml, mu, rtol, atol, tcrit, h0, hmax, hmin, ixpr, mxstep, mxhnil, mxordn, mxords, printmessg, tfirst)</span>
+<span class="g g-Whitespace">    </span><span class="mi">248</span> <span class="n">t</span> <span class="o">=</span> <span class="n">copy</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">249</span> <span class="n">y0</span> <span class="o">=</span> <span class="n">copy</span><span class="p">(</span><span class="n">y0</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">252</span> <span class="n">output</span> <span class="o">=</span> <span class="n">_odepack</span><span class="o">.</span><span class="n">odeint</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">Dfun</span><span class="p">,</span> <span class="n">col_deriv</span><span class="p">,</span> <span class="n">ml</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">253</span>                         <span class="n">full_output</span><span class="p">,</span> <span class="n">rtol</span><span class="p">,</span> <span class="n">atol</span><span class="p">,</span> <span class="n">tcrit</span><span class="p">,</span> <span class="n">h0</span><span class="p">,</span> <span class="n">hmax</span><span class="p">,</span> <span class="n">hmin</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">254</span>                         <span class="n">ixpr</span><span class="p">,</span> <span class="n">mxstep</span><span class="p">,</span> <span class="n">mxhnil</span><span class="p">,</span> <span class="n">mxordn</span><span class="p">,</span> <span class="n">mxords</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">255</span>                         <span class="nb">int</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="n">tfirst</span><span class="p">)))</span>
+<span class="g g-Whitespace">    </span><span class="mi">256</span> <span class="k">if</span> <span class="n">output</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">257</span>     <span class="n">warning_msg</span> <span class="o">=</span> <span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">_msgs</span><span class="p">[</span><span class="n">output</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span><span class="si">}</span><span class="s2"> Run with full_output = 1 to &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">258</span>                    <span class="sa">f</span><span class="s2">&quot;get quantitative information.&quot;</span><span class="p">)</span>
+
+<span class="ne">TypeError</span>: find_derivs() takes 3 positional arguments but 4 were given
 </pre></div>
 </div>
 </div>
@@ -866,7 +898,7 @@ t = \sqrt{\frac{h}{k(-S)}}
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-4-wallace-and-hobbs-problem-6-24-falling-precip">Problem 4 – Wallace and Hobbs problem 6.24 – falling precip</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#use-four-to-find-r">Use <code class="xref eq docutils literal notranslate"><span class="pre">four</span></code> to find <span class="math notranslate nohighlight">\(r\)</span></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#repeat-this-using-solve-ivp">Repeat this using solve_ivp</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-solution">Numerical solution</a></li>
 </ul>
 </li>
 </ul>

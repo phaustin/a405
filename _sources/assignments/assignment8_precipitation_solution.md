@@ -15,7 +15,7 @@ kernelspec:
 (assignment_precip_solution)=
 # Assignment 8 -- precipitation solution
 
-Downlad link for [assignment8_precipitation.ipynb](https://drive.google.com/file/d/1grmUECBF4ePSNUO_264ibG546GiYKk9y/view?usp=sharing)
+Downlad link for [assignment8_precipitation_solution.ipynb](https://drive.google.com/file/d/1grmUECBF4ePSNUO_264ibG546GiYKk9y/view?usp=sharing)
 
 ## Problem 1 -- Cloud Condensation Nuclei Counter
 
@@ -161,8 +161,8 @@ $$
 +++ {"jp-MarkdownHeadingCollapsed": true}
 
 $$
-    \frac{ dh}{dt}  = w - \frac{ 2 g \rho_l 2 G_l S t}{9 \eta} \\
-\int_0^h  dh^\prime = \int_0^t \left [ w - \frac{ 2 g \rho_l 2 G_l S t^\prime}{9 \eta} \right ] dt^\prime \\
+    \frac{ dh}{dt}  = w - \frac{ 2 g \rho_l  G_l S t}{9 \eta} \\
+\int_0^h  dh^\prime = \int_0^t \left [ w - \frac{ 2 g \rho_l  G_l S t^\prime}{9 \eta} \right ] dt^\prime \\
 h= wt - \frac{ 2 g \rho_l  G_l S t^2}{9 \eta}
 $$(eq:three)
 
@@ -242,7 +242,6 @@ print(f"fall time = {time:.1f} seconds")
 
 #### Use {eq}`four` to find $r$
 
-
 ```{code-cell} ipython3
 r0=1.e-3  #m
 r2 = r0**2. + 2*G_l*S*time
@@ -250,7 +249,13 @@ rfinal = r2**0.5
 print(f"drop radius at surface = {rfinal*1.e6:.1f} microns")
 ```
 
-#### Repeat this using solve_ivp
+#### Numerical solution
+
+For extra credit:  
+
+1) Make this work with v = -6000r
+2) change fall speed to that used in analytic solution and compare
+3) Repeat this using solve_ivp, stopping at h=0
 
 ```{code-cell} ipython3
 from scipy.integrate import odeint
@@ -259,15 +264,26 @@ import numpy as np
 from matplotlib import pyplot as plt
 
 
-def find_derivs(the_vars,the_time):
-    dh_dt = 
-    dr_dt = -the_vars[0]
-    return [dx_dt,dy_dt]
+def find_derivs(the_vars,G_l,S):
+    """
+    the_vars[0] = h  (height, m)
+    the_vars[1] = r (radius, m)
+    """
+    dh_dt = -6000*the_vars[1] #WH prob 6.23, m
+    dr_dt =  the_vars[0]*G_l*(S - 1) #WH eq. 6.21
+    return [dh_dt,dr_dt]
 
-init_0 = [0,1]
-the_time = np.arange(0,7,0.01)
+init_0 = [5000,0.001]  #h, r
+the_time = np.arange(0,1000,1) #seconds
+G_l = 700
+S = 0.6
+args = (G_l, S)
     
-sol = odeint(find_derivs,init_0, the_time)
-df_output = pd.DataFrame.from_records(sol,columns = ['xvar','yvar'])
+sol = odeint(find_derivs,init_0, the_time,args)
+df_output = pd.DataFrame.from_records(sol,columns = ['height','radius'])
 df_output['time'] = the_time
+```
+
+```{code-cell} ipython3
+
 ```
