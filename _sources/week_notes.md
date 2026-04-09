@@ -492,6 +492,7 @@ and Thompkins Section 4.5
     - 2016, 2024 exam questions
     - all the final exam practice questions (except for python and CAPE sections)
     - calculation of time constants
+    - finding $S_{crit}$ and $r_{crit}$
     - Marshall-Palmer distribution
     - Taylor series
     - Bergeron effect
