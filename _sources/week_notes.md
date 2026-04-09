@@ -477,6 +477,7 @@ and Thompkins Section 4.5
 
 ### Lecture 29, week 14, Thursday
 
+- {ref}`worksheet10_aerosol_dists_solution`
 - {ref}`assignment_precip_solution` error fixed
 - Final review
   - Not on the exam

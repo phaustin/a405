@@ -15,7 +15,7 @@ kernelspec:
 (assignment_precip_solution)=
 # Assignment 8 -- precipitation solution
 
-Downlad link for [assignment8_precipitation_solution.ipynb](https://drive.google.com/file/d/1v_7fNFFvVIt3Va1NIw3K14E44fx8aQB3/view?usp=sharing)
+Downlad link for [assignment8_precipitation_solution.ipynb](https://drive.google.com/file/d/1FStdQn59V8l3eYsyKWmPwqsPFsqgNg3R/view?usp=sharing)
 
 ## Problem 1 -- Cloud Condensation Nuclei Counter
 
