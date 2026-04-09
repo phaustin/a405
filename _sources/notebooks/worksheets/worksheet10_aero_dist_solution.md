@@ -13,9 +13,9 @@ kernelspec:
 ---
 
 (worksheet10_aerosol_dists_solution)=
-# Worksheet 10: Aerosol distributions
+# Worksheet 10: Aerosol distributions solution
 
-Download [worksheet10_aero_dist.ipynb](https://drive.google.com/file/d/1Ky0ohMyWmQdDiOnJDYV9a0nMl3HV0Z3Y/view?usp=sharing)
+Download [worksheet10_aero_dist_solution.ipynb](https://drive.google.com/file/d/1Ky0ohMyWmQdDiOnJDYV9a0nMl3HV0Z3Y/view?usp=sharing)
 
 +++
 
@@ -280,6 +280,10 @@ Make this:
 
 So again, when we plot we multiply the xaxis by $10^6$ and the yaxis by $10^{-12}$
 
++++
+
+$\mu$
+
 ```{code-cell} ipython3
 rad_vals = (mass_vals/(np.pi*rho_aer*4./3.))**(1./3.) 
 ndist = 3.*out/rad_vals  #units of number/m^3 per m bin width
@@ -289,8 +293,9 @@ ncenter = (ndist[1:] + ndist[:-1])/2.
 # convert radii to microns and ndist to #/cc/um
 #
 ax.plot(rad_vals*1.e6,ndist*1.e-12)
-ax.set(xlim=[0,0.4],xlabel="dry radius ($\mu m$)",
-      ylabel = r'n(r) $\# cm^{-3}\;\mu m^{-1}$')
+ax.set(xlim=[0,0.4])
+ax.set_xlabel(r'dry radius $(\mu m)$')
+ax.set_ylabel(r'n(r) $\# cm^{-3}\;\mu m^{-1}$')
 ax.grid(True)
 total_num=np.sum(ncenter*np.diff(rad_vals)*1.e-6)
 print(f"total number concentration is {total_num:.2f} #/cc")
@@ -314,8 +319,9 @@ yvals = ndist*rad_vals #number/m^3
 yvals = yvals*1.e-6  #number/cm^3
 xvals = rad_vals*1.e6 #microns
 ax.semilogx(xvals,yvals)
-ax.set(xlim=[0.01,0.4],xlabel="dry radius ($\mu m$)",
-      ylabel = r'r x n(r) $\# cm^{-3}$')
+ax.set(xlim=[0.01,0.4])
+ax.set_xlabel(r'dry radius ($\mu m$)')
+ax.set_ylabel(r'r x n(r) $\# cm^{-3}$')
 ax.grid(True)
 # total_num=np.sum(ncenter*np.diff(rad_vals)*1.e-6)
 # print(f"total number concentration is {total_num:.2f} #/cc")
@@ -371,13 +377,98 @@ tau = 1/one_over_tau
 print(f"time constant tau = {tau:.2f} seconds")
 ```
 
-(worksheet10_problem)=
-## Worksheet 10 CCNC Problem
+(worksheet10_ccnc_solution)=
+## Worksheet 10 CCNC Problem solution
 
 Add a cell to this notebook that makes a plot of $N(r)$ vs. $S_{crit}$ for the $n(r)$ in the previous cell,  where:
 
 $N(r) = \int_r^\infty n(r) dr$ is the number of aerosols with dry radii larger than $r$ and $S_{crit}$ is the critical supersaturation at radius r for these ammonium sulphate aerosols.  Explain briefly why this is the output you would expect to see from an aerosol size counter based on a cloud chamber with a laser scattering sensor.
 
-```{code-cell} ipython3
++++
 
+### CCNC answer
+
+#### Borrow code from {ref}`assign7_prob1`
+
+$$
+SS=S^* - 1= \left ( \frac{4 a^3}{27b} \right )^{1/2}
+$$
+
+with
+
+$$
+a=\frac{2 \sigma}{\rho_l R_v T}
+$$
+$$
+b=\frac{i m M_w}{4 / 3 \pi \rho_s M_s}
+$$
+
+So move the aerosol mass out of the $b$ coefficient
+
+$$
+SS=S^* - 1= \left ( \frac{4 a^3}{27b_{nomass}} \right )^{1/2} m^{-1/2} = S_{coeff} m^{-1/2}
+$$
+
+```{code-cell} ipython3
+import numpy as np
+
+Ms=132.  #kg/kmole
+Mw=18.  #kg/kmole
+Rhol=1.e3  #1000
+Sigma=0.075  #N/m
+rhoaero=1775.  #kg/m^3
+Rv=461.   #J/kg/K
+vanhoff=3
+Tinit=280.  #K
+a=(2.*Sigma)/(Rv*Tinit*Rhol) # units m
+bnomass=(vanhoff*Mw)/((4./3.)*np.pi*Rhol*Ms)  #units m^3/kg
+Scoeff=((4*a**3)/(27*bnomass))**0.5  #units  kg^{-0.5}
+print(f'Scrit coeff without aerosol mass: {Scoeff:6.3e} kg**0.5')
 ```
+
+#### Find the critical $SS$ for each aerosol $m$
+
+Note that because the `mass_vals` variable increases with index, SScrit is decreasing with index.  For presentation
+
+```{code-cell} ipython3
+SScrit = Scoeff*mass_vals**(-0.5)
+SScrit[:3]
+```
+
+#### 
+Find the cumulative number distribution
+
+We need to caculate tne total number of aerosols of radius $r$ or larger:
+$$
+N(r) = \int_r^\infty n(r) dr
+$$(cumsum)
+
+Note the `np.cumsum` function calculates something different
+
+np.cumsum(ndist*dr) = $\int_0^r n(r) dr$
+
+We can do still do {eq}`cumsum` with `np.cumsum` if we reverse the direction of $n(r)$.  The following cell does this.  We need to flip $n(r)$ to do the integral, then
+flip it back so that r increases with index
+
+
+
+```{code-cell} ipython3
+ndist_flip = ndist_mid[::-1]
+dr_flip = dr[::-1]
+Nr_flip=np.cumsum(ndist_flip*dr)
+Nr = Nr_flip[::-1]
+plt.plot(Nr);
+```
+
+#### Plot N(r) vs SScrit
+
+```{code-cell} ipython3
+SSmid = (SScrit[1:] + SScrit[:-1])/2.
+fig,ax = plt.subplots(1,1)
+ax.plot(SSmid*100,Nr*1.e-6)
+ax.set_xlim(0,0.1)
+ax.set_ylabel(r'N(r) $(\#\,cm^{-3})$')
+ax.set_xlabel(r'$SS_{crit}$ percent');
+```
+
+The plot looks correct -- at small SS, only the small number of large aerosols activates, but as SS is increased, more and more of the distribution passes their critical radius and become visible to the laser counter.

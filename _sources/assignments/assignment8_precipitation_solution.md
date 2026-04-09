@@ -15,16 +15,19 @@ kernelspec:
 (assignment_precip_solution)=
 # Assignment 8 -- precipitation solution
 
-Downlad link for [assignment8_precipitation_solution.ipynb](https://drive.google.com/file/d/1grmUECBF4ePSNUO_264ibG546GiYKk9y/view?usp=sharing)
+Downlad link for [assignment8_precipitation_solution.ipynb](https://drive.google.com/file/d/1v_7fNFFvVIt3Va1NIw3K14E44fx8aQB3/view?usp=sharing)
 
 ## Problem 1 -- Cloud Condensation Nuclei Counter
 
-Hand in the {ref}`worksheet10_problem`
+Solution: {ref}`worksheet10_ccnc_solution`
+
+
 
 ## Precipitation problems
 
-For each of the 3 problems below:  First solve them analytically by hand
-then check that solution with python using odeint.  In your notebook compare your analytic equation with the numerical solution.
+For problem 2:  First solve analytically then
+then check that solution with python using odeint.  In your notebook compare your analytic equation with the numerical solution.  Do the same for problem 4, using the analytic equation from problem 3.
+
 
 
 ### Problem 2 - Thompkins
@@ -125,7 +128,9 @@ $$
 \frac{dh}{dt} = w - \nu
 $$
 where h is the height, w is the updraft speed and $\nu$ is the terminal droplet fall speed
-Use WH equation 6.24 for the terminal fall speed of a droplet together with WH eq 6.21 for the approximate droplet growth ratge
+Use WH equation 6.24 for the terminal fall speed of a droplet together with WH eq 6.21 for the approximate droplet growth rate
+
+#### Problem 3 answer
 
 +++ {"jp-MarkdownHeadingCollapsed": true}
 
@@ -148,27 +153,36 @@ $$
 r^2 = r_0^2 + 2 G_l S t
 $$(four)
 
-Insert {eq}`four` into {eq}`two` and then use {eq}`one`
++++ {"jp-MarkdownHeadingCollapsed": true}
+
+Write
 
 $$
-\frac{ dh}{dt}  = w - \frac{ 2 g \rho_l  G_l S t}{9 \eta}
+\beta =  \frac{ 2 g \rho_l}{9 \eta} \\
+\nu = \beta r^2
+$$(simple)
+
+Insert {eq}`four` into {eq}`simple` and then use {eq}`one`
+
 $$
-
-+++
-
-#### Integrate this for constant updraft w
+\frac{ dh}{dt}  = w - \beta r^2 = w - \beta \left ( r_0^2 + 2 G_l S t \right )\\
+dh = w dt - \beta \left ( r_0^2 + 2 G_l S t \right ) dt \\
+h = h_0 + w t - \beta r_0^2 t - \beta G_l S t^2
+$$
 
 +++ {"jp-MarkdownHeadingCollapsed": true}
 
-$$
-    \frac{ dh}{dt}  = w - \frac{ 2 g \rho_l  G_l S t}{9 \eta} \\
-\int_0^h  dh^\prime = \int_0^t \left [ w - \frac{ 2 g \rho_l  G_l S t^\prime}{9 \eta} \right ] dt^\prime \\
-h= wt - \frac{ 2 g \rho_l  G_l S t^2}{9 \eta}
-$$(eq:three)
+So we could if the fall speed was larger than the updraft speed, we
+could set $h=0$ and solve the quadratic equation for time $t$ when drop hits the ground.
+
+We would also need a value for the dynamic viscosity $\eta$
+for example from [this website](https://www.engineeringtoolbox.com/dynamic-absolute-kinematic-viscosity-d_412.html), which says that at 0 deg C $\eta=19.8 \times 10^{-6}\ Pa\,s$
 
 +++
 
-#### Compare values of $G_l$
+#### Check values of $G_l$
+
+Do a numerical check on $G_l$
 
 - Thompkins 4.25
 
@@ -186,6 +200,8 @@ where
 
 #### Numerical value for $G_l$ at 0 deg C
 
+Confirm $G_l = 100\ m^2/s$ for small drops
+
 ```{code-cell} ipython3
 D=2.2e-5  #m^2/s
 es0 = 611 #Pa
@@ -194,60 +210,15 @@ G_l = D*es0/(c.rhol*c.Rv*Temp)
 print(f"{G_l:.3g} m^s/s or {G_l*1.e12:.3g} μm^2/s at 0 deg C")
 ```
 
-Which agrees with Wallace and Hobbs for smail drops
+Which agrees with Wallace and Hobbs 
 
 +++
 
-#### Now put in some numbers for problem 4:
-
-To get the dynamic velocity $\eta$, use [this website](https://www.engineeringtoolbox.com/dynamic-absolute-kinematic-viscosity-d_412.html)
-
-With $w=0$, {eq}`three` becomes
-$$
-h= \frac{ 2 g \rho_l  G_l S t^2}{9 \eta} = k S t^2
-$$
-where 
-$$
-k = \frac{2 g \rho_l G_l}{9 \eta}\ m\,s^{-2}
-$$
-
-+++
-
-And to fall a distance $-h$ takes time:
-
-$$
-t = \sqrt{\frac{h}{k(-S)}}
-$$
-
-+++
-
-### Problem 4 -- Wallace and Hobbs problem 6.24 -- falling precip
+### Problem 4 Answer -- Wallace and Hobbs problem 6.24 -- falling precip
 
 If a raindrop has a radius of 1 mm at cloud base, which is located 5 km above the ground, what will be its radius at the ground and how long will it take to reach the ground if the relative humidity between cloud base and ground is constant at 60%? [Hint: Use (6.21) and the relationship between v and r given in Exercise 6.23. If r is in micrometers, the value of Gl in (6.21) is 100 for cloud droplets, but for the large drop sizes considered in this problem the value of Gl should be taken as 700 to allow for ventilation effects.]
 
-```{code-cell} ipython3
-G_l = 700e-12 #m^2/s
-w = 0
-eta = 19.8e-6 #Pa s at 0 deg C
-S = -0.4
-k = (2*c.g0*c.rhol*G_l)/(9*eta)
-k
-```
-
-```{code-cell} ipython3
-h = 5000
-time =(h/(k*(-S)))**0.5
-print(f"fall time = {time:.1f} seconds")
-```
-
-#### Use {eq}`four` to find $r$
-
-```{code-cell} ipython3
-r0=1.e-3  #m
-r2 = r0**2. + 2*G_l*S*time
-rfinal = r2**0.5
-print(f"drop radius at surface = {rfinal*1.e6:.1f} microns")
-```
++++
 
 #### Numerical solution
 
@@ -258,30 +229,54 @@ For extra credit:
 3) Repeat this using solve_ivp, stopping at h=0
 
 ```{code-cell} ipython3
-from scipy.integrate import odeint
+from scipy.integrate import solve_ivp
 import pandas as pd
 import numpy as np
 from matplotlib import pyplot as plt
 
 
-def find_derivs(the_vars,G_l,S):
+def hit_ground(t, the_vars):
+    """Event: when height (the_vars[0]) is zero."""
+    return the_vars[0]
+
+hit_ground.terminal = True
+hit_ground.direction = -1
+
+G_l = 700
+S = 0.6
+
+def find_derivs(the_time,the_vars):
     """
     the_vars[0] = h  (height, m)
     the_vars[1] = r (radius, m)
     """
-    dh_dt = -6000*the_vars[1] #WH prob 6.23, m
-    dr_dt =  the_vars[0]*G_l*(S - 1) #WH eq. 6.21
+    h, r = the_vars
+    dh_dt = -6000*r #WH prob 6.23, m
+    dr_dt =  r*G_l*(S - 1) #WH eq. 6.21
     return [dh_dt,dr_dt]
 
 init_0 = [5000,0.001]  #h, r
-the_time = np.arange(0,1000,1) #seconds
-G_l = 700
-S = 0.6
-args = (G_l, S)
-    
-sol = odeint(find_derivs,init_0, the_time,args)
-df_output = pd.DataFrame.from_records(sol,columns = ['height','radius'])
-df_output['time'] = the_time
+tspan=[0,500]
+
+sol = solve_ivp(
+    find_derivs,
+    tspan,
+    init_0,
+    events=[hit_ground],
+    dense_output=True # Enable interpolation for plotting smooth curve
+)
+```
+
+```{code-cell} ipython3
+the_times = np.arange(0,sol.t[-1],5)
+yplot = sol.sol(the_times)
+df_output = pd.DataFrame.from_records(yplot.T,columns = ['height','radius'])
+df_output['time']=the_times
+```
+
+```{code-cell} ipython3
+fig, ax = plt.subplots(1,1)
+ax.plot('radius','height',data=df_output)
 ```
 
 ```{code-cell} ipython3

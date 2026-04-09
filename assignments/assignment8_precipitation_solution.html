@@ -216,7 +216,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/worksheets/entraining_plume.html">Modeling an entraining cloud updraft try</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/worksheets/worksheet8_interp1d_solution.html">Worksheet 8: Interp1d Solution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/worksheets/worksheet9_koehler_solution.html">Worksheet9: Koehler Equilibrium solution</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/worksheets/worksheet10_aero_dist_solution.html">Worksheet 10: Aerosol distributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/worksheets/worksheet10_aero_dist_solution.html">Worksheet 10: Aerosol distributions solution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/worksheets/dropgrow/worksheet11_dropgrow_solution.html">Worksheet11 Solution: Parcel model with oscillating updraft</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/worksheets/worksheet12_marshall_palmer.html">Worksheet 12: Marshall-Palmer Distribution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/worksheets/worksheet13_odeint_solution.html">Worksheet 13 odeint practice solution</a></li>
@@ -279,7 +279,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">final exam</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1o9HOkiaXsestzA7P0Njt9X1r5IlEj34D/view?usp=sharing">Final Exam Practice Questions</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1GhPMdeK2_S1zcsu8hyMjTGzcLD1nNOtW/view?usp=drive_link">2016 midterm</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1GhPMdeK2_S1zcsu8hyMjTGzcLD1nNOtW/view?usp=drive_link">2016 final</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1Wss3sLtmCZAAE15n9Sa1KB1n-UF_Klis/view?usp=drive_link">2024 final equations</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/17xeEWvdocJbAWpLCxcITgkjHG6pX4Qf7/view?usp=drive_link">2024 final exam</a></li>
 </ul>
@@ -447,14 +447,12 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3-wallace-and-hobbs-problem-6-21-updraft">Problem 3  – Wallace and Hobbs problem 6.21  – updraft</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#integrate-this-for-constant-updraft-w">Integrate this for constant updraft w</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#compare-values-of-g-l">Compare values of <span class="math notranslate nohighlight">\(G_l\)</span></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3-answer">Problem 3 answer</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#check-values-of-g-l">Check values of <span class="math notranslate nohighlight">\(G_l\)</span></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-value-for-g-l-at-0-deg-c">Numerical value for <span class="math notranslate nohighlight">\(G_l\)</span> at 0 deg C</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#now-put-in-some-numbers-for-problem-4">Now put in some numbers for problem 4:</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-4-wallace-and-hobbs-problem-6-24-falling-precip">Problem 4 – Wallace and Hobbs problem 6.24 – falling precip</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#use-four-to-find-r">Use <code class="xref eq docutils literal notranslate"><span class="pre">four</span></code> to find <span class="math notranslate nohighlight">\(r\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-4-answer-wallace-and-hobbs-problem-6-24-falling-precip">Problem 4 Answer – Wallace and Hobbs problem 6.24 – falling precip</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-solution">Numerical solution</a></li>
 </ul>
 </li>
@@ -473,15 +471,15 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="assignment-8-precipitation-solution">
 <span id="assignment-precip-solution"></span><h1>Assignment 8 – precipitation solution<a class="headerlink" href="#assignment-8-precipitation-solution" title="Link to this heading">#</a></h1>
-<p>Downlad link for <a class="reference external" href="https://drive.google.com/file/d/1grmUECBF4ePSNUO_264ibG546GiYKk9y/view?usp=sharing">assignment8_precipitation_solution.ipynb</a></p>
+<p>Downlad link for <a class="reference external" href="https://drive.google.com/file/d/1v_7fNFFvVIt3Va1NIw3K14E44fx8aQB3/view?usp=sharing">assignment8_precipitation_solution.ipynb</a></p>
 <section id="problem-1-cloud-condensation-nuclei-counter">
 <h2>Problem 1 – Cloud Condensation Nuclei Counter<a class="headerlink" href="#problem-1-cloud-condensation-nuclei-counter" title="Link to this heading">#</a></h2>
-<p>Hand in the <a class="reference internal" href="../notebooks/worksheets/worksheet10_aero_dist_solution.html#worksheet10-problem"><span class="std std-ref">Worksheet 10 CCNC Problem</span></a></p>
+<p>Solution: <a class="reference internal" href="../notebooks/worksheets/worksheet10_aero_dist_solution.html#worksheet10-ccnc-solution"><span class="std std-ref">Worksheet 10 CCNC Problem solution</span></a></p>
 </section>
 <section id="precipitation-problems">
 <h2>Precipitation problems<a class="headerlink" href="#precipitation-problems" title="Link to this heading">#</a></h2>
-<p>For each of the 3 problems below:  First solve them analytically by hand
-then check that solution with python using odeint.  In your notebook compare your analytic equation with the numerical solution.</p>
+<p>For problem 2:  First solve analytically then
+then check that solution with python using odeint.  In your notebook compare your analytic equation with the numerical solution.  Do the same for problem 4, using the analytic equation from problem 3.</p>
 <section id="problem-2-thompkins">
 <h3>Problem 2 - Thompkins<a class="headerlink" href="#problem-2-thompkins" title="Link to this heading">#</a></h3>
 <p>A drop with an initial radius of 100 µm falls through a cloud containing 100 droplets per cubic centimeter that it collects in a continuous manner with a collection efficiency of 0.800. If all the cloud droplets have a radius of 10 µm, how long will it take for the drop to reach a radius of 1 mm? You may assume that for the drops of the size considered in this problem the terminal fall speed v (in <span class="math notranslate nohighlight">\(m s^{-1}\)</span>) of a drop of radius r (in meters) is given by <span class="math notranslate nohighlight">\(v= 8 x 10^3\;r\)</span>. Assume that the cloud droplets are stationary and that the updraft velocity in the cloud is negligible.  Hint:  Integrate Thompkins equation 4.28 analytically – you can also check numerically with python</p>
@@ -604,7 +602,9 @@ growth time is 57.3 minutes
 \frac{dh}{dt} = w - \nu
 \]</div>
 <p>where h is the height, w is the updraft speed and <span class="math notranslate nohighlight">\(\nu\)</span> is the terminal droplet fall speed
-Use WH equation 6.24 for the terminal fall speed of a droplet together with WH eq 6.21 for the approximate droplet growth ratge</p>
+Use WH equation 6.24 for the terminal fall speed of a droplet together with WH eq 6.21 for the approximate droplet growth rate</p>
+<section id="problem-3-answer">
+<h4>Problem 3 answer<a class="headerlink" href="#problem-3-answer" title="Link to this heading">#</a></h4>
 <div class="math notranslate nohighlight" id="equation-one">
 <span class="eqno">(19)<a class="headerlink" href="#equation-one" title="Link to this equation">#</a></span>\[
 \frac{ dh}{dt}  = w - v \label{one}
@@ -623,22 +623,27 @@ r \frac{ dr}{dt}  = G_l S \\
 <span class="eqno">(22)<a class="headerlink" href="#equation-four" title="Link to this equation">#</a></span>\[
 r^2 = r_0^2 + 2 G_l S t
 \]</div>
-<p>Insert <a class="reference internal" href="#equation-four">(22)</a> into <a class="reference internal" href="#equation-two">(20)</a> and then use <a class="reference internal" href="#equation-one">(19)</a></p>
-<div class="math notranslate nohighlight">
-\[
-\frac{ dh}{dt}  = w - \frac{ 2 g \rho_l  G_l S t}{9 \eta}
-\]</div>
-<section id="integrate-this-for-constant-updraft-w">
-<h4>Integrate this for constant updraft w<a class="headerlink" href="#integrate-this-for-constant-updraft-w" title="Link to this heading">#</a></h4>
-<div class="math notranslate nohighlight" id="equation-eq-three">
-<span class="eqno">(23)<a class="headerlink" href="#equation-eq-three" title="Link to this equation">#</a></span>\[\begin{split}
-    \frac{ dh}{dt}  = w - \frac{ 2 g \rho_l  G_l S t}{9 \eta} \\
-\int_0^h  dh^\prime = \int_0^t \left [ w - \frac{ 2 g \rho_l  G_l S t^\prime}{9 \eta} \right ] dt^\prime \\
-h= wt - \frac{ 2 g \rho_l  G_l S t^2}{9 \eta}
+<p>Write</p>
+<div class="math notranslate nohighlight" id="equation-simple">
+<span class="eqno">(23)<a class="headerlink" href="#equation-simple" title="Link to this equation">#</a></span>\[\begin{split}
+\beta =  \frac{ 2 g \rho_l}{9 \eta} \\
+\nu = \beta r^2
 \end{split}\]</div>
+<p>Insert <a class="reference internal" href="#equation-four">(22)</a> into <a class="reference internal" href="#equation-simple">(23)</a> and then use <a class="reference internal" href="#equation-one">(19)</a></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\frac{ dh}{dt}  = w - \beta r^2 = w - \beta \left ( r_0^2 + 2 G_l S t \right )\\
+dh = w dt - \beta \left ( r_0^2 + 2 G_l S t \right ) dt \\
+h = h_0 + w t - \beta r_0^2 t - \beta G_l S t^2
+\end{split}\]</div>
+<p>So we could if the fall speed was larger than the updraft speed, we
+could set <span class="math notranslate nohighlight">\(h=0\)</span> and solve the quadratic equation for time <span class="math notranslate nohighlight">\(t\)</span> when drop hits the ground.</p>
+<p>We would also need a value for the dynamic viscosity <span class="math notranslate nohighlight">\(\eta\)</span>
+for example from <a class="reference external" href="https://www.engineeringtoolbox.com/dynamic-absolute-kinematic-viscosity-d_412.html">this website</a>, which says that at 0 deg C <span class="math notranslate nohighlight">\(\eta=19.8 \times 10^{-6}\ Pa\,s\)</span></p>
 </section>
-<section id="compare-values-of-g-l">
-<h4>Compare values of <span class="math notranslate nohighlight">\(G_l\)</span><a class="headerlink" href="#compare-values-of-g-l" title="Link to this heading">#</a></h4>
+<section id="check-values-of-g-l">
+<h4>Check values of <span class="math notranslate nohighlight">\(G_l\)</span><a class="headerlink" href="#check-values-of-g-l" title="Link to this heading">#</a></h4>
+<p>Do a numerical check on <span class="math notranslate nohighlight">\(G_l\)</span></p>
 <ul class="simple">
 <li><p>Thompkins 4.25</p></li>
 </ul>
@@ -657,6 +662,7 @@ r\frac{d r}{d t} \simeq \frac{D e_s^{\infty}}{\rho_L  R_v T}(S-1)
 </section>
 <section id="numerical-value-for-g-l-at-0-deg-c">
 <h4>Numerical value for <span class="math notranslate nohighlight">\(G_l\)</span> at 0 deg C<a class="headerlink" href="#numerical-value-for-g-l-at-0-deg-c" title="Link to this heading">#</a></h4>
+<p>Confirm <span class="math notranslate nohighlight">\(G_l = 100\ m^2/s\)</span> for small drops</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">D</span><span class="o">=</span><span class="mf">2.2e-5</span>  <span class="c1">#m^2/s</span>
@@ -673,78 +679,12 @@ r\frac{d r}{d t} \simeq \frac{D e_s^{\infty}}{\rho_L  R_v T}(S-1)
 </div>
 </div>
 </div>
-<p>Which agrees with Wallace and Hobbs for smail drops</p>
-</section>
-<section id="now-put-in-some-numbers-for-problem-4">
-<h4>Now put in some numbers for problem 4:<a class="headerlink" href="#now-put-in-some-numbers-for-problem-4" title="Link to this heading">#</a></h4>
-<p>To get the dynamic velocity <span class="math notranslate nohighlight">\(\eta\)</span>, use <a class="reference external" href="https://www.engineeringtoolbox.com/dynamic-absolute-kinematic-viscosity-d_412.html">this website</a></p>
-<p>With <span class="math notranslate nohighlight">\(w=0\)</span>, <a class="reference internal" href="#equation-three">(21)</a> becomes
-$<span class="math notranslate nohighlight">\(
-h= \frac{ 2 g \rho_l  G_l S t^2}{9 \eta} = k S t^2
-\)</span><span class="math notranslate nohighlight">\(
-where 
-\)</span><span class="math notranslate nohighlight">\(
-k = \frac{2 g \rho_l G_l}{9 \eta}\ m\,s^{-2}
-\)</span>$</p>
-<p>And to fall a distance <span class="math notranslate nohighlight">\(-h\)</span> takes time:</p>
-<div class="math notranslate nohighlight">
-\[
-t = \sqrt{\frac{h}{k(-S)}}
-\]</div>
+<p>Which agrees with Wallace and Hobbs</p>
 </section>
 </section>
-<section id="problem-4-wallace-and-hobbs-problem-6-24-falling-precip">
-<h3>Problem 4 – Wallace and Hobbs problem 6.24 – falling precip<a class="headerlink" href="#problem-4-wallace-and-hobbs-problem-6-24-falling-precip" title="Link to this heading">#</a></h3>
+<section id="problem-4-answer-wallace-and-hobbs-problem-6-24-falling-precip">
+<h3>Problem 4 Answer – Wallace and Hobbs problem 6.24 – falling precip<a class="headerlink" href="#problem-4-answer-wallace-and-hobbs-problem-6-24-falling-precip" title="Link to this heading">#</a></h3>
 <p>If a raindrop has a radius of 1 mm at cloud base, which is located 5 km above the ground, what will be its radius at the ground and how long will it take to reach the ground if the relative humidity between cloud base and ground is constant at 60%? [Hint: Use (6.21) and the relationship between v and r given in Exercise 6.23. If r is in micrometers, the value of Gl in (6.21) is 100 for cloud droplets, but for the large drop sizes considered in this problem the value of Gl should be taken as 700 to allow for ventilation effects.]</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G_l</span> <span class="o">=</span> <span class="mf">700e-12</span> <span class="c1">#m^2/s</span>
-<span class="n">w</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">eta</span> <span class="o">=</span> <span class="mf">19.8e-6</span> <span class="c1">#Pa s at 0 deg C</span>
-<span class="n">S</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.4</span>
-<span class="n">k</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">c</span><span class="o">.</span><span class="n">g0</span><span class="o">*</span><span class="n">c</span><span class="o">.</span><span class="n">rhol</span><span class="o">*</span><span class="n">G_l</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">9</span><span class="o">*</span><span class="n">eta</span><span class="p">)</span>
-<span class="n">k</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.07699214365881032
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">h</span> <span class="o">=</span> <span class="mi">5000</span>
-<span class="n">time</span> <span class="o">=</span><span class="p">(</span><span class="n">h</span><span class="o">/</span><span class="p">(</span><span class="n">k</span><span class="o">*</span><span class="p">(</span><span class="o">-</span><span class="n">S</span><span class="p">)))</span><span class="o">**</span><span class="mf">0.5</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;fall time = </span><span class="si">{</span><span class="n">time</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> seconds&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>fall time = 402.9 seconds
-</pre></div>
-</div>
-</div>
-</div>
-<section id="use-four-to-find-r">
-<h4>Use <a class="reference internal" href="#equation-four">(22)</a> to find <span class="math notranslate nohighlight">\(r\)</span><a class="headerlink" href="#use-four-to-find-r" title="Link to this heading">#</a></h4>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r0</span><span class="o">=</span><span class="mf">1.e-3</span>  <span class="c1">#m</span>
-<span class="n">r2</span> <span class="o">=</span> <span class="n">r0</span><span class="o">**</span><span class="mf">2.</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">G_l</span><span class="o">*</span><span class="n">S</span><span class="o">*</span><span class="n">time</span>
-<span class="n">rfinal</span> <span class="o">=</span> <span class="n">r2</span><span class="o">**</span><span class="mf">0.5</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;drop radius at surface = </span><span class="si">{</span><span class="n">rfinal</span><span class="o">*</span><span class="mf">1.e6</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> microns&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>drop radius at surface = 880.0 microns
-</pre></div>
-</div>
-</div>
-</div>
-</section>
 <section id="numerical-solution">
 <h4>Numerical solution<a class="headerlink" href="#numerical-solution" title="Link to this heading">#</a></h4>
 <p>For extra credit:</p>
@@ -755,59 +695,68 @@ t = \sqrt{\frac{h}{k(-S)}}
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.integrate</span><span class="w"> </span><span class="kn">import</span> <span class="n">odeint</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.integrate</span><span class="w"> </span><span class="kn">import</span> <span class="n">solve_ivp</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 
 
-<span class="k">def</span><span class="w"> </span><span class="nf">find_derivs</span><span class="p">(</span><span class="n">the_vars</span><span class="p">,</span><span class="n">G_l</span><span class="p">,</span><span class="n">S</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">hit_ground</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">the_vars</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Event: when height (the_vars[0]) is zero.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">the_vars</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">hit_ground</span><span class="o">.</span><span class="n">terminal</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">hit_ground</span><span class="o">.</span><span class="n">direction</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+
+<span class="n">G_l</span> <span class="o">=</span> <span class="mi">700</span>
+<span class="n">S</span> <span class="o">=</span> <span class="mf">0.6</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">find_derivs</span><span class="p">(</span><span class="n">the_time</span><span class="p">,</span><span class="n">the_vars</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    the_vars[0] = h  (height, m)</span>
 <span class="sd">    the_vars[1] = r (radius, m)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">dh_dt</span> <span class="o">=</span> <span class="o">-</span><span class="mi">6000</span><span class="o">*</span><span class="n">the_vars</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="c1">#WH prob 6.23, m</span>
-    <span class="n">dr_dt</span> <span class="o">=</span>  <span class="n">the_vars</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">G_l</span><span class="o">*</span><span class="p">(</span><span class="n">S</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="c1">#WH eq. 6.21</span>
+    <span class="n">h</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="n">the_vars</span>
+    <span class="n">dh_dt</span> <span class="o">=</span> <span class="o">-</span><span class="mi">6000</span><span class="o">*</span><span class="n">r</span> <span class="c1">#WH prob 6.23, m</span>
+    <span class="n">dr_dt</span> <span class="o">=</span>  <span class="n">r</span><span class="o">*</span><span class="n">G_l</span><span class="o">*</span><span class="p">(</span><span class="n">S</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="c1">#WH eq. 6.21</span>
     <span class="k">return</span> <span class="p">[</span><span class="n">dh_dt</span><span class="p">,</span><span class="n">dr_dt</span><span class="p">]</span>
 
 <span class="n">init_0</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5000</span><span class="p">,</span><span class="mf">0.001</span><span class="p">]</span>  <span class="c1">#h, r</span>
-<span class="n">the_time</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1000</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="c1">#seconds</span>
-<span class="n">G_l</span> <span class="o">=</span> <span class="mi">700</span>
-<span class="n">S</span> <span class="o">=</span> <span class="mf">0.6</span>
-<span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="n">G_l</span><span class="p">,</span> <span class="n">S</span><span class="p">)</span>
-    
-<span class="n">sol</span> <span class="o">=</span> <span class="n">odeint</span><span class="p">(</span><span class="n">find_derivs</span><span class="p">,</span><span class="n">init_0</span><span class="p">,</span> <span class="n">the_time</span><span class="p">,</span><span class="n">args</span><span class="p">)</span>
-<span class="n">df_output</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_records</span><span class="p">(</span><span class="n">sol</span><span class="p">,</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;height&#39;</span><span class="p">,</span><span class="s1">&#39;radius&#39;</span><span class="p">])</span>
-<span class="n">df_output</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">the_time</span>
+<span class="n">tspan</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">500</span><span class="p">]</span>
+
+<span class="n">sol</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span>
+    <span class="n">find_derivs</span><span class="p">,</span>
+    <span class="n">tspan</span><span class="p">,</span>
+    <span class="n">init_0</span><span class="p">,</span>
+    <span class="n">events</span><span class="o">=</span><span class="p">[</span><span class="n">hit_ground</span><span class="p">],</span>
+    <span class="n">dense_output</span><span class="o">=</span><span class="kc">True</span> <span class="c1"># Enable interpolation for plotting smooth curve</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">the_times</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">sol</span><span class="o">.</span><span class="n">t</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">yplot</span> <span class="o">=</span> <span class="n">sol</span><span class="o">.</span><span class="n">sol</span><span class="p">(</span><span class="n">the_times</span><span class="p">)</span>
+<span class="n">df_output</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_records</span><span class="p">(</span><span class="n">yplot</span><span class="o">.</span><span class="n">T</span><span class="p">,</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;height&#39;</span><span class="p">,</span><span class="s1">&#39;radius&#39;</span><span class="p">])</span>
+<span class="n">df_output</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">the_times</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;radius&#39;</span><span class="p">,</span><span class="s1">&#39;height&#39;</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="n">df_output</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">22</span>
-<span class="g g-Whitespace">     </span><span class="mi">18</span> <span class="n">G_l</span> <span class="o">=</span> <span class="mi">700</span>
-<span class="g g-Whitespace">     </span><span class="mi">19</span> <span class="n">S</span> <span class="o">=</span> <span class="mf">0.6</span>
-<span class="g g-Whitespace">     </span><span class="mi">20</span> <span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="n">G_l</span><span class="p">,</span> <span class="n">S</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">21</span> 
-<span class="ne">---&gt; </span><span class="mi">22</span> <span class="n">sol</span> <span class="o">=</span> <span class="n">odeint</span><span class="p">(</span><span class="n">find_derivs</span><span class="p">,</span><span class="n">init_0</span><span class="p">,</span> <span class="n">the_time</span><span class="p">,</span><span class="n">args</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">23</span> <span class="n">df_output</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_records</span><span class="p">(</span><span class="n">sol</span><span class="p">,</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;height&#39;</span><span class="p">,</span><span class="s1">&#39;radius&#39;</span><span class="p">])</span>
-<span class="g g-Whitespace">     </span><span class="mi">24</span> <span class="n">df_output</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">the_time</span>
-
-<span class="nn">File ~/repos/a405/.pixi/envs/default/lib/python3.14/site-packages/scipy/integrate/_odepack_py.py:252,</span> in <span class="ni">odeint</span><span class="nt">(func, y0, t, args, Dfun, col_deriv, full_output, ml, mu, rtol, atol, tcrit, h0, hmax, hmin, ixpr, mxstep, mxhnil, mxordn, mxords, printmessg, tfirst)</span>
-<span class="g g-Whitespace">    </span><span class="mi">248</span> <span class="n">t</span> <span class="o">=</span> <span class="n">copy</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">249</span> <span class="n">y0</span> <span class="o">=</span> <span class="n">copy</span><span class="p">(</span><span class="n">y0</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">252</span> <span class="n">output</span> <span class="o">=</span> <span class="n">_odepack</span><span class="o">.</span><span class="n">odeint</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">Dfun</span><span class="p">,</span> <span class="n">col_deriv</span><span class="p">,</span> <span class="n">ml</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">253</span>                         <span class="n">full_output</span><span class="p">,</span> <span class="n">rtol</span><span class="p">,</span> <span class="n">atol</span><span class="p">,</span> <span class="n">tcrit</span><span class="p">,</span> <span class="n">h0</span><span class="p">,</span> <span class="n">hmax</span><span class="p">,</span> <span class="n">hmin</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">254</span>                         <span class="n">ixpr</span><span class="p">,</span> <span class="n">mxstep</span><span class="p">,</span> <span class="n">mxhnil</span><span class="p">,</span> <span class="n">mxordn</span><span class="p">,</span> <span class="n">mxords</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">255</span>                         <span class="nb">int</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="n">tfirst</span><span class="p">)))</span>
-<span class="g g-Whitespace">    </span><span class="mi">256</span> <span class="k">if</span> <span class="n">output</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">257</span>     <span class="n">warning_msg</span> <span class="o">=</span> <span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">_msgs</span><span class="p">[</span><span class="n">output</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span><span class="si">}</span><span class="s2"> Run with full_output = 1 to &quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">258</span>                    <span class="sa">f</span><span class="s2">&quot;get quantitative information.&quot;</span><span class="p">)</span>
-
-<span class="ne">TypeError</span>: find_derivs() takes 3 positional arguments but 4 were given
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x136bf9940&gt;]
 </pre></div>
 </div>
+<img alt="../_images/c6aa0c3aaf3e3410ba3f09cdf224e80619f040d8cfe30379680427e6d8d0e2ed.png" src="../_images/c6aa0c3aaf3e3410ba3f09cdf224e80619f040d8cfe30379680427e6d8d0e2ed.png" />
 </div>
 </div>
 </section>
@@ -890,14 +839,12 @@ t = \sqrt{\frac{h}{k(-S)}}
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3-wallace-and-hobbs-problem-6-21-updraft">Problem 3  – Wallace and Hobbs problem 6.21  – updraft</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#integrate-this-for-constant-updraft-w">Integrate this for constant updraft w</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#compare-values-of-g-l">Compare values of <span class="math notranslate nohighlight">\(G_l\)</span></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3-answer">Problem 3 answer</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#check-values-of-g-l">Check values of <span class="math notranslate nohighlight">\(G_l\)</span></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-value-for-g-l-at-0-deg-c">Numerical value for <span class="math notranslate nohighlight">\(G_l\)</span> at 0 deg C</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#now-put-in-some-numbers-for-problem-4">Now put in some numbers for problem 4:</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-4-wallace-and-hobbs-problem-6-24-falling-precip">Problem 4 – Wallace and Hobbs problem 6.24 – falling precip</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#use-four-to-find-r">Use <code class="xref eq docutils literal notranslate"><span class="pre">four</span></code> to find <span class="math notranslate nohighlight">\(r\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-4-answer-wallace-and-hobbs-problem-6-24-falling-precip">Problem 4 Answer – Wallace and Hobbs problem 6.24 – falling precip</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-solution">Numerical solution</a></li>
 </ul>
 </li>

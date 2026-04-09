@@ -446,7 +446,7 @@ and Thompkins Section 4.5
   - Contrast with my [WH entrainment remarks](https://drive.google.com/file/d/1nL6vIfzhlSLllo8MslixYUp5ahJ4wGkJ/view?usp=sharing)
     
 
-## Week 13
+## Week 14
 
 ### Lecture 28, week 14, Tuesday
 
@@ -471,10 +471,26 @@ and Thompkins Section 4.5
   - WH 6.27
   - WH 6.35
   - WH 6.39
-  - WH 6.52
-  - WH 6.53
-  - WH 6.55
   
   - Lohmann 7.4
   - Lohmann 7.8
 
+### Lecture 29, week 14, Thursday
+
+- {ref}`assignment_precip_solution` error fixed
+- Final review
+  - Not on the exam
+    - thunderstorms
+    - python/iteration
+    - CAPE
+    - ice nucleation/multiplication
+  - Midterm topics potentially on
+    - Heat engines
+    - Mixing
+  - 2nd half topics potentially on
+    - 2016, 2024 exam questions
+    - all the final exam practice questions (except for python and CAPE sections)
+    - calculation of time constants
+    - Marshall-Palmer distribution
+    - Taylor series
+    - Bergeron effect
