@@ -63,7 +63,7 @@ parts:
     - file: assignments/assign6_cape_solution.md
     - file: assignments/assignment6_koehler_solution.md
     - file: assignments/assignment7_aerosols_solution.md
-    - file: assignments/assignment8_precipitation.md
+    - file: assignments/assignment8_precipitation_solution.md
     - file: assignments/assignment9_cold_clouds.md
   - caption: In-depth notes
     chapters:
@@ -135,7 +135,7 @@ parts:
     - url: https://drive.google.com/file/d/1o9HOkiaXsestzA7P0Njt9X1r5IlEj34D/view?usp=sharing
       title: Final Exam Practice Questions
     - url: https://drive.google.com/file/d/1GhPMdeK2_S1zcsu8hyMjTGzcLD1nNOtW/view?usp=drive_link
-      title: 2016 midterm
+      title: 2016 final
     - url: https://drive.google.com/file/d/1Wss3sLtmCZAAE15n9Sa1KB1n-UF_Klis/view?usp=drive_link
       title: 2024 final equations
     - url: https://drive.google.com/file/d/17xeEWvdocJbAWpLCxcITgkjHG6pX4Qf7/view?usp=drive_link

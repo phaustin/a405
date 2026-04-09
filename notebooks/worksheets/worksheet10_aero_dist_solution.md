@@ -378,6 +378,81 @@ Add a cell to this notebook that makes a plot of $N(r)$ vs. $S_{crit}$ for the $
 
 $N(r) = \int_r^\infty n(r) dr$ is the number of aerosols with dry radii larger than $r$ and $S_{crit}$ is the critical supersaturation at radius r for these ammonium sulphate aerosols.  Explain briefly why this is the output you would expect to see from an aerosol size counter based on a cloud chamber with a laser scattering sensor.
 
++++
+
+### CCNC answer
+
+#### Borrow code from {ref}`assign7_prob1`
+
+$$
+SS=S^* - 1= \left ( \frac{4 a^3}{27b} \right )^{1/2}
+$$
+
+with
+
+$$
+a=\frac{2 \sigma}{\rho_l R_v T}
+$$
+$$
+b=\frac{i m M_w}{4 / 3 \pi \rho_s M_s}
+$$
+
+So move the aerosol mass out of the $b$ coefficient
+
+$$
+SS=S^* - 1= \left ( \frac{4 a^3}{27b_{nomass}} \right )^{1/2} m^{-1/2} = S_{coeff} m^{-1/2}
+$$
+
+```{code-cell} ipython3
+import numpy as np
+
+Ms=132.  #kg/kmole
+Mw=18.  #kg/kmole
+Rhol=1.e3  #1000
+Sigma=0.075  #N/m
+rhoaero=1775.  #kg/m^3
+Rv=461.   #J/kg/K
+vanhoff=3
+Tinit=280.  #K
+a=(2.*Sigma)/(Rv*Tinit*Rhol) # units m
+bnomass=(vanhoff*Mw)/((4./3.)*np.pi*Rhol*Ms)  #units m^3/kg
+Scoeff=((4*a**3)/(27*bnomass))**0.5  #units  kg^{-0.5}
+print(f'Scrit coeff without aerosol mass: {Scoeff:6.3e} kg**0.5')
+```
+
+#### Find the critical $SS$ for each aerosol $m$
+
+
+```{code-cell} ipython3
+SScrit = Scoeff*mass_vals**(-0.5)
+Ncumulative = 
+```
+
+```{code-cell} ipython3
+SScrit = Scoeff*mass_vals**(-0.5)
+plt.plot(SScrit,ndist)
+```
+
+```{code-cell} ipython3
+plt.plot(ncenter)
+```
+
+```{code-cell} ipython3
+len(rad_vals)
+```
+
+```{code-cell} ipython3
+len(ndist)
+```
+
+```{code-cell} ipython3
+len(out)
+```
+
+```{code-cell} ipython3
+out
+```
+
 ```{code-cell} ipython3
 
 ```
