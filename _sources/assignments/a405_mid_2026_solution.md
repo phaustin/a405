@@ -17,6 +17,8 @@ kernelspec:
 
 Link to [a405_mid_2026_solution.ipynb](https://drive.google.com/file/d/1GwF7Aa8dGTB1pj1IOxGDJKheXurmEe8v/view?usp=sharing)
 
+Mixing problem typo fixed 2026/Apr/12: rv of mixture is 7.7 g/kg
+
 +++
 
 ## Question 1  Cooling problem  (12 points)
