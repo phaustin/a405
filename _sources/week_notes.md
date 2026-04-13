@@ -372,7 +372,7 @@ and Thompkins Section 4.5
 - Review {ref}`worksheet11_dropgrow_solution`
 - Review {ref}`assign7_aerosols_solution`
 - [Droplet fragmentation article](https://drive.google.com/file/d/1mfwKsVais1YiTC6JbMxIM5xTXgUMYd7g/view?usp=sharing)
-- Introduce {ref}`worksheet12_marshall_palmer`
+- Introduce {ref}`worksheet12_marshall_palmer_sol`
 
 
 #### For Thursday
@@ -385,7 +385,7 @@ and Thompkins Section 4.5
 - Review on mass flux:
   - show with the help of a figure why $w\rho_N$ is represents the mass of droplets falling with fallspeed w through 1 $m^2$ in $kg\,m^{-2}\,s^{-1}$
   - show why we can decompose the flux into parallel and perpendicular components
-- Discuss solution to question 1 for {ref}`worksheet12_marshall_palmer`
+- Discuss solution to question 1 for {ref}`worksheet12_marshall_palmer_sol`
 - Preview {ref}`assignment9_cold`
 - Preview my reading on ice {ref}`ice_saturation`
 - Preview my [notes on crystal growth](https://drive.google.com/file/d/1g42323LOcQbxWn4Ey1B58ExgVPwjMADz/view?usp=sharing)

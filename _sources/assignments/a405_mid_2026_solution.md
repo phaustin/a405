@@ -107,7 +107,6 @@ pa2hPa = 1.e-2
 
 #### Find temperature at 700 hPa
 
-
 ```{code-cell} ipython3
 press_700 = 700e2
 rv=7e-3
@@ -118,7 +117,6 @@ Td_700 = find_Td(rv,press_700)
 temp_700 = Td_700
 thetae_before = find_thetaet(Td_700, rt_cloud, temp_700,press_700)
 print(f"{(temp_700 - c.Tc)=:0.1f} deg C")
-
 ```
 
 #### Q1a Find the lcl with $\theta$ prior cooling

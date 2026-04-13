@@ -218,7 +218,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../worksheets/worksheet9_koehler_solution.html">Worksheet9: Koehler Equilibrium solution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../worksheets/worksheet10_aero_dist_solution.html">Worksheet 10: Aerosol distributions solution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../worksheets/dropgrow/worksheet11_dropgrow_solution.html">Worksheet11 Solution: Parcel model with oscillating updraft</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../worksheets/worksheet12_marshall_palmer.html">Worksheet 12: Marshall-Palmer Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../worksheets/worksheet12_marshall_palmer_sol.html">Worksheet 12 answer: Marshall-Palmer Distribution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../worksheets/worksheet13_odeint_solution.html">Worksheet 13 odeint practice solution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../worksheets/dropgrow/worksheet14_reff_solution.html">Worksheet 14 solution: liquid water and effective radius</a></li>
 </ul>
@@ -455,28 +455,28 @@ document.write(`
 <h2>1. Show that for phase change at constant temperature and pressure, the Gibbs free energy can only decrease or stay the same.<a class="headerlink" href="#show-that-for-phase-change-at-constant-temperature-and-pressure-the-gibbs-free-energy-can-only-decrease-or-stay-the-same" title="Link to this heading">#</a></h2>
 <p>Start with the definition of the specific Gibbs free energy:</p>
 <div class="math notranslate nohighlight" id="equation-eq-g">
-<span class="eqno">(32)<a class="headerlink" href="#equation-eq-g" title="Link to this equation">#</a></span>\[
+<span class="eqno">(34)<a class="headerlink" href="#equation-eq-g" title="Link to this equation">#</a></span>\[
 g=h-T \phi
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(h\)</span> is the enthalpy, <span class="math notranslate nohighlight">\(T\)</span> the temperature and <span class="math notranslate nohighlight">\(\phi\)</span> the entropy.</p>
 <p>We also have the second law:</p>
 <div class="math notranslate nohighlight" id="equation-eq-second">
-<span class="eqno">(33)<a class="headerlink" href="#equation-eq-second" title="Link to this equation">#</a></span>\[
+<span class="eqno">(35)<a class="headerlink" href="#equation-eq-second" title="Link to this equation">#</a></span>\[
 d \phi \geq  \frac{qdt}{T}
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(q\)</span> is the heating rate applied for time <span class="math notranslate nohighlight">\(dt\)</span>.</p>
-<p>Take the differential of <a class="reference internal" href="#equation-eq-g">(32)</a></p>
+<p>Take the differential of <a class="reference internal" href="#equation-eq-g">(34)</a></p>
 <div class="math notranslate nohighlight" id="equation-eq-dg">
-<span class="eqno">(34)<a class="headerlink" href="#equation-eq-dg" title="Link to this equation">#</a></span>\[\begin{split}
+<span class="eqno">(36)<a class="headerlink" href="#equation-eq-dg" title="Link to this equation">#</a></span>\[\begin{split}
 d g= -T d \phi \\
 \end{split}\]</div>
 <p>where we have used the fact that <span class="math notranslate nohighlight">\(dh = 0\)</span> at constant T.</p>
-<p>Finally, note that the approach to equilibrium is occuring without any heating, so <a class="reference internal" href="#equation-eq-second">(33)</a> becomes:</p>
+<p>Finally, note that the approach to equilibrium is occuring without any heating, so <a class="reference internal" href="#equation-eq-second">(35)</a> becomes:</p>
 <div class="math notranslate nohighlight">
 \[
 T d\phi \geq 0
 \]</div>
-<p>which means from  <a class="reference internal" href="#equation-eq-dg">(34)</a> that</p>
+<p>which means from  <a class="reference internal" href="#equation-eq-dg">(36)</a> that</p>
 <div class="math notranslate nohighlight">
 \[
 dg \leq 0
@@ -492,7 +492,7 @@ dg \leq 0
 \]</div>
 <p>Since the system is closed the total mass of water is constant:</p>
 <div class="math notranslate nohighlight" id="equation-eq-constant">
-<span class="eqno">(35)<a class="headerlink" href="#equation-eq-constant" title="Link to this equation">#</a></span>\[\begin{split}
+<span class="eqno">(37)<a class="headerlink" href="#equation-eq-constant" title="Link to this equation">#</a></span>\[\begin{split}
 m_v &amp;+ m_l = C \\
 dm_v &amp;+ dm_l = 0\\
 dm_v &amp;= -dm_l
@@ -502,7 +502,7 @@ dm_v &amp;= -dm_l
 \[
 dG =  g_v dm_v + g_l dm_l
 \]</div>
-<p>And using <a class="reference internal" href="#equation-eq-constant">(35)</a></p>
+<p>And using <a class="reference internal" href="#equation-eq-constant">(37)</a></p>
 <div class="math notranslate nohighlight">
 \[
 dG =  g_v dm_v + g_l (-dm_v) = (g_v - g_l) dm_v

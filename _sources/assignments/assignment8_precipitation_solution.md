@@ -201,6 +201,7 @@ where
 
 +++
 
+(assign8_G_l)=
 #### Numerical value for $G_l$ at 0 deg C
 
 Confirm $G_l = 100\ m^2/s$ for small drops

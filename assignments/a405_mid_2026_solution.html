@@ -217,7 +217,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/worksheets/worksheet9_koehler_solution.html">Worksheet9: Koehler Equilibrium solution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/worksheets/worksheet10_aero_dist_solution.html">Worksheet 10: Aerosol distributions solution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/worksheets/dropgrow/worksheet11_dropgrow_solution.html">Worksheet11 Solution: Parcel model with oscillating updraft</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/worksheets/worksheet12_marshall_palmer.html">Worksheet 12: Marshall-Palmer Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/worksheets/worksheet12_marshall_palmer_sol.html">Worksheet 12 answer: Marshall-Palmer Distribution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/worksheets/worksheet13_odeint_solution.html">Worksheet 13 odeint practice solution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/worksheets/dropgrow/worksheet14_reff_solution.html">Worksheet 14 solution: liquid water and effective radius</a></li>
 </ul>
@@ -770,7 +770,7 @@ state any assumptions/approximations.</p>
 <section id="q2a-answer">
 <h3>Q2a answer<a class="headerlink" href="#q2a-answer" title="Link to this heading">#</a></h3>
 <div class="math notranslate nohighlight" id="equation-eq-h">
-<span class="eqno">(37)<a class="headerlink" href="#equation-eq-h" title="Link to this equation">#</a></span>\[\begin{split}
+<span class="eqno">(39)<a class="headerlink" href="#equation-eq-h" title="Link to this equation">#</a></span>\[\begin{split}
 H&amp;=m_d h_l+m_v h_v+m_l h_l \\
 H&amp;=m_d c_{pd} T+m_v h_v+m_l h_l
 \end{split}\]</div>
@@ -778,11 +778,11 @@ H&amp;=m_d c_{pd} T+m_v h_v+m_l h_l
 <p>Also, total water is conserved,
 so</p>
 <div class="math notranslate nohighlight" id="equation-eq-water">
-<span class="eqno">(38)<a class="headerlink" href="#equation-eq-water" title="Link to this equation">#</a></span>\[\begin{split}
+<span class="eqno">(40)<a class="headerlink" href="#equation-eq-water" title="Link to this equation">#</a></span>\[\begin{split}
 m_v+m_l=m_T\\
 dm_v = -dm_l
 \end{split}\]</div>
-<p>Take the differential of <a class="reference internal" href="#equation-eq-h">(37)</a> and use <a class="reference internal" href="#equation-eq-water">(38)</a></p>
+<p>Take the differential of <a class="reference internal" href="#equation-eq-h">(39)</a> and use <a class="reference internal" href="#equation-eq-water">(40)</a></p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 d H=m_d c_{p d} d T+\left(h_v-h_e\right) d m_v \\
@@ -795,7 +795,7 @@ dh=c_{pd} d T+ l_v d r_v
 \end{split}\]</div>
 <p>To connect this with <span class="math notranslate nohighlight">\(s_v\)</span>, use the first law together with the assumption of hydrostatic balance:</p>
 <div class="math notranslate nohighlight" id="equation-first-law-answer">
-<span class="eqno">(39)<a class="headerlink" href="#equation-first-law-answer" title="Link to this equation">#</a></span>\[\begin{split}
+<span class="eqno">(41)<a class="headerlink" href="#equation-first-law-answer" title="Link to this equation">#</a></span>\[\begin{split}
 q\,dt &amp;= dh - \alpha dp \\
 q\,dt &amp;= c_p dT + l_v dr_v - \alpha dp \\
 dp &amp;= -\rho g dz \\
@@ -805,7 +805,7 @@ q\,dt &amp; = c_p dT + l_v dr_v + g dz = ds_v
 </section>
 <section id="q2b-answer">
 <h3>Q2b answer<a class="headerlink" href="#q2b-answer" title="Link to this heading">#</a></h3>
-<p>Divide the first law form from <a class="reference internal" href="#equation-first-law-answer">(39)</a> by temperature to get the entropy:</p>
+<p>Divide the first law form from <a class="reference internal" href="#equation-first-law-answer">(41)</a> by temperature to get the entropy:</p>
 <div class="math notranslate nohighlight">
 \[
 \frac{q\,dt}{T} = d\phi &amp;= c_p \frac{dT}{T} + l_v \frac{dr_v}{T} - \alpha \frac{dp}{T}
@@ -1286,7 +1286,7 @@ Is there convective overturning?  Why or why not?</p></li>
 Wet bulb potential temperature 19.7 degC
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x125e8fa10&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x14a177620&gt;]
 </pre></div>
 </div>
 <img alt="../_images/f8dfd319294be7e8f3bd587ff42b870a4b80da462dfd3934e59614923d786665.png" src="../_images/f8dfd319294be7e8f3bd587ff42b870a4b80da462dfd3934e59614923d786665.png" />
