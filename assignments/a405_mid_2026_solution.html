@@ -440,11 +440,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q1b-answer">Q1b answer</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-1-cooling-code">Question 1 cooling code</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#find-temperature-at-700-hpa">Find temperature at 700 hPa</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#q1a-find-the-lcl-with-theta-prior-to-cooling">Q1a Find the lcl with <span class="math notranslate nohighlight">\(\theta\)</span> prior to cooling</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#make-the-tephigram-with-original-point">Make the tephigram with original point</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#find-original-lcl-by-going-below-cloud-base-to-900-hpa-conserving-theta-e">find original LCL by going below cloud base to 900 hPa conserving <span class="math notranslate nohighlight">\(\theta_e\)</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#q1a-find-the-lcl-with-theta-prior-cooling">Q1a Find the lcl with <span class="math notranslate nohighlight">\(\theta\)</span> prior cooling</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#check-that-theta-e-hasn-t-changed">Check that <span class="math notranslate nohighlight">\(\theta_e\)</span> hasn’t changed</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#now-cool-by-6-k">now cool by 6 K</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#find-the-new-lcl">Find the new lcl</a></li>
@@ -599,9 +595,6 @@ document.write(`
 <span class="n">rl</span> <span class="o">=</span> <span class="mf">1.e-3</span>
 <span class="n">rt_cloud</span> <span class="o">=</span> <span class="n">rv</span> <span class="o">+</span> <span class="n">rl</span>
 
-<span class="c1">#</span>
-<span class="c1"># clouds is saturated, so temp= dewpoint</span>
-<span class="c1">#</span>
 <span class="n">Td_700</span> <span class="o">=</span> <span class="n">find_Td</span><span class="p">(</span><span class="n">rv</span><span class="p">,</span><span class="n">press_700</span><span class="p">)</span>
 <span class="n">temp_700</span> <span class="o">=</span> <span class="n">Td_700</span>
 <span class="n">thetae_before</span> <span class="o">=</span> <span class="n">find_thetaet</span><span class="p">(</span><span class="n">Td_700</span><span class="p">,</span> <span class="n">rt_cloud</span><span class="p">,</span> <span class="n">temp_700</span><span class="p">,</span><span class="n">press_700</span><span class="p">)</span>
@@ -616,83 +609,51 @@ document.write(`
 </div>
 </div>
 </section>
-<section id="q1a-find-the-lcl-with-theta-prior-to-cooling">
-<h4>Q1a Find the lcl with <span class="math notranslate nohighlight">\(\theta\)</span> prior to cooling<a class="headerlink" href="#q1a-find-the-lcl-with-theta-prior-to-cooling" title="Link to this heading">#</a></h4>
+<section id="q1a-find-the-lcl-with-theta-prior-cooling">
+<h4>Q1a Find the lcl with <span class="math notranslate nohighlight">\(\theta\)</span> prior cooling<a class="headerlink" href="#q1a-find-the-lcl-with-theta-prior-cooling" title="Link to this heading">#</a></h4>
 <p>Plot as a green diamond</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">find_rsat</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function find_rsat in module a405.thermo.thermlib:
-
-find_rsat(temp, press)
-    calculate the saturation mixing ratio (kg/kg) at (temp,press)
-
-    Parameters
-    ---------
-
-    temp: float
-          temperature (K)
-
-    press: float
-          pressure (Pa)
-
-    Returns
-    -------
-
-     rsat: float
-           satruation mixing ratio  (kg/kg)
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-</section>
-<section id="make-the-tephigram-with-original-point">
-<h3>Make the tephigram with original point<a class="headerlink" href="#make-the-tephigram-with-original-point" title="Link to this heading">#</a></h3>
-</section>
-<section id="find-original-lcl-by-going-below-cloud-base-to-900-hpa-conserving-theta-e">
-<h3>find original LCL by going below cloud base to 900 hPa conserving <span class="math notranslate nohighlight">\(\theta_e\)</span><a class="headerlink" href="#find-original-lcl-by-going-below-cloud-base-to-900-hpa-conserving-theta-e" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">press_900</span> <span class="o">=</span> <span class="mf">900.e2</span>
 <span class="n">Temp_900</span><span class="p">,</span><span class="n">rv_900</span><span class="p">,</span><span class="n">rl_900</span><span class="o">=</span><span class="n">tinvert_thetae</span><span class="p">(</span><span class="n">thetae_before</span><span class="p">,</span><span class="n">rt_cloud</span><span class="p">,</span><span class="n">press_900</span><span class="p">)</span>
 <span class="c1"># find lcl</span>
 <span class="n">Td_900</span> <span class="o">=</span> <span class="n">find_Td</span><span class="p">(</span><span class="n">rt_cloud</span><span class="p">,</span> <span class="n">press_900</span><span class="p">)</span>
-<span class="n">rsat_900</span> <span class="o">=</span> <span class="n">find_rsat</span><span class="p">(</span><span class="n">Td_900</span><span class="p">,</span><span class="n">press_900</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="p">(</span><span class="n">Td_900</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">c</span><span class="o">.</span><span class="n">Tc</span><span class="p">)</span><span class="si">=:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">,</span><span class="si">{</span><span class="n">rsat_900</span><span class="si">:</span><span class="s2">.1e</span><span class="si">}</span><span class="s2">,</span><span class="si">{</span><span class="n">rt_cloud</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="n">original_T_lcl</span><span class="p">,</span> <span class="n">original_press_lcl</span> <span class="o">=</span> <span class="n">find_lcl</span><span class="p">(</span><span class="n">Td_900</span><span class="p">,</span><span class="n">Temp_900</span><span class="p">,</span><span class="n">press_900</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;!!!!!!</span><span class="si">{</span><span class="n">original_press_lcl</span><span class="si">=:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">original_T_lcl</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">c</span><span class="o">.</span><span class="n">Tc</span><span class="si">=:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> deg C&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(Td_900 - c.Tc)=8.9,8.0e-03,rt_cloud=0.008
-!!!!!!original_press_lcl=75537.4, original_T_lcl - c.Tc=6.4 deg C
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># lcl=ax1.plot(xplot, press_lcl*pa2hPa, &#39;bd&#39;, markersize=14, markerfacecolor=&#39;g&#39;,</span>
+<span class="n">T_lcl</span><span class="p">,</span> <span class="n">press_lcl</span> <span class="o">=</span> <span class="n">find_lcl</span><span class="p">(</span><span class="n">Td_900</span><span class="p">,</span><span class="n">Temp_900</span><span class="p">,</span><span class="n">press_900</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;!!!!!!</span><span class="si">{</span><span class="n">press_lcl</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span><span class="n">ax1</span> <span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span><span class="mi">11</span><span class="p">))</span>
+<span class="n">skew</span> <span class="o">=</span> <span class="mi">35</span>
+<span class="n">corners</span><span class="o">=</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">20</span><span class="p">]</span>
+<span class="n">ax1</span><span class="p">,</span> <span class="n">skew</span> <span class="o">=</span> <span class="n">makeSkewWet</span><span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">corners</span><span class="o">=</span><span class="n">corners</span><span class="p">,</span> <span class="n">skew</span><span class="o">=</span><span class="n">skew</span><span class="p">,</span><span class="n">label_fun</span><span class="o">=</span><span class="n">label_fun</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Cooling problem&#39;</span><span class="p">)</span>
+
+<span class="n">xcorners</span><span class="o">=</span><span class="n">find_corners</span><span class="p">(</span><span class="n">corners</span><span class="p">,</span><span class="n">skew</span><span class="o">=</span><span class="n">skew</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlim</span><span class="o">=</span><span class="n">xcorners</span><span class="p">,</span><span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="mi">1000</span><span class="p">,</span><span class="mi">600</span><span class="p">])</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;cooling.pdf&#39;</span><span class="p">)</span>
+<span class="n">xplot</span><span class="o">=</span><span class="n">convertTempToSkew</span><span class="p">(</span><span class="n">Td_700</span> <span class="o">-</span> <span class="n">c</span><span class="o">.</span><span class="n">Tc</span><span class="p">,</span><span class="n">press_700</span><span class="o">*</span><span class="n">pa2hPa</span><span class="p">,</span><span class="n">skew</span><span class="p">)</span>
+<span class="n">bot</span><span class="o">=</span><span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xplot</span><span class="p">,</span> <span class="n">press_700</span><span class="o">*</span><span class="n">pa2hPa</span><span class="p">,</span> <span class="s1">&#39;bd&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">markerfacecolor</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;before cooling&quot;</span><span class="p">)</span>
+<span class="n">xplot</span> <span class="o">=</span> <span class="n">xplot</span><span class="o">=</span><span class="n">convertTempToSkew</span><span class="p">(</span><span class="n">T_lcl</span> <span class="o">-</span> <span class="n">c</span><span class="o">.</span><span class="n">Tc</span><span class="p">,</span><span class="n">press_lcl</span><span class="o">*</span><span class="n">pa2hPa</span><span class="p">,</span><span class="n">skew</span><span class="p">)</span>
+<span class="c1"># lcl=ax1.plot(xplot, press_lcl*pa2hPa, &#39;bd&#39;, markersize=14, markerfacecolor=&#39;g&#39;,</span>
 <span class="c1">#            label = &quot;original lcl&quot;)</span>
-<span class="n">original_theta_lcl</span> <span class="o">=</span> <span class="n">find_theta</span><span class="p">(</span><span class="n">original_T_lcl</span><span class="p">,</span><span class="n">original_press_lcl</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;!!!!!LCL potential temperature </span><span class="si">{</span><span class="n">original_theta_lcl</span><span class="si">:</span><span class="s2">0.1f</span><span class="si">}</span><span class="s2"> K&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;!!!!!LCL pressure </span><span class="si">{</span><span class="n">original_press_lcl</span><span class="o">*</span><span class="n">pa2hPa</span><span class="si">:</span><span class="s2">0.1f</span><span class="si">}</span><span class="s2"> hPa&quot;</span><span class="p">)</span>
+<span class="n">theta_lcl</span> <span class="o">=</span> <span class="n">find_theta</span><span class="p">(</span><span class="n">T_lcl</span><span class="p">,</span><span class="n">press_lcl</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;!!!!!LCL potential temperature </span><span class="si">{</span><span class="n">theta_lcl</span><span class="si">:</span><span class="s2">0.1f</span><span class="si">}</span><span class="s2"> K&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;!!!!!LCL pressure </span><span class="si">{</span><span class="n">press_lcl</span><span class="o">*</span><span class="n">pa2hPa</span><span class="si">:</span><span class="s2">0.1f</span><span class="si">}</span><span class="s2"> hPa&quot;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>!!!!!!press_lcl=np.float64(75537.44226049926)
+</pre></div>
+</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>!!!!!LCL potential temperature 302.8 K
 !!!!!LCL pressure 755.4 hPa
 </pre></div>
 </div>
+<img alt="../_images/e39a77177c9e7c91cc6651d4cb28743243f98e791c2c70229204420d69044f25.png" src="../_images/e39a77177c9e7c91cc6651d4cb28743243f98e791c2c70229204420d69044f25.png" />
 </div>
 </div>
+</section>
 <section id="check-that-theta-e-hasn-t-changed">
 <h4>Check that <span class="math notranslate nohighlight">\(\theta_e\)</span> hasn’t changed<a class="headerlink" href="#check-that-theta-e-hasn-t-changed" title="Link to this heading">#</a></h4>
 <div class="cell docutils container">
@@ -715,17 +676,13 @@ find_rsat(temp, press)
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">new_temp</span> <span class="o">=</span> <span class="n">temp_700</span> <span class="o">-</span> <span class="mi">6</span>
 <span class="n">thetae_after</span> <span class="o">=</span> <span class="n">find_thetaet</span><span class="p">(</span><span class="n">Td_700</span><span class="p">,</span> <span class="n">rt_cloud</span><span class="p">,</span> <span class="n">new_temp</span><span class="p">,</span><span class="n">press_700</span><span class="p">)</span>
-<span class="n">Temp_after</span><span class="p">,</span><span class="n">rv_after</span><span class="p">,</span><span class="n">rl_after</span><span class="o">=</span><span class="n">tinvert_thetae</span><span class="p">(</span><span class="n">thetae_after</span><span class="p">,</span><span class="n">rt_cloud</span><span class="p">,</span><span class="n">press_lcl</span><span class="p">)</span>
+<span class="n">Temp_after</span><span class="p">,</span><span class="n">rv_after</span><span class="p">,</span><span class="n">rl_after</span><span class="o">=</span><span class="n">tinvert_thetae</span><span class="p">(</span><span class="n">thetae_after</span><span class="p">,</span><span class="n">rt_cloud</span><span class="p">,</span><span class="n">press_700</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="p">(</span><span class="n">thetae_before</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">thetae_after</span><span class="p">)</span><span class="si">=}</span><span class="s2"> K&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;!!!!!New rv </span><span class="si">{</span><span class="n">rv_after</span><span class="o">*</span><span class="mf">1.e3</span><span class="si">:</span><span class="s2">0.1f</span><span class="si">}</span><span class="s2"> g/kg&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;!!!!!rv_after, rv_change: </span><span class="si">{</span><span class="n">rv_after</span><span class="o">*</span><span class="mf">1.e3</span><span class="si">:</span><span class="s2">0.1f</span><span class="si">}</span><span class="s2"> g/kg, </span><span class="si">{</span><span class="p">(</span><span class="n">rv_after</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">rv</span><span class="p">)</span><span class="o">*</span><span class="mf">1.e3</span><span class="si">:</span><span class="s2">0.1f</span><span class="si">}</span><span class="s2"> g/kg&quot;</span><span class="p">)</span>
 <span class="n">xplot</span> <span class="o">=</span> <span class="n">xplot</span><span class="o">=</span><span class="n">convertTempToSkew</span><span class="p">(</span><span class="n">Temp_after</span> <span class="o">-</span> <span class="n">c</span><span class="o">.</span><span class="n">Tc</span><span class="p">,</span><span class="n">press_700</span><span class="o">*</span><span class="n">pa2hPa</span><span class="p">,</span><span class="n">skew</span><span class="p">)</span>
-<span class="n">cooled_parcel</span><span class="o">=</span><span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xplot</span><span class="p">,</span> <span class="n">press_700</span><span class="o">*</span><span class="n">pa2hPa</span><span class="p">,</span> <span class="s1">&#39;bd&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">markerfacecolor</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span>
+<span class="n">lcl</span><span class="o">=</span><span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xplot</span><span class="p">,</span> <span class="n">press_700</span><span class="o">*</span><span class="n">pa2hPa</span><span class="p">,</span> <span class="s1">&#39;bd&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">markerfacecolor</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span>
            <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;after 6K cooling&quot;</span><span class="p">)</span>
-<span class="c1">#</span>
-<span class="c1"># add the LCL</span>
-<span class="c1">#</span>
-<span class="n">xplot</span> <span class="o">=</span> <span class="n">xplot</span><span class="o">=</span><span class="n">convertTempToSkew</span><span class="p">(</span><span class="n">T_lcl</span> <span class="o">-</span> <span class="n">c</span><span class="o">.</span><span class="n">Tc</span><span class="p">,</span><span class="n">press_lcl</span><span class="o">*</span><span class="n">pa2hPa</span><span class="p">,</span><span class="n">skew</span><span class="p">)</span>
 <span class="n">lcl</span><span class="o">=</span><span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xplot</span><span class="p">,</span> <span class="n">press_lcl</span><span class="o">*</span><span class="n">pa2hPa</span><span class="p">,</span> <span class="s1">&#39;bd&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">markerfacecolor</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">,</span>
          <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;original lcl&quot;</span><span class="p">)</span>
 <span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
@@ -734,18 +691,12 @@ find_rsat(temp, press)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">new_temp</span> <span class="o">=</span> <span class="n">temp_700</span> <span class="o">-</span> <span class="mi">6</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">thetae_after</span> <span class="o">=</span> <span class="n">find_thetaet</span><span class="p">(</span><span class="n">Td_700</span><span class="p">,</span> <span class="n">rt_cloud</span><span class="p">,</span> <span class="n">new_temp</span><span class="p">,</span><span class="n">press_700</span><span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">Temp_after</span><span class="p">,</span><span class="n">rv_after</span><span class="p">,</span><span class="n">rl_after</span><span class="o">=</span><span class="n">tinvert_thetae</span><span class="p">(</span><span class="n">thetae_after</span><span class="p">,</span><span class="n">rt_cloud</span><span class="p">,</span><span class="n">press_lcl</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="p">(</span><span class="n">thetae_before</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">thetae_after</span><span class="p">)</span><span class="si">=}</span><span class="s2"> K&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;!!!!!New rv </span><span class="si">{</span><span class="n">rv_after</span><span class="o">*</span><span class="mf">1.e3</span><span class="si">:</span><span class="s2">0.1f</span><span class="si">}</span><span class="s2"> g/kg&quot;</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;press_lcl&#39; is not defined
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(thetae_before - thetae_after)=np.float64(14.023693303587152) K
+!!!!!New rv 4.5 g/kg
+!!!!!rv_after, rv_change: 4.5 g/kg, -2.5 g/kg
 </pre></div>
 </div>
+<img alt="../_images/a07f46950d0d3beac76b4764bd7fae536a37f6c082ec9bc9e178083a928b5954.png" src="../_images/a07f46950d0d3beac76b4764bd7fae536a37f6c082ec9bc9e178083a928b5954.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -755,12 +706,7 @@ find_rsat(temp, press)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">rv_after</span>
-
-<span class="ne">NameError</span>: name &#39;rv_after&#39; is not defined
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.004517141515720101)
 </pre></div>
 </div>
 </div>
@@ -789,19 +735,7 @@ find_rsat(temp, press)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>!!!!!!!!new lcl temperature, pressure 282.3, 91406.6
 </pre></div>
 </div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="n">line</span> <span class="mi">6</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">T_lcl</span><span class="p">,</span> <span class="n">press_lcl</span> <span class="o">=</span> <span class="n">find_lcl</span><span class="p">(</span><span class="n">Td_1000</span><span class="p">,</span><span class="n">Temp_1000</span><span class="p">,</span><span class="n">press_1000</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;!!!!!!!!new lcl temperature, pressure </span><span class="si">{</span><span class="n">T_lcl</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">press_lcl</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">6</span> <span class="n">xplot</span> <span class="o">=</span> <span class="n">xplot</span><span class="o">=</span><span class="n">convertTempToSkew</span><span class="p">(</span><span class="n">T_lcl</span> <span class="o">-</span> <span class="n">c</span><span class="o">.</span><span class="n">Tc</span><span class="p">,</span><span class="n">press_lcl</span><span class="o">*</span><span class="n">pa2hPa</span><span class="p">,</span><span class="n">skew</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">lcl</span><span class="o">=</span><span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xplot</span><span class="p">,</span> <span class="n">press_lcl</span><span class="o">*</span><span class="n">pa2hPa</span><span class="p">,</span> <span class="s1">&#39;cd&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">markerfacecolor</span><span class="o">=</span><span class="s1">&#39;c&#39;</span><span class="p">,</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span>            <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;new lcl&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-
-<span class="ne">NameError</span>: name &#39;skew&#39; is not defined
-</pre></div>
-</div>
+<img alt="../_images/0cd292cc8fe6701e0ab95c410ea349e7e8cf5c0ef5c5613130b6db927907a4c9.png" src="../_images/0cd292cc8fe6701e0ab95c410ea349e7e8cf5c0ef5c5613130b6db927907a4c9.png" />
 </div>
 </div>
 </section>
@@ -873,7 +807,7 @@ q\,dt &amp; = c_p dT + l_v dr_v + g dz = ds_v
 <p>Divide the first law form from <a class="reference internal" href="#equation-first-law-answer">(39)</a> by temperature to get the entropy:</p>
 <div class="math notranslate nohighlight">
 \[
-\frac{q\,dt}{T} = d\phi = c_p \frac{dT}{T} + l_v \frac{dr_v}{T} - \alpha \frac{dp}{T}
+\frac{q\,dt}{T} = d\phi &amp;= c_p \frac{dT}{T} + l_v \frac{dr_v}{T} - \alpha \frac{dp}{T}
 \]</div>
 <p>Use the equation of state (3):</p>
 <div class="math notranslate nohighlight">
@@ -888,7 +822,7 @@ p = \rho\, R_d\, T_v
 <p>to get:</p>
 <div class="math notranslate nohighlight">
 \[
- d\phi = c_p \frac{d\theta}{\theta} + l_v \frac{dr_v}{T} 
+ d\phi &amp;= c_p \frac{d\theta}{\theta} + l_v \frac{dr_v}{T} 
 \]</div>
 <p>Assuming saturation, and making  the approximation from worksheet 7 that:</p>
 <div class="math notranslate nohighlight">
@@ -917,7 +851,7 @@ d  \left ( \frac{l_v(T) r_s(T)}{c_p T} \right ) \approx  \left ( \frac{l_v(T) }{
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\theta_e\)</span>, <span class="math notranslate nohighlight">\(r_v\)</span> and LCL of surface air: <span class="math notranslate nohighlight">\(\theta_e\)</span> = 324 K, <span class="math notranslate nohighlight">\(r_v\)</span>=11.5 g/kg  LCL = 942 hPa</p></li>
 <li><p><span class="math notranslate nohighlight">\(\theta_e\)</span>, <span class="math notranslate nohighlight">\(r_v\)</span> and LCL of environment air: 307 K, 4 g/kg, LCL = 719 hPa</p></li>
-<li><p><span class="math notranslate nohighlight">\(\theta_e\)</span>, <span class="math notranslate nohighlight">\(r_v\)</span> and LCL of mixture: 318.9 K, 9.2 g/kg, 892 hPa</p></li>
+<li><p><span class="math notranslate nohighlight">\(\theta_e\)</span>, <span class="math notranslate nohighlight">\(r_v\)</span> and LCL of mixture: 318.9 K, 7.7 g/kg, 892 hPa</p></li>
 </ul>
 <p>The mixture is about 2 degrees cooler than unmixed cloud, and about 2 degrees warmer than the pure environment.  So if it’s surrounded by unmixed cloud it will sink, or environment and it will ascend, but more slowly than unmixed cloud.</p>
 <div class="cell docutils container">
@@ -1055,7 +989,7 @@ d  \left ( \frac{l_v(T) r_s(T)}{c_p T} \right ) \approx  \left ( \frac{l_v(T) }{
 </div>
 </section>
 <section id="add-the-mixture">
-<h4>add the mixture<a class="headerlink" href="#add-the-mixture" title="Link to this heading">#</a></h4>
+<span id="mixture-answer"></span><h4>add the mixture<a class="headerlink" href="#add-the-mixture" title="Link to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">thetae_mix</span> <span class="o">=</span> <span class="mf">0.3</span><span class="o">*</span><span class="n">thetae_env</span> <span class="o">+</span> <span class="mf">0.7</span><span class="o">*</span><span class="n">thetae_cloud</span>
@@ -1351,7 +1285,7 @@ Is there convective overturning?  Why or why not?</p></li>
 Wet bulb potential temperature 19.7 degC
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x152f1d400&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x125e8fa10&gt;]
 </pre></div>
 </div>
 <img alt="../_images/f8dfd319294be7e8f3bd587ff42b870a4b80da462dfd3934e59614923d786665.png" src="../_images/f8dfd319294be7e8f3bd587ff42b870a4b80da462dfd3934e59614923d786665.png" />
@@ -1553,11 +1487,7 @@ Wet bulb potential temperature 19.7 degC
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q1b-answer">Q1b answer</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-1-cooling-code">Question 1 cooling code</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#find-temperature-at-700-hpa">Find temperature at 700 hPa</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#q1a-find-the-lcl-with-theta-prior-to-cooling">Q1a Find the lcl with <span class="math notranslate nohighlight">\(\theta\)</span> prior to cooling</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#make-the-tephigram-with-original-point">Make the tephigram with original point</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#find-original-lcl-by-going-below-cloud-base-to-900-hpa-conserving-theta-e">find original LCL by going below cloud base to 900 hPa conserving <span class="math notranslate nohighlight">\(\theta_e\)</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#q1a-find-the-lcl-with-theta-prior-cooling">Q1a Find the lcl with <span class="math notranslate nohighlight">\(\theta\)</span> prior cooling</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#check-that-theta-e-hasn-t-changed">Check that <span class="math notranslate nohighlight">\(\theta_e\)</span> hasn’t changed</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#now-cool-by-6-k">now cool by 6 K</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#find-the-new-lcl">Find the new lcl</a></li>
