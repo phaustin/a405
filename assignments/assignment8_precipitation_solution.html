@@ -456,6 +456,12 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-solution">Numerical solution</a></li>
 </ul>
 </li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-this-answer-analytically">Check this answer analytically</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#integrate-uint-with-change-of-variables">Integrate <code class="xref eq docutils literal notranslate"><span class="pre">uint</span></code> with change of variables</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#put-in-some-numbers">Put in some numbers</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#repeat-numerical-solution-using-fall-speed-from-two">Repeat numerical solution using fall speed from <code class="xref eq docutils literal notranslate"><span class="pre">two</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -613,15 +619,16 @@ Use WH equation 6.24 for the terminal fall speed of a droplet together with WH e
 <span class="eqno">(20)<a class="headerlink" href="#equation-two" title="Link to this equation">#</a></span>\[
   v = \frac{ 2 g \rho_l r^2}{9 \eta}
 \]</div>
+<p>write the supersaturation as <span class="math notranslate nohighlight">\(SS = (S - 1)\)</span></p>
 <div class="math notranslate nohighlight" id="equation-three">
 <span class="eqno">(21)<a class="headerlink" href="#equation-three" title="Link to this equation">#</a></span>\[\begin{split}
-r \frac{ dr}{dt}  = G_l S \\
-\Rightarrow \frac{ 1}{2}\frac{dr^2 }{dt}   = G_l S 
+r \frac{ dr}{dt}  = G_l SS \\
+\Rightarrow \frac{ 1}{2}\frac{dr^2 }{dt}   = G_l SS 
 \end{split}\]</div>
 <p>Integrate <a class="reference internal" href="#equation-three">(21)</a> from <span class="math notranslate nohighlight">\((t^\prime=0,r^\prime=r_0)\)</span> to <span class="math notranslate nohighlight">\((t^\prime=t,r^\prime = r)\)</span></p>
 <div class="math notranslate nohighlight" id="equation-four">
 <span class="eqno">(22)<a class="headerlink" href="#equation-four" title="Link to this equation">#</a></span>\[
-r^2 = r_0^2 + 2 G_l S t
+r^2 = r_0^2 + 2 G_l SS t
 \]</div>
 <p>Write</p>
 <div class="math notranslate nohighlight" id="equation-simple">
@@ -630,16 +637,16 @@ r^2 = r_0^2 + 2 G_l S t
 \nu = \beta r^2
 \end{split}\]</div>
 <p>Insert <a class="reference internal" href="#equation-four">(22)</a> into <a class="reference internal" href="#equation-simple">(23)</a> and then use <a class="reference internal" href="#equation-one">(19)</a></p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\frac{ dh}{dt}  = w - \beta r^2 = w - \beta \left ( r_0^2 + 2 G_l S t \right )\\
-dh = w dt - \beta \left ( r_0^2 + 2 G_l S t \right ) dt \\
-h = h_0 + w t - \beta r_0^2 t - \beta G_l S t^2
+<div class="math notranslate nohighlight" id="equation-fall1">
+<span class="eqno">(24)<a class="headerlink" href="#equation-fall1" title="Link to this equation">#</a></span>\[\begin{split}
+\frac{ dh}{dt}  = w - \beta r^2 = w - \beta \left ( r_0^2 + 2 G_l SS t \right )\\
+\int_{h0}^h dh^\prime = \int_0^t w dt^\prime - \int_0^t \beta \left ( r_0^2 + 2 G_l SS t \right ) dt^\prime \\
+h = h_0 + w t - \beta r_0^2 t - \beta G_l SS t^2
 \end{split}\]</div>
-<p>So we could if the fall speed was larger than the updraft speed, we
+<p>So if the fall speed was larger than the updraft speed, we
 could set <span class="math notranslate nohighlight">\(h=0\)</span> and solve the quadratic equation for time <span class="math notranslate nohighlight">\(t\)</span> when drop hits the ground.</p>
 <p>We would also need a value for the dynamic viscosity <span class="math notranslate nohighlight">\(\eta\)</span>
-for example from <a class="reference external" href="https://www.engineeringtoolbox.com/dynamic-absolute-kinematic-viscosity-d_412.html">this website</a>, which says that at 0 deg C <span class="math notranslate nohighlight">\(\eta=19.8 \times 10^{-6}\ Pa\,s\)</span></p>
+for example from <a class="reference external" href="https://www.engineeringtoolbox.com/dynamic-absolute-kinematic-viscosity-d_412.html">this website</a>, which says that at 0 deg C, <span class="math notranslate nohighlight">\(\eta=19.8 \times 10^{-6}\ Pa\,s\)</span></p>
 </section>
 <section id="check-values-of-g-l">
 <h4>Check values of <span class="math notranslate nohighlight">\(G_l\)</span><a class="headerlink" href="#check-values-of-g-l" title="Link to this heading">#</a></h4>
@@ -648,7 +655,7 @@ for example from <a class="reference external" href="https://www.engineeringtool
 <li><p>Thompkins 4.25</p></li>
 </ul>
 <div class="math notranslate nohighlight" id="equation-eq-dropgrow">
-<span class="eqno">(24)<a class="headerlink" href="#equation-eq-dropgrow" title="Link to this equation">#</a></span>\[
+<span class="eqno">(25)<a class="headerlink" href="#equation-eq-dropgrow" title="Link to this equation">#</a></span>\[
 r\frac{d r}{d t} \simeq \frac{D e_s^{\infty}}{\rho_L  R_v T}(S-1)
 \]</div>
 <p>where</p>
@@ -708,7 +715,7 @@ r\frac{d r}{d t} \simeq \frac{D e_s^{\infty}}{\rho_L  R_v T}(S-1)
 <span class="n">hit_ground</span><span class="o">.</span><span class="n">terminal</span> <span class="o">=</span> <span class="kc">True</span>
 <span class="n">hit_ground</span><span class="o">.</span><span class="n">direction</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
 
-<span class="n">G_l</span> <span class="o">=</span> <span class="mi">700</span>
+<span class="n">G_l</span> <span class="o">=</span> <span class="mf">700e-12</span>
 <span class="n">S</span> <span class="o">=</span> <span class="mf">0.6</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">find_derivs</span><span class="p">(</span><span class="n">the_time</span><span class="p">,</span><span class="n">the_vars</span><span class="p">):</span>
@@ -718,11 +725,12 @@ r\frac{d r}{d t} \simeq \frac{D e_s^{\infty}}{\rho_L  R_v T}(S-1)
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">h</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="n">the_vars</span>
     <span class="n">dh_dt</span> <span class="o">=</span> <span class="o">-</span><span class="mi">6000</span><span class="o">*</span><span class="n">r</span> <span class="c1">#WH prob 6.23, m</span>
-    <span class="n">dr_dt</span> <span class="o">=</span>  <span class="n">r</span><span class="o">*</span><span class="n">G_l</span><span class="o">*</span><span class="p">(</span><span class="n">S</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="c1">#WH eq. 6.21</span>
+    <span class="n">dr_dt</span> <span class="o">=</span>  <span class="n">G_l</span><span class="o">*</span><span class="p">(</span><span class="n">S</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">r</span> <span class="c1">#WH eq. 6.21</span>
+    <span class="c1">#print(f&quot;{r=}, {h=}, {the_time=}&quot;)</span>
     <span class="k">return</span> <span class="p">[</span><span class="n">dh_dt</span><span class="p">,</span><span class="n">dr_dt</span><span class="p">]</span>
 
 <span class="n">init_0</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5000</span><span class="p">,</span><span class="mf">0.001</span><span class="p">]</span>  <span class="c1">#h, r</span>
-<span class="n">tspan</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">500</span><span class="p">]</span>
+<span class="n">tspan</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">5000</span><span class="p">]</span>
 
 <span class="n">sol</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span>
     <span class="n">find_derivs</span><span class="p">,</span>
@@ -737,29 +745,557 @@ r\frac{d r}{d t} \simeq \frac{D e_s^{\infty}}{\rho_L  R_v T}(S-1)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">the_times</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">sol</span><span class="o">.</span><span class="n">t</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="mi">5</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">the_times</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">sol</span><span class="o">.</span><span class="n">t</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">yplot</span> <span class="o">=</span> <span class="n">sol</span><span class="o">.</span><span class="n">sol</span><span class="p">(</span><span class="n">the_times</span><span class="p">)</span>
 <span class="n">df_output</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_records</span><span class="p">(</span><span class="n">yplot</span><span class="o">.</span><span class="n">T</span><span class="p">,</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;height&#39;</span><span class="p">,</span><span class="s1">&#39;radius&#39;</span><span class="p">])</span>
 <span class="n">df_output</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">the_times</span>
+<span class="n">df_output</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>height</th>
+      <th>radius</th>
+      <th>time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>5000.000000</td>
+      <td>0.001000</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>4994.000840</td>
+      <td>0.001000</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4988.003361</td>
+      <td>0.000999</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4982.007562</td>
+      <td>0.000999</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4976.013445</td>
+      <td>0.000999</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>981</th>
+      <td>17.855797</td>
+      <td>0.000671</td>
+      <td>981.0</td>
+    </tr>
+    <tr>
+      <th>982</th>
+      <td>13.828672</td>
+      <td>0.000671</td>
+      <td>982.0</td>
+    </tr>
+    <tr>
+      <th>983</th>
+      <td>9.804061</td>
+      <td>0.000671</td>
+      <td>983.0</td>
+    </tr>
+    <tr>
+      <th>984</th>
+      <td>5.781965</td>
+      <td>0.000670</td>
+      <td>984.0</td>
+    </tr>
+    <tr>
+      <th>985</th>
+      <td>1.762385</td>
+      <td>0.000670</td>
+      <td>985.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>986 rows × 3 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df_output</span><span class="p">[</span><span class="s1">&#39;radius&#39;</span><span class="p">]</span><span class="o">*</span><span class="mf">1.e6</span><span class="p">,</span><span class="n">df_output</span><span class="p">[</span><span class="s1">&#39;height&#39;</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;drop radius (microns)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;height (m)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;height (m)&#39;)
+</pre></div>
+</div>
+<img alt="../_images/1155303c5b8c529224bdfb4639f740f81136320793e7ac23c7373e8465a3c6d7.png" src="../_images/1155303c5b8c529224bdfb4639f740f81136320793e7ac23c7373e8465a3c6d7.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="check-this-answer-analytically">
+<h3>Check this answer analytically<a class="headerlink" href="#check-this-answer-analytically" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight" id="equation-uint">
+<span class="eqno">(26)<a class="headerlink" href="#equation-uint" title="Link to this equation">#</a></span>\[\begin{split} 
+r^2 &amp;=r_0^2+2 G_l SS t \\
+\frac{d h}{d t}&amp;=-6000 r \\ 
+d h &amp;=-6000 \sqrt {\left(r_0^2+2 G_l SS t\right) }\, dt
+\end{split}\]</div>
+<section id="integrate-uint-with-change-of-variables">
+<h4>Integrate <a class="reference internal" href="#equation-uint">(26)</a> with change of variables<a class="headerlink" href="#integrate-uint-with-change-of-variables" title="Link to this heading">#</a></h4>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+u &amp; =r_0^2+2 G_l SS t \\
+d u &amp; =2 G_l SS d t \\
+h-h_0 &amp; =-\int_0^t \frac{6000}{2 G_l SS} u^{1 / 2} d u \\
+h-h_0 &amp; = -\left.\int_0^t \frac{2}{3} \frac{6000}{2 G_l SS} u^{3 / 2}\right|_0 ^t \\
+h-h_0 &amp; = - \left. \frac{2000}{ G_l SS} u^{3 / 2}\right|_0 ^t \\
+h-h_0 &amp; = - \frac{2000}{ G_l SS}\left[\left(r_0^2+2 G_l SS t\right)^{3 / 2} - r_0^3\right]
+\end{split}\]</div>
+</section>
+<section id="put-in-some-numbers">
+<h4>Put in some numbers<a class="headerlink" href="#put-in-some-numbers" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Gl</span> <span class="o">=</span> <span class="mf">7.e-10</span>
+<span class="n">r0</span> <span class="o">=</span> <span class="mf">0.001</span>
+<span class="n">SS</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.4</span>
+<span class="n">time</span> <span class="o">=</span> <span class="mf">985.</span>
+<span class="n">r0</span><span class="o">=</span><span class="mf">0.001</span>
+<span class="n">h0</span><span class="o">=</span><span class="mf">5000.</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;radius&#39;</span><span class="p">,</span><span class="s1">&#39;height&#39;</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="n">df_output</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">u</span><span class="o">=</span><span class="n">r0</span><span class="o">**</span><span class="mf">2.</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">Gl</span><span class="o">*</span><span class="n">SS</span><span class="o">*</span><span class="n">time</span>
+<span class="n">h</span> <span class="o">=</span> <span class="n">h0</span> <span class="o">-</span><span class="mi">2000</span><span class="o">/</span><span class="p">(</span><span class="n">Gl</span><span class="o">*</span><span class="n">SS</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">u</span><span class="o">**</span><span class="mf">1.5</span> <span class="o">-</span> <span class="n">r0</span><span class="o">**</span><span class="mf">3.</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;final analytic height at </span><span class="si">{</span><span class="n">time</span><span class="si">=}</span><span class="s2"> seconds in </span><span class="si">{</span><span class="n">h</span><span class="si">=:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> m&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x136bf9940&gt;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>final analytic height at time=985.0 seconds in h=1.9 m
 </pre></div>
 </div>
-<img alt="../_images/c6aa0c3aaf3e3410ba3f09cdf224e80619f040d8cfe30379680427e6d8d0e2ed.png" src="../_images/c6aa0c3aaf3e3410ba3f09cdf224e80619f040d8cfe30379680427e6d8d0e2ed.png" />
 </div>
 </div>
 </section>
+</section>
+<section id="repeat-numerical-solution-using-fall-speed-from-two">
+<h3>Repeat numerical solution using fall speed from <a class="reference internal" href="#equation-two">(20)</a><a class="headerlink" href="#repeat-numerical-solution-using-fall-speed-from-two" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eta</span> <span class="o">=</span> <span class="mf">19.8e-6</span>
+<span class="n">beta</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">c</span><span class="o">.</span><span class="n">g0</span><span class="o">*</span><span class="n">c</span><span class="o">.</span><span class="n">rhol</span><span class="o">/</span><span class="p">(</span><span class="mf">9.</span><span class="o">*</span><span class="n">eta</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">find_derivs</span><span class="p">(</span><span class="n">the_time</span><span class="p">,</span><span class="n">the_vars</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    the_vars[0] = h  (height, m)</span>
+<span class="sd">    the_vars[1] = r (radius, m)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">h</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="n">the_vars</span>
+    <span class="n">dh_dt</span> <span class="o">=</span> <span class="o">-</span><span class="n">beta</span><span class="o">*</span><span class="n">r</span><span class="o">**</span><span class="mf">2.</span>  <span class="c1">#WH eq. 6.24</span>
+    <span class="n">dr_dt</span> <span class="o">=</span>  <span class="n">G_l</span><span class="o">*</span><span class="p">(</span><span class="n">S</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">r</span> <span class="c1">#WH eq. 6.21</span>
+    <span class="c1">#print(f&quot;{r=}, {h=}, {the_time=}&quot;)</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">dh_dt</span><span class="p">,</span><span class="n">dr_dt</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">init_0</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5000</span><span class="p">,</span><span class="mf">0.001</span><span class="p">]</span>  <span class="c1">#h, r</span>
+<span class="n">tspan</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">5000</span><span class="p">]</span>
+
+<span class="n">sol</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span>
+    <span class="n">find_derivs</span><span class="p">,</span>
+    <span class="n">tspan</span><span class="p">,</span>
+    <span class="n">init_0</span><span class="p">,</span>
+    <span class="n">events</span><span class="o">=</span><span class="p">[</span><span class="n">hit_ground</span><span class="p">],</span>
+    <span class="n">dense_output</span><span class="o">=</span><span class="kc">True</span> <span class="c1"># Enable interpolation for plotting smooth curve</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">the_times</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">sol</span><span class="o">.</span><span class="n">t</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">yplot</span> <span class="o">=</span> <span class="n">sol</span><span class="o">.</span><span class="n">sol</span><span class="p">(</span><span class="n">the_times</span><span class="p">)</span>
+<span class="n">df_output</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_records</span><span class="p">(</span><span class="n">yplot</span><span class="o">.</span><span class="n">T</span><span class="p">,</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;height&#39;</span><span class="p">,</span><span class="s1">&#39;radius&#39;</span><span class="p">])</span>
+<span class="n">df_output</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">the_times</span>
+<span class="n">df_output</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>height</th>
+      <th>radius</th>
+      <th>time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>5000.000000</td>
+      <td>0.001000</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>4890.042020</td>
+      <td>0.001000</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4780.145634</td>
+      <td>0.000999</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4670.310842</td>
+      <td>0.000999</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4560.537643</td>
+      <td>0.000999</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>4450.826038</td>
+      <td>0.000999</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>4341.176027</td>
+      <td>0.000998</td>
+      <td>6.0</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>4231.587609</td>
+      <td>0.000998</td>
+      <td>7.0</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>4122.060786</td>
+      <td>0.000998</td>
+      <td>8.0</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>4012.595556</td>
+      <td>0.000997</td>
+      <td>9.0</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>3903.191919</td>
+      <td>0.000997</td>
+      <td>10.0</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>3793.849877</td>
+      <td>0.000997</td>
+      <td>11.0</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>3684.569428</td>
+      <td>0.000997</td>
+      <td>12.0</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>3575.350572</td>
+      <td>0.000996</td>
+      <td>13.0</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>3466.193311</td>
+      <td>0.000996</td>
+      <td>14.0</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>3357.097643</td>
+      <td>0.000996</td>
+      <td>15.0</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>3248.063569</td>
+      <td>0.000996</td>
+      <td>16.0</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>3139.091089</td>
+      <td>0.000995</td>
+      <td>17.0</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>3030.180202</td>
+      <td>0.000995</td>
+      <td>18.0</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>2921.330909</td>
+      <td>0.000995</td>
+      <td>19.0</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>2812.543210</td>
+      <td>0.000994</td>
+      <td>20.0</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>2703.817104</td>
+      <td>0.000994</td>
+      <td>21.0</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>2595.152593</td>
+      <td>0.000994</td>
+      <td>22.0</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>2486.549675</td>
+      <td>0.000994</td>
+      <td>23.0</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>2378.008350</td>
+      <td>0.000993</td>
+      <td>24.0</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>2269.528620</td>
+      <td>0.000993</td>
+      <td>25.0</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>2161.110483</td>
+      <td>0.000993</td>
+      <td>26.0</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>2052.753939</td>
+      <td>0.000992</td>
+      <td>27.0</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>1944.458989</td>
+      <td>0.000992</td>
+      <td>28.0</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>1836.225632</td>
+      <td>0.000992</td>
+      <td>29.0</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>1728.053869</td>
+      <td>0.000992</td>
+      <td>30.0</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>1619.943699</td>
+      <td>0.000991</td>
+      <td>31.0</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>1511.895122</td>
+      <td>0.000991</td>
+      <td>32.0</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>1403.908139</td>
+      <td>0.000991</td>
+      <td>33.0</td>
+    </tr>
+    <tr>
+      <th>34</th>
+      <td>1295.982749</td>
+      <td>0.000990</td>
+      <td>34.0</td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <td>1188.118953</td>
+      <td>0.000990</td>
+      <td>35.0</td>
+    </tr>
+    <tr>
+      <th>36</th>
+      <td>1080.316751</td>
+      <td>0.000990</td>
+      <td>36.0</td>
+    </tr>
+    <tr>
+      <th>37</th>
+      <td>972.576141</td>
+      <td>0.000990</td>
+      <td>37.0</td>
+    </tr>
+    <tr>
+      <th>38</th>
+      <td>864.897125</td>
+      <td>0.000989</td>
+      <td>38.0</td>
+    </tr>
+    <tr>
+      <th>39</th>
+      <td>757.279703</td>
+      <td>0.000989</td>
+      <td>39.0</td>
+    </tr>
+    <tr>
+      <th>40</th>
+      <td>649.723874</td>
+      <td>0.000989</td>
+      <td>40.0</td>
+    </tr>
+    <tr>
+      <th>41</th>
+      <td>542.229639</td>
+      <td>0.000988</td>
+      <td>41.0</td>
+    </tr>
+    <tr>
+      <th>42</th>
+      <td>434.796997</td>
+      <td>0.000988</td>
+      <td>42.0</td>
+    </tr>
+    <tr>
+      <th>43</th>
+      <td>327.425949</td>
+      <td>0.000988</td>
+      <td>43.0</td>
+    </tr>
+    <tr>
+      <th>44</th>
+      <td>220.116494</td>
+      <td>0.000988</td>
+      <td>44.0</td>
+    </tr>
+    <tr>
+      <th>45</th>
+      <td>112.868632</td>
+      <td>0.000987</td>
+      <td>45.0</td>
+    </tr>
+    <tr>
+      <th>46</th>
+      <td>5.682365</td>
+      <td>0.000987</td>
+      <td>46.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Compare with the analytic result from <a class="reference internal" href="#equation-fall1">(24)</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">time</span> <span class="o">=</span> <span class="mi">46</span>
+<span class="n">r0</span> <span class="o">=</span> <span class="mf">0.001</span>
+<span class="n">h0</span><span class="o">=</span><span class="mi">5000</span>
+<span class="n">Gl</span> <span class="o">=</span> <span class="mf">7.e-10</span>
+<span class="n">SS</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.4</span>
+<span class="n">h</span> <span class="o">=</span> <span class="n">h0</span> <span class="o">-</span> <span class="n">beta</span><span class="o">*</span><span class="n">r0</span><span class="o">**</span><span class="mf">2.</span><span class="o">*</span><span class="n">time</span> <span class="o">-</span> <span class="n">beta</span><span class="o">*</span><span class="n">Gl</span><span class="o">*</span><span class="n">SS</span><span class="o">*</span><span class="n">time</span><span class="o">**</span><span class="mi">2</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;final analytic height at </span><span class="si">{</span><span class="n">time</span><span class="si">=}</span><span class="s2"> seconds in </span><span class="si">{</span><span class="n">h</span><span class="si">=:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> m&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>final analytic height at time=46 seconds in h=5.7 m
+</pre></div>
+</div>
+</div>
+</div>
+<p>Again, a close match.  Note how much difference the slower fall that includes drag makes on the answer.</p>
 </section>
 </section>
 </section>
@@ -848,6 +1384,12 @@ r\frac{d r}{d t} \simeq \frac{D e_s^{\infty}}{\rho_L  R_v T}(S-1)
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-solution">Numerical solution</a></li>
 </ul>
 </li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-this-answer-analytically">Check this answer analytically</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#integrate-uint-with-change-of-variables">Integrate <code class="xref eq docutils literal notranslate"><span class="pre">uint</span></code> with change of variables</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#put-in-some-numbers">Put in some numbers</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#repeat-numerical-solution-using-fall-speed-from-two">Repeat numerical solution using fall speed from <code class="xref eq docutils literal notranslate"><span class="pre">two</span></code></a></li>
 </ul>
 </li>
 </ul>
