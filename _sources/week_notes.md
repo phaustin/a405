@@ -496,3 +496,12 @@ and Thompkins Section 4.5
     - Marshall-Palmer distribution
     - Taylor series
     - Bergeron effect
+
+## Week 15
+
+### Monday review
+
+- {ref}`worksheet12_marshall_palmer_sol`
+- Go over crystal vs. drop growth (not on final)
+
+
