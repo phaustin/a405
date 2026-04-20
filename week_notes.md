@@ -504,4 +504,7 @@ and Thompkins Section 4.5
 - {ref}`worksheet12_marshall_palmer_sol`
 - Go over crystal vs. drop growth (not on final)
 
+### Tuesday final
+
+- {ref}`a405_final_solutions`
 
