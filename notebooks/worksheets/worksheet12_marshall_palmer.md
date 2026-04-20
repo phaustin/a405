@@ -66,7 +66,7 @@ for R in Rvals:
 fig, ax = plt.subplots(1,1,figsize=(10,8))
 for R in Rvals:
     ax.semilogy(diam,curve_dict[R],label='{} mm/hr'.format(R))
-ax.set_xlabel('Drop diameter (mm)')
+ax.set_xlabel('Drop diameter (cm)')
 ax.set_ylabel('$n(D) m^{-3} mm^{-1}$')
 ax.set_title('Marshall Palmer distribution for three rain rates')
 out=ax.legend(loc='best')

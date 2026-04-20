@@ -26,6 +26,7 @@ channels = ["conda-forge"]
 platforms = ["osx-arm64"]
 authors = ["Phil Austin <paustin@eos.ubc.ca>"]
 name = "a405lib"
+preview = ["pixi-build"]
 
 [tool.pixi.dependencies]
 python = ">3.12"
@@ -46,5 +47,6 @@ pytz = ">=2025.2,<2026"
 
 [tool.pixi.pypi-dependencies]
 a405 = { path = ".", editable = true }
+gradelib = { path = "/Users/phil/repos/gradelib", editable = true }
 
 [tool.pixi.tasks]

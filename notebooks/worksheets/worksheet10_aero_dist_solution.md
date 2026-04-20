@@ -15,7 +15,7 @@ kernelspec:
 (worksheet10_aerosol_dists_solution)=
 # Worksheet 10: Aerosol distributions solution
 
-Download [worksheet10_aero_dist.ipynb](https://drive.google.com/file/d/1Ky0ohMyWmQdDiOnJDYV9a0nMl3HV0Z3Y/view?usp=sharing)
+Download [worksheet10_aero_dist_solution.ipynb](https://drive.google.com/file/d/1Ky0ohMyWmQdDiOnJDYV9a0nMl3HV0Z3Y/view?usp=sharing)
 
 +++
 
@@ -377,8 +377,8 @@ tau = 1/one_over_tau
 print(f"time constant tau = {tau:.2f} seconds")
 ```
 
-(worksheet10_problem)=
-## Worksheet 10 CCNC Problem
+(worksheet10_ccnc_solution)=
+## Worksheet 10 CCNC Problem solution
 
 Add a cell to this notebook that makes a plot of $N(r)$ vs. $S_{crit}$ for the $n(r)$ in the previous cell,  where:
 

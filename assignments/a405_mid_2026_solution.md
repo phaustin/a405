@@ -7,15 +7,17 @@ jupytext:
     format_version: 0.13
     jupytext_version: 1.19.1
 kernelspec:
-  name: python3
   display_name: Python 3 (ipykernel)
   language: python
+  name: python3
 ---
 
 (2026_midterm_solution)=
-# A405 2026 midterm solutions
+# A405 2026 midterm solutions 
 
 Link to [a405_mid_2026_solution.ipynb](https://drive.google.com/file/d/1GwF7Aa8dGTB1pj1IOxGDJKheXurmEe8v/view?usp=sharing)
+
+Mixing problem typo fixed 2026/Apr/12: rv of mixture is 7.7 g/kg
 
 +++
 
@@ -111,30 +113,24 @@ rv=7e-3
 rl = 1.e-3
 rt_cloud = rv + rl
 
-#
-# clouds is saturated, so temp= dewpoint
-#
 Td_700 = find_Td(rv,press_700)
 temp_700 = Td_700
 thetae_before = find_thetaet(Td_700, rt_cloud, temp_700,press_700)
 print(f"{(temp_700 - c.Tc)=:0.1f} deg C")
 ```
 
-#### Q1a Find the lcl with $\theta$ prior to cooling
+#### Q1a Find the lcl with $\theta$ prior cooling
 
 Plot as a green diamond
 
 ```{code-cell} ipython3
-help(find_rsat)
-```
+press_900 = 900.e2
+Temp_900,rv_900,rl_900=tinvert_thetae(thetae_before,rt_cloud,press_900)
+# find lcl
+Td_900 = find_Td(rt_cloud, press_900)
+T_lcl, press_lcl = find_lcl(Td_900,Temp_900,press_900)
+print(f"!!!!!!{press_lcl=}")
 
-### Make the tephigram with original point
-
-```{code-cell} ipython3
-
-```
-
-```{raw-cell}
 fig,ax1 =plt.subplots(1,1,figsize=(11,11))
 skew = 35
 corners=[5,20]
@@ -146,37 +142,13 @@ ax1.set(xlim=xcorners,ylim=[1000,600])
 fig.savefig('cooling.pdf')
 xplot=convertTempToSkew(Td_700 - c.Tc,press_700*pa2hPa,skew)
 bot=ax1.plot(xplot, press_700*pa2hPa, 'bd', markersize=14, markerfacecolor='r',label="before cooling")
-xplot = xplot=convertTempToSkew(original_T_lcl - c.Tc,press_lcl*pa2hPa,skew)
-ax1.legend();
-```
-
-### find original LCL by going below cloud base to 900 hPa conserving $\theta_e$
-
-```{code-cell} ipython3
-press_900 = 900.e2
-Temp_900,rv_900,rl_900=tinvert_thetae(thetae_before,rt_cloud,press_900)
-# find lcl
-Td_900 = find_Td(rt_cloud, press_900)
-rsat_900 = find_rsat(Td_900,press_900)
-print(f"{(Td_900 - c.Tc)=:.1f},{rsat_900:.1e},{rt_cloud=}")
-original_T_lcl, original_press_lcl = find_lcl(Td_900,Temp_900,press_900)
-print(f"!!!!!!{original_press_lcl=:.1f}, {original_T_lcl - c.Tc=:.1f} deg C")
-```
-
-```{code-cell} ipython3
+xplot = xplot=convertTempToSkew(T_lcl - c.Tc,press_lcl*pa2hPa,skew)
 # lcl=ax1.plot(xplot, press_lcl*pa2hPa, 'bd', markersize=14, markerfacecolor='g',
 #            label = "original lcl")
-original_theta_lcl = find_theta(original_T_lcl,original_press_lcl)
-print(f"!!!!!LCL potential temperature {original_theta_lcl:0.1f} K")
-print(f"!!!!!LCL pressure {original_press_lcl*pa2hPa:0.1f} hPa")
-```
-
-```{code-cell} ipython3
-
-```
-
-```{code-cell} ipython3
-
+theta_lcl = find_theta(T_lcl,press_lcl)
+print(f"!!!!!LCL potential temperature {theta_lcl:0.1f} K")
+print(f"!!!!!LCL pressure {press_lcl*pa2hPa:0.1f} hPa")
+ax1.legend();
 ```
 
 #### Check that $\theta_e$ hasn't changed
@@ -191,17 +163,13 @@ thetae_check, thetae_before
 ```{code-cell} ipython3
 new_temp = temp_700 - 6
 thetae_after = find_thetaet(Td_700, rt_cloud, new_temp,press_700)
-Temp_after,rv_after,rl_after=tinvert_thetae(thetae_after,rt_cloud,press_lcl)
+Temp_after,rv_after,rl_after=tinvert_thetae(thetae_after,rt_cloud,press_700)
 print(f"{(thetae_before - thetae_after)=} K")
 print(f"!!!!!New rv {rv_after*1.e3:0.1f} g/kg")
 print(f"!!!!!rv_after, rv_change: {rv_after*1.e3:0.1f} g/kg, {(rv_after - rv)*1.e3:0.1f} g/kg")
 xplot = xplot=convertTempToSkew(Temp_after - c.Tc,press_700*pa2hPa,skew)
-cooled_parcel=ax1.plot(xplot, press_700*pa2hPa, 'bd', markersize=14, markerfacecolor='b',
+lcl=ax1.plot(xplot, press_700*pa2hPa, 'bd', markersize=14, markerfacecolor='b',
            label = "after 6K cooling")
-#
-# add the LCL
-#
-xplot = xplot=convertTempToSkew(T_lcl - c.Tc,press_lcl*pa2hPa,skew)
 lcl=ax1.plot(xplot, press_lcl*pa2hPa, 'bd', markersize=14, markerfacecolor='g',
          label = "original lcl")
 ax1.legend()
@@ -313,7 +281,7 @@ For adiabatic processes, $q=0$ so $ds_v=0$ and $s_v$ won't change.
 Divide the first law form from {eq}`first_law_answer` by temperature to get the entropy:
 
 $$
-\frac{q\,dt}{T} = d\phi = c_p \frac{dT}{T} + l_v \frac{dr_v}{T} - \alpha \frac{dp}{T}
+\frac{q\,dt}{T} = d\phi &= c_p \frac{dT}{T} + l_v \frac{dr_v}{T} - \alpha \frac{dp}{T}
 $$
 
 Use the equation of state (3):
@@ -329,7 +297,7 @@ $$
 to get:
 
 $$
- d\phi = c_p \frac{d\theta}{\theta} + l_v \frac{dr_v}{T} 
+ d\phi &= c_p \frac{d\theta}{\theta} + l_v \frac{dr_v}{T} 
 $$
 
 Assuming saturation, and making  the approximation from worksheet 7 that:
@@ -367,7 +335,7 @@ $$
 
 - $\theta_e$, $r_v$ and LCL of surface air: $\theta_e$ = 324 K, $r_v$=11.5 g/kg  LCL = 942 hPa
 - $\theta_e$, $r_v$ and LCL of environment air: 307 K, 4 g/kg, LCL = 719 hPa
-- $\theta_e$, $r_v$ and LCL of mixture: 318.9 K, 9.2 g/kg, 892 hPa
+- $\theta_e$, $r_v$ and LCL of mixture: 318.9 K, 7.7 g/kg, 892 hPa
 
 The mixture is about 2 degrees cooler than unmixed cloud, and about 2 degrees warmer than the pure environment.  So if it's surrounded by unmixed cloud it will sink, or environment and it will ascend, but more slowly than unmixed cloud.
 
@@ -457,6 +425,7 @@ ax2.legend()
 display(fig)
 ```
 
+(mixture_answer)=
 #### add the mixture
 
 ```{code-cell} ipython3

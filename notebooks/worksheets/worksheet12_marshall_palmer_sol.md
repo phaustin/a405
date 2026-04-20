@@ -12,10 +12,10 @@ kernelspec:
   name: python3
 ---
 
-(worksheet12_marshall_palmer)=
-# Worksheet 12: Marshall-Palmer Distribution
+(worksheet12_marshall_palmer_sol)=
+# Worksheet 12 answer: Marshall-Palmer Distribution
 
-Download link: [worksheet12_marshall_palmer](https://drive.google.com/file/d/1f95GnUpYVnHY7vtQmttrx8t1_Pmh8zNI/view?usp=sharing)
+Download link: [worksheet12_marshall_palmer_sol.ipynb](https://drive.google.com/file/d/1f95GnUpYVnHY7vtQmttrx8t1_Pmh8zNI/view?usp=sharing)
 
 +++
 
@@ -33,7 +33,7 @@ def marshallpalmer(R):
     marshall palmer size distribution
     given rainrate R in mm/hr, return
     n(D), the number concentration of drops with
-    diameter D
+    diameter D using Thompkins 4.32
 
     Parameters
     ----------
@@ -66,7 +66,7 @@ for R in Rvals:
 fig, ax = plt.subplots(1,1,figsize=(10,8))
 for R in Rvals:
     ax.semilogy(diam,curve_dict[R],label='{} mm/hr'.format(R))
-ax.set_xlabel('Drop diameter (mm)')
+ax.set_xlabel('Drop diameter (cm)')
 ax.set_ylabel('$n(D) m^{-3} mm^{-1}$')
 ax.set_title('Marshall Palmer distribution for three rain rates')
 out=ax.legend(loc='best')
@@ -132,29 +132,81 @@ approx_diam = np.sum(diam*ndist*binwidth)/np.sum(ndist*binwidth)
 print(f'approx diameter = {approx_diam:6.3g} cm')
 ```
 
-(mp_ques2)=
-## Question 2: Rain rate (part of assignment 9)
+(mp_ques2_sol)=
+## Question 2 Answer: Rain rate (part of assignment 9)
 
 
-- Calculate the precipitation flux (mm/hr) by integrating the total volumen in the Marshall Palmer size distribution and with the fall speed of Villermaux and Bossa (2009): $w = - \sqrt{\rho_l/\rho_{air} * g *D}$ where
+- Calculate the precipitation flux (mm/hr) by integrating the total volumen in the Marshall Palmer size distribution and with the fall speed of [Villermaux and Bossa (vb_2009)](https://drive.google.com/file/d/1mfwKsVais1YiTC6JbMxIM5xTXgUMYd7g/view?usp=sharing): $V = - \sqrt{\rho_l/\rho_{air} * g *D}$ where
 D is the drop diameter and $\rho_l,\rho_{air}$ are the liquid and air densities.  Show
 that you get about R=15 mm/hour back from this calculation if you use the $\Lambda$ that's appropriate for  R=15 mm/hour
 
-```{code-cell} ipython3
-# your code here
-```
++++
 
-### Put VB2009 in a function
+### Calculate the rainrate R given $n(D)dD$ and the fallspeed
+
+
+Recall this figure from Day 25:
+
+:::{figure} ./images/flux_box.jpg
+:name: flux_fig
+:scale: 60
+
+Flux through a box in time dt
+:::
+
+
++++
+
+You should convince yourself that if the droplets are falling at speed V and the droplet liquid water density is $\rho_N$ ($kg/m^3$)
+then in time $dt$ you will measure falling mass $dM$ that sweeps out a volume of $1\ m^2$ $\times\ dz$ = $1\ m^2$ $\times\ V dt$.
+This means that the mass flux $F = dM/dt\ (kg\,s^{-1})$ is given by:
+
+$$
+F = \frac{dM}{dt} = \rho_N V = \frac{4\pi\rho_l}{3} r^3 N
+$$(flux)
+
++++
+
+#### Size distributed drops
+
+If the drops have a size distribution of $n(D)$, defined as the number of drops/volume with
+diameters between $D \rightarrow D+dD$, then we'll need to integrate {eq}`flux` over all drop diameters
+to get the total flux.  Using equation (10) from the [size distribution notes](https://drive.google.com/file/d/1YYr2dFO4csFNsdOL7IEZJCPEh6LXMoof/view?usp=sharing) and switching from radius $r$ to diameter $D$ with $\rho_l$ as the density of liquid water:
+
+$$
+F = \int_0^\infty \rho_N(D) V(D) dD = \int_0^\infty \frac{\pi \rho_l  }{6} D^3 V(D) dD
+$$(flux_dist)
+
++++
+
+Below we code {eq}`flux_dist` for two different versions of $V(D)$: the one given
+by [Thompkins p. 77](https://www.dropbox.com/scl/fo/9grhb2cr0lpfc1d5jci4a/h?rlkey=shnjpq4kvndrcatbgrri44eyw&dl=0) and the the fall speed from the Day 24 droplet fragementation paper by [Villermaux and Bossa, 2009](https://drive.google.com/file/d/1mfwKsVais1YiTC6JbMxIM5xTXgUMYd7g/view?usp=sharing)
 
 ```{code-cell} ipython3
+from a405.thermo.constants import constants as c
+#
+# air density
+#
+rho = 1 #kg/m^3
 def find_vb2009(diams):
     """
+    Villermaux and Bossa, 2009 fallspeed
+
+     
+    diams: vector of floats
+         drop diamter (meters)
+         
+    Returns
+    -------
+    
+    V: vector of floats
+           fall speed (m/s) 
     """
-    V = np.sqrt(rhol/rho*g*diam) #m/s  Villermaux and Bossa, 2009
+    V = np.sqrt(c.rhol/rho*c.g0*diam) #m/s  Villermaux and Bossa, 2009
     return V
 ```
 
-### Repeat using Thompkins p. 77 table for $V_t$
+### Thompkins p. 77 table for $V_t$
 
 +++
 
@@ -165,7 +217,7 @@ The Thompkins table lists three different drag regimes:
 - $r>1000 \mu \mathrm{~m}$ : Drag $\propto V^2 r^2$ giving $V_t=X_3 \sqrt{r}$ where $X_3 \sim 250 \mathrm{~s}^{-1} \mathrm{~m}^{0.5}$.
 
 ```{code-cell} ipython3
-def find_vthompkins(diams):
+def find_thompkins(diams):
     """
     Thompkins p. 77 table
     
@@ -208,42 +260,37 @@ def find_vthompkins(diams):
     
 ```
 
-### Calculate the rainrate R given $n(D)dD$ and the fallspeed
+### add both functions to a dictionary
 
+```{code-cell} ipython3
+Vdict=dict(vb_2009=find_vb2009,thompkins=find_thompkins)
+```
 
-Recall this figure from Day 25:
+```{code-cell} ipython3
+R=15 #mm/hr True rainrate for Marshall Palmer
+diam_cm,ndist = marshallpalmer(R)
+diam = diam_cm*1.e-2 #cm to meters
 
-:::{figure} ./images/flux_box.jpg
-:name: flux_fig
-:scale: 10
+fig,ax = plt.subplots(1,1,figsize=(8,8))
+for name,Vfunc in Vdict.items():
+    ax.plot(diam*1.e3,Vfunc(diam),label=name)
+ax.legend(loc='best')
+out=ax.set(xlabel='diam (mm)',ylabel='fall speed (m/s)')
+```
 
-Flux through a box in time dt
-:::
-
+### Compare the rain rates with R=15 mm/hr
 
 ```{code-cell} ipython3
 #find the rain rate for a dropsize distribution
 #specified by a marshall-palmer distribution of 15 mm/hour
 import numpy as np
-g=9.8  #m/s^2
-rho=1  #kg/m^3 air density
-rhol=1000. #kg/m^3 liquid water density
-R=15 #mm/hr True rainrate for Marshall Palmer
-diam,ndist = marshallpalmer(R)
-diam = diam*1.e-2 #meters
 
-Unature=np.sqrt(rhol/rho*g*diam) #m/s  Villermaux and Bossa, 2009
-Uthompkins = find_uthompkins(diam) #thompkins
-Udict=dict(vb_2009=find_vb2009,thompkins=find_thompkins)
-for name,U in Udict.items():
+for name,Vfunc in Vdict.items():
+    V = Vfunc(diam)
     binwidth = np.diff(diam)[0]*1.e3 #mm
-    R=np.sum(ndist*np.pi*(diam**3)/6*U*binwidth) #flux in m/s
-    R=R*1000*3600. #mm/hour
-    print(f'\nfor {name} with R=15 mm/hour integration gives {R:8.2f} mm/hour\n')
-```
-
-```{code-cell} ipython3
-
+    R=np.sum(ndist*np.pi*(diam**3)/6*V*binwidth) #flux in m/s
+    R=R*c.rhol*3600. #convert mm/hour
+    print(f'\n{name} with MP rainrate R=15 mm/hour integration gives {R:8.2f} mm/hour\n')
 ```
 
 ```{code-cell} ipython3

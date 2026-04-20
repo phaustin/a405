@@ -47,7 +47,7 @@ parts:
     - file: notebooks/worksheets/worksheet9_koehler_solution.md
     - file: notebooks/worksheets/worksheet10_aero_dist_solution.md
     - file: notebooks/worksheets/dropgrow/worksheet11_dropgrow_solution.md
-    - file: notebooks/worksheets/worksheet12_marshall_palmer.md
+    - file: notebooks/worksheets/worksheet12_marshall_palmer_sol.md
     - file: notebooks/worksheets/worksheet13_odeint_solution.md
     - file: notebooks/worksheets/dropgrow/worksheet14_reff_solution.md
   - caption: Assignments

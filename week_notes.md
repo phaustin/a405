@@ -372,7 +372,7 @@ and Thompkins Section 4.5
 - Review {ref}`worksheet11_dropgrow_solution`
 - Review {ref}`assign7_aerosols_solution`
 - [Droplet fragmentation article](https://drive.google.com/file/d/1mfwKsVais1YiTC6JbMxIM5xTXgUMYd7g/view?usp=sharing)
-- Introduce {ref}`worksheet12_marshall_palmer`
+- Introduce {ref}`worksheet12_marshall_palmer_sol`
 
 
 #### For Thursday
@@ -385,7 +385,7 @@ and Thompkins Section 4.5
 - Review on mass flux:
   - show with the help of a figure why $w\rho_N$ is represents the mass of droplets falling with fallspeed w through 1 $m^2$ in $kg\,m^{-2}\,s^{-1}$
   - show why we can decompose the flux into parallel and perpendicular components
-- Discuss solution to question 1 for {ref}`worksheet12_marshall_palmer`
+- Discuss solution to question 1 for {ref}`worksheet12_marshall_palmer_sol`
 - Preview {ref}`assignment9_cold`
 - Preview my reading on ice {ref}`ice_saturation`
 - Preview my [notes on crystal growth](https://drive.google.com/file/d/1g42323LOcQbxWn4Ey1B58ExgVPwjMADz/view?usp=sharing)
@@ -446,7 +446,7 @@ and Thompkins Section 4.5
   - Contrast with my [WH entrainment remarks](https://drive.google.com/file/d/1nL6vIfzhlSLllo8MslixYUp5ahJ4wGkJ/view?usp=sharing)
     
 
-## Week 13
+## Week 14
 
 ### Lecture 28, week 14, Tuesday
 
@@ -471,10 +471,37 @@ and Thompkins Section 4.5
   - WH 6.27
   - WH 6.35
   - WH 6.39
-  - WH 6.52
-  - WH 6.53
-  - WH 6.55
   
   - Lohmann 7.4
   - Lohmann 7.8
+
+### Lecture 29, week 14, Thursday
+
+- {ref}`worksheet10_aerosol_dists_solution`
+- {ref}`assignment_precip_solution` error fixed
+- Final review
+  - Not on the exam
+    - thunderstorms
+    - python/iteration
+    - CAPE
+    - ice nucleation/multiplication
+  - Midterm topics potentially on
+    - Heat engines
+    - Mixing
+  - 2nd half topics potentially on
+    - 2016, 2024 exam questions
+    - all the final exam practice questions (except for python and CAPE sections)
+    - calculation of time constants
+    - finding $S_{crit}$ and $r_{crit}$
+    - Marshall-Palmer distribution
+    - Taylor series
+    - Bergeron effect
+
+## Week 15
+
+### Monday review
+
+- {ref}`worksheet12_marshall_palmer_sol`
+- Go over crystal vs. drop growth (not on final)
+
 
