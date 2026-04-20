@@ -181,6 +181,53 @@ print(f"\nequilibribum haze radius at {RH=} percent is {the_r*1.e6:.3f} microns"
     
 ```
 
+## Extra -- plot terms separately
+
+```{code-cell} ipython3
+import pandas as pd
+def find_terms(r, aerosol, Temp):
+    """
+    calculates supersaturation S given an aerosol dictionary,
+    temperature T, and droplet radius r 
+    uses Thompkins 4.15
+
+    Parameters
+    ----------
+    r: radius (m)
+    aerosol: named tuple with attibutes: Sigma (N/m^2), vanHoff (int), Mw (kg/kmol), Ms (kg/kmol), mass (kg)
+    Temp: temperature (K)
+
+    Returns
+    -------
+    S: saturation (unitless)
+    
+    """
+    # your code here
+    a=(2.*aerosol.Sigma)/(c.Rv*Temp*c.rhol)  #curvature term
+    b=(aerosol.vanHoff*aerosol.mass*aerosol.Mw)/((4./3.)*np.pi*c.rhol*aerosol.Ms)  #solution term
+    S = 1 + a/r - b/r**3.
+    out_dict=dict(a=a/r,b=b/r**3.,S = S)
+    return out_dict
+    
+```
+
+```{code-cell} ipython3
+rlist = np.arange(0.002,3,0.01)*1.e-6
+Temp = 280.
+term_list = [find_terms(r,ammonium_sulphate, Temp) for r in rlist]
+the_frame = pd.DataFrame.from_records(term_list)
+fig, ax = plt.subplots(1,1)
+rplot=rlist*1.e6
+ax.plot(rplot,the_frame['a'],label='a/r')
+ax.plot(rplot,-the_frame['b'],label='-b/r**3.')
+ax.plot(rplot,the_frame['S']-1,label='S-1')
+ax.set_xlim(0,0.5)
+ax.set_ylim(-0.03,0.03)
+ax.grid(True)
+ax.legend()
+fig.savefig("terms.jpg")
+```
+
 ```{code-cell} ipython3
 
 ```
