@@ -29,5 +29,116 @@ kernelspec:
    Is the mixture negatively, positively, or neutrally buoyant with its surrounding environment?  Explain.
 
 ```{code-cell} ipython3
+thetae_cloud = 324
+thetae_env = 307
+rv_cloud = 11.5e-3
+rv_env = 4.e-3
+thetae_mix = 0.7*thetae_cloud + 0.3*thetae_env
+rv_mix = 0.7*rv_cloud + 0.3*rv_env
+print(f"!!!!!!!{thetae_mix=:.1f} K, {rv_mix=:.1e} kg/kg")
+```
 
+### Question 3 code
+
++++
+
+#### get $\theta_e$ of the surface air
+
+```{code-cell} ipython3
+temp_1000 = 20 + c.Tc
+press_1000 = 1.e5 
+Td_1000 = 16 + c.Tc
+rt_cloud = find_rsat(Td_1000,press_1000)
+thetae_cloud = find_thetaet(Td_1000, rt_cloud, temp_1000,press_1000)
+T_lcl, press_lcl = find_lcl(Td_1000,temp_1000,press_1000)
+print(f"!!!!!!!thetae: {thetae_cloud:0.1f} K, r_T {rt_cloud*1.e3:0.1f} g/kg, lcl_press {press_lcl:0.1f} Pa")
+```
+
+#### Plot T, Td and the lcl
+
+```{code-cell} ipython3
+fig,ax2 =plt.subplots(1,1,figsize=(11,11))
+skew = 35
+corners=[5,21]
+ax2, skew = makeSkewWet(ax2, corners=corners, skew=skew,label_fun=label_fun)
+ax2.set_title('mixing problem')
+xcorners=find_corners(corners,skew=skew)
+ax2.set(xlim=xcorners,ylim=[1005,700])
+xplot=convertTempToSkew(temp_1000 - c.Tc,press_1000*pa2hPa,skew)
+ax2.plot(xplot, press_1000*pa2hPa, 'gd', markersize=14, markerfacecolor='g',
+           label = "temp_sfc")
+xplot=convertTempToSkew(Td_1000 - c.Tc,press_1000*pa2hPa,skew)
+ax2.plot(xplot, press_1000*pa2hPa,'bd', markersize=14, markerfacecolor='b',
+           label = "dewpoint_sfc")
+xplot=convertTempToSkew(T_lcl - c.Tc,press_lcl*pa2hPa,skew)
+ax2.plot(xplot, press_lcl*pa2hPa,'kd', markersize=14, markerfacecolor='k',
+           label = "lcl_cloud");
+```
+
+#### Lift to 800
+
+```{code-cell} ipython3
+press_800 = 8.e4 #Pa
+Temp_800,rv_800,rl_800=tinvert_thetae(thetae_cloud,rt_cloud,press_800)
+xplot=convertTempToSkew(Temp_800 - c.Tc,press_800*pa2hPa,skew)
+ax2.plot(xplot, press_800*pa2hPa,'rd', markersize=14, markerfacecolor='r',
+           label = "cloud_800");
+```
+
+```{code-cell} ipython3
+display(fig)
+```
+
+#### add the environment
+
+```{code-cell} ipython3
+rt_env = 4.e-3
+thetae_env = 307.
+Td_env =  find_Td(rt_env, press_800)
+Temp_env,rv_env,rl_env=tinvert_thetae(thetae_env,rt_env,press_800)
+T_lclenv, press_lclenv = find_lcl(Td_env,Temp_env,press_800)
+print(f"!!!!{press_lclenv=:.1f} Pa")
+```
+
+```{code-cell} ipython3
+xplot=convertTempToSkew(Temp_env - c.Tc,press_800*pa2hPa,skew)
+ax2.plot(xplot, press_800*pa2hPa,'gs', markersize=14, markerfacecolor='g',
+           label = "temp_env")
+xplot=convertTempToSkew(Td_env - c.Tc,press_800*pa2hPa,skew)
+ax2.plot(xplot, press_800*pa2hPa,'bs', markersize=14, markerfacecolor='b',
+           label = "Td_env")
+xplot=convertTempToSkew(T_lclenv - c.Tc,press_lclenv*pa2hPa,skew)
+ax2.plot(xplot, press_lclenv*pa2hPa,'ks', markersize=14, markerfacecolor='k',
+           label = "lcl_env")
+ax2.legend()
+display(fig)
+```
+
+(mixture_answer)=
+#### add the mixture
+
+```{code-cell} ipython3
+thetae_mix = 0.3*thetae_env + 0.7*thetae_cloud
+rt_mix = 0.3*rt_env + 0.7*rt_cloud
+Temp_mix,rv_mix,rl_mix=tinvert_thetae(thetae_mix,rt_mix,press_800)
+Temp_1000,rv_1000,rl_1000=tinvert_thetae(thetae_mix,rt_mix,press_1000)
+print(rv_1000)
+Td_1000 = find_Td(rv_1000,press_1000)
+print(Td_1000 - c.Tc)
+T_lclmix, press_lclmix = find_lcl(Td_1000,Temp_1000,press_1000)
+print(f"{thetae_mix=:0.1f} K, {rt_mix=:0.4f} kg/kg")
+print(f"{Temp_mix - c.Tc=:0.1f} K, {rv_mix=:0.4f} kg/kg, {rl_mix=:0.4f} kg/kg")
+print(f"{press_lclmix=:0.1f} Pa")
+```
+
+```{code-cell} ipython3
+xplot=convertTempToSkew(Temp_mix - c.Tc,press_800*pa2hPa,skew)
+ax2.plot(xplot, press_800*pa2hPa,'co', markersize=14, markerfacecolor='c',
+           label = "mixture")
+xplot=convertTempToSkew(T_lclmix - c.Tc,press_lclmix*pa2hPa,skew)
+ax2.plot(xplot, press_lclmix*pa2hPa,'cs', markersize=14, markerfacecolor='c',
+           label = "mixture lcl")
+ax2.legend()
+fig.savefig("images/question3_answer.png")
+display(fig)
 ```
