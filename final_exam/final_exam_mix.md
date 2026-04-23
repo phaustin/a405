@@ -29,6 +29,43 @@ kernelspec:
    Is the mixture negatively, positively, or neutrally buoyant with its surrounding environment?  Explain.
 
 ```{code-cell} ipython3
+from a405.thermo.constants import constants as c
+from a405.thermo.thermlib import find_rsat, find_theta, find_Tmoist
+from a405.thermo.thermlib import convertTempToSkew, find_lcl, find_thetaet, find_Td, tinvert_thetae
+from matplotlib import pyplot as plt
+from a405.skewT.fullskew import makeSkewWet,find_corners,make_default_labels
+import numpy as np
+from pathlib import Path
+```
+
+```{code-cell} ipython3
+def label_fun():
+    """
+    override the default rs labels with a tighter mesh
+    """
+    from numpy import arange
+    #
+    # get the default labels
+    #
+    tempLabels,rsLabels, thetaLabels, thetaeLabels = make_default_labels()
+    #
+    # change the temperature and rs grids
+    #
+    tempLabels = range(-40, 50, 2)
+    rsLabels = [0.1, 0.25, 0.5, 1, 2, 3] + list(np.arange(4, 28, 1)) 
+    thetaeLabels = np.arange(295,335,3)
+    return tempLabels,rsLabels, thetaLabels, thetaeLabels
+
+pa2hPa = 1.e-2
+```
+
+```{code-cell} ipython3
+image_dir = Path() / "images"
+if not image_dir.exists():
+   image_dir.mkdir(parents=True, exist_ok=True)
+```
+
+```{code-cell} ipython3
 thetae_cloud = 324
 thetae_env = 307
 rv_cloud = 11.5e-3
@@ -118,6 +155,8 @@ display(fig)
 #### add the mixture
 
 ```{code-cell} ipython3
+frac_env = 0.7
+
 thetae_mix = 0.3*thetae_env + 0.7*thetae_cloud
 rt_mix = 0.3*rt_env + 0.7*rt_cloud
 Temp_mix,rv_mix,rl_mix=tinvert_thetae(thetae_mix,rt_mix,press_800)

@@ -15,6 +15,8 @@ kernelspec:
 (a405_final_solutions)=
 # A405 final solutions
 
+Download [a405_final_2026_solutions.ipynb]
+
 +++
 
 ## [1.] (12) Collision/Coalescence
@@ -253,9 +255,14 @@ Koehler curve
      -  The new LCL, assuming no precipitation
      -  The amount of energy $\Delta q_{out}$ (J/kg) shed to the environment during the cooling.
 
+### Problem 5 answer
+
+- See {ref}`final_exam_cool`
+
 +++
 
 ## [6)] (12) Mixing
+
 
   Surface air at 1000 hPa with a temperature of 20 deg C and a dewpoint of 16 deg C is lifted adiabatically to 800 hPa, where it entrains 70\%  of environmental air that has a $\theta_e$ of 307 K and a mixing ratio of 4 g/kg.  Use the tephigram labeled ``mixing problem'' to find:
 
@@ -265,6 +272,11 @@ Koehler curve
   -  The temperature of the mixture at 800 hPa
 
    Is the mixture negatively, positively, or neutrally buoyant with its surrounding environment?  Explain.
+
+### Problem 6 answer
+
+- See {ref}`final_exam_mix`
+
 
 +++
 

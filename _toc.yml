@@ -141,6 +141,8 @@ parts:
     - url: https://drive.google.com/file/d/17xeEWvdocJbAWpLCxcITgkjHG6pX4Qf7/view?usp=drive_link
       title: 2024 final exam
     - file: final_exam/a405_final_2026_solutions.md
+    - file: final_exam/final_exam_cool.md
+    - file: final_exam/final_exam_mix.md  
       
 
       
