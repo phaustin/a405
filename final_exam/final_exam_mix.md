@@ -28,6 +28,23 @@ kernelspec:
 
    Is the mixture negatively, positively, or neutrally buoyant with its surrounding environment?  Explain.
 
++++
+
+### Numerical answer
+
+(see figures below for tephigram solution)
+
+```{code-cell} ipython3
+frac_env = 0.7
+thetae_cloud = 324 #K
+thetae_env = 307 #K
+rv_cloud = 11.5e-3  #kg/kg
+rv_env = 4.e-3  #kg/kg
+thetae_mix = (1 - frac_env)*thetae_cloud + frac_env*thetae_env
+rv_mix = (1 - frac_env)*rv_cloud + frac_env*rv_env
+print(f"!!!!!!!{thetae_mix=:.1f} K, {rv_mix=:.1e} kg/kg")
+```
+
 ```{code-cell} ipython3
 from a405.thermo.constants import constants as c
 from a405.thermo.thermlib import find_rsat, find_theta, find_Tmoist
@@ -63,16 +80,6 @@ pa2hPa = 1.e-2
 image_dir = Path() / "images"
 if not image_dir.exists():
    image_dir.mkdir(parents=True, exist_ok=True)
-```
-
-```{code-cell} ipython3
-thetae_cloud = 324
-thetae_env = 307
-rv_cloud = 11.5e-3
-rv_env = 4.e-3
-thetae_mix = 0.7*thetae_cloud + 0.3*thetae_env
-rv_mix = 0.7*rv_cloud + 0.3*rv_env
-print(f"!!!!!!!{thetae_mix=:.1f} K, {rv_mix=:.1e} kg/kg")
 ```
 
 ### Question 3 code
@@ -154,17 +161,20 @@ display(fig)
 (mixture_answer)=
 #### add the mixture
 
+Is there liquid water left after mixing?
+
 ```{code-cell} ipython3
 frac_env = 0.7
-
-thetae_mix = 0.3*thetae_env + 0.7*thetae_cloud
-rt_mix = 0.3*rt_env + 0.7*rt_cloud
-Temp_mix,rv_mix,rl_mix=tinvert_thetae(thetae_mix,rt_mix,press_800)
-Temp_1000,rv_1000,rl_1000=tinvert_thetae(thetae_mix,rt_mix,press_1000)
-print(rv_1000)
-Td_1000 = find_Td(rv_1000,press_1000)
-print(Td_1000 - c.Tc)
-T_lclmix, press_lclmix = find_lcl(Td_1000,Temp_1000,press_1000)
+press_900 = 9.e4
+thetae_mix = frac_env*thetae_env + (1 - frac_env)*thetae_cloud
+rt_mix = frac_env*rt_env + (1 - frac_env)*rt_cloud
+Temp_mix_800,rv_mix_800,rl_mix_800=tinvert_thetae(thetae_mix,rt_mix,press_800)
+Temp_1000,rv_1000,rl_1000=tinvert_thetae(thetae_mix,rt_mix,press_900)
+print(rv_1000,rt_mix)
+rsat_800 = find_rsat(Temp_mix_800,press_800)
+print(f"{rl_mix_800=:.5g} kg/kg, {rv_mix_800=:.5g} kg/kg, {rsat_800=:.5g} kg/kg")
+Td_1000 = find_Td(rt_mix,press_900)
+T_lclmix, press_lclmix = find_lcl(Td_1000,Temp_1000,press_900)
 print(f"{thetae_mix=:0.1f} K, {rt_mix=:0.4f} kg/kg")
 print(f"{Temp_mix - c.Tc=:0.1f} K, {rv_mix=:0.4f} kg/kg, {rl_mix=:0.4f} kg/kg")
 print(f"{press_lclmix=:0.1f} Pa")
