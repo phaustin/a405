@@ -98,6 +98,10 @@ T_lcl, press_lcl = find_lcl(Td_1000,temp_1000,press_1000)
 print(f"!!!!!!!thetae: {thetae_cloud:0.1f} K, r_T {rt_cloud*1.e3:0.1f} g/kg, lcl_press {press_lcl:0.1f} Pa")
 ```
 
+#### Answer: $\theta_e$ = 324.4 K, LCL = 942 hPa
+
++++
+
 #### Plot T, Td and the lcl
 
 ```{code-cell} ipython3
@@ -163,6 +167,10 @@ display(fig)
 
 Is there liquid water left after mixing?
 
++++
+
+
+
 ```{code-cell} ipython3
 frac_env = 0.7
 press_900 = 9.e4
@@ -174,11 +182,20 @@ print(rv_1000,rt_mix)
 rsat_800 = find_rsat(Temp_mix_800,press_800)
 print(f"{rl_mix_800=:.5g} kg/kg, {rv_mix_800=:.5g} kg/kg, {rsat_800=:.5g} kg/kg")
 Td_1000 = find_Td(rt_mix,press_900)
-T_lclmix, press_lclmix = find_lcl(Td_1000,Temp_1000,press_900)
-print(f"{thetae_mix=:0.1f} K, {rt_mix=:0.4f} kg/kg")
-print(f"{Temp_mix - c.Tc=:0.1f} K, {rv_mix=:0.4f} kg/kg, {rl_mix=:0.4f} kg/kg")
-print(f"{press_lclmix=:0.1f} Pa")
+T_lclmix, press_lcl_mix = find_lcl(Td_1000,Temp_1000,press_900)
+print(f"!!!!! {thetae_cloud=:0.1f} K, {rt_cloud=:0.4f} kg/kg")
+print(f"!!!!! {thetae_env=:0.1f} K, {rt_env=:0.4f} kg/kg")
+print(f"!!!!! {thetae_mix=:0.1f} K, {rt_mix=:0.4f} kg/kg")
+print(f"!!!!! {Temp_mix - c.Tc=:0.1f} deg C, {rv_mix=:0.4f} kg/kg, {rl_mix=:0.4f} kg/kg")
+print(f"!!!!! {press_lcl_mix=:0.1f} Pa")
 ```
+
+#### thetae_cloud=324.0 K, rt_cloud=0.0115 kg/kg
+#### thetae_env=307.0 K, rt_env=0.0040 kg/kg
+#### Answer: $\theta_{emix}$ = 312.1 K, $r_{Tmix}$ = 6.3 g/kg
+#### Answer: LCL mixture is 803 hPa
+#### Answer: temp of mixture is 3.7 deg C
+#### Answer: mixture is colder than either environment or cloud, will sink
 
 ```{code-cell} ipython3
 xplot=convertTempToSkew(Temp_mix - c.Tc,press_800*pa2hPa,skew)

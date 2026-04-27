@@ -47,8 +47,6 @@ where we have assumed $r \ll R$  so that $R +r \approx R$.
 
 Inside that cylinder the droplets have a total liquid water concentration of $r_l \left(\mathrm{kg}\,\mathrm{m}^{-3}\right)$. If the collection efficiency, $E_c=1$, then all of this mass is added to the raindrop each second. In general $E_c$ is different from 1 for various values of $R$ and $r$, because not every cloud droplet within the sweep out volume will
 
- 
-
 +++
 
    
@@ -88,14 +86,6 @@ print(f"{the_time/3600:.1f} hours to form precipitation")
   - [c)] (3) In what sense is the time you calculated in the previous answer in conflict with observations of clouds that produce 0.5 mm raindrops? What is missing from {eq}`eq:collec` that could resolve that discrepancy?
 
 Warm rain can take as little as 15 minutes once a cloud is formed.  This is because large drops can collide with other large drops, in addition to small cloud droplets, accelerating rain intiation.
-
-+++
-
-
-
-+++
-
-
 
 +++
 
@@ -142,7 +132,8 @@ $$
 \langle D \rangle &=\int_1^{20} D n(D) d D/N_T \\
 \int_1^{20} D 0.5 N_0 D^{-3 / 2} d D/N_T &=\int_1^{20} 0.5 N_0 D^{-1 / 2} d D/N_T\\
          &=\left.N_0 D^{1 / 2}\right|_1 ^{20}/N_T = N_0\left(20^{0.5}-1\right) / N_T \\
-         &= 3.5 \frac{N_0}{N_T}
+         &= 3.5 \frac{N_0}{N_T} \\
+         &= 3.5 \frac{N_0}{0.78N_0} = 4.5\ \mu m
 $$
 
 ```{code-cell} ipython3
@@ -172,12 +163,12 @@ $$
       According to {eq}`eq:dg`:
 
     $$
-    d g \leq-s d T+\alpha d p
+    d g \leq-\phi d T+\alpha d p
     $$
 
        where we are talking about the mixture of liquid and vapor and specifying that water is neither entering or leaving the system.
        If $\mathrm{dT}=0$ and $\mathrm{dp}=0$ then dg can only be negative or zero, so in equilibrium $\mathrm{g}=$ constant.
-       But we also know that : $G=m_v g_v+m_l g_l$ and since neither $g_v=h_v-T s_v$ and $g_l=h_l-T s_l$ will change if T and p are constant, we've got:
+       But we also know that : $G=m_v g_v+m_l g_l$ and since neither $g_v=h_v-T \phi_v$ and $g_l=h_l-T \phi_l$ will change if T and p are constant, we've got:
 
     $$
     d G=0=g_v d m_v+g_l d m_l
@@ -232,7 +223,7 @@ Koehler curve
 
 +++
 
-##
+#### 
 
 +++
 
@@ -276,7 +267,6 @@ Koehler curve
 ### Problem 6 answer
 
 - See {ref}`final_exam_mix`
-
 
 +++
 
