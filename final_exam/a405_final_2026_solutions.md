@@ -176,7 +176,7 @@ $$
 
        Next, since water is conserved we know that $d m_v=-d m_l$, plug those in and we get $g_l=g_v$
        
-  - [b)] (3) Consider another system at the same temperature in which the same amount of liquid is redistributed as droplets of radius $0.1 \mu m}$. Would this system have a lower or higher $g_v$ in equilibrium? Why?
+  - [b)] (3) Consider another system at the same temperature in which the same amount of liquid is redistributed as droplets of radius $0.1 \mu m$. Would this system have a lower or higher $g_v$ in equilibrium? Why?
 
     - Answer:  Since there is now a new component of surface energy due to the droplet surface tension, the energy of the liquid is higher, so the
       energy of the vapor will need to rise to keep up which produces a higher $g_v$.
