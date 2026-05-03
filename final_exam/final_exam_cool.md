@@ -121,7 +121,7 @@ Temp_900,rv_900,rl_900=tinvert_thetae(thetae_before,rt_cloud,press_900)
 Td_900 = find_Td(rt_cloud, press_900)
 T_orig_lcl, press_orig_lcl = find_lcl(Td_900,Temp_900,press_900)
 print(f"!!!!!!{press_orig_lcl=:.1f} hPa")
-theta_orig = find_theta(T_orig_lcl, press_orig_lcl)
+theta_orig_lcl = find_theta(T_orig_lcl, press_orig_lcl)
 print(f"!!!!!!{theta_orig_lcl=:.1f} hPa")
 ```
 

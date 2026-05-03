@@ -167,10 +167,6 @@ display(fig)
 
 Is there liquid water left after mixing?
 
-+++
-
-
-
 ```{code-cell} ipython3
 frac_env = 0.7
 press_900 = 9.e4
@@ -186,7 +182,7 @@ T_lclmix, press_lcl_mix = find_lcl(Td_1000,Temp_1000,press_900)
 print(f"!!!!! {thetae_cloud=:0.1f} K, {rt_cloud=:0.4f} kg/kg")
 print(f"!!!!! {thetae_env=:0.1f} K, {rt_env=:0.4f} kg/kg")
 print(f"!!!!! {thetae_mix=:0.1f} K, {rt_mix=:0.4f} kg/kg")
-print(f"!!!!! {Temp_mix - c.Tc=:0.1f} deg C, {rv_mix=:0.4f} kg/kg, {rl_mix=:0.4f} kg/kg")
+print(f"!!!!! {Temp_mix_800 - c.Tc=:0.1f} deg C, {rv_mix_800=:0.4f} kg/kg, {rl_mix_800=:0.4f} kg/kg")
 print(f"!!!!! {press_lcl_mix=:0.1f} Pa")
 ```
 
