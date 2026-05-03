@@ -280,6 +280,9 @@
 <li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1GhPMdeK2_S1zcsu8hyMjTGzcLD1nNOtW/view?usp=drive_link">2016 final</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/1Wss3sLtmCZAAE15n9Sa1KB1n-UF_Klis/view?usp=drive_link">2024 final equations</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://drive.google.com/file/d/17xeEWvdocJbAWpLCxcITgkjHG6pX4Qf7/view?usp=drive_link">2024 final exam</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../final_exam/a405_final_2026_solutions.html">A405 final solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../final_exam/final_exam_cool.html">final exam cooling question</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../final_exam/final_exam_mix.html">final exam mixing question</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Animations</span></p>
 <ul class="nav bd-sidenav">
@@ -797,11 +800,15 @@ whenever encoding images with a JPEG quality of 98 or higher.</p>
 <h1>Memory Debugger Pitfalls<a class="headerlink" href="#memory-debugger-pitfalls" title="Link to this heading">#</a></h1>
 <p>Valgrind and Memory Sanitizer (MSan) can generate false positives
 (specifically, incorrect reports of uninitialized memory accesses) when used
-with libjpeg-turbo’s SIMD extensions.  It is generally recommended that the
-SIMD extensions be disabled, either by passing an argument of <code class="docutils literal notranslate"><span class="pre">-DWITH_SIMD=0</span></code>
-to <code class="docutils literal notranslate"><span class="pre">cmake</span></code> when configuring the build or by setting the environment variable
-<code class="docutils literal notranslate"><span class="pre">JSIMD_FORCENONE</span></code> to <code class="docutils literal notranslate"><span class="pre">1</span></code> at run time, when testing libjpeg-turbo with Valgrind,
-MSan, or other memory debuggers.</p>
+with libjpeg-turbo’s SIMD extensions.  There are two ways to work around this
+when testing libjpeg-turbo with Valgrind, MSan, or other memory debuggers:</p>
+<ol class="arabic simple">
+<li><p>Disable the SIMD extensions, either by passing an argument of
+<code class="docutils literal notranslate"><span class="pre">-DWITH_SIMD=0</span></code> to <code class="docutils literal notranslate"><span class="pre">cmake</span></code> when configuring the build or by setting the
+environment variable <code class="docutils literal notranslate"><span class="pre">JSIMD_FORCENONE</span></code> to <code class="docutils literal notranslate"><span class="pre">1</span></code> at run time.</p></li>
+<li><p>Define the <code class="docutils literal notranslate"><span class="pre">ZERO_BUFFERS</span></code> preprocessor macro (for instance, by adding
+<code class="docutils literal notranslate"><span class="pre">-DZERO_BUFFERS=1</span></code> to <code class="docutils literal notranslate"><span class="pre">CMAKE_C_FLAGS</span></code>.)</p></li>
+</ol>
 </section>
 
     <script type="text/x-thebe-config">
