@@ -15,7 +15,7 @@ kernelspec:
 (a405_final_solutions)=
 # A405 final solutions
 
-Download [a405_final_2026_solutions.ipynb]
+Download [a405_final_2026_solutions.ipynb](https://drive.google.com/file/d/1oj8nFzNOOy9Mb8HxqSm6iIseNLDkmwmB/view?usp=sharing)
 
 +++
 
@@ -223,13 +223,15 @@ Koehler curve
 
 +++
 
-#### 
+####
 
 +++
 
 ## [5)] (12) Cooling
 
-  Use the tephigram labeled ``cooling problem'' to calculate the following:
+- Download the solution: [final_exam_cool.ipynb](https://drive.google.com/file/d/1YP96w0Lm_0Oi4rxFRQf_gpMF0wt1u9Y0/view?usp=sharing)
+
+  Use the tephigram labeled *cooling problem* to calculate the following:
 
   
   For air at 700 hPa with 6 g/kg of vapor (saturated) and 1 g/kg of liquid.
@@ -253,6 +255,8 @@ Koehler curve
 +++
 
 ## [6)] (12) Mixing
+
+Download the solution: [final_exam_mix.ipynb](https://drive.google.com/file/d/1G3Y5l0x80ysP1cOuKtoRfvcDE_MP_J-o/view?usp=sharing)
 
 
   Surface air at 1000 hPa with a temperature of 20 deg C and a dewpoint of 16 deg C is lifted adiabatically to 800 hPa, where it entrains 70\%  of environmental air that has a $\theta_e$ of 307 K and a mixing ratio of 4 g/kg.  Use the tephigram labeled ``mixing problem'' to find:

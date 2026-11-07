@@ -194,13 +194,17 @@ print(f"!!!!! {press_lcl_mix=:0.1f} Pa")
 #### Answer: mixture is colder than either environment or cloud, will sink
 
 ```{code-cell} ipython3
-xplot=convertTempToSkew(Temp_mix - c.Tc,press_800*pa2hPa,skew)
+xplot=convertTempToSkew(Temp_mix_800 - c.Tc,press_800*pa2hPa,skew)
 ax2.plot(xplot, press_800*pa2hPa,'co', markersize=14, markerfacecolor='c',
            label = "mixture")
-xplot=convertTempToSkew(T_lclmix - c.Tc,press_lclmix*pa2hPa,skew)
-ax2.plot(xplot, press_lclmix*pa2hPa,'cs', markersize=14, markerfacecolor='c',
+xplot=convertTempToSkew(T_lclmix - c.Tc,press_lcl_mix*pa2hPa,skew)
+ax2.plot(xplot, press_lcl_mix*pa2hPa,'cs', markersize=14, markerfacecolor='c',
            label = "mixture lcl")
 ax2.legend()
 fig.savefig("images/question3_answer.png")
 display(fig)
+```
+
+```{code-cell} ipython3
+
 ```
