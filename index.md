@@ -1,4 +1,4 @@
-# ATSC 405 syllabus -- test
+# ATSC 405 syllabus -- test2
 
 - Logistics
   - Instructor:  Phil Austin EOS South Room 157
