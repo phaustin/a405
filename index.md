@@ -1,4 +1,4 @@
-# ATSC 405 syllabus -- test2pha
+# ATSC 405 syllabus -- pha2
 
 - Logistics
   - Instructor:  Phil Austin EOS South Room 157

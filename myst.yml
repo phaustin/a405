@@ -1,6 +1,6 @@
 version: 1
 project:
-  title: ATSC 405
+  title: ATSC 405 -- pphhaa
   exclude:
     - .jupyter_cache/*
     - _build
