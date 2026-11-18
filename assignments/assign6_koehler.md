@@ -17,7 +17,7 @@ kernelspec:
 
 ## Notebook part
 
-- Hand in {ref}`worksheet8_interp1d`
+- Hand in {ref}`worksheet8_interp1d_solution`
 - Add a plot of vertical velocity vs. CAPE, borrowing the code from {ref}`cape_part1`.  Does the plot agree with Thompkins equation 3.4?
   $$
   w_{max} = \sqrt{2 \,\text{CAPE}}

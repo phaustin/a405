@@ -61,10 +61,6 @@ This requires that you update your a405 library to get the new formatvar functio
     pip install -r requirements.txt
 
 ```{code-cell} ipython3
----
-jupyter:
-  outputs_hidden: false
----
 from a405.utils.helper_funs import formatvar as f
 #
 # now make one of these functions with the default 5.2f format
@@ -87,10 +83,6 @@ print(f'with nested conversions: {temp=} and formats as {n(k2c(temp))} deg C')
 ## back to midterm question 2:  make the tephigram -- with LCLs as black dots
 
 ```{code-cell} ipython3
----
-jupyter:
-  outputs_hidden: false
----
 pa2hPa=1.e-2
 from a405.skewT.fullskew import makeSkewWet, find_corners
 from matplotlib import pyplot as plt
@@ -113,10 +105,6 @@ print(f"temp,Tdew,rv for bottom at LCL:  {n(press_860*pa2hPa)} hPa: {n(k2c(Temp_
 ```
 
 ```{code-cell} ipython3
----
-jupyter:
-  outputs_hidden: false
----
 #
 # now descend adiabatically to 900 hPa
 #
@@ -128,10 +116,6 @@ print(f"temperature and dewpoint at {n(press_900*pa2hPa)} hPa: "
 ```
 
 ```{code-cell} ipython3
----
-jupyter:
-  outputs_hidden: false
----
 #
 #now look at an LCL of 700 hPa  -- with thetae = 332 K
 #
@@ -146,10 +130,6 @@ print(f"temp,Tdew, rv for top layer at LCL : {n(press_700*pa2hPa)} hPa"
 ```
 
 ```{code-cell} ipython3
----
-jupyter:
-  outputs_hidden: false
----
 # get the temperature and dewpoint at 800 hPa
 #
 press_800=800.e2
@@ -161,10 +141,6 @@ print(f"temperature and dewpoint at {n(press_800*pa2hPa)} hPa: {n(k2c(Temp_800))
 ```
 
 ```{code-cell} ipython3
----
-jupyter:
-  outputs_hidden: false
----
 def find_thetaes(temp,press,rv):
     """ input temp in K, press in Pa, rv in kg/kg
         output thetae in K
@@ -195,10 +171,6 @@ print(f'wet bulb potential temperature for 900 hPa air = {n(k2c(Temp_1000))} C')
 ```
 
 ```{code-cell} ipython3
----
-jupyter:
-  outputs_hidden: false
----
 #  draw these on the sounding at 900 hPa as a red circle and blue diamond
 #
 fig, ax = plt.subplots(1, 1, figsize=(12, 8))
@@ -218,10 +190,6 @@ ax.set(title="problem 1");
 ```
 
 ```{code-cell} ipython3
----
-jupyter:
-  outputs_hidden: false
----
 press_800 = 8.e4
 xplot=convertTempToSkew(Temp_800 - c.Tc,press_800*pa2hPa,skew)
 bot=ax.plot(xplot, press_800*pa2hPa, 'ro', markersize=14, markerfacecolor='r')
@@ -231,18 +199,10 @@ bot=ax.plot(xplot, press_800*pa2hPa, 'bd', markersize=14, markerfacecolor='b')
 ```
 
 ```{code-cell} ipython3
----
-jupyter:
-  outputs_hidden: false
----
 display(fig)
 ```
 
 ```{code-cell} ipython3
----
-jupyter:
-  outputs_hidden: false
----
 # draw the two LCLs as black circles
 #
 press_860=860.e2
@@ -258,10 +218,6 @@ display(fig)
 ```
 
 ```{code-cell} ipython3
----
-jupyter:
-  outputs_hidden: false
----
 #
 # add as a green circle
 #
@@ -320,7 +276,7 @@ cooling $Q_{out}$) during B $\rightarrow$ C  (in Joules/kg)
 +++
 
 :::{figure} ./assign4_part2_prob3.png
-:scale: 70
+:width: 403px
 :name: prob3_fig
 
 Heat engine

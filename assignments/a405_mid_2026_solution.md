@@ -234,8 +234,10 @@ stating any approximations you need to make
 ### Q2a answer
 
 $$
+\begin{aligned}
 H&=m_d h_l+m_v h_v+m_l h_l \\
 H&=m_d c_{pd} T+m_v h_v+m_l h_l
+\end{aligned}
 $$(eq:H)
 
 
@@ -266,10 +268,12 @@ $$
 To connect this with $s_v$, use the first law together with the assumption of hydrostatic balance:
 
 $$
+\begin{aligned}
 q\,dt &= dh - \alpha dp \\
 q\,dt &= c_p dT + l_v dr_v - \alpha dp \\
 dp &= -\rho g dz \\
 q\,dt & = c_p dT + l_v dr_v + g dz = ds_v
+\end{aligned}
 $$(first_law_answer)
 
 For adiabatic processes, $q=0$ so $ds_v=0$ and $s_v$ won't change.
@@ -281,7 +285,7 @@ For adiabatic processes, $q=0$ so $ds_v=0$ and $s_v$ won't change.
 Divide the first law form from {eq}`first_law_answer` by temperature to get the entropy:
 
 $$
-\frac{q\,dt}{T} = d\phi &= c_p \frac{dT}{T} + l_v \frac{dr_v}{T} - \alpha \frac{dp}{T}
+\frac{q\,dt}{T} = d\phi = c_p \frac{dT}{T} + l_v \frac{dr_v}{T} - \alpha \frac{dp}{T}
 $$
 
 Use the equation of state (3):
@@ -297,7 +301,7 @@ $$
 to get:
 
 $$
- d\phi &= c_p \frac{d\theta}{\theta} + l_v \frac{dr_v}{T} 
+ d\phi = c_p \frac{d\theta}{\theta} + l_v \frac{dr_v}{T} 
 $$
 
 Assuming saturation, and making  the approximation from worksheet 7 that:

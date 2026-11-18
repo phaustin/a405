@@ -26,8 +26,10 @@ This is a pencil and paper problem about expanding the equation of state in a Ta
 From the equation sheet:
 
 $$
-  f(x)  &=& f(x_0) + f^\prime(x_0)(x - x_0) \nonumber\\ 
-        &+&  \frac{f^{\prime\prime}(x_0)}{2}(x-x_0)^2 +  \ldots
+\begin{aligned}
+  f(x)  &= f(x_0) + f^\prime(x_0)(x - x_0)\\
+        &+  \frac{f^{\prime\prime}(x_0)}{2}(x-x_0)^2 +  \ldots
+\end{aligned}
 $$
 
 #### Example:

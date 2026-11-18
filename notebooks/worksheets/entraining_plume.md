@@ -51,10 +51,12 @@ See [entrain.pdf](https://drive.google.com/file/d/1VgY5LWMSmavpoHFQYFE-wkPxGnD5x
 The equations:
 
 $$
+\begin{aligned}
 \frac{d\,\theta_e}{dt} &= \lambda \left (\theta_{e\,e} - \theta_{e,c} \right )\\
 \frac{d\,r_T}{dt} &= \lambda \left (r_{T\,e} - r_{T\,c} \right ) \\
 \frac{ d\,w_{vel}}{dt} & = \text{buoyant acceleration} \\
 \frac{dz}{dt} & = w_{vel}
+\end{aligned}
 $$
 Note that we really should be mixing $\log \theta_e$, not $\theta_e$ (why?).  We'll see whether that makes a difference later.
 

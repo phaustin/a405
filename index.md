@@ -49,4 +49,4 @@ familiarity with a programming language.
 - [Topic schedule](schedule.md)
 
 
-- [Python links](sec:python)
+- [Python links](#sec:python)

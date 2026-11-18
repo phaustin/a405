@@ -149,7 +149,7 @@ Recall this figure from Day 25:
 
 :::{figure} ./images/flux_box.jpg
 :name: flux_fig
-:scale: 60
+:width: 1450px
 
 Flux through a box in time dt
 :::

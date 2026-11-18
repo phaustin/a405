@@ -439,6 +439,7 @@ SScrit[:3]
 Find the cumulative number distribution
 
 We need to caculate tne total number of aerosols of radius $r$ or larger:
+
 $$
 N(r) = \int_r^\infty n(r) dr
 $$(cumsum)

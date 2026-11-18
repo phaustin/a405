@@ -35,10 +35,6 @@ the thermodynamic state of all mixtures of air at 900 hPa with air at 800 hPa
 ```
 
 ```{code-cell} ipython3
----
-jupyter:
-  outputs_hidden: false
----
 from a405.thermo.thermlib import (find_Tmoist,find_rsat,
                                   find_Td,tinvert_thetae,
                                   convertTempToSkew,find_lcl)
@@ -63,10 +59,6 @@ ax.set_title("mixing line example");
 ### Find coords of lower point at its LCL
 
 ```{code-cell} ipython3
----
-jupyter:
-  outputs_hidden: false
----
 pa2hpa=1.e-2
 kg2g = 1.e3
 press=860.e2 #Pa  LCL
@@ -86,10 +78,6 @@ print((f"temp,Tdew,rv at LCL press:  {press*pa2hpa:0.1f} hPa\n"),
 Add the temperature and dewpoint to the chart
 
 ```{code-cell} ipython3
----
-jupyter:
-  outputs_hidden: false
----
 #
 # now descend adiabatically to 900 hPa
 #
@@ -120,10 +108,6 @@ display(fig)
 LCL is 700 hPa and $\theta_e$ is 332 K
 
 ```{code-cell} ipython3
----
-jupyter:
-  outputs_hidden: false
----
 press=700.e2  #LCL Pa
 thetae_800=332.  #K
 Temp_700=find_Tmoist(thetae_800,press)

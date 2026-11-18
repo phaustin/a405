@@ -1,34 +1,171 @@
+# See docs at: https://mystmd.org/guide/frontmatter
+# toc converted from jupyter-book v1 _toc.yml
 version: 1
 project:
   title: ATSC 405
+  description: Website for EOAS ATSC 405
+  authors:
+  - name: Philip Austin
+    email: paustin@eoas.ubc.ca
+  copyright: '2026'
+  github: 'https://github.com/phaustin/a405'
   exclude:
-    - .jupyter_cache/*
-    - _build
-    - Thumbs.db
-    - .DS_Store
-    - '*.ipynb_checkpoints'
-  github: phaustin
+  - .jupyter_cache/*
+  - _build
+  - Thumbs.db
+  - .DS_Store
+  - '*.ipynb_checkpoints'
   toc:
-    - file: index.md
-    - title: Background material
-      children:
-        - file: learning_goals.md
-        - file: schedule.md
-        - file: python_install.md
-        - url: >-
-            https://www.dropbox.com/scl/fo/9grhb2cr0lpfc1d5jci4a/h?rlkey=shnjpq4kvndrcatbgrri44eyw&dl=0
-          title: Thompkins text
-        - url: >-
-            https://gw2jh3xr2c.search.serialssolutions.com/?sid=sersol&SS_jc=TC0001980404&title=An%20introduction%20to%20clouds%20%3A%20from%20the%20microscale%20to%20climate
-          title: Lohmann et al. text
-        - url: >-
-            https://www.dropbox.com/scl/fi/r7zhctw6usest2rirpe2f/wallace_hobbs_chap6.pdf?rlkey=oxdanppj9wkocmwe4nn4cc4fi&dl=0
-          title: Wallace and Hobbs chapter 6
-    - title: Weekly topics
-      children:
-        - file: week_notes.md
+  - file: index.md
+  - title: Background information
+    children:
+    - file: integrity.md
+    - file: ai_policy.md
+    - file: learning_goals.md
+    - file: schedule.md
+    - file: python_install.md
+    - title: Thompkins text
+      url: 'https://www.dropbox.com/scl/fo/9grhb2cr0lpfc1d5jci4a/h?rlkey=shnjpq4kvndrcatbgrri44eyw&dl=0'
+    - title: Lohmann et al. text
+      url: 'https://gw2jh3xr2c.search.serialssolutions.com/?sid=sersol&SS_jc=TC0001980404&title=An%20introduction%20to%20clouds%20%3A%20from%20the%20microscale%20to%20climate'
+    - title: Wallace and Hobbs chapter 6
+      url: 'https://www.dropbox.com/scl/fi/r7zhctw6usest2rirpe2f/wallace_hobbs_chap6.pdf?rlkey=oxdanppj9wkocmwe4nn4cc4fi&dl=0'
+    - title: Stull, Practical Meteorolgy
+      url: 'https://www.eoas.ubc.ca/books/Practical_Meteorology'
+    - title: A405 library documentation
+      url: 'https://phaustin.github.io/a405_lib/full_listing.html'
+    - title: A405 library source code
+      url: 'https://github.com/phaustin/a405/tree/main/src/a405'
+    - title: Blank tephigram - 1000-800 hPa
+      url: 'https://docs.google.com/presentation/d/1tgA2Ia1sWPzZVlgspuW7MOUfokDDZmfvS2eDTtFr-Mw/edit?usp=sharing'
+  - title: Weekly topics
+    children:
+    - file: week_notes.md
+  - title: Worksheets
+    children:
+    - file: notebooks/worksheets/worksheet1_solution.md
+    - file: notebooks/worksheets/worksheet2_solution.md
+    - file: notebooks/week2/skew_coords.md
+    - file: notebooks/worksheets/worksheet3_derivs_and_ints_solution.md
+    - file: notebooks/worksheets/worksheet4_taylor_series_solution.md
+    - file: notebooks/week4/xarray-intro.md
+    - file: notebooks/worksheets/worksheet5_latent_solution.md
+    - file: notebooks/worksheets/worksheet6_gibbs_solution.md
+    - file: notebooks/worksheets/mixing_line_example.md
+    - file: notebooks/worksheets/convec_instability.md
+    - file: notebooks/worksheets/moist_adiabats.md
+    - file: notebooks/worksheets/tropical_engine_solution.md
+    - file: notebooks/worksheets/cape_part1.md
+    - file: notebooks/worksheets/worksheet7_taylor_solution.md
+    - file: notebooks/worksheets/mixing_line_calc.md
+    - file: notebooks/worksheets/entraining_plume.md
+    - file: notebooks/worksheets/worksheet8_interp1d_solution.md
+    - file: notebooks/worksheets/worksheet9_koehler_solution.md
+    - file: notebooks/worksheets/worksheet10_aero_dist_solution.md
+    - file: notebooks/worksheets/dropgrow/worksheet11_dropgrow_solution.md
+    - file: notebooks/worksheets/worksheet12_marshall_palmer_sol.md
+    - file: notebooks/worksheets/worksheet13_odeint_solution.md
+    - file: notebooks/worksheets/dropgrow/worksheet14_reff_solution.md
+  - title: Assignments
+    children:
+    - file: assignments/adiabatic_box_solution.md
+    - file: assignments/hydrostatic_scaling_solution.md
+    - file: assignments/tropical_clouds_profiles_solution.md
+    - file: assignments/assign4_rootfind_solution.md
+    - file: assignments/assignment4_paper_solution.md
+    - file: assignments/thompkins_practice_answers.md
+    - file: assignments/assign6_koehler.md
+    - file: assignments/assign6_cape_solution.md
+    - file: assignments/assignment6_koehler_solution.md
+    - file: assignments/assignment7_aerosols_solution.md
+    - file: assignments/assignment8_precipitation_solution.md
+    - file: assignments/assignment9_cold_clouds.md
+  - title: In-depth notes
+    children:
+    - title: final exam equation sheet
+      url: 'https://www.dropbox.com/scl/fi/5scb458wnoymr4s8ta4vt/equation_sheet.pdf?rlkey=29ymawiljakqnv3wquqa4wm8e&st=4mmzb2ii&dl=0'
+    - title: mid-term equation sheet
+      url: 'https://drive.google.com/file/d/1L8am0jnhBdlTNzQNR8lE-Iyw0V6lwqg2/view?usp=sharing'
+    - file: notebooks/week1/hydrostat.md
+    - title: Week2 - Kinetic Temperature notes
+      url: 'https://drive.google.com/file/d/1dBxcwxe0quNjYAihiFwMpF8kVmjmYh1p/view?usp=sharing'
+    - title: Week 2 - First law of thermodynamics
+      url: 'https://drive.google.com/file/d/12xontZRhRTKBjtG9y27RS6CH35eARcgp/view?usp=sharing'
+    - title: Week 2 - Hydrostatic balance and scale heights
+      url: 'https://drive.google.com/file/d/1_ZpKjfR3OGHkmnk9-lKEmP8SSGNM8Is_/view?usp=sharing'
+    - title: Week 3 - Entropy and potential temperature
+      url: 'https://drive.google.com/file/d/1CjXm0AHYMJYmxf-Mm6CuWD7tIM_KBRI0/view?usp=sharing'
+    - title: Week 3 - Buoyancy and Taylor's series
+      url: 'https://drive.google.com/file/d/1Id1EECa8qefSD6YhJoJzVp2neEarD9Wa/view?usp=sharing'
+    - title: Schroeder Chapter 5 free energy
+      url: 'https://drive.google.com/file/d/1GrzhzpvWbN0H4dP3Z77M4O88Cyey5k2K/view?usp=sharing'
+    - title: Lohmann Chapter 2 - Thermodynamics
+      url: 'https://drive.google.com/file/d/1YrHBkCiFduYqjd_Dn8_3fZJocmqva1PG/view?usp=sharing'
+    - title: Maxwell relations
+      url: 'https://drive.google.com/file/d/1rJO32NGhTW3TA6noQmSdNl2GNXyrZUgA/view?usp=sharing'
+    - title: Clausius-Clapeyron equation
+      url: 'https://drive.google.com/file/d/144fXb0-of3lpwL0xGZYH16yxGJOmvDEh/view?usp=sharing'
+    - title: Virtual temperature notes
+      url: 'https://drive.google.com/file/d/1EQI86M4I76ARXDV54VOHKQP3J0-kyyDq/view?usp=sharing'
+    - title: 'Static energy and $\theta_e$ notes'
+      url: 'https://drive.google.com/file/d/1BPTvFijtktG4135T1X8DXwI8l_C8xHEt/view?usp=sharing'
+    - title: Carnot cycle notes
+      url: 'https://drive.google.com/file/d/131QoLZPjajoCtreV6muYOxDlF6jvRH4s/view?usp=sharing'
+    - title: wet bulb notes
+      url: 'https://drive.google.com/file/d/1wsfzaorhVKiMwDlrolf2gtTrSLT4p4iM/view?usp=sharing'
+    - title: 'Wet bulb vs. $\theta_e$'
+      url: 'https://drive.google.com/file/d/1j8vhmRtGaOlpe0JAAS-fvZmH9H8U2ay2/view?usp=sharing'
+    - file: notebooks/week7/gibbs_notes.md
+    - title: entrainment and mixing
+      url: 'https://drive.google.com/file/d/1VgY5LWMSmavpoHFQYFE-wkPxGnD5x44O/view?usp=sharing'
+    - title: Koehler equation notes
+      url: 'https://drive.google.com/file/d/1SU64h2sGfMsOygqHL1f6tK_K2HgLv1Nr/view?usp=sharing'
+    - title: Droplet growth notes
+      url: 'https://drive.google.com/file/d/1mF4ES2IewpnLB-lQHOBuK5JwSnelqkYs/view?usp=sharing'
+    - title: timescales for diffusion and droplet growth
+      url: 'https://drive.google.com/file/d/1i_2_LTQ496FScNK8V-b3pb-rvh6Qzapa/view?usp=sharing'
+    - title: aerosol size distributions
+      url: 'https://drive.google.com/file/d/1YYr2dFO4csFNsdOL7IEZJCPEh6LXMoof/view?usp=sharing'
+    - title: Accurate enthalpy and thetae
+      url: 'https://drive.google.com/file/d/1kGjCV3tVA4umfoU1KFlkCAbHtXqdOStt/view?usp=sharing'
+    - title: Droplet fragmentation
+      url: 'https://drive.google.com/file/d/1mfwKsVais1YiTC6JbMxIM5xTXgUMYd7g/view?usp=sharing'
+    - file: notebooks/ice_saturation.md
+    - title: Notes of crystal growth
+      url: 'https://drive.google.com/file/d/1g42323LOcQbxWn4Ey1B58ExgVPwjMADz/view?usp=sharing'
+    - title: entrainment discussion WH sec 6.3
+      url: 'https://drive.google.com/file/d/1nL6vIfzhlSLllo8MslixYUp5ahJ4wGkJ/view?usp=sharing'
+  - title: midterms
+    children:
+    - file: assignments/study_topics.md
+    - title: 2016 midterm
+      url: 'https://drive.google.com/file/d/1Nj31FAXyWur9qffnSflhx6CcLBta4PCj/view?usp=sharing'
+    - title: 2012 midterm
+      url: 'https://drive.google.com/file/d/1jFKalQ9MXAvNu824LKVyHtNEleZhgI0q/view?usp=sharing'
+    - file: assignments/a405_mid_2026_solution.md
+  - title: final exam
+    children:
+    - title: Final Exam Practice Questions
+      url: 'https://drive.google.com/file/d/1o9HOkiaXsestzA7P0Njt9X1r5IlEj34D/view?usp=sharing'
+    - title: 2016 final
+      url: 'https://drive.google.com/file/d/1GhPMdeK2_S1zcsu8hyMjTGzcLD1nNOtW/view?usp=drive_link'
+    - title: 2024 final equations
+      url: 'https://drive.google.com/file/d/1Wss3sLtmCZAAE15n9Sa1KB1n-UF_Klis/view?usp=drive_link'
+    - title: 2024 final exam
+      url: 'https://drive.google.com/file/d/17xeEWvdocJbAWpLCxcITgkjHG6pX4Qf7/view?usp=drive_link'
+    - file: final_exam/a405_final_2026_solutions.md
+    - file: final_exam/final_exam_cool.md
+    - file: final_exam/final_exam_mix.md
+  - title: Animations
+    children:
+    - title: ARM diurnal over land
+      url: 'https://drive.google.com/file/d/1Qwioo3qSyEzr4tTuC3Sx54oXLKg-3g3D/view?usp=sharing'
+    - title: BOMEX -- trade cumulus over water
+      url: 'https://drive.google.com/file/d/1lCb3G9EhiPzRGO2m0FQWMTTUv2fSTnbi/view?usp=sharing'
+    - title: CGILS trade cumulus over water
+      url: 'https://drive.google.com/file/d/14ZLSAHCrjv8U0IKD9sQMHdql33Ebxkp3/view?usp=sharing'
 site:
+  template: book-theme
   options:
     folders: true
     hide_branding: true
-  template: book-theme

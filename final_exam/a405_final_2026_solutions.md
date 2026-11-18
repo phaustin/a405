@@ -15,7 +15,7 @@ kernelspec:
 (a405_final_solutions)=
 # A405 final solutions
 
-Download [a405_final_2026_solutions.ipynb]
+Download [a405_final_2026_solutions.ipynb](https://drive.google.com/file/d/1oj8nFzNOOy9Mb8HxqSm6iIseNLDkmwmB/view?usp=sharing)
 
 +++
 
@@ -32,7 +32,7 @@ where V(r) $\approx$ 0 and V(R) $\approx$ JR (with J=6000 $s^{-1}$, R in m)
 
 :::{figure} ./thompkins_collision.jpg
 :name: collision
-:scale: 25
+:width: 111px
 
 Collison sweep-out from Thompkins Fig. 4.19
 :::
@@ -71,9 +71,11 @@ $$
 $$
 
 $$
+\begin{aligned}
 \int_{20}^{500}\frac{dR}{R} {d t}&=\int_0^t \frac{6000 r_l}{4 \cdot \rho_l} dt^\prime = \int_0^t \frac{dt^\prime}{\tau}  \\
 \ln \left(\frac{500}{20 }\right)&=t / \tau\\
 t &= \tau \ln \left(\frac{500}{20 }\right)
+\end{aligned}
 $$
 
 ```{code-cell} ipython3
@@ -94,8 +96,10 @@ Warm rain can take as little as 15 minutes once a cloud is formed.  This is beca
   A laser scattering probe measures a cumulative number distribution $N(D)$ described by {eq}`eq:cumulative` and determines that it is given approximately by:
 
   $$
+\begin{aligned}
    N(D^\prime) &= \int_{D^\prime}^\infty n(D)dD \\
   N(D)&=N_0 D^{-1 / 2}
+\end{aligned}
   $$
 
   with $N(D)$ in $\mathrm{m}^{-3}$ and $D$ in $\mu \mathrm{m}$, for drops with diameters in the range $1 \leq D \leq 20 \mu \mathrm{~m}$. Use this information to find:
@@ -129,11 +133,13 @@ so $n(D) = \frac{N_0}{2} D^{-3/2}$
  - [b)] (4) The mean diameter $D$ for those drops
 
 $$
+\begin{aligned}
 \langle D \rangle &=\int_1^{20} D n(D) d D/N_T \\
 \int_1^{20} D 0.5 N_0 D^{-3 / 2} d D/N_T &=\int_1^{20} 0.5 N_0 D^{-1 / 2} d D/N_T\\
          &=\left.N_0 D^{1 / 2}\right|_1 ^{20}/N_T = N_0\left(20^{0.5}-1\right) / N_T \\
          &= 3.5 \frac{N_0}{N_T} \\
          &= 3.5 \frac{N_0}{0.78N_0} = 4.5\ \mu m
+\end{aligned}
 $$
 
 ```{code-cell} ipython3
@@ -147,20 +153,22 @@ $$
   - Answer:
 
 $$
+\begin{aligned}
 m(D)&=\rho_l \frac{4 \pi}{3} \left(\frac{D}{2}\right)^3 n(D) \\
     &= \rho_l \frac{4 \pi}{3} \left(\frac{D}{2}\right)^3  \frac{N_0}{2} D^{-3/2} \\
     & = \frac{\pi N_0 \rho_l}{12}  D^{3 / 2}
+\end{aligned}
 $$
 
 +++
 
 ## [3.] (12) Gibbs free energy
 
-  - [a)] (6) Starting from {eq}`eq:dg` show that for a flat sheet of pure liquid water in equilibrium with vapor, $g_v = g_l$
+  - [a)] (6) Starting from {eq}`final:dg` show that for a flat sheet of pure liquid water in equilibrium with vapor, $g_v = g_l$
  
     - Answer:
    
-      According to {eq}`eq:dg`:
+      According to {eq}`final:dg`:
 
     $$
     d g \leq-\phi d T+\alpha d p
@@ -191,7 +199,7 @@ $$
 
 :::{figure} ./koehler_three.jpg
 :name: koehler_fig
-:scale: 35
+:width: 530px
 
 Koehler curve
 :::
@@ -202,7 +210,7 @@ Koehler curve
 
 - [a)] (1) Which of the three aerosol masses $m_1, m_2, m_3$ is largest? How do you know?
 
-     - Answer: $m_1$ is the largest, because it activates at the lowest $S_{crit}$ and {eq}`eq:scrit` indicates that $S_{crit} \propto m^{-0.5}$.  Physically, this is because the liquid in the largest aerosol gets the most protection from evaporation due to the Raoult effect.
+     - Answer: $m_1$ is the largest, because it activates at the lowest $S_{crit}$ and {eq}`final:scrit` indicates that $S_{crit} \propto m^{-0.5}$.  Physically, this is because the liquid in the largest aerosol gets the most protection from evaporation due to the Raoult effect.
        
 - [b)] (4) Give a physical explanation (i.e. argue in terms of the energies of vapor and liquid) why the equilibrium vapor pressure increases rapidly with radius near point a, and decreases with radius near point $b$.
 
@@ -210,7 +218,7 @@ Koehler curve
 
     :::{figure} ./terms.jpg
     :name: koehler_terms
-    :scale: 60
+    :width: 384px
 
     Koehler curve individual terms
     :::
@@ -219,17 +227,19 @@ Koehler curve
 
 - [c)] (4) Suppose points a and b represented droplets in equilibrium with saturation $\mathrm{S}=1.0012$, and the environmetnal saturation was increased to $\mathrm{S}=1.015$. Describe what happens to the radius of droplet $a$ and droplet $b$, making reference to the appropriate equations from the equation sheet.
 
-  - answer:  For point a, the equilibrium radius will get slightly larger because the drop is an unactivated haze particle in stable equilibrium and has to remain on the Koehler Curve {eq}`eq:scrit`.  For point b) the equilibrium is unstable, and the drop will grow by condensation since the saturation is greater than 1, driven by equation {eq}`eq:dropgrow`.   The drop (r,S) point will no longer be on the Koehler curve.
+  - answer:  For point a, the equilibrium radius will get slightly larger because the drop is an unactivated haze particle in stable equilibrium and has to remain on the Koehler Curve {eq}`final:scrit`.  For point b) the equilibrium is unstable, and the drop will grow by condensation since the saturation is greater than 1, driven by equation {eq}`final:dropgrow`.   The drop (r,S) point will no longer be on the Koehler curve.
 
 +++
 
-#### 
+####
 
 +++
 
 ## [5)] (12) Cooling
 
-  Use the tephigram labeled ``cooling problem'' to calculate the following:
+- Download the solution: [final_exam_cool.ipynb](https://drive.google.com/file/d/1YP96w0Lm_0Oi4rxFRQf_gpMF0wt1u9Y0/view?usp=sharing)
+
+  Use the tephigram labeled *cooling problem* to calculate the following:
 
   
   For air at 700 hPa with 6 g/kg of vapor (saturated) and 1 g/kg of liquid.
@@ -253,6 +263,8 @@ Koehler curve
 +++
 
 ## [6)] (12) Mixing
+
+Download the solution: [final_exam_mix.ipynb](https://drive.google.com/file/d/1G3Y5l0x80ysP1cOuKtoRfvcDE_MP_J-o/view?usp=sharing)
 
 
   Surface air at 1000 hPa with a temperature of 20 deg C and a dewpoint of 16 deg C is lifted adiabatically to 800 hPa, where it entrains 70\%  of environmental air that has a $\theta_e$ of 307 K and a mixing ratio of 4 g/kg.  Use the tephigram labeled ``mixing problem'' to find:
@@ -279,16 +291,16 @@ $$(eq:cumulative)
 
 $$
 dg \leq -\phi dT + \alpha dp
-$$(eq:dg)
+$$(final:dg)
 
 $$
   s_{crit}= 1 + \left ( \frac{4 a^3}{27 b} \right )^{1/2}
-$$(eq:scrit)
+$$(final:scrit)
 where $b = \frac{i m M_w}{(4/3)M_s \pi\rho}$
 
 $$
   \frac{ dr}{dt} = \frac{ 1}{r} \frac{ D \rho_{v \infty}}{\rho_l e_\infty}  [e_\infty - e_{r}]
-$$(eq:dropgrow)
+$$(final:dropgrow)
 
 $$
     N(D^\prime)= \int_{D^\prime}^\infty n(D)dD

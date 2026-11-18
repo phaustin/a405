@@ -25,8 +25,10 @@ Download [worksheet13_odeint_solution.ipynb](https://drive.google.com/file/d/117
 Problem: integrate the following system of odes:
 
 $$
+\begin{aligned}
 \frac{dx}{dt} &= y \\
 \frac{dy}{dt} &= -x
+\end{aligned}
 $$
 with intial conditions [x, y] = [0, 1]
 

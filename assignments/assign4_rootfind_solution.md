@@ -40,10 +40,6 @@ $$
 The algorithm evaluates the function for increasing values of x until in sees a sign change.  It then backtracks to the other side of the sign change and starts increaing x again until it sees the sign change.  It will stop when the change in x is below a selected tolerance
 
 ```{code-cell} ipython3
----
-jupyter:
-  outputs_hidden: false
----
 from scipy import optimize
 from matplotlib import pyplot as plt
 import numpy as np

@@ -25,7 +25,7 @@ Starting with the definition of the Gibbs free energy on Thompkins p. 26
 
 $$
 G=u+e_s v-T \phi
-$$(eq:G)
+$$(eq:G_total)
 
 Use the first and second law to show that $G$ is conserved for phase changes at constant temperature and pressure.
 
@@ -46,7 +46,7 @@ alt: pha
 Thompkins chamber
 ```
 
-Imagine that the top is a moveable piston, which can be slowly raised keeping the vapor pressure $e_s(T)$ and the temperature $T$ constant as water changes phase from liquid to vapor.   How much heating is needed to do this, and how does it relate to the terms in {eq}`eq:G`?
+Imagine that the top is a moveable piston, which can be slowly raised keeping the vapor pressure $e_s(T)$ and the temperature $T$ constant as water changes phase from liquid to vapor.   How much heating is needed to do this, and how does it relate to the terms in {eq}`eq:G_total`?
 
 +++
 

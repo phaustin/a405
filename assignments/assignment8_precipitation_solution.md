@@ -85,9 +85,11 @@ print(f"{lhs=:.1e}")
 #### Integrate both sides
 
 $$
+\begin{aligned}
 \int_{100 \times 10^{-6}\ m}^{1000 \times 10^{-6}\ m} \frac{dR}{R} dR & = 6.7 \times 10^{-4} \int_0^t dt = 5.04 \times 10^{-4} t \\
 \frac{\ln 1000- \ln 100 }{6.7 \times 10^{-4}} &= t \\
 t = 3437\ seconds &= 57.3\ minutes
+\end{aligned}
 $$
 
 ```{code-cell} ipython3
@@ -135,7 +137,7 @@ Use WH equation 6.24 for the terminal fall speed of a droplet together with WH e
 
 
 $$
-\frac{ dh}{dt}  = w - v \label{one}
+\frac{ dh}{dt}  = w - v
 $$(one)
 
 $$
@@ -291,9 +293,11 @@ ax.set_ylabel("height (m)")
 ### Check this answer analytically
 
 $$ 
+\begin{aligned}
 r^2 &=r_0^2+2 G_l SS t \\
 \frac{d h}{d t}&=-6000 r \\ 
 d h &=-6000 \sqrt {\left(r_0^2+2 G_l SS t\right) }\, dt
+\end{aligned}
 $$(uint)
 
 +++
@@ -301,12 +305,14 @@ $$(uint)
 #### Integrate {eq}`uint` with change of variables
 
 $$
+\begin{aligned}
 u & =r_0^2+2 G_l SS t \\
 d u & =2 G_l SS d t \\
 h-h_0 & =-\int_0^t \frac{6000}{2 G_l SS} u^{1 / 2} d u \\
 h-h_0 & = -\left.\int_0^t \frac{2}{3} \frac{6000}{2 G_l SS} u^{3 / 2}\right|_0 ^t \\
 h-h_0 & = - \left. \frac{2000}{ G_l SS} u^{3 / 2}\right|_0 ^t \\
 h-h_0 & = - \frac{2000}{ G_l SS}\left[\left(r_0^2+2 G_l SS t\right)^{3 / 2} - r_0^3\right]
+\end{aligned}
 $$
 
 +++
@@ -328,9 +334,7 @@ h = h0 -2000/(Gl*SS)*(u**1.5 - r0**3.)
 print(f"final analytic height at {time=} seconds in {h=:.1f} m")
 ```
 
-```{raw-cell}
 So the analytic and numerical solutions match pretty closely
-```
 
 ### Repeat numerical solution using fall speed from {eq}`two`
 

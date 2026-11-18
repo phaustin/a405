@@ -12,7 +12,7 @@ force necessary to balance gravity, so the atmosphere is not rising or sinking:
 
 :::{figure} ./images/hydrostat.png
 :name: hydrofig
-:scale: 50
+:width: 443px
 
 Hydrostatic balance for a 1 $m^2$ cross section of a layer
 :::

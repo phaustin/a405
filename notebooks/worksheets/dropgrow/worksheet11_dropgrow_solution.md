@@ -248,10 +248,6 @@ def find_derivs(var_vec,the_time,cloud_tup):
 ## Get the aerosol and initial conditions
 
 ```{code-cell} ipython3
----
-jupyter:
-  outputs_hidden: false
----
 aerosol_specs = {
     "Ms": 114,  #molecular weight of aerosol
     "Mw": 18.0,  #molecular weight of water
@@ -345,10 +341,6 @@ def find_lv(temp):
 ### find the equilibrium radius for each bin at saturation Sinit
 
 ```{code-cell} ipython3
----
-jupyter:
-  outputs_hidden: false
----
 S_target = parcel.Sinit
 logr_start = np.log(0.1e-6)
 
@@ -425,10 +417,6 @@ df_output = pd.DataFrame.from_records(sol,columns = colnames)
 ```
 
 ```{code-cell} ipython3
----
-jupyter:
-  outputs_hidden: false
----
 plt.style.use('ggplot')
 plt.close('all')
 fig, ax = plt.subplots(1,1,figsize=[10,8])
@@ -442,10 +430,6 @@ out=ax.set(ylim=[1000,1040],xlim=[0,6],
 ## Plot the parcel supersaturation
 
 ```{code-cell} ipython3
----
-jupyter:
-  outputs_hidden: false
----
 Svals = []
 for index,row in df_output.iterrows():
     out_vec = row.values

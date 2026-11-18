@@ -17,7 +17,7 @@ kernelspec:
 
 +++
 
-Questions 1: Hand in you answer to {ref}`mp_ques2` from the Marshall-Palmer worksheet.
+Questions 1: Hand in you answer to {ref}`mp_ques2_sol` from the Marshall-Palmer worksheet.
 
 
 Question 2: Lohmann problem 4 page 250:
