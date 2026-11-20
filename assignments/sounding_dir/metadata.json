@@ -21,8 +21,8 @@
         "latitude": 50.68,
         "longitude": -127.36,
         "elevation": 17.0,
-        "header": "71109 YZT Port Hardy Observations at 00Z 01 Jul 2013",
-        "history": "written by test_requests.py"
+        "header": "71109 PORT HARDY UA, BC, CANADA Observations at 00Z 01 Jul 2013",
+        "history": "written by cloudlib.soundings.wyominglib.write_soundings"
     },
     "input_args": {
         "region": "samer",

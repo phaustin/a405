@@ -40,7 +40,7 @@ from pathlib import Path
 current_dir = Path()
 sounding_dir = (current_dir / 'sounding_dir').absolute()
 print(f"{str(sounding_dir)=}")
-write = True
+write = False
 if write:
     region = 'samer'
     year = '2013'

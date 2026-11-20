@@ -43,7 +43,7 @@ from matplotlib import pyplot as plt
 set get_data=True the first time through, then False for subsequent runs with the stored sounding in save_sounding.csv and metada.json
 
 ```{code-cell} ipython3
-get_data=True
+get_data=False
 if get_data:
     values=dict(region='naconf',year='2012',month='7',start='0100',stop='3000',station='72340')
     write_soundings(values, 'littlerock')

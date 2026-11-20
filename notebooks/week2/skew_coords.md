@@ -62,8 +62,10 @@ from pathlib import Path
 values=dict(region='samer',year='2013',month='2',start='0100',stop='2800',station='82965')
 curr_dir = Path()
 sounding_dir = (curr_dir / 'brazil_soundings').absolute()
-print(f"writing sounding to {sounding_dir=}")
-write_soundings(values, sounding_dir)
+get_data = False   # set True to re-download from the Wyoming site (slow)
+if get_data:
+    print(f"writing sounding to {sounding_dir=}")
+    write_soundings(values, sounding_dir)
 ```
 
 ### reading soundings into pandas dataframes
@@ -284,7 +286,7 @@ In cells below, we add the temperature and dewpoint soundings for the Feb 1, 201
 
 ```{code-cell} ipython3
 press,temp = the_sound['pres'].to_numpy(), the_sound['temp'].to_numpy()
-dewpoint= the_sound['dwpt'].to_numpy()
+dewpoint= the_sound['dwpt'].to_numpy(copy=True)
 ```
 
 ```{code-cell} ipython3

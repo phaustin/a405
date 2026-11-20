@@ -37,7 +37,7 @@ In the cell below, change the region, year, month and station to get a unique so
 from cloudlib.soundings.wyominglib import write_soundings
 import numpy as np
 sounding_dir = 'sounding_dir'
-write = True
+write = False
 if write:
     region = 'samer'
     year = '2013'
