@@ -27,7 +27,7 @@ $g kg^{-1}$. What is the mixing ratio in the air parcel?
 
 ```{code-cell} ipython3
 #your code here
-from a405.thermo.constants import constants as c
+from cloudlib.thermo.constants import constants as c
 # c.delta = 0.608
 rvenv = 1.e-2
 Tenv = c.Tc + 25
@@ -89,10 +89,10 @@ iv (1pt) What is the common name given to this temperature?
 
 ```{code-cell} ipython3
 # your code here
-from a405.skewT.fullskew import makeSkewWet, find_corners
+from cloudlib.skewT.fullskew import makeSkewWet, find_corners
 import matplotlib.pyplot as plt
 import numpy as np
-from a405.thermo.thermlib import find_rsat, find_Td
+from cloudlib.thermo.thermfn import find_rsat, find_Td
 
 Temp=25 + c.Tc
 rv = 10.e-3  # kg/kg
@@ -129,8 +129,8 @@ ii (4pt) The parcel is cooled and moistened isobarically by the evaporation of p
 of $T_1$ and a final mixing ratio of $r_{v1}$.  Use a rootfinder to solve for $T_1$ if the relative humidity is RH=0.6.
 
 ```{code-cell} ipython3
-from a405.thermo.thermlib import find_rsat
-from a405.thermo.constants import constants as c
+from cloudlib.thermo.thermfn import find_rsat
+from cloudlib.thermo.constants import constants as c
 press=1.e5 # Pa
 temp_before = 25 + c.Tc
 rs25 = find_rsat(temp_before,press)
@@ -170,7 +170,7 @@ print(f"evaporatively cooled temperature {Tevap=:.1f} deg C")
 * Initially $T_A$ = 300 K and $p_A$ = $10^5$ Pa, and $T_B$ = 100 K and $p_B$ = $10^3$ Pa.  Suppose the membrane breaks.  Find the final temperature and pressure in the 2 $m^3$ compartment.   Does the total entropy change?  By how much?
 
 ```{code-cell} ipython3
-from a405.thermo.thermlib import find_theta
+from cloudlib.thermo.thermfn import find_theta
 import numpy as np
 Ta=300  #K
 pa=1.e5 #Pa

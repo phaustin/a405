@@ -23,11 +23,11 @@ Link to this notebook: [convective_lifting.ipynb](https://drive.google.com/file/
 ```{code-cell} ipython3
 #calculate thermodynamic variables
 #for a convectively unstable layer
-from a405.thermo.constants import constants as c
-from a405.skewT.fullskew import makeSkewWet,find_corners
-from a405.thermo.thermlib import find_thetaet, find_rsat, tinvert_thetae, find_Td, find_lcl
-from a405.thermo.thermlib import convertTempToSkew
-from a405.thermo.thermlib import find_Tmoist
+from cloudlib.thermo.constants import constants as c
+from cloudlib.skewT.fullskew import makeSkewWet,find_corners
+from cloudlib.thermo.thermfn import find_thetaet, find_rsat, tinvert_thetae, find_Td, find_lcl
+from cloudlib.thermo.thermfn import convertTempToSkew
+from cloudlib.thermo.thermfn import find_Tmoist
 import numpy as np
 import matplotlib.pyplot as plt
 

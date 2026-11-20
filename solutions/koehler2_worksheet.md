@@ -5,9 +5,9 @@ This worksheet defines a set of functions to compute the
 equilbrium radii for aerosols with a lognormal mass distribution
 
 ```python
-#import a405.dropgrow.aerolib
+#import cloudlib.dropgrow.aerolib
 import numpy as np
-from a405.thermo.constants import constants as c
+from cloudlib.thermo.constants import constants as c
 import json
 from scipy import optimize
 from collections import namedtuple

@@ -101,7 +101,7 @@ where $R$ is the radius of the collector drop in meters, $L$ is the liquid water
 For the $L$, we have 100 droplets $cm^{-3}$ with $\overline{r }= 10^{-3}$ cm, which gives a lwc of $4 \times 10^{-4} \ kg\,m^{-3}$.
 
 ```{code-cell} ipython3
-from a405.thermo.constants import constants as c
+from cloudlib.thermo.constants import constants as c
 import numpy as np
 N=100e6  # number/m^3
 r = 1.e-5  #meters
@@ -179,9 +179,9 @@ $$
 Note that Thompkins takes the temperature out of his $a$ coefficient, but it's identical to Lohmann if you move temperature into $a$.
 
 ```{code-cell} ipython3
-from a405.thermo.thermlib import find_esat, find_lv
-from a405.utils.helper_funs import make_tuple
-from a405.thermo.constants import constants as c
+from cloudlib.thermo.thermfn import find_esat, find_lv
+from cloudlib.utils.helper_funs import make_tuple
+from cloudlib.thermo.constants import constants as c
 import numpy as np
 
 temp = 280 #K

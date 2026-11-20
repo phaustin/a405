@@ -53,7 +53,7 @@ For air at 700 hPa with 7 g/kg of vapor (saturated) and 1 g/kg of liquid.
 - cooling q: $-1.2 \times 10^4$ J/kg
 
 ```{code-cell} ipython3
-from a405.thermo.constants import constants as c
+from cloudlib.thermo.constants import constants as c
 delta_T = -6 #K
 delta_rv = -2.5*1.e-3  #kg/kg
 delta_qout = c.cpd*delta_T + c.lv0*delta_rv
@@ -63,12 +63,12 @@ print(f"!!!!!!cooling total q = {delta_qout:.1e} J/kg")
 ### Question 1 cooling code
 
 ```{code-cell} ipython3
-from a405.soundings.wyominglib import read_soundings
-from a405.skewT.skewlib import makeSkewDry
-from a405.thermo.thermlib import convertTempToSkew, find_lcl, find_thetaet, find_Td, tinvert_thetae
-from a405.thermo.thermlib import find_rsat, find_theta, find_Tmoist
+from cloudlib.soundings.wyominglib import read_soundings
+from cloudlib.skewT.skewlib import makeSkewDry
+from cloudlib.thermo.thermfn import convertTempToSkew, find_lcl, find_thetaet, find_Td, tinvert_thetae
+from cloudlib.thermo.thermfn import find_rsat, find_theta, find_Tmoist
 
-from a405.skewT.fullskew import makeSkewWet,find_corners,make_default_labels
+from cloudlib.skewT.fullskew import makeSkewWet,find_corners,make_default_labels
 
 import datetime
 import pytz

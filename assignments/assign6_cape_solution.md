@@ -53,8 +53,8 @@ $$
 ```{code-cell} ipython3
 import numpy as np
 
-from a405.thermo.constants import constants as c
-from a405.skewT.nudge import nudge
+from cloudlib.thermo.constants import constants as c
+from cloudlib.skewT.nudge import nudge
 ```
 
 ### From Assignb 6 part 1: use `calc_interp` to construct interpolators
@@ -95,8 +95,8 @@ entrain_ds
 
 ```{code-cell} ipython3
 from numpy.typing import ArrayLike as array
-import a405.thermo.thermlib as tl
-from a405.thermo.constants import constants as c
+import cloudlib.thermo.thermfn as tl
+from cloudlib.thermo.constants import constants as c
 
 
 def get_buoy(T_env: array, Td_env: array, T_cloud: array, press: array) -> array:

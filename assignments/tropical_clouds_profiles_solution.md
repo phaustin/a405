@@ -219,7 +219,7 @@ The sub-cloud layer is dry-adibatic for all profiles.  The profiles all moist ad
 ```{code-cell} ipython3
 # your code here
 
-from a405.thermo.constants import constants as c
+from cloudlib.thermo.constants import constants as c
 from metpy.plots import SkewT
 from metpy.units import units
 fig,ax =plt.subplots(1,1,figsize=(8,8))

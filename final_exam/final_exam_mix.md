@@ -46,11 +46,11 @@ print(f"!!!!!!!{thetae_mix=:.1f} K, {rv_mix=:.1e} kg/kg")
 ```
 
 ```{code-cell} ipython3
-from a405.thermo.constants import constants as c
-from a405.thermo.thermlib import find_rsat, find_theta, find_Tmoist
-from a405.thermo.thermlib import convertTempToSkew, find_lcl, find_thetaet, find_Td, tinvert_thetae
+from cloudlib.thermo.constants import constants as c
+from cloudlib.thermo.thermfn import find_rsat, find_theta, find_Tmoist
+from cloudlib.thermo.thermfn import convertTempToSkew, find_lcl, find_thetaet, find_Td, tinvert_thetae
 from matplotlib import pyplot as plt
-from a405.skewT.fullskew import makeSkewWet,find_corners,make_default_labels
+from cloudlib.skewT.fullskew import makeSkewWet,find_corners,make_default_labels
 import numpy as np
 from pathlib import Path
 ```

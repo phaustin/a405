@@ -28,12 +28,12 @@ from pprint import pformat
 import numpy as np
 import json
 
-from a405.thermo.constants import constants as c
+from cloudlib.thermo.constants import constants as c
 ```
 
 ```{code-cell} ipython3
-from a405.soundings.wyominglib import write_soundings, read_soundings
-from a405.thermo.thermlib import (find_Tmoist,find_rsat,find_Tv,find_lcl,find_thetaet,
+from cloudlib.soundings.wyominglib import write_soundings, read_soundings
+from cloudlib.thermo.thermfn import (find_Tmoist,find_rsat,find_Tv,find_lcl,find_thetaet,
                                   tinvert_thetae)
 from matplotlib import pyplot as plt
 ```

@@ -24,13 +24,13 @@ import numpy as np
 import pandas as pd
 from pprint import pformat
 
-from a405.thermo.constants import constants as c
-from a405.thermo.thermlib import convertSkewToTemp, convertTempToSkew
-from a405.skewT.fullskew import makeSkewWet,find_corners,make_default_labels
+from cloudlib.thermo.constants import constants as c
+from cloudlib.thermo.thermfn import convertSkewToTemp, convertTempToSkew
+from cloudlib.skewT.fullskew import makeSkewWet,find_corners,make_default_labels
 ```
 
 ```{code-cell} ipython3
-from a405.soundings.wyominglib import write_soundings, read_soundings
+from cloudlib.soundings.wyominglib import write_soundings, read_soundings
 from matplotlib import pyplot as plt
 ```
 
@@ -142,8 +142,8 @@ $$
 
 ```{code-cell} ipython3
 from numpy.typing import ArrayLike as array
-import a405.thermo.thermlib as tl
-from a405.thermo.constants import constants as c
+import cloudlib.thermo.thermfn as tl
+from cloudlib.thermo.constants import constants as c
 
 
 def get_buoy(T: array, Td: array, pres: array) -> array:

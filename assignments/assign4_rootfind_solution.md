@@ -114,7 +114,7 @@ find_dewpoint(1200)
 ```
 
 ```{code-cell} ipython3
-from a405.thermo.constants import constants as c
+from cloudlib.thermo.constants import constants as c
 import numpy as np
 esat_vals = np.linspace(500, 4000, 50)
 dewpoint = [find_dewpoint(esat) for esat in esat_vals]

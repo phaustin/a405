@@ -54,7 +54,7 @@ For the $L$, we have 100 droplets $cm^{-3}$ with $\overline{r }= 10^{-3}$ cm, wh
 #### Calculate the lwc
 
 ```{code-cell} ipython3
-from a405.thermo.constants import constants as c
+from cloudlib.thermo.constants import constants as c
 import numpy as np
 N=100e6  # number/m^3
 r = 1.e-5  #meters

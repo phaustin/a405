@@ -34,7 +34,7 @@ Here is the [hydrostatic_scaling_solution.ipynb](https://drive.google.com/file/d
 In the cell below, change the region, year, month and station to get a unique sounding for analysis (i.e. I'd like to spread out the soundings among regions and seasons).  The url for the Wyoming page is:  [https://weather.uwyo.edu/upperair/sounding.html](https://weather.uwyo.edu/upperair/sounding.html)
 
 ```{code-cell} ipython3
-from a405.soundings.wyominglib import write_soundings
+from cloudlib.soundings.wyominglib import write_soundings
 import numpy as np
 from pathlib import Path
 current_dir = Path()
@@ -53,7 +53,7 @@ if write:
 ```
 
 ```{code-cell} ipython3
-from a405.soundings.wyominglib import read_soundings
+from cloudlib.soundings.wyominglib import read_soundings
 wyoming_dict = read_soundings(sounding_dir)
 sounding_dict = wyoming_dict['sounding_dict']
 the_sounding = sounding_dict[(2013, 7, 1, 0)]

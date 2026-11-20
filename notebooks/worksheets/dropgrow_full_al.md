@@ -16,15 +16,15 @@ kernelspec:
 
 ```{code-cell} ipython3
 import json
-import a405.utils
+import cloudlib.utils
 from pathlib import Path
 import numpy as np
-from a405.dropgrow.aerolib import lognormal,create_koehler
-from a405.utils.helper_funs import make_tuple, find_centers
-from a405.thermo.thermlib import find_esat, find_lv
-from a405.thermo.rootfinder import find_interval, fzero
-from a405.dropgrow.drop_grow import find_diff, rlcalc, find_derivs, Scalc
-from a405.thermo.constants import constants as c
+from cloudlib.dropgrow.aerolib import lognormal,create_koehler
+from cloudlib.utils.helper_funs import make_tuple, find_centers
+from cloudlib.thermo.thermfn import find_esat, find_lv
+from cloudlib.thermo.rootfinder import find_interval, fzero
+from cloudlib.dropgrow.drop_grow import find_diff, rlcalc, find_derivs, Scalc
+from cloudlib.thermo.constants import constants as c
 from scipy.integrate import odeint
 import pandas as pd
 from matplotlib import pyplot as plt

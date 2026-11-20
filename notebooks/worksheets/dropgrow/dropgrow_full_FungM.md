@@ -22,16 +22,16 @@ kernelspec:
 
 ```{code-cell} ipython3
 import json
-import a405.utils
+import cloudlib.utils
 from pathlib import Path
 import numpy as np
-from a405.dropgrow.aerolib import lognormal,create_koehler
-from a405.utils.helper_funs import make_tuple, find_centers
+from cloudlib.dropgrow.aerolib import lognormal,create_koehler
+from cloudlib.utils.helper_funs import make_tuple, find_centers
 from collections import OrderedDict as od
-from a405.thermo.thermlib import find_esat
-from a405.thermo.rootfinder import find_interval, fzero
-from a405.dropgrow.drop_grow import find_diff, rlcalc, find_derivs, Scalc
-from a405.thermo.constants import constants as c
+from cloudlib.thermo.thermfn import find_esat
+from cloudlib.thermo.rootfinder import find_interval, fzero
+from cloudlib.dropgrow.drop_grow import find_diff, rlcalc, find_derivs, Scalc
+from cloudlib.thermo.constants import constants as c
 from scipy.integrate import odeint
 import pandas as pd
 from matplotlib import pyplot as plt
@@ -48,7 +48,7 @@ pp = pprint.PrettyPrinter(indent=4)
 ## Read in the json file and set the koehler function for this aerosol
 
 ```{code-cell} ipython3
-with ir.open_text('a405.data','dropgrow.json') as f:
+with ir.open_text('cloudlib.data','dropgrow.json') as f:
     input_dict=json.load(f)
 pp.pprint(input_dict)
 
@@ -231,7 +231,7 @@ d_rv = np.diff(rv_array)
 ```
 
 ```{code-cell} ipython3
-from a405.thermo.thermlib import find_lv
+from cloudlib.thermo.thermfn import find_lv
 ```
 
 ```{code-cell} ipython3

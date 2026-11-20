@@ -68,8 +68,8 @@ Put in some numbers to get a concrete example.  Assumptions:
 ### Step 1: find esat
 
 ```{code-cell} ipython3
-from a405.thermo.thermlib import find_esat
-from a405.thermo.constants import constants as c
+from cloudlib.thermo.thermfn import find_esat
+from cloudlib.thermo.constants import constants as c
 temp=283
 esat = find_esat(283)
 print(f"{esat=:.0f} Pa")

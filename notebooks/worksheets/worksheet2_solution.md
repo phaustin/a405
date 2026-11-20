@@ -62,11 +62,11 @@ The A405 library modules are documented at [https://phaustin.github.io/a405_lib/
 
 ```{code-cell} ipython3
 import numpy as np
-import a405
-from a405.thermo import thermlib
+import cloudlib
+from cloudlib.thermo import thermfn as thermlib
 temp=300
 press=45000
-answer = a405.thermo.thermlib.find_theta(temp, press, rv=0)
+answer = cloudlib.thermo.thermfn.find_theta(temp, press, rv=0)
 print(f"{answer=:.2f} K")
 ```
 
@@ -80,7 +80,7 @@ print(f"{answer=:.2f} K")
 ### 2a. Answer
 
 ```{code-cell} ipython3
-from a405.thermo.constants import constants as c
+from cloudlib.thermo.constants import constants as c
 ```
 
 ```{code-cell} ipython3

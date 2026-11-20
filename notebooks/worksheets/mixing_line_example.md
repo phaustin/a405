@@ -35,15 +35,15 @@ the thermodynamic state of all mixtures of air at 900 hPa with air at 800 hPa
 ```
 
 ```{code-cell} ipython3
-from a405.thermo.thermlib import (find_Tmoist,find_rsat,
+from cloudlib.thermo.thermfn import (find_Tmoist,find_rsat,
                                   find_Td,tinvert_thetae,
                                   convertTempToSkew,find_lcl)
-import a405.thermo.thermlib as tl
-from a405.thermo.constants import constants as c
+import cloudlib.thermo.thermfn as tl
+from cloudlib.thermo.constants import constants as c
 from matplotlib import pyplot as plt
 import numpy as np
 pa2hPa=1.e-2
-from a405.skewT.fullskew import makeSkewWet
+from cloudlib.skewT.fullskew import makeSkewWet
 fig, ax = plt.subplots(1, 1, figsize=(12, 8))
 ax, skew = makeSkewWet(ax,corners=[10,30])
 ax.set(ylim=[1000,700])

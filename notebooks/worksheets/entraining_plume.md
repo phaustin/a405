@@ -31,17 +31,17 @@ import numpy as np
 import pandas as pd
 from functools import partial
 from pprint import pformat
-from a405.thermo.constants import constants as c
-from a405.thermo.thermlib import find_Tmoist,find_rsat,find_thetaep
+from cloudlib.thermo.constants import constants as c
+from cloudlib.thermo.thermfn import find_Tmoist,find_rsat,find_thetaep
 from scipy.interpolate import interp1d
 from scipy.integrate import RK45
-from a405.soundings.wyominglib import write_soundings, read_soundings
+from cloudlib.soundings.wyominglib import write_soundings, read_soundings
 import json
 import xarray as xr
 import os
 
 import matplotlib.pyplot as plt
-from a405.skewT.nudge import nudge
+from cloudlib.skewT.nudge import nudge
 ```
 
 ## Find the derivatives wrt time of each of the 4 variables
@@ -294,7 +294,7 @@ def integ_entrain(df_sounding,entrain_rate,wvel_init,press_init,integ_time=2500,
 ## Read in a sounding to set the environment
 
 ```{code-cell} ipython3
-from a405.soundings.wyominglib import write_soundings
+from cloudlib.soundings.wyominglib import write_soundings
 from pathlib import Path
 curr_dir = Path()
 stem = 'little_rock_july'
@@ -419,9 +419,9 @@ print(f"write netcdf file {str(output_filename.absolute())}")
 ## Plot the result on a tephigram
 
 ```{code-cell} ipython3
-from a405.thermo.constants import constants as c
-from a405.thermo.thermlib import convertSkewToTemp, convertTempToSkew
-from a405.skewT.fullskew import makeSkewWet,find_corners,make_default_labels
+from cloudlib.thermo.constants import constants as c
+from cloudlib.thermo.thermfn import convertSkewToTemp, convertTempToSkew
+from cloudlib.skewT.fullskew import makeSkewWet,find_corners,make_default_labels
 pa2hPa = 0.01
 
 fig,ax =plt.subplots(1,1,figsize=(10,10))

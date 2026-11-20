@@ -60,7 +60,7 @@ Since I have the sounding data in the netcdf file written by the entraining_plum
 ```{code-cell} ipython3
 from pathlib import Path
 import xarray as xr
-from a405.skewT.nudge import nudge
+from cloudlib.skewT.nudge import nudge
 from scipy.interpolate import interp1d
 import numpy as np
 
@@ -107,9 +107,9 @@ tephigram_skew = entrain_ds.attrs['tephigram_skew']
 ```
 
 ```{code-cell} ipython3
-from a405.thermo.constants import constants as c
-from a405.thermo.thermlib import convertSkewToTemp, convertTempToSkew
-from a405.skewT.fullskew import makeSkewWet,find_corners,make_default_labels
+from cloudlib.thermo.constants import constants as c
+from cloudlib.thermo.thermfn import convertSkewToTemp, convertTempToSkew
+from cloudlib.skewT.fullskew import makeSkewWet,find_corners,make_default_labels
 from matplotlib import pyplot as plt
 
 fig,ax =plt.subplots(1,1,figsize=(10,10))

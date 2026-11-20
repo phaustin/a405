@@ -26,12 +26,12 @@ are given in the Day 22 [droplet growth notes](https://drive.google.com/file/d/1
 ```{code-cell} ipython3
 from pathlib import Path
 import numpy as np
-from a405.dropgrow.aerolib import lognormal,create_koehler
-from a405.utils.helper_funs import make_tuple, find_centers
-from a405.thermo.thermlib import find_esat
-from a405.thermo.rootfinder import find_interval, fzero
-from a405.dropgrow.drop_grow import find_diff
-from a405.thermo.constants import constants as c
+from cloudlib.dropgrow.aerolib import lognormal,create_koehler
+from cloudlib.utils.helper_funs import make_tuple, find_centers
+from cloudlib.thermo.thermfn import find_esat
+from cloudlib.thermo.rootfinder import find_interval, fzero
+from cloudlib.dropgrow.drop_grow import find_diff
+from cloudlib.thermo.constants import constants as c
 from scipy.integrate import odeint
 import pandas as pd
 from matplotlib import pyplot as plt

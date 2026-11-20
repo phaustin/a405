@@ -95,7 +95,7 @@ $$
 Putting in numbers shows the second and third terms contribute about 6% to the total
 
 ```{code-cell} ipython3
-from a405.thermo.thermlib import find_rsat, find_theta
+from cloudlib.thermo.thermfn import find_rsat, find_theta
 lv=2.5e6
 cp = 1004 
 T = 283.15
@@ -145,12 +145,12 @@ Question 3 mixing problem
 ## Question 1 cooling code
 
 ```{code-cell} ipython3
-from a405.soundings.wyominglib import read_soundings
-from a405.skewT.skewlib import makeSkewDry
-from a405.thermo.thermlib import convertTempToSkew, find_lcl, find_thetaet, find_Td, tinvert_thetae
-from a405.thermo.thermlib import find_rsat, find_theta
-from a405.thermo.constants import constants as c
-from a405.skewT.fullskew import makeSkewWet,find_corners,make_default_labels
+from cloudlib.soundings.wyominglib import read_soundings
+from cloudlib.skewT.skewlib import makeSkewDry
+from cloudlib.thermo.thermfn import convertTempToSkew, find_lcl, find_thetaet, find_Td, tinvert_thetae
+from cloudlib.thermo.thermfn import find_rsat, find_theta
+from cloudlib.thermo.constants import constants as c
+from cloudlib.skewT.fullskew import makeSkewWet,find_corners,make_default_labels
 
 import datetime
 import pytz

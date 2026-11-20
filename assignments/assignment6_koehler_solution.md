@@ -77,7 +77,7 @@ For the aerosol defined in the kohler.ipynb notebook ($10^{-19}$ kg, ammonium su
 ### 2. Answer
 
 ```{code-cell} ipython3
-from a405.thermo.constants import constants as c
+from cloudlib.thermo.constants import constants as c
 import numpy as np
 
 def find_terms(r):

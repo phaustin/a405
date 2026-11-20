@@ -57,7 +57,7 @@ This uses the [pathlib](https://realpython.com/python-pathlib/) module to create
 sounding folder
 
 ```{code-cell} ipython3
-from a405.soundings.wyominglib import write_soundings
+from cloudlib.soundings.wyominglib import write_soundings
 from pathlib import Path
 values=dict(region='samer',year='2013',month='2',start='0100',stop='2800',station='82965')
 curr_dir = Path()
@@ -77,7 +77,7 @@ The function [a405.soundings.wyominglib.read_soundings](https://phaustin.github.
 This cell shows how to get the pandas dataframe for the airport sounding on Feb. 1, 2013 at 12 UCT
 
 ```{code-cell} ipython3
-from a405.soundings.wyominglib import read_soundings
+from cloudlib.soundings.wyominglib import read_soundings
 brazil_dict = read_soundings(sounding_dir)
 
 dict_keys = list(brazil_dict.keys())
@@ -237,7 +237,7 @@ for ax,skew in zip(axes,skew_vals):
 Here's a function that adds two contour grids in skewT coordinates
 
 ```{code-cell} ipython3
-from a405.skewT.skewlib import makeSkewDry
+from cloudlib.skewT.skewlib import makeSkewDry
 help(makeSkewDry)
 ```
 

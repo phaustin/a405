@@ -43,12 +43,12 @@ kernelspec:
 ```{code-cell} ipython3
 from matplotlib import pyplot as plt
 import numpy as np
-from a405.skewT.fullskew import makeSkewWet
-from a405.thermo.thermlib import find_esat, find_Td,find_thetaet,find_lcl,tinvert_thetae
-from a405.thermo.thermlib import find_lv, find_rsat
-from a405.thermo.thermlib import convertTempToSkew
-from a405.thermo.constants import constants as c
-from a405.utils.helper_funs import make_tuple
+from cloudlib.skewT.fullskew import makeSkewWet
+from cloudlib.thermo.thermfn import find_esat, find_Td,find_thetaet,find_lcl,tinvert_thetae
+from cloudlib.thermo.thermfn import find_lv, find_rsat
+from cloudlib.thermo.thermfn import convertTempToSkew
+from cloudlib.thermo.constants import constants as c
+from cloudlib.utils.helper_funs import make_tuple
 ```
 
 ```{code-cell} ipython3

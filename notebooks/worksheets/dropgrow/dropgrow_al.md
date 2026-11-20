@@ -24,14 +24,14 @@ kernelspec:
 ## Use `a405.dropgrow.aerolib` to find equilibrium drop radii
 
 ```{code-cell} ipython3
-import a405.dropgrow.aerolib
+import cloudlib.dropgrow.aerolib
 #
 # new library for aerosol functions
 #
-from a405.dropgrow.aerolib import lognormal,create_koehler,find_koehler_coeffs
+from cloudlib.dropgrow.aerolib import lognormal,create_koehler,find_koehler_coeffs
 import numpy as np
-from a405.utils.helper_funs import make_tuple, find_centers
-from a405.thermo.rootfinder import find_interval, fzero
+from cloudlib.utils.helper_funs import make_tuple, find_centers
+from cloudlib.thermo.rootfinder import find_interval, fzero
 import json
 import importlib_resources as ir  #pip install importlib_resources
 import pandas as pd
@@ -50,7 +50,7 @@ pp = pprint.PrettyPrinter(indent=4)
 # find the path to the data folder.  The file
 # is located at a405/data/dropgrow.json
 #
-with ir.open_text('a405.data','dropgrow.json') as f:
+with ir.open_text('cloudlib.data','dropgrow.json') as f:
     input_dict=json.load(f)
 pp.pprint(input_dict)
 ```
@@ -161,7 +161,7 @@ $$
 and **B**, using an exact calculation for $n_w$ – i.e. find the part of the volume that is due to the aerosol (just its mass/(aerosol density)) and subtract that off from the drop volume before calculating nw (assuming that the aerosol density is $1775 kg/m^3$).
 
 ```{code-cell} ipython3
-from a405.thermo.constants import constants as c
+from cloudlib.thermo.constants import constants as c
 from matplotlib import pyplot as plt
 ```
 

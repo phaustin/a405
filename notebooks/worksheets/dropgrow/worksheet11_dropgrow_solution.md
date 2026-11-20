@@ -28,12 +28,12 @@ Download link:  [worksheet11_dropgrow_solution.ipynb](https://drive.google.com/f
 ```{code-cell} ipython3
 from pathlib import Path
 import numpy as np
-from a405.dropgrow.aerolib import lognormal,create_koehler
-from a405.utils.helper_funs import make_tuple, find_centers
-from a405.thermo.thermlib import find_esat, find_rsat, find_thetaet, tinvert_thetae, find_Td
-from a405.thermo.rootfinder import find_interval, fzero
-from a405.dropgrow.drop_grow import find_diff
-from a405.thermo.constants import constants as c
+from cloudlib.dropgrow.aerolib import lognormal,create_koehler
+from cloudlib.utils.helper_funs import make_tuple, find_centers
+from cloudlib.thermo.thermfn import find_esat, find_rsat, find_thetaet, tinvert_thetae, find_Td
+from cloudlib.thermo.rootfinder import find_interval, fzero
+from cloudlib.dropgrow.drop_grow import find_diff
+from cloudlib.thermo.constants import constants as c
 from scipy.integrate import odeint
 import pandas as pd
 from matplotlib import pyplot as plt

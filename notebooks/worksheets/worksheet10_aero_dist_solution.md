@@ -366,8 +366,8 @@ for reasonable values of $r$, $S$ and $T$ and show it is order 1 second.
 # try this for a 1 micron drop
 #
 #
-from a405.thermo.constants import constants as c
-from a405.thermo.thermlib import find_esat
+from cloudlib.thermo.constants import constants as c
+from cloudlib.thermo.thermfn import find_esat
 temp = 280 #K
 r = 1.e-6 # m
 S = 1.01

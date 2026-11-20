@@ -61,7 +61,7 @@ This requires that you update your a405 library to get the new formatvar functio
     pip install -r requirements.txt
 
 ```{code-cell} ipython3
-from a405.utils.helper_funs import formatvar as f
+from cloudlib.utils.helper_funs import formatvar as f
 #
 # now make one of these functions with the default 5.2f format
 #
@@ -70,7 +70,7 @@ n = f()
 # and another function with exponential format
 #
 e = f(fmtstring = '{:6.3e}')
-from a405.thermo.constants import constants as c
+from cloudlib.thermo.constants import constants as c
 #
 # and define a function to convert Kelvin to Centigrade
 #
@@ -84,13 +84,13 @@ print(f'with nested conversions: {temp=} and formats as {n(k2c(temp))} deg C')
 
 ```{code-cell} ipython3
 pa2hPa=1.e-2
-from a405.skewT.fullskew import makeSkewWet, find_corners
+from cloudlib.skewT.fullskew import makeSkewWet, find_corners
 from matplotlib import pyplot as plt
 import numpy as np
 
-from a405.thermo.thermlib import (find_Tmoist,find_rsat,find_Td,tinvert_thetae,
+from cloudlib.thermo.thermfn import (find_Tmoist,find_rsat,find_Td,tinvert_thetae,
                                   convertTempToSkew,find_lcl)
-import a405.thermo.thermlib as tl
+import cloudlib.thermo.thermfn as tl
 #
 # set the lcl for 900 hPa to 860 hPa and thetae to 338 K
 #
