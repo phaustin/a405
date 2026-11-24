@@ -2,13 +2,13 @@
 # toc converted from jupyter-book v1 _toc.yml
 version: 1
 project:
-  title: ATSC 405
-  description: Website for EOAS ATSC 405
+  title: e440 clouds
+  description: Website for EOSC 440 cloud toipics
   authors:
   - name: Philip Austin
     email: paustin@eoas.ubc.ca
   copyright: '2026'
-  github: 'https://github.com/phaustin/a405'
+  github: 'https://github.com/phaustin/e440_clouds'
   exclude:
   - .jupyter_cache/*
   - _build
@@ -22,7 +22,6 @@ project:
     - file: integrity.md
     - file: ai_policy.md
     - file: learning_goals.md
-    - file: schedule.md
     - file: python_install.md
     - title: Thompkins text
       url: 'https://www.dropbox.com/scl/fo/9grhb2cr0lpfc1d5jci4a/h?rlkey=shnjpq4kvndrcatbgrri44eyw&dl=0'
@@ -32,8 +31,8 @@ project:
       url: 'https://www.dropbox.com/scl/fi/r7zhctw6usest2rirpe2f/wallace_hobbs_chap6.pdf?rlkey=oxdanppj9wkocmwe4nn4cc4fi&dl=0'
     - title: Stull, Practical Meteorolgy
       url: 'https://www.eoas.ubc.ca/books/Practical_Meteorology'
-    - title: A405 library documentation
-      url: 'https://phaustin.github.io/a405_lib/full_listing.html'
+    - title: thermodynamic library documentation
+      url: 'https://phaustin.github.io/cloudlib/full_listing.html'
     - title: A405 library source code
       url: 'https://github.com/phaustin/a405/tree/main/src/a405'
     - title: Blank tephigram - 1000-800 hPa
@@ -168,4 +167,6 @@ site:
   template: book-theme
   options:
     folders: true
-    hide_branding: true
+    logo_text: A405 2026   # replaces "Made with MyST" in the top bar
+  parts:
+    primary_sidebar_footer: A405 2026   # replaces "Made with MyST" at the bottom of the sidebar
